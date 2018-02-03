@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4779.robot.commands;
 
+import org.usfirst.frc.team4779.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -8,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class LiftOff extends Command {
 
     public LiftOff() {
+    	requires(Robot.lift);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
