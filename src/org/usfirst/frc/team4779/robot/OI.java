@@ -43,13 +43,13 @@ public class OI {
 			 * Left Bumper lift up
 			 * Right Bumper lift down
 			 */
-			operStickXButton.whenPressed(new CarouselOn());
-			operStickYButton.whenPressed(new ClimberOn()); 
-			operStickAButton.whenPressed(new SweeperOn());
-			operStickBButton.whenPressed(new Shoot());
-			
-			driverStickLeftBumper.whileHeld(new GobblerOpen());
-			driverStickRightBumper.whileHeld(new GobblerClose());
+//			operStickXButton.whenPressed(new CarouselOn());
+//			operStickYButton.whenPressed(new ClimberOn()); 
+//			operStickAButton.whenPressed(new SweeperOn());
+//			operStickBButton.whenPressed(new Shoot());
+//			
+//			driverStickLeftBumper.whileHeld(new GobblerOpen());
+//			driverStickRightBumper.whileHeld(new GobblerClose());
 			
 		}
 		 public Joystick getDriverStick() {

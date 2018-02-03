@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
 import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.commands.ClimberOff;
+import org.usfirst.frc.team4779.robot.commands.LiftOff;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -20,11 +20,21 @@ public class Lift extends Subsystem {
     	setDefaultCommand(new LiftOff());    
     }
     
-    public void climberOn() {
-    	climbMotor.set(1);	
+    public void liftUp() {
+    	liftMotor.set(RobotMap.liftMotorPowerUp);	
     }
-    public void climberOff() {
-    	climbMotor.set(0);	
+    
+    public void liftUpTurbo() {
+    	liftMotor.set(RobotMap.liftMotorPowerTurbo);	
+    }
+    
+    public void liftDown() {
+    	liftMotor.set(RobotMap.liftMotorPowerDown);	
+    }
+    
+    
+    public void liftOff() {
+    	liftMotor.set(RobotMap.liftMotorPowerOff);	
     }
     
 	public void log() {
@@ -33,12 +43,4 @@ public class Lift extends Subsystem {
 
 
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
-}
 
