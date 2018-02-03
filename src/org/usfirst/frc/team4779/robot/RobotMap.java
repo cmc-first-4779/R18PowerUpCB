@@ -28,8 +28,8 @@ public class RobotMap {
 	public static int rearLeftDrive = 2;
 	public static int rearRightDrive = 3;
 	public static int liftMotor = 4;
-	public static int vaccubeLeftMotor = 5;
-	public static int vaccubeRightMotor = 6;
+	public static int vacCubeLeftMotor = 5;
+	public static int vacCubeRightMotor = 6;
 	
 	//Define the Joystick #'s in the DriverStation USB Ports
 		public static int driverStickUSBPort = 0;
@@ -54,10 +54,10 @@ public class RobotMap {
 		public static double liftMotorPowerDown = -0.5;
 		public static double liftMotorPowerClimb = -0.5;
 		public static double liftMotorPowerOff = 0;
-		public static double vaccubeMotorPowerIntake = 1.0;
-		public static double vaccubeMotorPowerEject = -1.0;
-		public static double vaccubeMotorPowerHold = 0.2;
-		public static double vaccubeMotorPowerOff = 0;
+		public static double vacCubeMotorPowerIntake = 1.0;
+		public static double vacCubeMotorPowerEject = -1.0;
+		public static double vacCubeMotorPowerHold = 0.2;
+		public static double vacCubeMotorPowerOff = 0;
 	
 }
 

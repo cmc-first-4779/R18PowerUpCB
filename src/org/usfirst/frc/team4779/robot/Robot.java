@@ -16,6 +16,7 @@ import org.usfirst.frc.team4779.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
+import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,6 +30,7 @@ public class Robot extends TimedRobot {
 			= new ExampleSubsystem();
 	public static Lift lift;
 	public static DriveTrain driveTrain;
+	public static VacCube vacCube; 
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
@@ -42,6 +44,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		lift = new Lift();
 		driveTrain = new DriveTrain();
+		vacCube = new VacCube();
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
