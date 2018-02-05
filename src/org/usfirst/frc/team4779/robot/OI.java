@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import org.usfirst.frc.team4779.robot.commands.VacCubeEject;
+import org.usfirst.frc.team4779.robot.commands.VacCubeIntake;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -69,6 +72,11 @@ public class OI {
 			 * Left Bumper lift up
 			 * Right Bumper lift down
 			 */
+			
+			operStickLeftBumper.whileHeld(new VacCubeIntake()); 
+			operStickRightBumper.whileHeld(new VacCubeEject());
+			
+			
 //			operStickXButton.whenPressed(new CarouselOn());
 //			operStickYButton.whenPressed(new ClimberOn()); 
 //			operStickAButton.whenPressed(new SweeperOn());
