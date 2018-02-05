@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4779.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
 	public static Lift lift;
 	public static DriveTrain driveTrain;
 	public static VacCube vacCube; 
+	public static Bling bling;
 	//Our standard practice is to leave the OI last.
 	public static OI m_oi;  
 
@@ -53,6 +55,7 @@ public class Robot extends TimedRobot {
 		lift = new Lift();
 		driveTrain = new DriveTrain();
 		vacCube = new VacCube();
+		bling = new Bling();
 		
 		//Initiate the OI.   NOTE:  ALWAYS INITIATE THE OI LAST!
 		m_oi = new OI();
