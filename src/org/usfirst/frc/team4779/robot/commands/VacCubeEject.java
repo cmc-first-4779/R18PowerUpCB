@@ -5,7 +5,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *  Eject a PowerCube from the VacCube
  */
 public class VacCubeEject extends Command {
 

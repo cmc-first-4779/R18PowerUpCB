@@ -26,13 +26,19 @@ import org.usfirst.frc.team4779.robot.subsystems.VacCube;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
+	
+	//public static final ExampleSubsystem kExampleSubsystem
+	//		= new ExampleSubsystem();
+	
+	//Declare the Robot Subsystems.   
 	public static Lift lift;
 	public static DriveTrain driveTrain;
 	public static VacCube vacCube; 
-	public static OI m_oi;
+	//Our standard practice is to leave the OI last.
+	public static OI m_oi;  
 
+	//This is where we will start to offer different options for Auton based on our position in the 
+	// starting field and what the FMS tells us.
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -42,10 +48,16 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		
+		//Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
 		vacCube = new VacCube();
+		
+		//Initiate the OI.   NOTE:  ALWAYS INITIATE THE OI LAST!
 		m_oi = new OI();
+		
+		//  Send the default Auton Mode to the Java Smart Dashboard.
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);

@@ -5,7 +5,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *  We use this Command in Teleop to control the DriveTrain Subsystem with the Joystick.
  */
 public class DriveJoystick extends Command {
 

@@ -5,7 +5,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *  Move the LIFT Down.
  */
 public class LiftDown extends Command {
 

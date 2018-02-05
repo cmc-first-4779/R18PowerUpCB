@@ -3,7 +3,7 @@ package org.usfirst.frc.team4779.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *  The Bling Subsystem is where we will control our LED Lights.
  */
 public class Bling extends Subsystem {
 

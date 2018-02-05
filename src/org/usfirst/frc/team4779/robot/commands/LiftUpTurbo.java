@@ -5,7 +5,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *  Move the LIFT UP REALLY fast!
  */
 public class LiftUpTurbo extends Command {
 

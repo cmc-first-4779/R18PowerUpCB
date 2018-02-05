@@ -5,7 +5,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *  Turn the VacCube Off when not being used.
  */
 public class VacCubeOff extends Command {
 

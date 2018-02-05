@@ -5,7 +5,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *  Give just enough power to the Spark Controllers to hold the Cube in place securely.
  */
 public class VacCubeHold extends Command {
 

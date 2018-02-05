@@ -15,18 +15,29 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	//Declare the two joysticks
+	//Declare the two joysticks and initate them on the two appropriate USB ports recognized by the Drivers Station.
 		Joystick driverStick = new Joystick(RobotMap.driverStickUSBPort);
 		Joystick operStick = new Joystick(RobotMap.operStickUSBPort);
 		
 		public OI() {
+			//// CREATING BUTTONS
+			// One type of button is a joystick button which is any button on a
+			//// joystick.
+			// You create one by telling it which joystick it's on and which button
+			// number it is.
+			// Joystick stick = new Joystick(port);
+			// Button button = new JoystickButton(stick, buttonNumber);
+			
+			//Declare and Initiate all of the Buttons on the OperStick
 			JoystickButton operStickYButton = new JoystickButton(operStick,RobotMap.yButton);
 			JoystickButton operStickXButton = new JoystickButton(operStick, RobotMap.xButton);
 			JoystickButton operStickAButton = new JoystickButton(operStick, RobotMap.aButton);
 			JoystickButton operStickBButton = new JoystickButton(operStick, RobotMap.bButton);
 			JoystickButton operStickLeftBumper = new JoystickButton(operStick, RobotMap.leftBumperButton);
 			JoystickButton operStickRightBumper = new JoystickButton(operStick, RobotMap.rightBumperButton);
-			//JoystickTrigger operStickLeftTrigger = new JoystickTrigger(operStick, RobotMap.leftTrigger);//
+			//JoystickTrigger operStickLeftTrigger = new JoystickTrigger(operStick, RobotMap.leftTrigger);
+			
+			//Declare and Initiate all of the Buttons on the Driver Stick
 			JoystickButton driverStickYButton = new JoystickButton(driverStick,RobotMap.yButton);
 			JoystickButton driverStickXButton = new JoystickButton(driverStick, RobotMap.xButton);
 			JoystickButton driverStickAButton = new JoystickButton(driverStick, RobotMap.aButton);
@@ -34,11 +45,26 @@ public class OI {
 			JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, RobotMap.leftBumperButton);
 			JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.rightBumperButton);
 			
+		//// TRIGGERING COMMANDS WITH BUTTONS
+			// Once you have a button, it's trivial to bind it to a button in one of
+			// three ways:
+
+			// Start the command when the button is pressed and let it run the command
+			// until it is finished as determined by it's isFinished method.
+			// button.whenPressed(new ExampleCommand());
+
+			// Run the command while the button is being held down and interrupt it once
+			// the button is released.
+			// button.whileHeld(new ExampleCommand());
+
+			// Start the command when the button is released and let it run the command
+			// until it is finished as determined by it's isFinished method.
+			// button.whenReleased(new ExampleCommand());
 			
 			/*Set up the Oper Stick buttons to call the right commands.
-			 * X turns on the climb 
-			 * Y vaccube out
-			 * A vaccube in
+			 * X turns on the climber
+			 * Y vaccube Intake
+			 * A vaccube Eject
 			 * B lift turbo
 			 * Left Bumper lift up
 			 * Right Bumper lift down
@@ -51,35 +77,20 @@ public class OI {
 //			driverStickLeftBumper.whileHeld(new GobblerOpen());
 //			driverStickRightBumper.whileHeld(new GobblerClose());
 			
+			// There are a few additional built in buttons you can use. Additionally,
+			// by subclassing Button you can create custom triggers and bind those to
+			// commands the same as any other Button.
+
+			
 		}
+		
+		//This method is used later to return the the driverStick when called.
 		 public Joystick getDriverStick() {
 			return driverStick;
+		 
 		 }
-	//// CREATING BUTTONS
-	// One type of button is a joystick button which is any button on a
-	//// joystick.
-	// You create one by telling it which joystick it's on and which button
-	// number it is.
-	// Joystick stick = new Joystick(port);
-	// Button button = new JoystickButton(stick, buttonNumber);
 
-	// There are a few additional built in buttons you can use. Additionally,
-	// by subclassing Button you can create custom triggers and bind those to
-	// commands the same as any other Button.
 
-	//// TRIGGERING COMMANDS WITH BUTTONS
-	// Once you have a button, it's trivial to bind it to a button in one of
-	// three ways:
 
-	// Start the command when the button is pressed and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenPressed(new ExampleCommand());
-
-	// Run the command while the button is being held down and interrupt it once
-	// the button is released.
-	// button.whileHeld(new ExampleCommand());
-
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
+	
 }

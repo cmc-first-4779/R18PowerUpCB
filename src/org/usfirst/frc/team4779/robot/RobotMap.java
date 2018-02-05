@@ -23,6 +23,8 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+	
+	//Map out the SPARK controllers.
 	public static int frontLeftDrive = 0;
 	public static int frontRightDrive = 1;
 	public static int rearLeftDrive = 2;
@@ -31,33 +33,34 @@ public class RobotMap {
 	public static int vacCubeLeftMotor = 5;
 	public static int vacCubeRightMotor = 6;
 	
-	//Define the Joystick #'s in the DriverStation USB Ports
-		public static int driverStickUSBPort = 0;
-		public static int operStickUSBPort = 1;
+	//Map out the Joystick #'s in the DriverStation USB Ports
+	public static int driverStickUSBPort = 0;
+	public static int operStickUSBPort = 1;
+	
+	//These are the buttons on the Joysticks as recognized by the Drivers Station. You can call in other subsystems.
+	public static int aButton = 1;
+	public static int bButton = 2;
+	public static int xButton = 3;
+	public static int yButton = 4;
+	public static int leftBumperButton = 5;
+	public static int rightBumperButton = 6;
+	public static int xAxisStick = 0;
+	public static int yAxisStick = 1;
+	public static int leftTrigger = 2;
+	public static int rightTrigger = 3;
 		
-		//These are the buttons on the Joysticks. You can call in other subsystems.
-		public static int aButton = 1;
-		public static int bButton = 2;
-		public static int xButton = 3;
-		public static int yButton = 4;
-		public static int leftBumperButton = 5;
-		public static int rightBumperButton = 6;
-		public static int xAxisStick = 0;
-		public static int yAxisStick = 1;
-		public static int leftTrigger = 2;
-		public static int rightTrigger = 3;
 		
-		
-		
-		public static double liftMotorPowerUp = 0.5;
-		public static double liftMotorPowerTurbo = 0.75;
-		public static double liftMotorPowerDown = -0.5;
-		public static double liftMotorPowerClimb = -0.5;
-		public static double liftMotorPowerOff = 0;
-		public static double vacCubeMotorPowerIntake = 1.0;
-		public static double vacCubeMotorPowerEject = -1.0;
-		public static double vacCubeMotorPowerHold = 0.2;
-		public static double vacCubeMotorPowerOff = 0;
+	//Here are the initial SPARK Motor Power settings.   We will need to tune these as we test.
+	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.
+	public static double liftMotorPowerUp = 0.5;
+	public static double liftMotorPowerTurbo = 0.75;
+	public static double liftMotorPowerDown = -0.5;
+	public static double liftMotorPowerClimb = -0.5;
+	public static double liftMotorPowerOff = 0;
+	public static double vacCubeMotorPowerIntake = 1.0;
+	public static double vacCubeMotorPowerEject = -1.0;
+	public static double vacCubeMotorPowerHold = 0.2;
+	public static double vacCubeMotorPowerOff = 0;
 	
 }
 
