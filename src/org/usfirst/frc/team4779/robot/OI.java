@@ -9,6 +9,7 @@ package org.usfirst.frc.team4779.robot;
 
 import org.usfirst.frc.team4779.robot.commands.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.VacCubeIntake;
+import org.usfirst.frc.team4779.robot.commands.arcadeDriveWithGyro;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -75,6 +76,7 @@ public class OI {
 			
 			operStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			operStickRightBumper.whileHeld(new VacCubeEject());
+			driverStickBButton.whileHeld(new arcadeDriveWithGyro());
 			
 			
 //			operStickXButton.whenPressed(new CarouselOn());

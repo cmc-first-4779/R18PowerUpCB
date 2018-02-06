@@ -65,6 +65,8 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		SmartDashboard.putData(vacCube);
+		SmartDashboard.putData(driveTrain.getGyro());
+		SmartDashboard.putData(driveTrain);
 	}
 
 	/**
