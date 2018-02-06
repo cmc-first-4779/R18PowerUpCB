@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 
 /**
  *   The DriveTrain Subsystem is where we drive power to the Spark Controllers to move the robot.
@@ -22,7 +23,8 @@ public class DriveTrain extends Subsystem {
 	Spark rearLeftDrive = new Spark(RobotMap.rearLeftDrive);
 	Spark rearRightDrive = new Spark(RobotMap.rearRightDrive);
 	
-	AnalogGyro gyro = new AnalogGyro(1);
+	//AnalogGyro gyro = new AnalogGyro(1);
+	ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	
 	double Kp = 0.03;
 	
