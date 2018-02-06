@@ -22,7 +22,7 @@ public class DriveTrain extends Subsystem {
 	Spark rearLeftDrive = new Spark(RobotMap.rearLeftDrive);
 	Spark rearRightDrive = new Spark(RobotMap.rearRightDrive);
 	
-	AnalogGyro gyro = new AnalogGyro(0);
+	AnalogGyro gyro = new AnalogGyro(1);
 	
 	double Kp = 0.03;
 	
@@ -45,7 +45,7 @@ public class DriveTrain extends Subsystem {
     public void initDefaultCommand() {
     	//  Our Default Command is to Drive using the Joystick.
         setDefaultCommand(new DriveJoystick());
-        gyro.reset();
+        //gyro.reset();
     }
     
     public void arcadeDrive(double yAxis, double xAxis) {
@@ -56,7 +56,7 @@ public class DriveTrain extends Subsystem {
     public void arcadeDriveWithGryo() {
     	double angle = gyro.getAngle();
     	System.out.println("Angle: " + angle);
-    	myDrive.arcadeDrive(-.2,Kp*-angle );
+    	myDrive.arcadeDrive(-1, Kp*-angle );
     	
     }
     public void resetGyro() {

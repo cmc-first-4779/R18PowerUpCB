@@ -60,6 +60,8 @@ public class Robot extends TimedRobot {
 		//Initiate the OI.   NOTE:  ALWAYS INITIATE THE OI LAST!
 		m_oi = new OI();
 		
+		Robot.driveTrain.resetGyro();
+		
 		//  Send the default Auton Mode to the Java Smart Dashboard.
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
