@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import org.usfirst.frc.team4779.robot.commands.LiftUp;
 import org.usfirst.frc.team4779.robot.commands.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.VacCubeIntake;
 import org.usfirst.frc.team4779.robot.commands.arcadeDriveWithGyro;
@@ -77,6 +78,7 @@ public class OI {
 			operStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			operStickRightBumper.whileHeld(new VacCubeEject());
 			driverStickBButton.whileHeld(new arcadeDriveWithGyro());
+			driverStickAButton.whileHeld(new LiftUp());
 			
 			
 //			operStickXButton.whenPressed(new CarouselOn());

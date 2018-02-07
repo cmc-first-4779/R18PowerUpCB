@@ -3,8 +3,10 @@ package org.usfirst.frc.team4779.robot.subsystems;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.LiftOff;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *  The Lift Subsystem not only controls the "elevator" lift system, but also the Climber.
@@ -13,9 +15,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Lift extends Subsystem {
 	//  Declare our Spark Motor that powers the lift
 	Spark liftMotor = new Spark(RobotMap.liftMotor);
+	private Encoder liftEncoder = new Encoder(0, 1);
+	
 	
 	public Lift() {
-		 super();
+		 super("Lift");
+		 liftEncoder.setDistancePerPulse(.005);
 	 }
 	
 	//   By default, we want the Lift Off to not drain the battery when its not being called.
@@ -25,6 +30,7 @@ public class Lift extends Subsystem {
     
     public void liftUp() {
     	//  Move the Lift up.
+    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
     	liftMotor.set(RobotMap.liftMotorPowerUp);	
     }
     
