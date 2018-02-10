@@ -1,8 +1,9 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
 import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.commands.LiftOff;
+import org.usfirst.frc.team4779.robot.commands.lift.LiftOff;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -16,6 +17,7 @@ public class Lift extends Subsystem {
 	//  Declare our Spark Motor that powers the lift
 	Spark liftMotor = new Spark(RobotMap.liftMotor);
 	private Encoder liftEncoder = new Encoder(0, 1);
+	private AnalogInput rangefinder = new AnalogInput(0);
 	
 	
 	public Lift() {
@@ -41,6 +43,7 @@ public class Lift extends Subsystem {
     
     public void liftDown() {
     	//  Move the Lift Down.
+    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
     	liftMotor.set(RobotMap.liftMotorPowerDown);	
     }
     
@@ -50,7 +53,18 @@ public class Lift extends Subsystem {
     	liftMotor.set(RobotMap.liftMotorPowerOff);	
     }
     
+    public void liftMove(double power) {
+    	SmartDashboard.putNumber("Proximity: ", rangefinder.getAverageVoltage());
+    	SmartDashboard.putNumber("Lift Power", power);
+    	liftMotor.set(power);
+    }
+    
 	public void log() {
+	}
+
+	public double getPosition() {
+		
+		return rangefinder.getAverageVoltage();
 	}
 }
 

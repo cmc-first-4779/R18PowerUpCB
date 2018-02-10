@@ -1,26 +1,27 @@
-package org.usfirst.frc.team4779.robot.commands;
+package org.usfirst.frc.team4779.robot.commands.lift;
 
 import org.usfirst.frc.team4779.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *  Move the LIFT Down.
  */
-public class arcadeDriveWithGyro extends Command {
+public class LiftDown extends Command {
 
-    public arcadeDriveWithGyro() {
-       requires(Robot.driveTrain);
+    public LiftDown() {
+    	requires(Robot.lift);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.arcadeDriveWithGryo();
+    	Robot.lift.liftDown();
     }
 
     // Make this return true when this Command no longer needs to run execute()

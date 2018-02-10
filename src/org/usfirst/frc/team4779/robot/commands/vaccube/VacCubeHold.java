@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4779.robot.commands;
+package org.usfirst.frc.team4779.robot.commands.vaccube;
 
 import org.usfirst.frc.team4779.robot.Robot;
 

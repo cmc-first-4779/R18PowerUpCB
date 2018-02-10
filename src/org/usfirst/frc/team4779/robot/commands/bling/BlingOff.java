@@ -1,27 +1,28 @@
-package org.usfirst.frc.team4779.robot.commands;
+package org.usfirst.frc.team4779.robot.commands.bling;
 
 import org.usfirst.frc.team4779.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *  Move the Lift UP.
+ *
  */
-public class LiftUp extends Command {
+public class BlingOff extends Command {
 
-    public LiftUp() {
-    	requires(Robot.lift);
+    public BlingOff() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.bling);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.bling.blingSolidColor(0,0,0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.liftUp();
+    	Robot.bling.blingSolidColor(0,0,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

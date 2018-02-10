@@ -7,10 +7,12 @@
 
 package org.usfirst.frc.team4779.robot;
 
-import org.usfirst.frc.team4779.robot.commands.LiftUp;
-import org.usfirst.frc.team4779.robot.commands.VacCubeEject;
-import org.usfirst.frc.team4779.robot.commands.VacCubeIntake;
-import org.usfirst.frc.team4779.robot.commands.arcadeDriveWithGyro;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.arcadeDriveWithGyro;
+import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
+import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
+import org.usfirst.frc.team4779.robot.commands.lift.SetLiftPosition;
+import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
+import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -49,23 +51,7 @@ public class OI {
 			JoystickButton driverStickBButton = new JoystickButton(driverStick, RobotMap.bButton);
 			JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, RobotMap.leftBumperButton);
 			JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.rightBumperButton);
-			
-		//// TRIGGERING COMMANDS WITH BUTTONS
-			// Once you have a button, it's trivial to bind it to a button in one of
-			// three ways:
 
-			// Start the command when the button is pressed and let it run the command
-			// until it is finished as determined by it's isFinished method.
-			// button.whenPressed(new ExampleCommand());
-
-			// Run the command while the button is being held down and interrupt it once
-			// the button is released.
-			// button.whileHeld(new ExampleCommand());
-
-			// Start the command when the button is released and let it run the command
-			// until it is finished as determined by it's isFinished method.
-			// button.whenReleased(new ExampleCommand());
-			
 			/*Set up the Oper Stick buttons to call the right commands.
 			 * X turns on the climber
 			 * Y vaccube Intake
@@ -79,6 +65,8 @@ public class OI {
 			operStickRightBumper.whileHeld(new VacCubeEject());
 			driverStickBButton.whileHeld(new arcadeDriveWithGyro());
 			driverStickAButton.whileHeld(new LiftUp());
+			driverStickXButton.whileHeld(new LiftDown());
+			driverStickYButton.whenPressed(new SetLiftPosition(.9) );
 			
 			
 //			operStickXButton.whenPressed(new CarouselOn());

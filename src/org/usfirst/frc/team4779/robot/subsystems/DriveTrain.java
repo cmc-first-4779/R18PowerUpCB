@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
 import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.commands.DriveJoystick;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Spark;

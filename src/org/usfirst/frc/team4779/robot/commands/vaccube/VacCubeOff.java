@@ -1,15 +1,15 @@
-package org.usfirst.frc.team4779.robot.commands;
+package org.usfirst.frc.team4779.robot.commands.vaccube;
 
 import org.usfirst.frc.team4779.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *  Take in a new PowerCube.
+ *  Turn the VacCube Off when not being used.
  */
-public class VacCubeIntake extends Command {
+public class VacCubeOff extends Command {
 
-    public VacCubeIntake() {
+    public VacCubeOff() {
     	requires(Robot.vacCube);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -17,12 +17,12 @@ public class VacCubeIntake extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.vacCube.vacCubeIntake();
+    	Robot.vacCube.vacCubeOff();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() { 
-    	Robot.vacCube.vacCubeIntake();
+    	Robot.vacCube.vacCubeOff();
     }
 
     // Make this return true when this Command no longer needs to run execute()

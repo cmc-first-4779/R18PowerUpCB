@@ -1,25 +1,28 @@
-package org.usfirst.frc.team4779.robot.commands;
+package org.usfirst.frc.team4779.robot.commands.vaccube;
 
 import org.usfirst.frc.team4779.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *  We use this Command in Teleop to control the DriveTrain Subsystem with the Joystick.
+ *  Take in a new PowerCube.
  */
-public class DriveJoystick extends Command {
+public class VacCubeIntake extends Command {
 
-    public DriveJoystick() {
-    	requires (Robot.driveTrain);
+    public VacCubeIntake() {
+    	requires(Robot.vacCube);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
-    // Called just beore this Command runs the first time
+    // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.vacCube.vacCubeIntake();
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.driveTrain.arcadeDrive(Robot.m_oi.getDriverStick().getY(), Robot.m_oi.getDriverStick().getX());
+    protected void execute() { 
+    	Robot.vacCube.vacCubeIntake();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -29,8 +32,6 @@ public class DriveJoystick extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.stop();
-    	
     }
 
     // Called when another command which requires one or more of the same

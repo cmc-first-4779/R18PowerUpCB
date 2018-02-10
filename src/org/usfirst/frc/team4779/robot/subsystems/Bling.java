@@ -2,7 +2,7 @@ package org.usfirst.frc.team4779.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import org.usfirst.frc.team4779.robot.commands.BlingOff;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingOff;
 
 import com.mindsensors.CANLight;
 
