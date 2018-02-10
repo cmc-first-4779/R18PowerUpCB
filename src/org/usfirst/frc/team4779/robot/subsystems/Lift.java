@@ -6,6 +6,7 @@ import org.usfirst.frc.team4779.robot.commands.lift.LiftOff;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -13,16 +14,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *  The Lift Subsystem not only controls the "elevator" lift system, but also the Climber.
  */
 
-public class Lift extends Subsystem {
+public class Lift extends PIDSubsystem {
 	//  Declare our Spark Motor that powers the lift
 	Spark liftMotor = new Spark(RobotMap.liftMotor);
-	private Encoder liftEncoder = new Encoder(0, 1);
-	private AnalogInput rangefinder = new AnalogInput(0);
+	private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannelA, RobotMap.liftEncoderChannelB);
+	//private AnalogInput rangefinder = new AnalogInput(0);
 	
 	
 	public Lift() {
-		 super("Lift");
-		 liftEncoder.setDistancePerPulse(.005);
+		 super("Lift", 0.1, 0, 0);
+		 liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse);
 	 }
 	
 	//   By default, we want the Lift Off to not drain the battery when its not being called.
@@ -54,7 +55,7 @@ public class Lift extends Subsystem {
     }
     
     public void liftMove(double power) {
-    	SmartDashboard.putNumber("Proximity: ", rangefinder.getAverageVoltage());
+    	SmartDashboard.putNumber("Lift Distance: ", liftEncoder.getDistance());
     	SmartDashboard.putNumber("Lift Power", power);
     	liftMotor.set(power);
     }
@@ -62,9 +63,21 @@ public class Lift extends Subsystem {
 	public void log() {
 	}
 
-	public double getPosition() {
+	public double getDistance() {
+		return liftEncoder.getDistance();
+	}
+
+	@Override
+	protected double returnPIDInput() {
+		// TODO Auto-generated method stub
+		return liftEncoder.getDistance();
+	}
+
+	@Override
+	protected void usePIDOutput(double output) {
+		// TODO Auto-generated method stub
+		liftMove(output);	
 		
-		return rangefinder.getAverageVoltage();
 	}
 }
 

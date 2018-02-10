@@ -81,5 +81,12 @@ public class RobotMap {
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 1.0;
 	
+	public static int liftEncoderChannelA = 4;
+	public static int liftEncoderChannelB = 5;
+	public static double liftEncoderPulsePerRevolution = 20;
+	public static double liftEncoderDistancePerRevolution = 14.2;//We need to find this.
+	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
+	
+	
 }
 
