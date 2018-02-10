@@ -52,9 +52,9 @@ public class RobotMap {
 		
 	//Here are the initial SPARK Motor Power settings.   We will need to tune these as we test.
 	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.
-	public static double liftMotorPowerUp = 0.5;
-	public static double liftMotorPowerTurbo = 0.75;
-	public static double liftMotorPowerDown = -0.5;
+	public static double liftMotorPowerUp = 1.0;
+	public static double liftMotorPowerTurbo = 1.0;
+	public static double liftMotorPowerDown = -1.0;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
 	public static double vacCubeMotorPowerIntake = -0.5;

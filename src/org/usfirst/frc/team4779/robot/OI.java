@@ -66,7 +66,7 @@ public class OI {
 			driverStickBButton.whileHeld(new arcadeDriveWithGyro());
 			driverStickAButton.whileHeld(new LiftUp());
 			driverStickXButton.whileHeld(new LiftDown());
-			driverStickYButton.whenPressed(new SetLiftPosition(.9) );
+	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
 			
 			
 //			operStickXButton.whenPressed(new CarouselOn());

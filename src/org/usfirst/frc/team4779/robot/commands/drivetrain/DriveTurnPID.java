@@ -26,9 +26,9 @@ public class DriveTurnPID extends Command {
 		RobotMap.navX.reset();
 		Robot.gyroPID.enable();
 		Robot.gyroPID.setSetpoint(m_setpoint);*/
-    	Robot.driveTrainTurnPID.resetGyro();
-    	Robot.driveTrainTurnPID.enable();
-    	Robot.driveTrainTurnPID.setSetpoint(m_setpoint);
+//    	Robot.driveTrainTurnPID.resetGyro();
+//    	Robot.driveTrainTurnPID.enable();
+//    	Robot.driveTrainTurnPID.setSetpoint(m_setpoint);
     	
     	
     }
@@ -46,19 +46,20 @@ public class DriveTurnPID extends Command {
 		else{
 			return false;
 		}*/
-    	return Robot.driveTrainTurnPID.onTarget();
+//    	return Robot.driveTrainTurnPID.onTarget();
+    	return false;
     }
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrainTurnPID.disable();
-    	Robot.driveTrain.arcadeDrive(0, 0);
+ //   	Robot.driveTrainTurnPID.disable();
+ //   	Robot.driveTrain.arcadeDrive(0, 0);
     	}
     
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.driveTrainTurnPID.disable();
+   // 	Robot.driveTrainTurnPID.disable();
     	Robot.driveTrain.arcadeDrive(0, 0);
     	}
 }

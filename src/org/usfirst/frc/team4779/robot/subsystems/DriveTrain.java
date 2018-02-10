@@ -50,7 +50,7 @@ public class DriveTrain extends Subsystem {
     public void arcadeDrive(double yAxis, double xAxis) {
     	//  This is our where we define arcadeDrive within the Subsystem
     	//  NOTE:  the xAxis off of the Joystick below is INVERTED.
-    	myDrive.arcadeDrive(yAxis, -xAxis);
+    	myDrive.arcadeDrive(-yAxis, xAxis);
     }
     
     public void arcadeDriveWithGryo() {

@@ -56,7 +56,7 @@ public class SetLiftPosition extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    
+    pid.disable();
     	
     }
 

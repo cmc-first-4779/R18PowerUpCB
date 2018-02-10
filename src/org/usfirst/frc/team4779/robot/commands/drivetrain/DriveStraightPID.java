@@ -30,14 +30,14 @@ public class DriveStraightPID extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrainStraightPID.resetDTEncoders();
+//    	Robot.driveTrainStraightPID.resetDTEncoders();
     	timer.reset();
     	timer.start();
-    	Robot.driveTrainStraightPID.resetGyro();
-    	Robot.driveTrainStraightPID.direction = m_direction; 
-    	Robot.driveTrainStraightPID.drive_speed = m_speed;
-    	Robot.driveTrainStraightPID.enable();
-    	Robot.driveTrainStraightPID.setSetpoint(0);
+//    	Robot.driveTrainStraightPID.resetGyro();
+//    	Robot.driveTrainStraightPID.direction = m_direction; 
+//    	Robot.driveTrainStraightPID.drive_speed = m_speed;
+//    	Robot.driveTrainStraightPID.enable();
+//    	Robot.driveTrainStraightPID.setSetpoint(0);
     	
     	/*RobotMap.EncoderLeft.reset();
 		RobotMap.EncoderRight.reset();
@@ -63,19 +63,20 @@ public class DriveStraightPID extends Command {
 //			return true;
 //		}
 //    }
-    	return Robot.driveTrainStraightPID.onTarget();
+ //   	return Robot.driveTrainStraightPID.onTarget();
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrainStraightPID.disable();
+ //   	Robot.driveTrainStraightPID.disable();
 		Robot.driveTrain.arcadeDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.driveTrainStraightPID.disable();
+ //   	Robot.driveTrainStraightPID.disable();
 		Robot.driveTrain.arcadeDrive(0, 0);
     }
 }

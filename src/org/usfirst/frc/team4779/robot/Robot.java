@@ -36,8 +36,8 @@ public class Robot extends TimedRobot {
 	//Declare the Robot Subsystems.   
 	public static Lift lift;
 	public static DriveTrain driveTrain;
-	public static DriveTrainStraightPID driveTrainStraightPID;
-	public static DriveTrainTurnPID driveTrainTurnPID;
+//	public static DriveTrainStraightPID driveTrainStraightPID;
+//	public static DriveTrainTurnPID driveTrainTurnPID;
 	public static VacCube vacCube; 
 	public static Bling bling;
 	//Our standard practice is to leave the OI last.
@@ -58,8 +58,8 @@ public class Robot extends TimedRobot {
 		//Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
-		driveTrainStraightPID = new DriveTrainStraightPID();
-		driveTrainTurnPID = new DriveTrainTurnPID();
+//		driveTrainStraightPID = new DriveTrainStraightPID();
+//		driveTrainTurnPID = new DriveTrainTurnPID();
 		vacCube = new VacCube();
 		bling = new Bling();
 		
