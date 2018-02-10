@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4779.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4779.robot.subsystems.DriveTrainStraightPID;
 import org.usfirst.frc.team4779.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
 	//Declare the Robot Subsystems.   
 	public static Lift lift;
 	public static DriveTrain driveTrain;
+	public static DriveTrainStraightPID driveTrainStraightPID; 
 	public static VacCube vacCube; 
 	public static Bling bling;
 	//Our standard practice is to leave the OI last.
@@ -54,6 +56,7 @@ public class Robot extends TimedRobot {
 		//Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
+		driveTrainStraightPID = new DriveTrainStraightPID();
 		vacCube = new VacCube();
 		bling = new Bling();
 		
@@ -67,8 +70,8 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		SmartDashboard.putData(vacCube);
-		SmartDashboard.putData(driveTrain.getGyro());
-		SmartDashboard.putData(driveTrain);
+		SmartDashboard.putData(Robot.driveTrain.getGyro());
+		SmartDashboard.putData(Robot.driveTrain);
 	}
 
 	/**
