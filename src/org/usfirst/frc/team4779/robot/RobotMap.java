@@ -73,5 +73,13 @@ public class RobotMap {
 	public static double dTEncoderAbsoluteTolerance = 2.5;
 	public static double dTEncoderOutputMin = -1;
 	public static double dTEncoderOutputMax = 1;
+	public static int dTStraightPIDForward = 1;
+	public static int dTStraightPIDReverse = -1;
+	
+	
+	
+	public static double dTTurnPIDTurnSpeed = 0.4;
+	public static double dTTurnAbsoluteTolerance = 1.0;
+	
 }
 
