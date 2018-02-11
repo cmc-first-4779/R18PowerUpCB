@@ -42,6 +42,9 @@ public class Robot extends TimedRobot {
 	public static VacCube vacCube; 
 	public static Bling bling;
 	//Our standard practice is to leave the OI last.
+	public static char mySwitchSide;
+	public static char myScaleSide;
+	public static char opponentSwitchSide;
 	public static OI m_oi;  
 
 	//This is where we will start to offer different options for Auton based on our position in the 
@@ -63,7 +66,7 @@ public class Robot extends TimedRobot {
 		driveTrainTurnPID = new DriveTrainTurnPID();
 		vacCube = new VacCube();
 		bling = new Bling();
-		
+
 		//Initiate the OI.   NOTE:  ALWAYS INITIATE THE OI LAST!
 		m_oi = new OI();
 		
@@ -116,14 +119,13 @@ public class Robot extends TimedRobot {
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		if(gameData.length() > 0) {
-			if(gameData.charAt(0) == 'L') {
-				//set Robot mySwitchSide to Left
-			} 
-			else {
-				//set Robot mySwitchSide to Right
-			}
+			mySwitchSide = gameData.charAt(0);
+			myScaleSide = gameData.charAt(1);
+			opponentSwitchSide = gameData.charAt(2);
 		}
-			
+		else {
+			System.out.println("No game data received");
+		}
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
