@@ -59,8 +59,8 @@ public class RobotMap {
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
-	
-	public static double dTEncoderPulsePerRevolution = 20;
+	//DriveTrain Rotary Encoder Mappings
+	public static double dTEncoderPulsePerRevolution = 20;  //Given to us by the Electrical Team
 	public static double dTEncoderDistancePerRevolution = 14.2;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
@@ -74,13 +74,14 @@ public class RobotMap {
 	public static int dTStraightPIDReverse = -1;
 	
 	
-	
+	//DriveTrain PID Turn mappings
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 1.0;
 	
+	//Lift Rotary Encoder mappings
 	public static int liftEncoderChannelA = 4;
 	public static int liftEncoderChannelB = 5;
-	public static double liftEncoderPulsePerRevolution = 20;
+	public static double liftEncoderPulsePerRevolution = 20;  //Given to us by the Electrical Team
 	public static double liftEncoderDistancePerRevolution = 14.2;//We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	
@@ -99,11 +100,17 @@ public class RobotMap {
 	//Gyro
 	public static ADXRS450_Gyro gyro;
 	
-	//Encoders
+	//DriveTrain Rotary Encoders
 	public static Encoder dTEncoderLeft;
 	public static Encoder dTEncoderRight;
 	
+	//  Lift Rotary Encoder
+	//  Declare our Spark Motor that powers the lift
+	public static Spark liftMotor;
+	public static Encoder liftEncoder;
 	
+	//Initialize all of our DriveTrain Controllers, Sensors, and Encoders here.
+	//This will allow us to use the same controllers across multiple PID and non-PID subsystems.
 	public static void init() {
 		frontLeftDrive = new Spark(frontLeftDrivePWMPort);
 		frontRightDrive = new Spark(RobotMap.frontRightDrivePWMPort);
@@ -119,6 +126,9 @@ public class RobotMap {
 		
 		dTEncoderLeft = new Encoder(dTEncoderLeftChannelA, dTEncoderLeftChannelB);
 		dTEncoderRight = new Encoder(dTEncoderRightChannelA, dTEncoderRightChannelB);
+		
+		liftMotor = new Spark(liftMotorPWMPort);
+		liftEncoder = new Encoder(liftEncoderChannelA, liftEncoderChannelB);
 	}
 	
 }

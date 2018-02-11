@@ -12,7 +12,11 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
  */
 public class DriveTrain extends Subsystem {
 
+	//  We may use Kp and the Gyro to help the Driver keep the robot on target when we drive in TeleOp.
 	double Kp = 0.03;
+	
+	//ALL OF OUR SPARK CONTROLLERS, GYRO, AND ENCODER ARE DECLARED AND INITIALIZED IN RobotMap.
+	//  WE HAD TO DO THIS SO THAT THREE SUBSYSTEMS COULD SHARE THEM.
 
 	public DriveTrain() {
 		super("DriveTrain");
@@ -30,6 +34,7 @@ public class DriveTrain extends Subsystem {
     	RobotMap.myDrive.arcadeDrive(-yAxis, xAxis);
     }
     
+    //This method may be used to help the driver use the Joystick to keep the robot on target during TeleOp.
     public void arcadeDriveWithGryo() {
 		SmartDashboard.putNumber("Gryo Angle", RobotMap.gyro.getAngle());
     	double angle = RobotMap.gyro.getAngle();
@@ -37,7 +42,9 @@ public class DriveTrain extends Subsystem {
     	RobotMap.myDrive.arcadeDrive(-.4, Kp*-angle );
     }
     
+
     public void resetGyro() {
+        //  Reset our Gyro.
     	RobotMap.gyro.reset();
     }
     
@@ -45,8 +52,9 @@ public class DriveTrain extends Subsystem {
     	//  If needed, we can stop the driveTrain by sending 0's to arcadeDrive.
     	RobotMap.myDrive.arcadeDrive(0,0);
     }
-//    public AnalogGyro getGyro() {
-        public ADXRS450_Gyro getGyro() {
+
+    public ADXRS450_Gyro getGyro() {
+    	//  Get the Gyro for the SmartDashboard
     	return RobotMap.gyro;
     }
 }
