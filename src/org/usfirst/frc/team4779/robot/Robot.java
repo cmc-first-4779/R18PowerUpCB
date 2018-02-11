@@ -7,11 +7,14 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc.team4779.robot.autoCommands.*;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrainStraightPID;
@@ -44,7 +47,7 @@ public class Robot extends TimedRobot {
 	//This is where we will start to offer different options for Auton based on our position in the 
 	// starting field and what the FMS tells us.
 	Command m_autonomousCommand;
-	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	SendableChooser<Command> autoChooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -68,9 +71,14 @@ public class Robot extends TimedRobot {
 		RobotMap.gyro.reset(); // Reset the gyro
 		
 		//  Send the default Auton Mode to the Java Smart Dashboard.
-//		m_chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", m_chooser);
+		autoChooser.addDefault("Middle Switch", new MiddleSwitch());
+		autoChooser.addObject("Left Switch", new LeftSwitch());
+		autoChooser.addObject("Right Switch", new RightSwitch());
+		autoChooser.addObject("Middle Scale", new MiddleScale());
+		autoChooser.addObject("Left Scale", new LeftScale());
+		autoChooser.addObject("Right Scale", new RightScale());
+
+		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
 		SmartDashboard.putData(RobotMap.gyro);
 		SmartDashboard.putData(Robot.driveTrain);
@@ -104,7 +112,18 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		m_autonomousCommand = m_chooser.getSelected();
+		m_autonomousCommand = autoChooser.getSelected();
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		if(gameData.length() > 0) {
+			if(gameData.charAt(0) == 'L') {
+				//set Robot mySwitchSide to Left
+			} 
+			else {
+				//set Robot mySwitchSide to Right
+			}
+		}
+			
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
