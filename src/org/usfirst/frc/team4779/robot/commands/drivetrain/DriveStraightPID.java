@@ -29,11 +29,11 @@ public class DriveStraightPID extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.driveTrainStraightPID.resetDTEncoders();
-    	timer.reset();
-    	timer.start();
+    	//timer.reset();
+    	//timer.start();
     	Robot.driveTrainStraightPID.resetGyro();
     	Robot.driveTrainStraightPID.direction = m_direction; 
-    	Robot.driveTrainStraightPID.drive_speed = m_speed;
+    	Robot.driveTrainStraightPID.driveSpeed = m_speed;
     	Robot.driveTrainStraightPID.enable();
     	Robot.driveTrainStraightPID.setSetpoint(0);
     	
