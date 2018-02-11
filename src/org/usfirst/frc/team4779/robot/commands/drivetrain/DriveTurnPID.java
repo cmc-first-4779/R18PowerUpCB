@@ -2,7 +2,7 @@ package org.usfirst.frc.team4779.robot.commands.drivetrain;
 
 import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.subsystems.DriveTrainTurnPID;
+import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 

@@ -1,9 +1,6 @@
 package org.usfirst.frc.team4779.robot.commands.drivetrain;
 
 import org.usfirst.frc.team4779.robot.Robot;
-import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
-
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -14,16 +11,14 @@ public class DriveStraightPID extends Command {
 
 	double m_distance;
 	double m_speed;
-	double m_time;
 	int m_direction;
 	Timer timer = new Timer();
 	
-    public DriveStraightPID(double distance, double speed, double time, int direction) {
+    public DriveStraightPID(double distance, double speed, int direction) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	m_distance = distance;
 		m_speed = speed;
-		m_time = time;
 		m_direction = direction;
 
     }
@@ -55,7 +50,7 @@ public class DriveStraightPID extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(Math.abs(Robot.driveTrain.getAvgEncoderPosition()) < m_distance){
+    	if(Math.abs(Robot.driveTrain.getAvgEncoderPosition()) < Math.abs(m_distance)){
 			return false;
 		}
 		else {
