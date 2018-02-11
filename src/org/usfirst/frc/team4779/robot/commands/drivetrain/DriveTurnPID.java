@@ -1,9 +1,6 @@
 package org.usfirst.frc.team4779.robot.commands.drivetrain;
 
 import org.usfirst.frc.team4779.robot.Robot;
-import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.subsystems.DriveTrainTurnPID;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -14,8 +11,6 @@ public class DriveTurnPID extends Command {
 	double m_setpoint;
 
     public DriveTurnPID(double speed, double setpoint) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	m_speed = speed;
 		m_setpoint = setpoint;
     }
@@ -26,9 +21,9 @@ public class DriveTurnPID extends Command {
 		RobotMap.navX.reset();
 		Robot.gyroPID.enable();
 		Robot.gyroPID.setSetpoint(m_setpoint);*/
-//    	Robot.driveTrainTurnPID.resetGyro();
-//    	Robot.driveTrainTurnPID.enable();
-//    	Robot.driveTrainTurnPID.setSetpoint(m_setpoint);
+    	Robot.driveTrainTurnPID.resetGyro();
+    	Robot.driveTrainTurnPID.enable();
+    	Robot.driveTrainTurnPID.setSetpoint(m_setpoint);
     	
     	
     }

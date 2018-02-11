@@ -12,12 +12,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team4779.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrainStraightPID;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrainTurnPID;
-import org.usfirst.frc.team4779.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 
@@ -36,8 +34,8 @@ public class Robot extends TimedRobot {
 	//Declare the Robot Subsystems.   
 	public static Lift lift;
 	public static DriveTrain driveTrain;
-//	public static DriveTrainStraightPID driveTrainStraightPID;
-//	public static DriveTrainTurnPID driveTrainTurnPID;
+	public static DriveTrainStraightPID driveTrainStraightPID;
+	public static DriveTrainTurnPID driveTrainTurnPID;
 	public static VacCube vacCube; 
 	public static Bling bling;
 	//Our standard practice is to leave the OI last.
@@ -54,12 +52,12 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		
+		RobotMap.init();
 		//Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
-//		driveTrainStraightPID = new DriveTrainStraightPID();
-//		driveTrainTurnPID = new DriveTrainTurnPID();
+		driveTrainStraightPID = new DriveTrainStraightPID();
+		driveTrainTurnPID = new DriveTrainTurnPID();
 		vacCube = new VacCube();
 		bling = new Bling();
 		
@@ -69,7 +67,7 @@ public class Robot extends TimedRobot {
 		Robot.driveTrain.resetGyro();
 		
 		//  Send the default Auton Mode to the Java Smart Dashboard.
-		m_chooser.addDefault("Default Auto", new ExampleCommand());
+//		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		SmartDashboard.putData(vacCube);

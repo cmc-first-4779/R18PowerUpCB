@@ -16,8 +16,8 @@ public class VacCube extends Subsystem {
 
 	//We have two motors on the grabber, each defined by a separate Spark Controller.
 	//  Declaring and Initiating the two Sparks.
-	Spark vacCubeLeftMotor = new Spark(RobotMap.vacCubeLeftMotor);
-	Spark vacCubeRightMotor = new Spark(RobotMap.vacCubeRightMotor); 
+	Spark vacCubeLeftMotor = new Spark(RobotMap.vacCubeLeftMotorPWMPort);
+	Spark vacCubeRightMotor = new Spark(RobotMap.vacCubeRightMotorPWMPort); 
 	
     public void initDefaultCommand() {
     	//By Default, we want the VacCube off to not drain the battery.

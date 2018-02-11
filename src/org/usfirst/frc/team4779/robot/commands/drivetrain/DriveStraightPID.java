@@ -2,8 +2,6 @@ package org.usfirst.frc.team4779.robot.commands.drivetrain;
 
 import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
-
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -30,14 +28,14 @@ public class DriveStraightPID extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//    	Robot.driveTrainStraightPID.resetDTEncoders();
+    	Robot.driveTrainStraightPID.resetDTEncoders();
     	timer.reset();
     	timer.start();
-//    	Robot.driveTrainStraightPID.resetGyro();
-//    	Robot.driveTrainStraightPID.direction = m_direction; 
-//    	Robot.driveTrainStraightPID.drive_speed = m_speed;
-//    	Robot.driveTrainStraightPID.enable();
-//    	Robot.driveTrainStraightPID.setSetpoint(0);
+    	Robot.driveTrainStraightPID.resetGyro();
+    	Robot.driveTrainStraightPID.direction = m_direction; 
+    	Robot.driveTrainStraightPID.drive_speed = m_speed;
+    	Robot.driveTrainStraightPID.enable();
+    	Robot.driveTrainStraightPID.setSetpoint(0);
     	
     	/*RobotMap.EncoderLeft.reset();
 		RobotMap.EncoderRight.reset();
@@ -56,27 +54,24 @@ public class DriveStraightPID extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-//    	if(Math.abs(Robot.driveTrainStraightPID.getAvgEncoderPosition()) < m_distance){
-//			return false;
-//		}
-//		else {
-//			return true;
-//		}
-//    }
- //   	return Robot.driveTrainStraightPID.onTarget();
-    	return false;
+    	if(Math.abs(Robot.driveTrainStraightPID.getAvgEncoderPosition()) < m_distance){
+			return false;
+		}
+		else {
+			return true;
+		}
     }
 
     // Called once after isFinished returns true
     protected void end() {
- //   	Robot.driveTrainStraightPID.disable();
-		Robot.driveTrain.arcadeDrive(0, 0);
+    	Robot.driveTrainStraightPID.disable();
+		RobotMap.myDrive.arcadeDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
- //   	Robot.driveTrainStraightPID.disable();
-		Robot.driveTrain.arcadeDrive(0, 0);
+    	Robot.driveTrainStraightPID.disable();
+		RobotMap.myDrive.arcadeDrive(0, 0);
     }
 }

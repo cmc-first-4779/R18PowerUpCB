@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Lift extends PIDSubsystem {
 	//  Declare our Spark Motor that powers the lift
-	Spark liftMotor = new Spark(RobotMap.liftMotor);
+	Spark liftMotor = new Spark(RobotMap.liftMotorPWMPort);
 	private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannelA, RobotMap.liftEncoderChannelB);
 	//private AnalogInput rangefinder = new AnalogInput(0);
 	
