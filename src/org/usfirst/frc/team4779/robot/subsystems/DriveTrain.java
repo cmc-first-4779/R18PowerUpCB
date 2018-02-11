@@ -25,7 +25,6 @@ public class DriveTrain extends Subsystem {
     public void initDefaultCommand() {
     	//  Our Default Command is to Drive using the Joystick.
         setDefaultCommand(new DriveJoystick());
-        //gyro.reset();
     }
     
     public void arcadeDrive(double yAxis, double xAxis) {
@@ -38,24 +37,12 @@ public class DriveTrain extends Subsystem {
     public void arcadeDriveWithGryo() {
 		SmartDashboard.putNumber("Gryo Angle", RobotMap.gyro.getAngle());
     	double angle = RobotMap.gyro.getAngle();
-    	System.out.println("Angle: " + angle);
-    	RobotMap.myDrive.arcadeDrive(-.4, Kp*-angle );
+      	RobotMap.myDrive.arcadeDrive(-.4, Kp*-angle );
     }
-    
 
-    public void resetGyro() {
-        //  Reset our Gyro.
-    	RobotMap.gyro.reset();
-    }
-    
     public void stop() {
     	//  If needed, we can stop the driveTrain by sending 0's to arcadeDrive.
     	RobotMap.myDrive.arcadeDrive(0,0);
-    }
-
-    public ADXRS450_Gyro getGyro() {
-    	//  Get the Gyro for the SmartDashboard
-    	return RobotMap.gyro;
     }
 }
 

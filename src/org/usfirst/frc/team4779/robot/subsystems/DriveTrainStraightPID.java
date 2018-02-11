@@ -38,8 +38,7 @@ public class DriveTrainStraightPID extends PIDSubsystem {
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+    	//No default command due to PID
     }
 
     protected double returnPIDInput() {
@@ -60,26 +59,7 @@ public class DriveTrainStraightPID extends PIDSubsystem {
     	SmartDashboard.putNumber("Direction:  ", direction);
 		SmartDashboard.putNumber("PID Output:  ", output);
     }
-    
-    
-    public void calibrateGyro () {
-        //  Calibrate the Gyro.  Usually only done during the start of the match during the Robot Initialize
-    	RobotMap.gyro.calibrate();
-    	System.out.println("Calibration of Gyro Complete");
-    }
-    
-    public void resetGyro() {
-        //  Reset the gyro for any command that needs it.
-    	RobotMap.gyro.reset();
-    	System.out.println("Reset of Gyro Complete");
-    }
-    
-
-    public double getGyroAngle() {
-        //  Return the Gyro angle for any command that needs it.
-    	return RobotMap.gyro.getAngle();
-    }
-    
+   
     public double getAvgEncoderPosition() {
     	  //  Average the rotary encoder distances on both the left and right sides of the drivetrain
 		return (RobotMap.dTEncoderLeft.getDistance() + RobotMap.dTEncoderRight.getDistance()) / 2;

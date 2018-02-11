@@ -1,6 +1,8 @@
 package org.usfirst.frc.team4779.robot.commands.drivetrain;
 
 import org.usfirst.frc.team4779.robot.Robot;
+import org.usfirst.frc.team4779.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -21,7 +23,7 @@ public class DriveTurnPID extends Command {
 		RobotMap.navX.reset();
 		Robot.gyroPID.enable();
 		Robot.gyroPID.setSetpoint(m_setpoint);*/
-    	Robot.driveTrainTurnPID.resetGyro();
+    	RobotMap.gyro.reset();
     	Robot.driveTrainTurnPID.enable();
     	Robot.driveTrainTurnPID.setSetpoint(m_setpoint);
     	

@@ -54,22 +54,4 @@ public class DriveTrainTurnPID extends PIDSubsystem {
     	//  Note:   y-axis is 0 in arcadeDrive here so that we only turn and not move forward.
     	RobotMap.myDrive.arcadeDrive(0, output);
     }
-    
-    public void calibrateGyro () {
-    	//Calibrate our Gyro.
-    	RobotMap.gyro.calibrate();
-    	System.out.println("Calibration of Gyro Complete");
-    }
-    
-    public void resetGyro() {
-    	//Reset our Gyro
-    	RobotMap.gyro.reset();
-    	System.out.println("Reset of Gyro Complete");
-    }
-    
-    public double getGyroAngle() {
-    	//Get the angle of the gyro.
-    	return RobotMap.gyro.getAngle();
-    }
-    
 }

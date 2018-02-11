@@ -64,14 +64,15 @@ public class Robot extends TimedRobot {
 		//Initiate the OI.   NOTE:  ALWAYS INITIATE THE OI LAST!
 		m_oi = new OI();
 		
-		Robot.driveTrain.resetGyro();
+		RobotMap.gyro.calibrate(); // Calibrate the gyro
+		RobotMap.gyro.reset(); // Reset the gyro
 		
 		//  Send the default Auton Mode to the Java Smart Dashboard.
 //		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		SmartDashboard.putData(vacCube);
-		SmartDashboard.putData(Robot.driveTrain.getGyro());
+		SmartDashboard.putData(RobotMap.gyro);
 		SmartDashboard.putData(Robot.driveTrain);
 	}
 

@@ -31,7 +31,7 @@ public class DriveStraightPID extends Command {
     	Robot.driveTrainStraightPID.resetDTEncoders();
     	//timer.reset();
     	//timer.start();
-    	Robot.driveTrainStraightPID.resetGyro();
+    	RobotMap.gyro.reset();
     	Robot.driveTrainStraightPID.direction = m_direction; 
     	Robot.driveTrainStraightPID.driveSpeed = m_speed;
     	Robot.driveTrainStraightPID.enable();
