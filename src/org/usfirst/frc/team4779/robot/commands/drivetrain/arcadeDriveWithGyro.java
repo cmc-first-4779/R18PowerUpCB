@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4779.robot.commands.drivetrain;
 
 import org.usfirst.frc.team4779.robot.Robot;
-import org.usfirst.frc.team4779.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -16,7 +15,7 @@ public class arcadeDriveWithGyro extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.gyro.reset();
+    	Robot.driveTrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run

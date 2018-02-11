@@ -7,18 +7,17 @@
 
 package org.usfirst.frc.team4779.robot;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team4779.robot.autoCommands.*;
+import org.usfirst.frc.team4779.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrainStraightPID;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrainTurnPID;
+import org.usfirst.frc.team4779.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 
@@ -37,20 +36,17 @@ public class Robot extends TimedRobot {
 	//Declare the Robot Subsystems.   
 	public static Lift lift;
 	public static DriveTrain driveTrain;
-	public static DriveTrainStraightPID driveTrainStraightPID;
-	public static DriveTrainTurnPID driveTrainTurnPID;
+//	public static DriveTrainStraightPID driveTrainStraightPID;
+//	public static DriveTrainTurnPID driveTrainTurnPID;
 	public static VacCube vacCube; 
 	public static Bling bling;
 	//Our standard practice is to leave the OI last.
-	public static char mySwitchSide;
-	public static char myScaleSide;
-	public static char opponentSwitchSide;
 	public static OI m_oi;  
 
 	//This is where we will start to offer different options for Auton based on our position in the 
 	// starting field and what the FMS tells us.
 	Command m_autonomousCommand;
-	SendableChooser<Command> autoChooser = new SendableChooser<>();
+	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -58,32 +54,26 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		RobotMap.init();
+		
 		//Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
-		driveTrainStraightPID = new DriveTrainStraightPID();
-		driveTrainTurnPID = new DriveTrainTurnPID();
+//		driveTrainStraightPID = new DriveTrainStraightPID();
+//		driveTrainTurnPID = new DriveTrainTurnPID();
 		vacCube = new VacCube();
-		bling = new Bling();
-
+//		bling = new Bling();
+		
 		//Initiate the OI.   NOTE:  ALWAYS INITIATE THE OI LAST!
 		m_oi = new OI();
 		
-		RobotMap.gyro.calibrate(); // Calibrate the gyro
-		RobotMap.gyro.reset(); // Reset the gyro
+		Robot.driveTrain.calibrateGyro();
+		//Robot.driveTrain.resetGyro();
 		
 		//  Send the default Auton Mode to the Java Smart Dashboard.
-		autoChooser.addDefault("Middle Switch", new MiddleSwitch());
-		autoChooser.addObject("Left Switch", new LeftSwitch());
-		autoChooser.addObject("Right Switch", new RightSwitch());
-		autoChooser.addObject("Middle Scale", new MiddleScale());
-		autoChooser.addObject("Left Scale", new LeftScale());
-		autoChooser.addObject("Right Scale", new RightScale());
-
-		SmartDashboard.putData("Auto mode", autoChooser);
+		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		// chooser.addObject("My Auto", new MyAutoCommand());
+		SmartDashboard.putData("Auto mode", m_chooser);
 		SmartDashboard.putData(vacCube);
-		SmartDashboard.putData(RobotMap.gyro);
 		SmartDashboard.putData(Robot.driveTrain);
 	}
 
@@ -115,17 +105,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		m_autonomousCommand = autoChooser.getSelected();
-		String gameData;
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		if(gameData.length() > 0) {
-			mySwitchSide = gameData.charAt(0);
-			myScaleSide = gameData.charAt(1);
-			opponentSwitchSide = gameData.charAt(2);
-		}
-		else {
-			System.out.println("No game data received");
-		}
+		m_autonomousCommand = m_chooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

@@ -2,6 +2,8 @@ package org.usfirst.frc.team4779.robot.commands.drivetrain;
 
 import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
+import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
+
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -28,14 +30,13 @@ public class DriveStraightPID extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrainStraightPID.resetDTEncoders();
-    	//timer.reset();
-    	//timer.start();
-    	RobotMap.gyro.reset();
-    	Robot.driveTrainStraightPID.direction = m_direction; 
-    	Robot.driveTrainStraightPID.driveSpeed = m_speed;
-    	Robot.driveTrainStraightPID.enable();
-    	Robot.driveTrainStraightPID.setSetpoint(0);
+    	Robot.driveTrain.resetDTEncoders();
+    	Robot.driveTrain.resetGyro();
+    	Robot.driveTrain.setDirection(m_direction); 
+    	Robot.driveTrain.setSpeed(m_speed);
+     	Robot.driveTrain.setSetpoint(0);
+     	Robot.driveTrain.enable();
+
     	
     	/*RobotMap.EncoderLeft.reset();
 		RobotMap.EncoderRight.reset();
@@ -54,7 +55,7 @@ public class DriveStraightPID extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(Math.abs(Robot.driveTrainStraightPID.getAvgEncoderPosition()) < m_distance){
+    	if(Math.abs(Robot.driveTrain.getAvgEncoderPosition()) < m_distance){
 			return false;
 		}
 		else {
@@ -64,14 +65,14 @@ public class DriveStraightPID extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrainStraightPID.disable();
-		RobotMap.myDrive.arcadeDrive(0, 0);
+    	Robot.driveTrain.disable();
+		Robot.driveTrain.arcadeDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.driveTrainStraightPID.disable();
-		RobotMap.myDrive.arcadeDrive(0, 0);
+    	Robot.driveTrain.disable();
+		Robot.driveTrain.arcadeDrive(0, 0);
     }
 }

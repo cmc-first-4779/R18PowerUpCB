@@ -25,9 +25,9 @@ public class Bling extends Subsystem {
     
  
     
-    public void blingSolidColor(int red, int green, int blue) {
+    public void blingSolidColor(int Red, int Green, int Blue) {
         //  Turn the Lights "white".
-        lights.showRGB(red, green, blue);
+        lights.showRGB(Red, Green, Blue);
     }
     
     

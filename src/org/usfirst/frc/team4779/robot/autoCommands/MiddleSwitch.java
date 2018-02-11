@@ -1,7 +1,5 @@
 package org.usfirst.frc.team4779.robot.autoCommands;
 
-import org.usfirst.frc.team4779.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -10,13 +8,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class MiddleSwitch extends CommandGroup {
 
     public MiddleSwitch() {
-    	if (Robot.mySwitchSide == 'L') {
-    		//execute commands to go to left switch
-    	} 
-    	else {
-    		//execute commands to go to right switch
-    	}
-    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

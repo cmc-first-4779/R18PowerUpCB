@@ -7,12 +7,6 @@
 
 package org.usfirst.frc.team4779.robot;
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -20,15 +14,24 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  * floating around.
  */
 public class RobotMap {
+	// For example to map the left and right motors, you could define the
+	// following variables to use with your drivetrain subsystem.
+	// public static int leftMotor = 1;
+	// public static int rightMotor = 2;
 
+	// If you are using multiple modules, make sure to define both the port
+	// number and the module. For example you with a rangefinder:
+	// public static int rangefinderPort = 1;
+	// public static int rangefinderModule = 1;
+	
 	//Map out the SPARK controllers.
-	public static int frontLeftDrivePWMPort = 0;
-	public static int frontRightDrivePWMPort = 1;
-	public static int rearLeftDrivePWMPort = 2;
-	public static int rearRightDrivePWMPort = 3;
-	public static int liftMotorPWMPort = 4;
-	public static int vacCubeLeftMotorPWMPort = 5;
-	public static int vacCubeRightMotorPWMPort = 6;
+	public static int frontLeftDrive = 0;
+	public static int frontRightDrive = 1;
+	public static int rearLeftDrive = 2;
+	public static int rearRightDrive = 3;
+	public static int liftMotor = 4;
+	public static int vacCubeLeftMotor = 5;
+	public static int vacCubeRightMotor = 6;
 	
 	//Map out the Joystick #'s in the DriverStation USB Ports
 	public static int driverStickUSBPort = 0;
@@ -59,8 +62,8 @@ public class RobotMap {
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
-	//DriveTrain Rotary Encoder Mappings
-	public static double dTEncoderPulsePerRevolution = 20;  //Given to us by the Electrical Team
+	
+	public static double dTEncoderPulsePerRevolution = 20;
 	public static double dTEncoderDistancePerRevolution = 14.2;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
@@ -74,62 +77,16 @@ public class RobotMap {
 	public static int dTStraightPIDReverse = -1;
 	
 	
-	//DriveTrain PID Turn mappings
+	
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 1.0;
 	
-	//Lift Rotary Encoder mappings
 	public static int liftEncoderChannelA = 4;
 	public static int liftEncoderChannelB = 5;
-	public static double liftEncoderPulsePerRevolution = 20;  //Given to us by the Electrical Team
+	public static double liftEncoderPulsePerRevolution = 20;
 	public static double liftEncoderDistancePerRevolution = 14.2;//We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	
-	
-	//SpeedControlers and Drive Train
-	public static Spark frontLeftDrive;// = new Spark(frontLeftDrive);
-	public static Spark frontRightDrive;
-	public static Spark rearLeftDrive;
-	public static Spark rearRightDrive;
-	//  Declare the two speed control groups.  (Left side and Right Side) 
-	public static SpeedControllerGroup myDriveLeft = new SpeedControllerGroup(frontLeftDrive, rearLeftDrive);
-	public static SpeedControllerGroup myDriveRight = new SpeedControllerGroup (frontRightDrive, rearRightDrive);	
-	//  Using the two speed controller groups, Declare our Differential Drive.
-	public static DifferentialDrive myDrive = new DifferentialDrive(myDriveLeft, myDriveRight);
-	
-	//Gyro
-	public static ADXRS450_Gyro gyro;
-	
-	//DriveTrain Rotary Encoders
-	public static Encoder dTEncoderLeft;
-	public static Encoder dTEncoderRight;
-	
-	//  Lift Rotary Encoder
-	//  Declare our Spark Motor that powers the lift
-	public static Spark liftMotor;
-	public static Encoder liftEncoder;
-	
-	//Initialize all of our DriveTrain Controllers, Sensors, and Encoders here.
-	//This will allow us to use the same controllers across multiple PID and non-PID subsystems.
-	public static void init() {
-		frontLeftDrive = new Spark(frontLeftDrivePWMPort);
-		frontRightDrive = new Spark(RobotMap.frontRightDrivePWMPort);
-		rearLeftDrive = new Spark(RobotMap.rearLeftDrivePWMPort);
-		rearRightDrive = new Spark(RobotMap.rearRightDrivePWMPort);
-		
-		myDriveLeft = new SpeedControllerGroup(frontLeftDrive, rearLeftDrive);
-		myDriveRight = new SpeedControllerGroup (frontRightDrive, rearRightDrive);
-		
-		myDrive = new DifferentialDrive(myDriveLeft, myDriveRight);
-		
-		gyro = new ADXRS450_Gyro();
-		
-		dTEncoderLeft = new Encoder(dTEncoderLeftChannelA, dTEncoderLeftChannelB);
-		dTEncoderRight = new Encoder(dTEncoderRightChannelA, dTEncoderRightChannelB);
-		
-		liftMotor = new Spark(liftMotorPWMPort);
-		liftEncoder = new Encoder(liftEncoderChannelA, liftEncoderChannelB);
-	}
 	
 }
 
