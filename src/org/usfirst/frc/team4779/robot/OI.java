@@ -63,7 +63,7 @@ public class OI {
 			
 			operStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			operStickRightBumper.whileHeld(new VacCubeEject());
-			driverStickBButton.whileHeld(new arcadeDriveWithGyro());
+	//		driverStickBButton.whileHeld(new arcadeDriveWithGyro());
 			driverStickAButton.whileHeld(new LiftUp());
 			driverStickXButton.whileHeld(new LiftDown());
 	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
