@@ -41,20 +41,19 @@ public class DriveTurnPID extends Command {
 		else{
 			return false;
 		}*/
-//    	return Robot.driveTrainTurnPID.onTarget();
-    	return false;
+    	return Robot.driveTrainTurnPID.onTarget();
     }
     // Called once after isFinished returns true
     protected void end() {
- //   	Robot.driveTrainTurnPID.disable();
- //   	Robot.driveTrain.arcadeDrive(0, 0);
+    	Robot.driveTrainTurnPID.disable();
+    	Robot.driveTrain.arcadeDrive(0, 0);
     	}
     
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-   // 	Robot.driveTrainTurnPID.disable();
+    	Robot.driveTrainTurnPID.disable();
     	Robot.driveTrain.arcadeDrive(0, 0);
     	}
 }
