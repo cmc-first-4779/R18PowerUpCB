@@ -61,22 +61,13 @@ public class OI {
 			 * Right Bumper lift down
 			 */
 			
-			operStickLeftBumper.whileHeld(new VacCubeIntake()); 
-			operStickRightBumper.whileHeld(new VacCubeEject());
-			driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-			driverStickAButton.whileHeld(new LiftUp());
-			driverStickXButton.whileHeld(new LiftDown());
+			driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
+			driverStickRightBumper.whileHeld(new VacCubeEject());
+		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
+		//	driverStickAButton.whileHeld(new LiftUp());
+		//	driverStickXButton.whileHeld(new LiftDown());
 	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
-			
-			
-//			operStickXButton.whenPressed(new CarouselOn());
-//			operStickYButton.whenPressed(new ClimberOn()); 
-//			operStickAButton.whenPressed(new SweeperOn());
-//			operStickBButton.whenPressed(new Shoot());
-//			
-//			driverStickLeftBumper.whileHeld(new GobblerOpen());
-//			driverStickRightBumper.whileHeld(new GobblerClose());
-			
+	
 			// There are a few additional built in buttons you can use. Additionally,
 			// by subclassing Button you can create custom triggers and bind those to
 			// commands the same as any other Button.
