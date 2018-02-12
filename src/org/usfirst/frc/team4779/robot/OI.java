@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.arcadeDriveWithGyro;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
@@ -16,6 +18,7 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -65,8 +68,13 @@ public class OI {
 			driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
 			driverStickAButton.whileHeld(new LiftUp());
-			driverStickXButton.whileHeld(new LiftDown());
+			//driverStickXButton.whileHeld(new LiftDown());
 	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
+			driverStickYButton.whenPressed(new DriveStraightPID(.5, 4, -1));
+			driverStickBButton.whenPressed(new DriveTurnPID(90));
+			
+			
+
 	
 			// There are a few additional built in buttons you can use. Additionally,
 			// by subclassing Button you can create custom triggers and bind those to
