@@ -66,6 +66,10 @@ public class Lift extends PIDSubsystem {
 	public double getDistance() {
 		return liftEncoder.getDistance();
 	}
+	
+	public double getPulses()  {
+		return liftEncoder.get
+	}
 
 	@Override
 	protected double returnPIDInput() {
