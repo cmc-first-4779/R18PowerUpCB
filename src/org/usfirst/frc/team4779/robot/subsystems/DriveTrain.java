@@ -105,6 +105,17 @@ public class DriveTrain extends PIDSubsystem {
     		return (dTEncoderLeft.getDistance() + dTEncoderRight.getDistance()) / 2;
     	}
         
+        public double getLeftEncoderPosition() {
+    		
+    		return dTEncoderLeft.getDistance();
+    	}
+        
+        public double getRightEncoderPosition() {
+    		
+    		return dTEncoderRight.getDistance();
+    	}
+        
+        
 		@Override
 		protected double returnPIDInput() {
 			// TODO Auto-generated method stub

@@ -64,8 +64,8 @@ public class OI {
 			driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-		//	driverStickAButton.whileHeld(new LiftUp());
-		//	driverStickXButton.whileHeld(new LiftDown());
+			driverStickAButton.whileHeld(new LiftUp());
+			driverStickXButton.whileHeld(new LiftDown());
 	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
 	
 			// There are a few additional built in buttons you can use. Additionally,
@@ -78,7 +78,6 @@ public class OI {
 		//This method is used later to return the the driverStick when called.
 		 public Joystick getDriverStick() {
 			return driverStick;
-		 
 		 }
 
 

@@ -58,7 +58,7 @@ public class RobotMap {
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
 	public static double vacCubeMotorPowerIntake = -0.5;
-	public static double vacCubeMotorPowerEject = 0.5;
+	public static double vacCubeMotorPowerEject = 1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	

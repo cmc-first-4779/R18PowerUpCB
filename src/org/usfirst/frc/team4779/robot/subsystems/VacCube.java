@@ -5,6 +5,7 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *   The VacCube aka Grabber is what we use to grab power cubes and move them around.
@@ -22,8 +23,7 @@ public class VacCube extends Subsystem {
     public void initDefaultCommand() {
     	//By Default, we want the VacCube off to not drain the battery.
     	setDefaultCommand(new VacCubeOff());
-
-    }
+        }
     
     //  This PRIVATE Method is convenient as it allows us to have one method that jointly sets the power
     //    to both the left and right Spark controllers.  We use this method below quite often.
