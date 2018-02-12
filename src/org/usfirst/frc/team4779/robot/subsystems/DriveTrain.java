@@ -29,7 +29,7 @@ public class DriveTrain extends PIDSubsystem {
 	//AnalogGyro gyro = new AnalogGyro(1);
 	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	public int direction; //forward 1 or backward -1
-	double Kp = 0.03;
+	double Kp = RobotMap.dtGyroKp;
 	double speed;
 
 	//  Declare the two speed control groups.  (Left side and Right Side) 
@@ -66,6 +66,16 @@ public class DriveTrain extends PIDSubsystem {
     	//  NOTE:  the xAxis off of the Joystick below is INVERTED.
     	myDrive.arcadeDrive(-yAxis, xAxis);
     }
+        
+	@Override
+	protected double returnPIDInput() {
+		return gyro.getAngle();
+	}
+
+	@Override
+	protected void usePIDOutput(double output) {
+		myDrive.arcadeDrive(speed, direction*output);
+	}
     
     public void arcadeDriveWithGryo() {
 		SmartDashboard.putNumber("Gryo Angle", gyro.getAngle());
@@ -116,15 +126,18 @@ public class DriveTrain extends PIDSubsystem {
     public double getSpeed()  {
     	return speed;
     }
-        
-	@Override
-	protected double returnPIDInput() {
-		return gyro.getAngle();
-	}
+    
+    public int getDirection()  {
+    	return direction;
+    }
+    
+    public double getDriveAngle()  {
+    	return gyro.getAngle();
+    }
+    
+    public double getGyroKp()  {
+    	return Kp;
+    }
 
-	@Override
-	protected void usePIDOutput(double output) {
-		myDrive.arcadeDrive(speed, direction*output);
-	}
 }
 

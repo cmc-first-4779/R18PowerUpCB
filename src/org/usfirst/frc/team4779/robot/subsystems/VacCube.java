@@ -20,6 +20,8 @@ public class VacCube extends Subsystem {
 	Spark vacCubeLeftMotor = new Spark(RobotMap.vacCubeLeftMotorPWMPort);
 	Spark vacCubeRightMotor = new Spark(RobotMap.vacCubeRightMotorPWMPort); 
 	
+	private double m_power;
+	
     public void initDefaultCommand() {
     	//By Default, we want the VacCube off to not drain the battery.
     	setDefaultCommand(new VacCubeOff());
@@ -31,7 +33,8 @@ public class VacCube extends Subsystem {
     	vacCubeLeftMotor.set(power);
     	//inverted right motor power, assumes identical wiring 
     	vacCubeRightMotor.set(-power);
-    	SmartDashboard.putNumber("VacCube Power:  ", power);
+    	//Set the m_power to power so that we can call it in the getPower() method for the SmartDashboard.
+    	m_power = power;
     }
     
     public void vacCubeOff() {
@@ -54,6 +57,9 @@ public class VacCube extends Subsystem {
     	setMotorPower(RobotMap.vacCubeMotorPowerEject);
     }
     
+    public double getPower()  {
+    	return m_power;
+    }
 
 }
 

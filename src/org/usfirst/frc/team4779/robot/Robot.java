@@ -70,6 +70,7 @@ public class Robot extends TimedRobot {
 		
 		Robot.driveTrain.calibrateGyro();
 		//Robot.driveTrain.resetGyro();
+		Robot.lift.resetLiftEncoder();
 		
 		//  Send the default Auton Mode to the Java Smart Dashboard.
 		autoChooser.addDefault("Middle Switch", new MiddleSwitch());

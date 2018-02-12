@@ -33,7 +33,7 @@ public class Lift extends PIDSubsystem {
     
     public void liftUp() {
     	//  Move the Lift up.
-    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
+    	//SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
     	liftMotor.set(RobotMap.liftMotorPowerUp);	
     }
     
@@ -44,7 +44,7 @@ public class Lift extends PIDSubsystem {
     
     public void liftDown() {
     	//  Move the Lift Down.
-    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
+    	//SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
     	liftMotor.set(RobotMap.liftMotorPowerDown);	
     }
     
@@ -55,8 +55,8 @@ public class Lift extends PIDSubsystem {
     }
     
     public void liftMove(double power) {
-    	SmartDashboard.putNumber("Lift Distance: ", liftEncoder.getDistance());
-    	SmartDashboard.putNumber("Lift Power", power);
+    	//SmartDashboard.putNumber("Lift Distance: ", liftEncoder.getDistance());
+    	//SmartDashboard.putNumber("Lift Power", power);
     	liftMotor.set(power);
     }
     

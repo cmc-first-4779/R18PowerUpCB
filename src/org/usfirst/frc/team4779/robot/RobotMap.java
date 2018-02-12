@@ -75,6 +75,7 @@ public class RobotMap {
 	public static double dTEncoderOutputMax = 1;
 	public static int dTStraightPIDForward = 1;
 	public static int dTStraightPIDReverse = -1;
+	public static double dtGyroKp = 0.03;
 	
 	
 	
@@ -84,7 +85,7 @@ public class RobotMap {
 	public static int liftEncoderChannelA = 4;
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
-	public static double liftEncoderDistancePerRevolution = 14.2;//We need to find this.
+	public static double liftEncoderDistancePerRevolution = 0.132;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	
 	
