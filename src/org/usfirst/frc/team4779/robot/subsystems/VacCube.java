@@ -31,6 +31,7 @@ public class VacCube extends Subsystem {
     	vacCubeLeftMotor.set(power);
     	//inverted right motor power, assumes identical wiring 
     	vacCubeRightMotor.set(-power);
+    	SmartDashboard.putNumber("VacCube Power:  ", power);
     }
     
     public void vacCubeOff() {
@@ -52,5 +53,7 @@ public class VacCube extends Subsystem {
     	//  Eject a Cube.
     	setMotorPower(RobotMap.vacCubeMotorPowerEject);
     }
+    
+
 }
 

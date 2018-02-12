@@ -27,7 +27,7 @@ public class DriveTrain extends PIDSubsystem {
 	Spark rearRightDrive = new Spark(RobotMap.rearRightDrivePWMPort);
 	
 	//AnalogGyro gyro = new AnalogGyro(1);
-	ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	public int direction; //forward 1 or backward -1
 	double Kp = 0.03;
 	double speed;
@@ -82,50 +82,49 @@ public class DriveTrain extends PIDSubsystem {
     	gyro.calibrate();
     }
     
+    
     public void stop() {
     	//  If needed, we can stop the driveTrain by sending 0's to arcadeDrive.
     	myDrive.arcadeDrive(0,0);
     }
 
-        public void setSpeed (double speed) {
-        	this.speed = speed;
-        }
+    public void setSpeed (double speed) {
+       	this.speed = speed;
+    }
         
-        public void setDirection(int dir) {
-        	this.direction = dir;
-        }
+    public void setDirection(int dir) {
+       	this.direction = dir;
+    }
         
-        public void resetDTEncoders() {
-        	dTEncoderLeft.reset();
-        	dTEncoderRight.reset();
-        }
+    public void resetDTEncoders() {
+       	dTEncoderLeft.reset();
+       	dTEncoderRight.reset();
+    }
         
-        public double getAvgEncoderPosition() {
-    		
-    		return (dTEncoderLeft.getDistance() + dTEncoderRight.getDistance()) / 2;
-    	}
+    public double getAvgEncoderPosition() {
+    	return (dTEncoderLeft.getDistance() + dTEncoderRight.getDistance()) / 2;
+    }
         
-        public double getLeftEncoderPosition() {
-    		
-    		return dTEncoderLeft.getDistance();
-    	}
+    public double getLeftEncoderPosition() {
+    	return dTEncoderLeft.getDistance();
+    }
         
-        public double getRightEncoderPosition() {
-    		
-    		return dTEncoderRight.getDistance();
-    	}
+    public double getRightEncoderPosition() {	
+    	return dTEncoderRight.getDistance();
+    }
         
+    public double getSpeed()  {
+    	return speed;
+    }
         
-		@Override
-		protected double returnPIDInput() {
-			// TODO Auto-generated method stub
-			return gyro.getAngle();
-		}
+	@Override
+	protected double returnPIDInput() {
+		return gyro.getAngle();
+	}
 
-		@Override
-		protected void usePIDOutput(double output) {
-			// TODO Auto-generated method stub
-			myDrive.arcadeDrive(speed, direction*output);
-		}
+	@Override
+	protected void usePIDOutput(double output) {
+		myDrive.arcadeDrive(speed, direction*output);
+	}
 }
 

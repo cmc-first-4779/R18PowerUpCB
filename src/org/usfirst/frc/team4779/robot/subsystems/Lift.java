@@ -67,6 +67,10 @@ public class Lift extends PIDSubsystem {
 		return liftEncoder.getDistance();
 	}
 	
+	public void resetLiftEncoder()  {
+		liftEncoder.reset();
+	}
+	
 	@Override
 	protected double returnPIDInput() {
 		// TODO Auto-generated method stub
