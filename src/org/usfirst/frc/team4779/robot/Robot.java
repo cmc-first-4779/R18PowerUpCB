@@ -19,6 +19,7 @@ import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
+import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -43,6 +44,7 @@ public class Robot extends TimedRobot {
 	public static char mySwitchSide;
 	public static char myScaleSide;
 	public static char opponentSwitchSide;
+	public static SmartDashboardInit smartDashboardInit;
 	public static OI m_oi;  
 
 	//This is where we will start to offer different options for Auton based on our position in the 
@@ -71,6 +73,7 @@ public class Robot extends TimedRobot {
 		Robot.driveTrain.calibrateGyro();
 		//Robot.driveTrain.resetGyro();
 		Robot.lift.resetLiftEncoder();
+		smartDashboardInit = new SmartDashboardInit();
 		
 		//  Send the default Auton Mode to the Java Smart Dashboard.
 		autoChooser.addDefault("Middle Switch", new MiddleSwitch());
