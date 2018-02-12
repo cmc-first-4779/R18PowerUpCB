@@ -25,13 +25,13 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 	
 	//Map out the SPARK controllers.
-	public static int frontLeftDrive = 0;
-	public static int frontRightDrive = 1;
-	public static int rearLeftDrive = 2;
-	public static int rearRightDrive = 3;
-	public static int liftMotor = 4;
-	public static int vacCubeLeftMotor = 5;
-	public static int vacCubeRightMotor = 6;
+	public static int frontLeftDrivePWMPort = 0;
+	public static int frontRightDrivePWMPort = 1;
+	public static int rearLeftDrivePWMPort = 2;
+	public static int rearRightDrivePWMPort = 3;
+	public static int liftMotorPWMPort = 4;
+	public static int vacCubeLeftMotorPWMPort = 5;
+	public static int vacCubeRightMotorPWMPort = 6;
 	
 	//Map out the Joystick #'s in the DriverStation USB Ports
 	public static int driverStickUSBPort = 0;

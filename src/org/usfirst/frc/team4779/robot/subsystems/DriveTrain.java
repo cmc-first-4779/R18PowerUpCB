@@ -21,10 +21,10 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 public class DriveTrain extends PIDSubsystem {
 	
 	//  Declare the four Spark controllers for each of the motors on the chassis.
-	Spark frontLeftDrive = new Spark(RobotMap.frontLeftDrive);
-	Spark frontRightDrive = new Spark(RobotMap.frontRightDrive);
-	Spark rearLeftDrive = new Spark(RobotMap.rearLeftDrive);
-	Spark rearRightDrive = new Spark(RobotMap.rearRightDrive);
+	Spark frontLeftDrive = new Spark(RobotMap.frontLeftDrivePWMPort);
+	Spark frontRightDrive = new Spark(RobotMap.frontRightDrivePWMPort);
+	Spark rearLeftDrive = new Spark(RobotMap.rearLeftDrivePWMPort);
+	Spark rearRightDrive = new Spark(RobotMap.rearRightDrivePWMPort);
 	
 	//AnalogGyro gyro = new AnalogGyro(1);
 	ADXRS450_Gyro gyro = new ADXRS450_Gyro();
