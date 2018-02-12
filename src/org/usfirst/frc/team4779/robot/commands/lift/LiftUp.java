@@ -3,6 +3,7 @@ package org.usfirst.frc.team4779.robot.commands.lift;
 import org.usfirst.frc.team4779.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.filters.LinearDigitalFilter;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -23,7 +24,7 @@ public class LiftUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.lift.liftUp();
-    	SmartDashboard.putNumber(Lift Encoder Num Pulses:, Robot.lift.)
+    	SmartDashboard.putNumber("Lift Encoder Distance: ", Robot.lift.getDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -67,10 +67,6 @@ public class Lift extends PIDSubsystem {
 		return liftEncoder.getDistance();
 	}
 	
-	public double getPulses()  {
-		return liftEncoder.get
-	}
-
 	@Override
 	protected double returnPIDInput() {
 		// TODO Auto-generated method stub
