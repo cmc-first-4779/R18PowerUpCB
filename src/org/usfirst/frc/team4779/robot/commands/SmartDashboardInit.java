@@ -21,7 +21,6 @@ public class SmartDashboardInit extends Command {
     	SmartDashboard.putNumber("My Switch Side:  ", Robot.mySwitchSide);
     	SmartDashboard.putNumber("Opponent Switch Side:  ", Robot.opponentSwitchSide);
     	SmartDashboard.putData(Robot.driveTrain.gyro);
-    	SmartDashboard.putNumber("Gyro Kp", Robot.driveTrain.getGyroKp());
     	SmartDashboard.putData("DriveTrain State:  ", Robot.driveTrain);
     	SmartDashboard.putNumber("Left Encoder Position: ", Robot.driveTrain.getLeftEncoderPosition());
     	SmartDashboard.putNumber("Right Encoder Position", Robot.driveTrain.getRightEncoderPosition());

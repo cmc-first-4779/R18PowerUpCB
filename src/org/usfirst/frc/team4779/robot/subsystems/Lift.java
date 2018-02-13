@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
+import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftOff;
 
@@ -24,6 +25,7 @@ public class Lift extends PIDSubsystem {
 	public Lift() {
 		 super("Lift", 0.1, 0, 0);
 		 liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse);
+		 SmartDashboard.putData("Lift State:  ", Robot.lift);
 	 }
 	
 	//   By default, we want the Lift Off to not drain the battery when its not being called.
@@ -55,8 +57,8 @@ public class Lift extends PIDSubsystem {
     }
     
     public void liftMove(double power) {
-    	//SmartDashboard.putNumber("Lift Distance: ", liftEncoder.getDistance());
-    	//SmartDashboard.putNumber("Lift Power", power);
+    	SmartDashboard.putNumber("Lift Encoder Position:  ", getDistance());
+    	SmartDashboard.putNumber("Lift Power", power);
     	liftMotor.set(power);
     }
     
@@ -81,7 +83,6 @@ public class Lift extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		// TODO Auto-generated method stub
 		liftMove(output);	
-		
 	}
 }
 

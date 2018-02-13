@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
+import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 
@@ -35,6 +36,7 @@ public class VacCube extends Subsystem {
     	vacCubeRightMotor.set(-power);
     	//Set the m_power to power so that we can call it in the getPower() method for the SmartDashboard.
     	m_power = power;
+    	SmartDashboard.putNumber("VacCube Power:  ", getPower());
     }
     
     public void vacCubeOff() {

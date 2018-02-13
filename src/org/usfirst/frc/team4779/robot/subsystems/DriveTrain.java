@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
+import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
 
@@ -30,7 +31,7 @@ public class DriveTrain extends PIDSubsystem {
 	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	public int direction; //forward 1 or backward -1
 	double Kp = RobotMap.dtGyroKp;
-	double speed;
+	private double speed;
 
 	//  Declare the two speed control groups.  (Left side and Right Side) 
 	SpeedControllerGroup myDriveLeft = new SpeedControllerGroup(frontLeftDrive, rearLeftDrive);
@@ -49,10 +50,7 @@ public class DriveTrain extends PIDSubsystem {
 		setOutputRange(RobotMap.dTEncoderOutputMin, RobotMap.dTEncoderOutputMax);
 		dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse);
 		dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse);
-		SmartDashboard.putNumber("Drive Angle: ", getPIDController().get());
-		SmartDashboard.putNumber("Drive Power: ", speed);
-		SmartDashboard.putData(gyro);
-		SmartDashboard.putNumber("Encoder Avg Distance: ", getAvgEncoderPosition());
+
 	}
 	
     public void initDefaultCommand() {
@@ -65,6 +63,12 @@ public class DriveTrain extends PIDSubsystem {
     	//  This is our where we define arcadeDrive within the Subsystem
     	//  NOTE:  the xAxis off of the Joystick below is INVERTED.
     	myDrive.arcadeDrive(-yAxis, xAxis);
+    	SmartDashboard.putNumber("Left Encoder Position: ", getLeftEncoderPosition());
+    	SmartDashboard.putNumber("Right Encoder Position", getRightEncoderPosition());
+    	SmartDashboard.putNumber("Average Encoder Position:  ", getAvgEncoderPosition());
+    	SmartDashboard.putNumber("Drive Speed:  ", getSpeed());
+    	SmartDashboard.putNumber("Drive Direction:  ", getDirection());
+    	SmartDashboard.putNumber("Drive Angle", getDriveAngle());
     }
         
 	@Override
@@ -74,10 +78,15 @@ public class DriveTrain extends PIDSubsystem {
 
 	@Override
 	protected void usePIDOutput(double output) {
+		myDrive.arcadeDrive(speed, direction*output);
 		SmartDashboard.putNumber("Gryo Angle", gyro.getAngle());
 		SmartDashboard.putNumber("Gyro PID Output", output);
-		myDrive.arcadeDrive(speed, direction*output);
-		//myDrive.arcadeDrive(speed, output);
+    	SmartDashboard.putNumber("Left Encoder Position: ", getLeftEncoderPosition());
+    	SmartDashboard.putNumber("Right Encoder Position", getRightEncoderPosition());
+    	SmartDashboard.putNumber("Average Encoder Position:  ", getAvgEncoderPosition());
+    	SmartDashboard.putNumber("Drive Speed:  ", getSpeed());
+    	SmartDashboard.putNumber("Drive Direction:  ", getDirection());
+    	SmartDashboard.putNumber("Drive Angle", getDriveAngle());
 	}
     
     public void arcadeDriveWithGryo() {
