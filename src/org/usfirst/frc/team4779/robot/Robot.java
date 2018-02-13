@@ -30,9 +30,6 @@ import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
  */
 public class Robot extends TimedRobot {
 	
-	//public static final ExampleSubsystem kExampleSubsystem
-	//		= new ExampleSubsystem();
-	
 	//Declare the Robot Subsystems.   
 	public static Lift lift;
 	public static DriveTrain driveTrain;
@@ -40,11 +37,13 @@ public class Robot extends TimedRobot {
 //	public static DriveTrainTurnPID driveTrainTurnPID;
 	public static VacCube vacCube; 
 	public static Bling bling;
-	//Our standard practice is to leave the OI last.
+	//Declare the variables needed for the Field Management System for Red/Blue Tiles
 	public static char mySwitchSide;
 	public static char myScaleSide;
 	public static char opponentSwitchSide;
+	//Declare our SmartDashboardInit
 	public static SmartDashboardInit smartDashboardInit;
+	//Our standard practice is to leave the OI last.	
 	public static OI m_oi;  
 
 	//This is where we will start to offer different options for Auton based on our position in the 
@@ -70,12 +69,17 @@ public class Robot extends TimedRobot {
 		//Initiate the OI.   NOTE:  ALWAYS INITIATE THE OI LAST!
 		m_oi = new OI();
 		
+		//Calibrate our Gyro
 		Robot.driveTrain.calibrateGyro();
 		//Robot.driveTrain.resetGyro();
+		
+		//Reset our Lift Encoder
 		Robot.lift.resetLiftEncoder();
+		
+		//Init our SmartDashboard
 		smartDashboardInit = new SmartDashboardInit();
 		
-		//  Send the default Auton Mode to the Java Smart Dashboard.
+		//  Send the default Auton Mode to the Java SmartDashboard.
 		autoChooser.addDefault("Middle Switch", new MiddleSwitch());
 		autoChooser.addObject("Left Switch", new LeftSwitch());
 		autoChooser.addObject("Right Switch", new RightSwitch());
@@ -116,7 +120,9 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		//Select the Auton Command Group from the SmartDashboard.
 		m_autonomousCommand = autoChooser.getSelected();
+		//Get Game Data from FMS to tell where the Red & Blue Tiles are
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		if(gameData.length() > 0) {

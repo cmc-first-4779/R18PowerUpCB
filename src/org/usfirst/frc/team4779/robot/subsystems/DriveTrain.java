@@ -68,7 +68,7 @@ public class DriveTrain extends PIDSubsystem {
     	SmartDashboard.putNumber("Average Encoder Position:  ", getAvgEncoderPosition());
     	SmartDashboard.putNumber("Drive Speed:  ", getSpeed());
     	SmartDashboard.putNumber("Drive Direction:  ", getDirection());
-    	SmartDashboard.putNumber("Drive Angle", getDriveAngle());
+    	SmartDashboard.putNumber("Drive Angle:  ", getDriveAngle());
     }
         
 	@Override
@@ -79,18 +79,13 @@ public class DriveTrain extends PIDSubsystem {
 	@Override
 	protected void usePIDOutput(double output) {
 		myDrive.arcadeDrive(speed, direction*output);
-		SmartDashboard.putNumber("Gryo Angle", gyro.getAngle());
-		SmartDashboard.putNumber("Gyro PID Output", output);
-    	SmartDashboard.putNumber("Left Encoder Position: ", getLeftEncoderPosition());
-    	SmartDashboard.putNumber("Right Encoder Position", getRightEncoderPosition());
-    	SmartDashboard.putNumber("Average Encoder Position:  ", getAvgEncoderPosition());
-    	SmartDashboard.putNumber("Drive Speed:  ", getSpeed());
-    	SmartDashboard.putNumber("Drive Direction:  ", getDirection());
-    	SmartDashboard.putNumber("Drive Angle", getDriveAngle());
+		SmartDashboard.putNumber("Gryo Angle:  ", gyro.getAngle());
+		SmartDashboard.putNumber("Gyro PID Output:  ", output);
+
 	}
     
     public void arcadeDriveWithGryo() {
-		SmartDashboard.putNumber("Gryo Angle", gyro.getAngle());
+		SmartDashboard.putNumber("Gryo Angle:  ", gyro.getAngle());
     	double angle = gyro.getAngle();
     	System.out.println("Angle: " + angle);
     	myDrive.arcadeDrive(-.4, Kp*-angle );
