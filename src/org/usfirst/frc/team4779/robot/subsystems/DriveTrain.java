@@ -44,7 +44,7 @@ public class DriveTrain extends PIDSubsystem {
 	
 
 	public DriveTrain() {
-		super("DriveTrain", -1, 0, 0);
+		super("DriveTrain", -0.65, 0, 0.05);
 		setAbsoluteTolerance(RobotMap.dTEncoderAbsoluteTolerance);
 		setOutputRange(RobotMap.dTEncoderOutputMin, RobotMap.dTEncoderOutputMax);
 		dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse);
@@ -57,7 +57,7 @@ public class DriveTrain extends PIDSubsystem {
 	
     public void initDefaultCommand() {
     	//  Our Default Command is to Drive using the Joystick.
-        setDefaultCommand(new DriveJoystick());
+        //setDefaultCommand(new DriveJoystick());
         //gyro.reset();
     }
     
@@ -74,7 +74,10 @@ public class DriveTrain extends PIDSubsystem {
 
 	@Override
 	protected void usePIDOutput(double output) {
+		SmartDashboard.putNumber("Gryo Angle", gyro.getAngle());
+		SmartDashboard.putNumber("Gyro PID Output", output);
 		myDrive.arcadeDrive(speed, direction*output);
+		//myDrive.arcadeDrive(speed, output);
 	}
     
     public void arcadeDriveWithGryo() {
@@ -112,7 +115,7 @@ public class DriveTrain extends PIDSubsystem {
     }
         
     public double getAvgEncoderPosition() {
-    	return (dTEncoderLeft.getDistance() + dTEncoderRight.getDistance()) / 2;
+    	return (-dTEncoderLeft.getDistance() + dTEncoderRight.getDistance()) / 2;
     }
         
     public double getLeftEncoderPosition() {

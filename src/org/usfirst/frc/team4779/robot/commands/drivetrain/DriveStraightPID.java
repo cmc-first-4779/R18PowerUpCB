@@ -26,23 +26,13 @@ public class DriveStraightPID extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.driveTrain.resetDTEncoders();
+    	System.out.println("Reset DT Encoders.");
     	Robot.driveTrain.resetGyro();
     	Robot.driveTrain.setDirection(m_direction); 
     	Robot.driveTrain.setSpeed(m_speed);
      	Robot.driveTrain.setSetpoint(0);
      	Robot.driveTrain.enable();
-
-    	
-    	/*RobotMap.EncoderLeft.reset();
-		RobotMap.EncoderRight.reset();
-		t.reset();
-		t.start();
-		RobotMap.navX.reset();
-		Robot.drivePID.direction = m_direction;
-		Robot.drivePID.drive_speed = m_speed; 
-		Robot.drivePID.enable();
-		Robot.drivePID.setSetpoint(0);*/
-    	}
+    }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
