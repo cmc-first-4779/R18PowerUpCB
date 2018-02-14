@@ -64,7 +64,7 @@ public class RobotMap {
 	
 	
 	public static double dTEncoderPulsePerRevolution = 20;
-	public static double dTEncoderDistancePerRevolution = 4.21;//We need to find this.
+	public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
