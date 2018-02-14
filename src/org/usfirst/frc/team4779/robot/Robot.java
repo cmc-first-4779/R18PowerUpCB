@@ -33,16 +33,17 @@ public class Robot extends TimedRobot {
 	//Declare the Robot Subsystems.   
 	public static Lift lift;
 	public static DriveTrain driveTrain;
-//	public static DriveTrainStraightPID driveTrainStraightPID;
-//	public static DriveTrainTurnPID driveTrainTurnPID;
 	public static VacCube vacCube; 
 	public static Bling bling;
+	
 	//Declare the variables needed for the Field Management System for Red/Blue Tiles
 	public static char mySwitchSide;
 	public static char myScaleSide;
 	public static char opponentSwitchSide;
+	
 	//Declare our SmartDashboardInit
 	public static SmartDashboardInit smartDashboardInit;
+	
 	//Our standard practice is to leave the OI last.	
 	public static OI m_oi;  
 
@@ -61,10 +62,9 @@ public class Robot extends TimedRobot {
 		//Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
-//		driveTrainStraightPID = new DriveTrainStraightPID();
-//		driveTrainTurnPID = new DriveTrainTurnPID();
 		vacCube = new VacCube();
-//		bling = new Bling();
+		//We are commenting out the Bling subsystem until we get it installed.
+//		bling = new Bling();   
 		
 		//Initiate the OI.   NOTE:  ALWAYS INITIATE THE OI LAST!
 		m_oi = new OI();
@@ -78,11 +78,10 @@ public class Robot extends TimedRobot {
 		
 		//Init our SmartDashboard
 		smartDashboardInit = new SmartDashboardInit();
-		
-
-
+		//Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
+		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
 	}
 
@@ -118,6 +117,8 @@ public class Robot extends TimedRobot {
 		//Get Game Data from FMS to tell where the Red & Blue Tiles are
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		
+		//Got the "MySwitchSide" of the FMS Input working.   Need to move on to the MyScaleSide.
 		if(gameData.length() > 0) {
 			if (gameData.charAt(0) == 'L'){
 					mySwitchSide = 'L';
@@ -133,18 +134,22 @@ public class Robot extends TimedRobot {
 		else {
 			System.out.println("No game data received");
 		}
-		if (mySwitchSide == 'R') {
-			SmartDashboard.putString("mySwitch2", "Is R");
-		}
-		else {
-			SmartDashboard.putString("mySwitch2", "Not R");
-		}
-		SmartDashboard.putString("mySwitch", new StringBuilder(mySwitchSide).toString());
+		
+		//DEBUGGING Code for FMS
+//		if (mySwitchSide == 'R') {
+//			SmartDashboard.putString("mySwitch2", "Is R");
+//		}
+//		else {
+//			SmartDashboard.putString("mySwitch2", "Not R");
+//		}
+//		SmartDashboard.putString("mySwitch", new StringBuilder(mySwitchSide).toString());
+		
+		
 		SmartDashboard.putString("gamedata", gameData);
 		//  Send the default Auton Mode to the Java SmartDashboard.
-		System.out.println("Before autoChooser");
+//		System.out.println("Before autoChooser");
 		autoChooser.addDefault("Middle Switch", new MiddleSwitch());
-		System.out.println("After autoChooser");
+//		System.out.println("After autoChooser");
 		autoChooser.addObject("Left Switch", new LeftSwitch());
 		autoChooser.addObject("Right Switch", new RightSwitch());
 		autoChooser.addObject("Middle Scale", new MiddleScale());

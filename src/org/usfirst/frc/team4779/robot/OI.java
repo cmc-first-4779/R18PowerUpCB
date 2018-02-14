@@ -45,7 +45,7 @@ public class OI {
 			JoystickButton operStickBButton = new JoystickButton(operStick, RobotMap.bButton);
 			JoystickButton operStickLeftBumper = new JoystickButton(operStick, RobotMap.leftBumperButton);
 			JoystickButton operStickRightBumper = new JoystickButton(operStick, RobotMap.rightBumperButton);
-			//JoystickTrigger operStickLeftTrigger = new JoystickTrigger(operStick, RobotMap.leftTrigger);
+
 			
 			//Declare and Initiate all of the Buttons on the Driver Stick
 			JoystickButton driverStickYButton = new JoystickButton(driverStick,RobotMap.yButton);
@@ -64,6 +64,9 @@ public class OI {
 			 * Right Bumper lift down
 			 */
 			
+			
+			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
+			//
 			//driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			//driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
@@ -74,10 +77,7 @@ public class OI {
 			driverStickAButton.whenPressed(new DriveStraightPID(12, 0.6, -1));
 			driverStickBButton.whenPressed(new DriveTurnPID(90));
 			driverStickXButton.whenPressed(new DriveTurnPID(-90));
-			
-			
-
-	
+					
 			// There are a few additional built in buttons you can use. Additionally,
 			// by subclassing Button you can create custom triggers and bind those to
 			// commands the same as any other Button.

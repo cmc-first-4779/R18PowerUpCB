@@ -20,6 +20,7 @@ public class DriveJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//FOR SAFETY!! 
     	//Knocked the power down on the y-axis to 60% until we get more ballast up front to balance out the weight.
     	Robot.driveTrain.arcadeDrive(Robot.m_oi.getDriverStick().getY()*0.6, Robot.m_oi.getDriverStick().getX());
     	SmartDashboard.putNumber("Left Motor Encoder Distance:  ", Robot.driveTrain.getLeftEncoderPosition());
