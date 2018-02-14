@@ -57,14 +57,14 @@ public class RobotMap {
 	public static double liftMotorPowerDown = -1.0;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = -0.5;
+	public static double vacCubeMotorPowerIntake = -1.0;
 	public static double vacCubeMotorPowerEject = 1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
 	
 	public static double dTEncoderPulsePerRevolution = 20;
-	public static double dTEncoderDistancePerRevolution = .5;//We need to find this.
+	public static double dTEncoderDistancePerRevolution = 4.21;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
