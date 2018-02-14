@@ -29,9 +29,13 @@ public class DriveStraightPID extends Command {
     	System.out.println("Reset DT Encoders.");
     	Robot.driveTrain.resetGyro();
     	Robot.driveTrain.setDirection(m_direction); 
-    	Robot.driveTrain.setSpeed(m_speed);
+    	Robot.driveTrain.setSpeed(m_speed * m_direction);
      	Robot.driveTrain.setSetpoint(0);
      	Robot.driveTrain.enable();
+     	
+     	
+     	
+     	
     }
 
     // Called repeatedly when this Command is scheduled to run

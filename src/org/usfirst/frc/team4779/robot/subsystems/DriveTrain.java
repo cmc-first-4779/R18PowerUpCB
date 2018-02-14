@@ -45,7 +45,7 @@ public class DriveTrain extends PIDSubsystem {
 	
 
 	public DriveTrain() {
-		super("DriveTrain", -0.65, 0, 0.05);
+		super("DriveTrain", 0.65, 0, 0.05);
 		setAbsoluteTolerance(RobotMap.dTEncoderAbsoluteTolerance);
 		setOutputRange(RobotMap.dTEncoderOutputMin, RobotMap.dTEncoderOutputMax);
 		dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse);
@@ -78,7 +78,7 @@ public class DriveTrain extends PIDSubsystem {
 
 	@Override
 	protected void usePIDOutput(double output) {
-		myDrive.arcadeDrive(speed, direction*output);
+		myDrive.arcadeDrive(speed, output);
 		SmartDashboard.putNumber("Gryo Angle:  ", gyro.getAngle());
 		SmartDashboard.putNumber("Gyro PID Output:  ", output);
 

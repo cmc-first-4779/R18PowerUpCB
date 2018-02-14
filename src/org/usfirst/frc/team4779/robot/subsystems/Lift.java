@@ -25,7 +25,7 @@ public class Lift extends PIDSubsystem {
 	public Lift() {
 		 super("Lift", 0.1, 0, 0);
 		 liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse);
-		 SmartDashboard.putData("Lift State:  ", Robot.lift);
+		// SmartDashboard.putData("Lift State:  ", Robot.lift);
 	 }
 	
 	//   By default, we want the Lift Off to not drain the battery when its not being called.

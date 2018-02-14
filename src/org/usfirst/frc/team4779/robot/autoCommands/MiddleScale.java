@@ -1,5 +1,9 @@
 package org.usfirst.frc.team4779.robot.autoCommands;
 
+import org.usfirst.frc.team4779.robot.commands.TimerCommand;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -8,6 +12,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class MiddleScale extends CommandGroup {
 
     public MiddleScale() {
+    	addSequential(new DriveStraightPID(3,.75, 1 ));
+    	addSequential(new TimerCommand(5));
+    	addSequential (new DriveTurnPID(-90));
+    	addSequential(new TimerCommand(5));
+    	addSequential (new DriveStraightPID(3, .75, -1));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

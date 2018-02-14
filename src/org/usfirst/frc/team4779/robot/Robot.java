@@ -79,13 +79,7 @@ public class Robot extends TimedRobot {
 		//Init our SmartDashboard
 		smartDashboardInit = new SmartDashboardInit();
 		
-		//  Send the default Auton Mode to the Java SmartDashboard.
-		autoChooser.addDefault("Middle Switch", new MiddleSwitch());
-		autoChooser.addObject("Left Switch", new LeftSwitch());
-		autoChooser.addObject("Right Switch", new RightSwitch());
-		autoChooser.addObject("Middle Scale", new MiddleScale());
-		autoChooser.addObject("Left Scale", new LeftScale());
-		autoChooser.addObject("Right Scale", new RightScale());
+
 
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
@@ -121,19 +115,42 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		//Select the Auton Command Group from the SmartDashboard.
-		m_autonomousCommand = autoChooser.getSelected();
 		//Get Game Data from FMS to tell where the Red & Blue Tiles are
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		if(gameData.length() > 0) {
-			mySwitchSide = gameData.charAt(0);
+			if (gameData.charAt(0) == 'L'){
+					mySwitchSide = 'L';
+			}
+			else {
+				mySwitchSide='R';
+			}
+			
+			/*mySwitchSide = gameData.charAt(0);
 			myScaleSide = gameData.charAt(1);
-			opponentSwitchSide = gameData.charAt(2);
+			opponentSwitchSide = gameData.charAt(2);*/
 		}
 		else {
 			System.out.println("No game data received");
 		}
-
+		if (mySwitchSide == 'R') {
+			SmartDashboard.putString("mySwitch2", "Is R");
+		}
+		else {
+			SmartDashboard.putString("mySwitch2", "Not R");
+		}
+		SmartDashboard.putString("mySwitch", new StringBuilder(mySwitchSide).toString());
+		SmartDashboard.putString("gamedata", gameData);
+		//  Send the default Auton Mode to the Java SmartDashboard.
+		System.out.println("Before autoChooser");
+		autoChooser.addDefault("Middle Switch", new MiddleSwitch());
+		System.out.println("After autoChooser");
+		autoChooser.addObject("Left Switch", new LeftSwitch());
+		autoChooser.addObject("Right Switch", new RightSwitch());
+		autoChooser.addObject("Middle Scale", new MiddleScale());
+		autoChooser.addObject("Left Scale", new LeftScale());
+		autoChooser.addObject("Right Scale", new RightScale());
+		m_autonomousCommand = autoChooser.getSelected();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand

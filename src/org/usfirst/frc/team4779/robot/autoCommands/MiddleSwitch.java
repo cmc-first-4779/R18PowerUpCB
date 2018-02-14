@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4779.robot.autoCommands;
 
 import org.usfirst.frc.team4779.robot.Robot;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.*;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -8,13 +9,27 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class MiddleSwitch extends CommandGroup {
-
+	
     public MiddleSwitch() {
+    	System.out.println("This is my switch side " + Robot.mySwitchSide);
     	if (Robot.mySwitchSide == 'L') {
     		//execute commands to go to left switch
-    	} 
+    		System.out.println("leftswitchauto");
+    		System.out.println(Robot.mySwitchSide);
+    		addSequential(new DriveStraightPID(5, 0.75, 1));
+    		addSequential(new DriveTurnPID(90));
+    		addSequential(new DriveStraightPID(2, 0.75, 1));
+    		addSequential(new DriveTurnPID(-70));
+    			} 
     	else {
-    		//execute commands to go to right switch
+    		System.out.println("rightswitchauto");
+    		System.out.println(Robot.mySwitchSide);
+    		/*addSequential(new DriveStraightPID(3, 0.75, 1));
+    		addSequential(new DriveTurnPID(-90));
+    		addSequential(new DriveStraightPID(4, 0.75, 1));
+    		addSequential(new DriveTurnPID(50));
+    		//execute commands to go to right switch*/
+    		addSequential(new DriveStraightPID(3, .75, 1));
     	}
     	
         // Add Commands here:

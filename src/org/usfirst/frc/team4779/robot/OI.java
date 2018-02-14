@@ -70,8 +70,10 @@ public class OI {
 			driverStickLeftBumper.whileHeld(new LiftUp());
 			driverStickRightBumper.whileHeld(new LiftDown());
 	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
-			driverStickYButton.whenPressed(new DriveStraightPID(10, 0.75, -1));
+			driverStickYButton.whenPressed(new DriveStraightPID(10, 0.75, 1));
+			driverStickAButton.whenPressed(new DriveStraightPID(10, 0.75, -1));
 			driverStickBButton.whenPressed(new DriveTurnPID(90));
+			driverStickXButton.whenPressed(new DriveTurnPID(-90));
 			
 			
 

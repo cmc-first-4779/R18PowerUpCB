@@ -71,8 +71,8 @@ public class RobotMap {
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
 	public static double dTEncoderAbsoluteTolerance = 1.0;
-	public static double dTEncoderOutputMin = -0.75;
-	public static double dTEncoderOutputMax = 0.75;
+	public static double dTEncoderOutputMin = -0.65;
+	public static double dTEncoderOutputMax = 0.65;
 	public static int dTStraightPIDForward = 1;
 	public static int dTStraightPIDReverse = -1;
 	public static double dtGyroKp = 0.03;

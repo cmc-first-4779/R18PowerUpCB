@@ -27,9 +27,9 @@ public class DriveTurnPID extends Command {
 		Robot.gyroPID.setSetpoint(m_setpoint);*/
     	
     	Robot.driveTrain.resetGyro();
-    	Robot.driveTrain.setSpeed(0);
-    	Robot.driveTrain.setSetpoint(m_setpoint);   
+    	Robot.driveTrain.setSpeed(0);  
     	Robot.driveTrain.enable();
+    	Robot.driveTrain.setSetpoint(m_setpoint);   
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -45,7 +45,9 @@ public class DriveTurnPID extends Command {
 		else{
 			return false;
 		}*/
+    	//System.out.println("Gyro on Target " + Robot.driveTrain.onTarget());
     	return Robot.driveTrain.onTarget();
+    	
 
     }
     // Called once after isFinished returns true
