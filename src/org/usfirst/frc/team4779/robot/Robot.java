@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -80,7 +81,7 @@ public class Robot extends TimedRobot {
 		//Init our SmartDashboard
 		smartDashboardInit = new SmartDashboardInit();
 		
-
+		CameraServer.getInstance().startAutomaticCapture();
 
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
