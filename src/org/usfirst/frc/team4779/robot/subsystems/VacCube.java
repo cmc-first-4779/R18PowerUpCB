@@ -31,9 +31,9 @@ public class VacCube extends Subsystem {
     //  This PRIVATE Method is convenient as it allows us to have one method that jointly sets the power
     //    to both the left and right Spark controllers.  We use this method below quite often.
     private void setMotorPower(double power) {
-    	vacCubeLeftMotor.set(power);
+    	vacCubeLeftMotor.set(-power);
     	//inverted right motor power, assumes identical wiring 
-    	vacCubeRightMotor.set(-power);
+    	vacCubeRightMotor.set(power);
     	//Set the m_power to power so that we can call it in the getPower() method for the SmartDashboard.
     	m_power = power;
     	SmartDashboard.putNumber("VacCube Power:  ", getPower());

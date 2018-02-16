@@ -24,7 +24,7 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
-	//Map out the SPARK controllers.
+	//Map out the SPARK controllers and PWM Ports.
 	public static int frontLeftDrivePWMPort = 0;
 	public static int frontRightDrivePWMPort = 1;
 	public static int rearLeftDrivePWMPort = 2;
@@ -62,26 +62,28 @@ public class RobotMap {
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
-	
+	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
 	public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
+  //Mule ratio below
+	//public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
 	public static double dTEncoderAbsoluteTolerance = 1.0;
+
 	public static double dTEncoderOutputMin = -0.85;
 	public static double dTEncoderOutputMax = 0.85;
 	public static int FORWARD = 1;
 	public static int REVERSE = -1;
 	public static double dtGyroKp = 0.03;
-	
-	
-	
+
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 1.0;
 	
+	//Lift Encoder Settings and DIO Mappings.
 	public static int liftEncoderChannelA = 4;
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
@@ -90,8 +92,6 @@ public class RobotMap {
 	public static double switchHeight = 2; 
 	public static double scaleHeight = 5;
 	public static double pickUpHeight = 5;
-	
-	
-	
+
 }
 
