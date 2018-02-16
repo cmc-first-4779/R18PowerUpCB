@@ -70,15 +70,18 @@ public class OI {
 			//driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			//driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-			driverStickLeftBumper.whileHeld(new VacCubeIntake());
-			driverStickRightBumper.whileHeld(new VacCubeEject());
+			//driverStickLeftBumper.whileHeld(new VacCubeIntake());
+			//driverStickRightBumper.whileHeld(new VacCubeEject());
 	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
-			driverStickYButton.whenPressed(new DriveStraightPID(12, 0.6, 1));
-			driverStickAButton.whenPressed(new DriveStraightPID(12, 0.6, -1));
-			driverStickBButton.whenPressed(new DriveTurnPID(90));
+			//driverStickYButton.whileHeld(new LiftUp());
+			//driverStickAButton.whileHeld(new LiftDown());
+			driverStickYButton.whenPressed(new DriveStraightPID(144, 0.70, RobotMap.FORWARD));
+			driverStickAButton.whenPressed(new DriveStraightPID(144, 0.70, RobotMap.REVERSE));
 			driverStickXButton.whenPressed(new DriveTurnPID(-90));
-					
-			// There are a few additional built in buttons you can use. Additionally,
+			driverStickBButton.whenPressed(new DriveTurnPID(90));
+			
+	
+  		// There are a few additional built in buttons you can use. Additionally,
 			// by subclassing Button you can create custom triggers and bind those to
 			// commands the same as any other Button.
 

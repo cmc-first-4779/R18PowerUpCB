@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -20,6 +21,7 @@ import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -78,7 +80,11 @@ public class Robot extends TimedRobot {
 		
 		//Init our SmartDashboard
 		smartDashboardInit = new SmartDashboardInit();
-		//Put some data in the Smart Dashboard.
+
+		//Init our Camera..
+		CameraServer.getInstance().startAutomaticCapture();
+
+    //Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
 		SmartDashboard.putData(lift);
@@ -113,6 +119,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		Robot.driveTrain.setDefaultCommand(null);
 		//Select the Auton Command Group from the SmartDashboard.
 		//Get Game Data from FMS to tell where the Red & Blue Tiles are
 		String gameData;
@@ -179,6 +186,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -197,7 +205,7 @@ public class Robot extends TimedRobot {
 	}
 
 	/**
-	 * This function is called periodically during test mode.
+	 * This function is called periodically during test mode.t
 	 */
 	@Override
 	public void testPeriodic() {

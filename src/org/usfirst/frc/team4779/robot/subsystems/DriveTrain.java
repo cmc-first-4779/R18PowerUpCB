@@ -72,6 +72,9 @@ public class DriveTrain extends PIDSubsystem {
     	//  This is our where we define arcadeDrive within the Subsystem
     	//  NOTE:  the xAxis off of the Joystick below is INVERTED.
     	myDrive.arcadeDrive(-yAxis, xAxis);
+
+    	SmartDashboard.putData(gyro);
+
     	//Send ENCODER information to the Smart Dashboard.
     	SmartDashboard.putNumber("Left Encoder Position: ", getLeftEncoderPosition());
     	SmartDashboard.putNumber("Right Encoder Position", getRightEncoderPosition());
@@ -91,7 +94,9 @@ public class DriveTrain extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		//The ArcadeDrive command with our Speed and OUTPUT as our x-axis rotation is how we use the PID OUTPUT
 		myDrive.arcadeDrive(speed, output);
+
 		//Send GYRO information to the SMART DASHBOARD
+		SmartDashboard.putData(gyro);
 		SmartDashboard.putNumber("Gryo Angle:  ", gyro.getAngle());
 		SmartDashboard.putNumber("Gyro PID Output:  ", output);
 	}

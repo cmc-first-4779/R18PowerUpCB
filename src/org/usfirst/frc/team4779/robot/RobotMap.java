@@ -57,25 +57,29 @@ public class RobotMap {
 	public static double liftMotorPowerDown = -1.0;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = -1.0;
-	public static double vacCubeMotorPowerEject = 1.0;
+	public static double vacCubeMotorPowerIntake = 1.0;
+	public static double vacCubeMotorPowerEject = -1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
-	public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
+	public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
+  //Mule ratio below
+	//public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
 	public static double dTEncoderAbsoluteTolerance = 1.0;
-	public static double dTEncoderOutputMin = -0.65;
-	public static double dTEncoderOutputMax = 0.65;
-	public static int dTStraightPIDForward = 1;
-	public static int dTStraightPIDReverse = -1;
-	public static double dtGyroKp = 0.03;	
+
+	public static double dTEncoderOutputMin = -0.85;
+	public static double dTEncoderOutputMax = 0.85;
+	public static int FORWARD = 1;
+	public static int REVERSE = -1;
+	public static double dtGyroKp = 0.03;
+
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 1.0;
 	
@@ -85,7 +89,9 @@ public class RobotMap {
 	public static double liftEncoderPulsePerRevolution = 20;
 	public static double liftEncoderDistancePerRevolution = 0.132;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
-	
-	
+	public static double switchHeight = 2; 
+	public static double scaleHeight = 5;
+	public static double pickUpHeight = 5;
+
 }
 
