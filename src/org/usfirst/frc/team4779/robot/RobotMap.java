@@ -64,15 +64,15 @@ public class RobotMap {
 	
 	
 	public static double dTEncoderPulsePerRevolution = 20;
-	public static double dTEncoderDistancePerRevolution = .5;//We need to find this.
+	public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
 	public static double dTEncoderAbsoluteTolerance = 1.0;
-	public static double dTEncoderOutputMin = -0.65;
-	public static double dTEncoderOutputMax = 0.65;
+	public static double dTEncoderOutputMin = -0.85;
+	public static double dTEncoderOutputMax = 0.85;
 	public static int FORWARD = 1;
 	public static int REVERSE = -1;
 	public static double dtGyroKp = 0.03;
