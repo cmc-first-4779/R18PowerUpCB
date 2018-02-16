@@ -67,13 +67,13 @@ public class OI {
 			//driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			//driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-			driverStickLeftBumper.whileHeld(new LiftUp());
-			driverStickRightBumper.whileHeld(new LiftDown());
+			driverStickLeftBumper.whileHeld(new VacCubeIntake());
+			driverStickRightBumper.whileHeld(new VacCubeEject());
 	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
-			driverStickYButton.whenPressed(new DriveStraightPID(10, 0.75, 1));
-			driverStickAButton.whenPressed(new DriveStraightPID(10, 0.75, -1));
-			driverStickBButton.whenPressed(new DriveTurnPID(90));
-			driverStickXButton.whenPressed(new DriveTurnPID(-90));
+			driverStickYButton.whileHeld(new LiftUp());
+			driverStickAButton.whileHeld(new LiftDown());
+			//driverStickBButton.whenPressed(new DriveTurnPID(90));
+			//driverStickXButton.whenPressed(new DriveTurnPID(-90));
 			
 			
 

@@ -81,6 +81,7 @@ public class Robot extends TimedRobot {
 		//Init our SmartDashboard
 		smartDashboardInit = new SmartDashboardInit();
 		
+		//Init our Camera..
 		CameraServer.getInstance().startAutomaticCapture();
 
 		SmartDashboard.putData("Auto mode", autoChooser);
