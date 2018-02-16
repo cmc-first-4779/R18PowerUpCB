@@ -25,7 +25,7 @@ public class RightScale extends CommandGroup {
 		addSequential(new TimerCommand(2));
 		addSequential(new DriveTurnPID(-90));
 		addSequential(new TimerCommand(2));
-		addSequential(new DriveStraightPID(10, 0.75, RobotMap.FORWARD))
+		addSequential(new DriveStraightPID(10, 0.75, RobotMap.FORWARD));
 	}
 	/*Drive Straight (x)
 	Wait (2)

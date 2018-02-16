@@ -51,4 +51,4 @@ public class LeftSwitch extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     }
-}
+
