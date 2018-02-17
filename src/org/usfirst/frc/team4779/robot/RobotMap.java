@@ -74,6 +74,8 @@ public class RobotMap {
 	public static int dTEncoderRightChannelB = 3;
 	public static double dTEncoderAbsoluteTolerance = 1.0;
 
+
+
 	public static double dTEncoderOutputMin = -0.85;
 	public static double dTEncoderOutputMax = 0.85;
 	public static int FORWARD = 1;
@@ -87,11 +89,16 @@ public class RobotMap {
 	public static int liftEncoderChannelA = 4;
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
-	public static double liftEncoderDistancePerRevolution = 0.132;  //We need to find this.
+	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
-	public static double switchHeight = 2; 
-	public static double scaleHeight = 5;
-	public static double pickUpHeight = 5;
+	public static double switchHeight = 26; 
+	public static double scaleHeight = 72;
+	public static double pickUpHeight = 0;
+	public static double portalHeight = 33;
+	public static double liftThrottleHeight = 42;
+	public static double dTLiftThrottleDown = 0.85;
+	public static double liftThrottleDown = 0.5;
+	public static double dtTurnThrottle = 0.8;
 
 }
 

@@ -7,12 +7,15 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import org.usfirst.frc.team4779.robot.commands.CameraToggle;
+import org.usfirst.frc.team4779.robot.commands.SetCameraHigh;
+import org.usfirst.frc.team4779.robot.commands.SetCameraLow;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.arcadeDriveWithGyro;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
-import org.usfirst.frc.team4779.robot.commands.lift.SetLiftPosition;
+import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 
@@ -70,15 +73,21 @@ public class OI {
 			//driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			//driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-			//driverStickLeftBumper.whileHeld(new VacCubeIntake());
-			//driverStickRightBumper.whileHeld(new VacCubeEject());
-	//		driverStickYButton.whenPressed(new SetLiftPosition(.9) );
+		//	driverStickLeftBumper.whileHeld(new VacCubeIntake());
+		//	driverStickRightBumper.whileHeld(new VacCubeEject());
+			driverStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+			driverStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
+			driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+			driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			driverStickLeftBumper.whileHeld(new LiftUp());
+			driverStickRightBumper.whileHeld(new LiftDown());
+			//driverStickAButton.whenPressed(new SetCameraLow());
+			//driverStickYButton.whenPressed(new SetCameraHigh());
+			
+			
 			//driverStickYButton.whileHeld(new LiftUp());
 			//driverStickAButton.whileHeld(new LiftDown());
-			driverStickYButton.whenPressed(new DriveStraightPID(144, 0.70, RobotMap.FORWARD));
-			driverStickAButton.whenPressed(new DriveStraightPID(144, 0.70, RobotMap.REVERSE));
-			driverStickXButton.whenPressed(new DriveTurnPID(-90));
-			driverStickBButton.whenPressed(new DriveTurnPID(90));
+
 			
 	
   		// There are a few additional built in buttons you can use. Additionally,

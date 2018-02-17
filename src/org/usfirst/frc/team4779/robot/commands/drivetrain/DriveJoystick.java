@@ -22,7 +22,7 @@ public class DriveJoystick extends Command {
     protected void execute() {
     	//FOR SAFETY!! 
     	//Knocked the power down on the y-axis to 60% until we get more ballast up front to balance out the weight.
-    	Robot.driveTrain.arcadeDrive(Robot.m_oi.getDriverStick().getY()*0.6, Robot.m_oi.getDriverStick().getX());
+    	Robot.driveTrain.arcadeDrive(Robot.m_oi.getDriverStick().getY(), Robot.m_oi.getDriverStick().getX());
     	SmartDashboard.putNumber("Left Motor Encoder Distance:  ", Robot.driveTrain.getLeftEncoderPosition());
     	SmartDashboard.putNumber("Right Motor Encoder Distance:  " , Robot.driveTrain.getRightEncoderPosition());
     }

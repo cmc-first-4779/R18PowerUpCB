@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Lift extends PIDSubsystem {
 	//  Declare our Spark Motor that powers the lift
 	Spark liftMotor = new Spark(RobotMap.liftMotorPWMPort);
-	private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannelA, RobotMap.liftEncoderChannelB);
+	private static Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannelA, RobotMap.liftEncoderChannelB);
 	//private AnalogInput rangefinder = new AnalogInput(0);
 	
 	
@@ -59,13 +59,21 @@ public class Lift extends PIDSubsystem {
     public void liftMove(double power) {
     	SmartDashboard.putNumber("Lift Encoder Position:  ", getDistance());
     	SmartDashboard.putNumber("Lift Power", power);
-    	liftMotor.set(power);
+    	if ((Robot.lift.getDistance() < RobotMap.liftThrottleHeight))   {
+    		liftMotor.set(power);
+    	}
+    	else if (Robot.lift.getSetpoint() < Robot.lift.getDistance()) {
+    		liftMotor.set(power);
+    	}	
+    	else  { 
+    		liftMotor.set(power*RobotMap.liftThrottleDown);
+    	}
     }
     
 	public void log() {
 	}
 
-	public double getDistance() {
+	public static double getDistance() {
 		return liftEncoder.getDistance();
 	}
 	
@@ -83,6 +91,7 @@ public class Lift extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		// TODO Auto-generated method stub
 		liftMove(output);	
+		SmartDashboard.putNumber("Lift Encoder Distance: ", Robot.lift.getDistance());
 	}
 }
 

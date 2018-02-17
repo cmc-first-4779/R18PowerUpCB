@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4779.robot.autoCommands.*;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
+import org.usfirst.frc.team4779.robot.subsystems.CameraFeeds;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
@@ -37,6 +38,7 @@ public class Robot extends TimedRobot {
 	public static DriveTrain driveTrain;
 	public static VacCube vacCube; 
 	public static Bling bling;
+	public static CameraFeeds cameraFeeds;
 	
 	//Declare the variables needed for the Field Management System for Red/Blue Tiles
 	public static char mySwitchSide;
@@ -65,6 +67,7 @@ public class Robot extends TimedRobot {
 		lift = new Lift();
 		driveTrain = new DriveTrain();
 		vacCube = new VacCube();
+		cameraFeeds = new CameraFeeds();
 		//We are commenting out the Bling subsystem until we get it installed.
 //		bling = new Bling();   
 		
@@ -77,12 +80,13 @@ public class Robot extends TimedRobot {
 		
 		//Reset our Lift Encoder
 		Robot.lift.resetLiftEncoder();
+		SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
 		
 		//Init our SmartDashboard
-		smartDashboardInit = new SmartDashboardInit();
+		//smartDashboardInit = new SmartDashboardInit();
 
 		//Init our Camera..
-		CameraServer.getInstance().startAutomaticCapture();
+		Robot.cameraFeeds.setCameraLow();
 
     //Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);

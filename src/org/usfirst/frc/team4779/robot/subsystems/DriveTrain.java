@@ -71,7 +71,15 @@ public class DriveTrain extends PIDSubsystem {
     public void arcadeDrive(double yAxis, double xAxis) {
     	//  This is our where we define arcadeDrive within the Subsystem
     	//  NOTE:  the xAxis off of the Joystick below is INVERTED.
-    	myDrive.arcadeDrive(-yAxis, xAxis);
+    	
+    	//Check to see how high the lift is..   If it's under out threashhold.
+    	if (Robot.lift.getDistance() < RobotMap.liftThrottleHeight) {
+    		myDrive.arcadeDrive(-yAxis, xAxis*RobotMap.dtTurnThrottle);
+    	}
+    	//if it's over our threshhold, throttle down the driveTrain.
+    	else   {
+    		myDrive.arcadeDrive(-yAxis*RobotMap.dTLiftThrottleDown, xAxis*RobotMap.dtTurnThrottle);
+    	}
 
     	SmartDashboard.putData(gyro);
 
