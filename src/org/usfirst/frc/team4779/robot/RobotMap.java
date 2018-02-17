@@ -99,7 +99,7 @@ public class RobotMap {
 	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 26; 
-	public static double scaleHeight = 76.0;
+	public static double scaleHeight = 79.0;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double liftThrottleHeight = 76;
