@@ -29,7 +29,8 @@ public class DriveTurnPID extends Command {
     	//ENABLE THE PID AND LET IT DO ITS THING!
     	Robot.driveTrain.enable();
     	//TELL THE PID TO GO TO THE DESIRED ANGLE!!
-    	Robot.driveTrain.setSetpoint(m_setpoint);   
+    	Robot.driveTrain.setSetpoint(m_setpoint);
+    	Robot.driveTrain.setOutputRangeOfEncoders(RobotMap.dTEncoderOutputMinTurn, RobotMap.dTEncoderOutputMaxTurn);
     }
 
     // Called repeatedly when this Command is scheduled to run

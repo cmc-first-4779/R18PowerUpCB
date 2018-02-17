@@ -23,8 +23,9 @@ public class Lift extends PIDSubsystem {
 	
 	
 	public Lift() {
-		 super("Lift", 0.1, 0, 0);
+		 super("Lift", RobotMap.liftPValue, RobotMap.liftIValue, RobotMap.liftDValue);
 		 liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse);
+		 setAbsoluteTolerance(RobotMap.liftTolerance);
 		// SmartDashboard.putData("Lift State:  ", Robot.lift);
 	 }
 	

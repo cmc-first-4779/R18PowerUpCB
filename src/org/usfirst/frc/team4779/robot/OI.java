@@ -7,12 +7,16 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import org.usfirst.frc.team4779.robot.autoCommands.LeftScale;
+import org.usfirst.frc.team4779.robot.autoCommands.LeftSwitch;
 import org.usfirst.frc.team4779.robot.commands.CameraToggle;
+import org.usfirst.frc.team4779.robot.commands.DeployPortal;
+import org.usfirst.frc.team4779.robot.commands.DeployScale;
+import org.usfirst.frc.team4779.robot.commands.DeploySwitch;
 import org.usfirst.frc.team4779.robot.commands.SetCameraHigh;
 import org.usfirst.frc.team4779.robot.commands.SetCameraLow;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
-import org.usfirst.frc.team4779.robot.commands.drivetrain.arcadeDriveWithGyro;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
@@ -73,12 +77,16 @@ public class OI {
 			//driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			//driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-		//	driverStickLeftBumper.whileHeld(new VacCubeIntake());
-		//	driverStickRightBumper.whileHeld(new VacCubeEject());
+			operStickLeftBumper.whileHeld(new VacCubeIntake());
+			operStickRightBumper.whileHeld(new VacCubeEject());
+			operStickYButton.whenPressed(new DeployScale());
+			operStickXButton.whenPressed(new DeploySwitch());
+			operStickBButton.whenPressed(new DeployPortal());
 			driverStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
 			driverStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 			driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			driverStickAButton.whenPressed(new DriveTurnPID(90));
+			//driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
 			driverStickLeftBumper.whileHeld(new LiftUp());
 			driverStickRightBumper.whileHeld(new LiftDown());
 			//driverStickAButton.whenPressed(new SetCameraLow());

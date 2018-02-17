@@ -57,8 +57,8 @@ public class RobotMap {
 	public static double liftMotorPowerDown = -1.0;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = 1.0;
-	public static double vacCubeMotorPowerEject = -1.0;
+	public static double vacCubeMotorPowerIntake = -.6;
+	public static double vacCubeMotorPowerEject = 1;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
@@ -73,6 +73,10 @@ public class RobotMap {
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
 	public static double dTEncoderAbsoluteTolerance = 1.0;
+	public static double dTPValue = .2;
+	public static double dtIValue = .0;
+	public static double dtDValue = .0;
+	
 
 
 
@@ -80,25 +84,33 @@ public class RobotMap {
 	public static double dTEncoderOutputMax = 0.85;
 	public static int FORWARD = 1;
 	public static int REVERSE = -1;
-	public static double dtGyroKp = 0.03;
+
 
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 1.0;
 	
 	//Lift Encoder Settings and DIO Mappings.
+	public static double liftPValue = .5;
+	public static double liftIValue = .2;
+	public static double liftDValue = .0;
 	public static int liftEncoderChannelA = 4;
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
 	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 26; 
-	public static double scaleHeight = 72;
+	public static double scaleHeight = 76.0;
 	public static double pickUpHeight = 0;
-	public static double portalHeight = 33;
-	public static double liftThrottleHeight = 42;
-	public static double dTLiftThrottleDown = 0.85;
+	public static double portalHeight = 3;
+	public static double liftThrottleHeight = 76;
+	public static double liftDTThrottleHeight = 28;
+	public static double dTLiftThrottleDown = 0.5;
 	public static double liftThrottleDown = 0.5;
-	public static double dtTurnThrottle = 0.8;
+	public static double dtTurnThrottle = 0.7;
+	public static double dtTurnLiftedThrottle = .6;
+	public static double liftTolerance = .5;
+	public static double dTEncoderOutputMinTurn = -.65;
+	public static double dTEncoderOutputMaxTurn = .65;
 
 }
 

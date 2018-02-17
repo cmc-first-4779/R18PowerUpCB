@@ -87,6 +87,15 @@ public class Robot extends TimedRobot {
 
 		//Init our Camera..
 		Robot.cameraFeeds.setCameraLow();
+		
+		autoChooser.addDefault("Middle Switch", new MiddleSwitch());
+//		System.out.println("After autoChooser");
+		autoChooser.addObject("Left Switch", new LeftSwitch());
+		autoChooser.addObject("Right Switch", new RightSwitch());
+		autoChooser.addObject("Middle Scale", new MiddleScale());
+		autoChooser.addObject("Left Scale", new LeftScale());
+		autoChooser.addObject("Right Scale", new RightScale());
+		m_autonomousCommand = autoChooser.getSelected();
 
     //Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
@@ -123,7 +132,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		Robot.driveTrain.setDefaultCommand(null);
+
 		//Select the Auton Command Group from the SmartDashboard.
 		//Get Game Data from FMS to tell where the Red & Blue Tiles are
 		String gameData;
@@ -131,16 +140,16 @@ public class Robot extends TimedRobot {
 		
 		//Got the "MySwitchSide" of the FMS Input working.   Need to move on to the MyScaleSide.
 		if(gameData.length() > 0) {
-			if (gameData.charAt(0) == 'L'){
-					mySwitchSide = 'L';
-			}
-			else {
-				mySwitchSide='R';
-			}
+//			if (gameData.charAt(0) == 'L'){
+//					mySwitchSide = 'L';
+//			}
+//			else {
+//				mySwitchSide='R';
+//			}
 			
-			/*mySwitchSide = gameData.charAt(0);
+			mySwitchSide = gameData.charAt(0);
 			myScaleSide = gameData.charAt(1);
-			opponentSwitchSide = gameData.charAt(2);*/
+			opponentSwitchSide = gameData.charAt(2);
 		}
 		else {
 			System.out.println("No game data received");
@@ -190,7 +199,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
+		//Robot.driveTrain.setDefaultCommand(new DriveJoystick());
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -198,6 +207,9 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
+		Robot.mySwitchSide = 'L';
+	Robot.myScaleSide = 'L';
+	Robot.opponentSwitchSide = 'L';
 	}
 
 	/**

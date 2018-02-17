@@ -31,8 +31,10 @@ public class DriveTrain extends PIDSubsystem {
 	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	//Declare the variable we are using to set the forward or backward direction of the robot for Auton Comamnd Groups.
 	public int direction; //forward 1 or backward -1
-	//NOT USING THE KP VALUE ANYMORE, BUT LEAVING IT IN THE CODE FOR NOW.
-	double Kp = RobotMap.dtGyroKp;
+	
+	//The current distance we are trying to go.  Used for auton
+	public double distance;
+	
 	//Declare the variable we are using for speed for our Auton Command Groups.
 	private double speed;
 
@@ -50,7 +52,7 @@ public class DriveTrain extends PIDSubsystem {
 
 	public DriveTrain() {
 		//OUR GYRO PID SETTINGS.   WE GOT THIS THROUGH A LOT OF TESTING AND CALIBRATION!!!
-		super("DriveTrain", 0.65, 0, 0.05);
+		super("DriveTrain", RobotMap.dTPValue, RobotMap.dtIValue, RobotMap.dtDValue);
 		//Set the Absolute Tolerance for error in our Gyro.  (In Degrees)
 		setAbsoluteTolerance(RobotMap.dTEncoderAbsoluteTolerance);
 		//Set our Encoder Ouput Min and Max.   This will limit the speed of our motors while the PID is running.
@@ -58,6 +60,10 @@ public class DriveTrain extends PIDSubsystem {
 		//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
 		dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse);
 		dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse);
+	}
+	
+	public void setOutputRangeOfEncoders (double min, double max) {
+		setOutputRange(min, max);
 	}
 	
     public void initDefaultCommand() {
@@ -73,12 +79,12 @@ public class DriveTrain extends PIDSubsystem {
     	//  NOTE:  the xAxis off of the Joystick below is INVERTED.
     	
     	//Check to see how high the lift is..   If it's under out threashhold.
-    	if (Robot.lift.getDistance() < RobotMap.liftThrottleHeight) {
-    		myDrive.arcadeDrive(-yAxis, xAxis*RobotMap.dtTurnThrottle);
+    	if (Robot.lift.getDistance() < RobotMap.liftDTThrottleHeight) {
+    		myDrive.arcadeDrive(-yAxis*.8, xAxis*RobotMap.dtTurnThrottle);
     	}
     	//if it's over our threshhold, throttle down the driveTrain.
     	else   {
-    		myDrive.arcadeDrive(-yAxis*RobotMap.dTLiftThrottleDown, xAxis*RobotMap.dtTurnThrottle);
+    		myDrive.arcadeDrive(-yAxis*RobotMap.dTLiftThrottleDown, xAxis*RobotMap.dtTurnLiftedThrottle);
     	}
 
     	SmartDashboard.putData(gyro);
@@ -101,21 +107,14 @@ public class DriveTrain extends PIDSubsystem {
 	@Override
 	protected void usePIDOutput(double output) {
 		//The ArcadeDrive command with our Speed and OUTPUT as our x-axis rotation is how we use the PID OUTPUT
-		myDrive.arcadeDrive(speed, output);
 
+		myDrive.arcadeDrive(speed, output);
+		
 		//Send GYRO information to the SMART DASHBOARD
 		SmartDashboard.putData(gyro);
 		SmartDashboard.putNumber("Gryo Angle:  ", gyro.getAngle());
 		SmartDashboard.putNumber("Gyro PID Output:  ", output);
 	}
-    
-    public void arcadeDriveWithGryo() {
-    	//WE ARE NOT USING THIS METHOD AND MOST LIKELY WILL DELETE IT!
-		SmartDashboard.putNumber("Gryo Angle:  ", gyro.getAngle());
-    	double angle = gyro.getAngle();
-    	System.out.println("Angle: " + angle);
-    	myDrive.arcadeDrive(-.4, Kp*-angle );
-    }
     
     public void resetGyro() {
     	//This method exists so that our commands can call on the subsystem to reset the Gyro.
@@ -183,10 +182,8 @@ public class DriveTrain extends PIDSubsystem {
     	return gyro.getAngle();
     }
     
-    public double getGyroKp()  {
-    	//Return the Gyro Kp Value.   
-    	//WE ARE PRETTY SURE WE WILL NOT EVER NEED THIS!
-    	return Kp;
+    public void setDistance(Double dis) {
+    	this.distance = dis;
     }
 
 }

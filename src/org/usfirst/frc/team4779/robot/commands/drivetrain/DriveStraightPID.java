@@ -37,6 +37,7 @@ public class DriveStraightPID extends Command {
     	Robot.driveTrain.setDirection(m_direction); 
     	//SET OUR PID SPEED.   (NOTE:  BY MULTIPLYING SPEED BY DIRECTION, OUR PID WILL KNOW WHICH DIRECTION TO GO
     	Robot.driveTrain.setSpeed(m_speed * m_direction);
+    	Robot.driveTrain.setDistance(m_distance);
     	//SET OUR GYRO TO ZERO!   WE WANT TO GO STRAIGHT!
      	Robot.driveTrain.setSetpoint(0);
      	//ENABLE THE PID!
