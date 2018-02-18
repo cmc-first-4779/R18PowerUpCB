@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import org.usfirst.frc.team4779.robot.autoCommands.CalibrateDistance;
 import org.usfirst.frc.team4779.robot.autoCommands.LeftScale;
 import org.usfirst.frc.team4779.robot.autoCommands.LeftSwitch;
 import org.usfirst.frc.team4779.robot.commands.CameraToggle;
@@ -82,7 +83,7 @@ public class OI {
 			operStickYButton.whenPressed(new DeployScale());
 			operStickXButton.whenPressed(new DeploySwitch());
 			operStickBButton.whenPressed(new DeployPortal());
-			driverStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+			driverStickYButton.whenPressed(new CalibrateDistance());
 			driverStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 			driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 			driverStickAButton.whenPressed(new DriveTurnPID(90));

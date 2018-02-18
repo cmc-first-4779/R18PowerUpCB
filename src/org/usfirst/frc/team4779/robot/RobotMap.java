@@ -57,14 +57,15 @@ public class RobotMap {
 	public static double liftMotorPowerDown = -1.0;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = -.6;
-	public static double vacCubeMotorPowerEject = 1;
+	public static double vacCubeMotorPowerIntake = .6;
+	public static double vacCubeMotorPowerEject = -1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
-	public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
+	//public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
+	public static double dTEncoderDistancePerRevolution = 2.315;//We need to find this.
   //Mule ratio below
 	//public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
@@ -84,6 +85,8 @@ public class RobotMap {
 	public static double dTEncoderOutputMax = 0.85;
 	public static int FORWARD = 1;
 	public static int REVERSE = -1;
+	public static int LEFT = -90;
+	public static int RIGHT = 90;
 
 
 	public static double dTTurnPIDTurnSpeed = 0.4;
@@ -111,6 +114,32 @@ public class RobotMap {
 	public static double liftTolerance = .5;
 	public static double dTEncoderOutputMinTurn = -.65;
 	public static double dTEncoderOutputMaxTurn = .65;
+	
+	//Field Measurments for Auton
+	//
+	public static double FIELD_RATIO__MULTIPLIER = 1.0;
+	//
+	public static double FRONT_SCALE_DISTANCE = ((299.65-33) + 18) * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_APPROACH_DISTANCE = 5 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_DISTANCE = ((196 -33) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_FULL_SPEED = 0.9;
+	public static double THROTTLE_SPEED = 0.6;
+	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_LENGTH = 96 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_LENGTH_TO_SWITCH = 72 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_THROTTLE_DOWN_DISTANCE = 30 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_SPEED = 0.8;
+	public static double AISLE_SCALE_APPROACH_DISTANCE = 60 * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SWITCH_DISTANCE = 131 * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SWITCH_SPEED = 0.85;
+	public static double FRONT_SWITCH_APPROACH_DISTANCE = 5 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_SWITCH_APPROACH_DISTANCE = 60 * FIELD_RATIO__MULTIPLIER;
+	public static double SIDE_SWITCH_DISTANCE = (134 - 33) * FIELD_RATIO__MULTIPLIER;
+	public static double SIDE_SWITCH_HALF_DISTANCE = (SIDE_SWITCH_DISTANCE / 2) * FIELD_RATIO__MULTIPLIER;
+	public static double LIFT_SETPOINT_HIGH_SPEED = 50;
+	public static double LIFT_SETPOINT_LOW_SPEED = 70;
+	
+	
 
 }
 

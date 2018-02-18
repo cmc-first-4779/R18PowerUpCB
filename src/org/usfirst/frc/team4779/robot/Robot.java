@@ -199,7 +199,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		//Robot.driveTrain.setDefaultCommand(new DriveJoystick());
+//		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
