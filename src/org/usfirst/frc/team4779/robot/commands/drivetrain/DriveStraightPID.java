@@ -1,6 +1,8 @@
 package org.usfirst.frc.team4779.robot.commands.drivetrain;
 
 import org.usfirst.frc.team4779.robot.Robot;
+import org.usfirst.frc.team4779.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -42,6 +44,7 @@ public class DriveStraightPID extends Command {
      	Robot.driveTrain.setSetpoint(0);
      	//ENABLE THE PID!
      	Robot.driveTrain.enable();
+     	Robot.driveTrain.setOutputRange(RobotMap.dTEncoderOutputMin, RobotMap.dTEncoderOutputMax);
     }
 
     // Called repeatedly when this Command is scheduled to run
