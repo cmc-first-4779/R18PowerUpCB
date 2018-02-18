@@ -27,6 +27,7 @@ public class DriveTrain extends PIDSubsystem {
 	Spark rearLeftDrive = new Spark(RobotMap.rearLeftDrivePWMPort);
 	Spark rearRightDrive = new Spark(RobotMap.rearRightDrivePWMPort);
 	
+	
 	//Declare and Initialize our Gyro.
 	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	//Declare the variable we are using to set the forward or backward direction of the robot for Auton Comamnd Groups.
@@ -184,6 +185,14 @@ public class DriveTrain extends PIDSubsystem {
     
     public void setDistance(Double dis) {
     	this.distance = dis;
+    }
+    
+    public void setMotorSafety(boolean enabled ) {
+    	myDrive.setSafetyEnabled(enabled);
+//    	frontLeftDrive.setSafetyEnabled(enabled);
+//    	frontRightDrive.setSafetyEnabled(enabled);
+//    	rearLeftDrive.setSafetyEnabled(enabled);
+//    	rearRightDrive.setSafetyEnabled(enabled);
     }
 
 }
