@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4779.robot;
 
+import org.usfirst.frc.team4779.robot.autoCommands.CalibrateDistance;
 import org.usfirst.frc.team4779.robot.autoCommands.LeftScale;
 import org.usfirst.frc.team4779.robot.autoCommands.LeftSwitch;
 import org.usfirst.frc.team4779.robot.commands.CameraToggle;
@@ -77,15 +78,17 @@ public class OI {
 			//driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
 			//driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-//			operStickLeftBumper.whileHeld(new VacCubeIntake());
-//			operStickRightBumper.whileHeld(new VacCubeEject());
-//			operStickYButton.whenPressed(new DeployScale());
-//			operStickXButton.whenPressed(new DeploySwitch());
-//			operStickBButton.whenPressed(new DeployPortal());
-//			driverStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
-//			driverStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-//			driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-//			driverStickAButton.whenPressed(new DriveTurnPID(90));
+
+			operStickLeftBumper.whileHeld(new VacCubeIntake());
+			operStickRightBumper.whileHeld(new VacCubeEject());
+			operStickYButton.whenPressed(new DeployScale());
+			operStickXButton.whenPressed(new DeploySwitch());
+			operStickBButton.whenPressed(new DeployPortal());
+			driverStickYButton.whenPressed(new CalibrateDistance());
+			driverStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
+			driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+			driverStickAButton.whenPressed(new DriveTurnPID(90));
+
 			//driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
 //			driverStickLeftBumper.whileHeld(new LiftUp());
 //			driverStickRightBumper.whileHeld(new LiftDown());
