@@ -188,10 +188,11 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     public void setMotorSafety(boolean enabled ) {
-    	frontLeftDrive.setSafetyEnabled(enabled);
-    	frontRightDrive.setSafetyEnabled(enabled);
-    	rearLeftDrive.setSafetyEnabled(enabled);
-    	rearRightDrive.setSafetyEnabled(enabled);
+    	myDrive.setSafetyEnabled(enabled);
+//    	frontLeftDrive.setSafetyEnabled(enabled);
+//    	frontRightDrive.setSafetyEnabled(enabled);
+//    	rearLeftDrive.setSafetyEnabled(enabled);
+//    	rearRightDrive.setSafetyEnabled(enabled);
     }
 
 }
