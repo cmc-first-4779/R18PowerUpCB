@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class MiddleScale extends CommandGroup {
 
     public MiddleScale() {
+    	super("Middle Scale");
     	addSequential(new DriveStraightPID(3,.75, 1 ));
     	addSequential(new TimerCommand(5));
     	addSequential (new DriveTurnPID(-90));

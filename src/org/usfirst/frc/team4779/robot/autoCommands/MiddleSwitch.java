@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class MiddleSwitch extends CommandGroup {
 	
     public MiddleSwitch() {
-    	System.out.println("This is my switch side " + Robot.mySwitchSide);
+    	super("Middle Switch");
     	if (Robot.mySwitchSide == 'L') {
     		//execute commands to go to left switch
     		addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));

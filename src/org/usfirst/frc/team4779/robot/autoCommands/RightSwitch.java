@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class RightSwitch extends CommandGroup {
 
     public RightSwitch() {
-    	System.out.println("This is my switch side " + Robot.mySwitchSide);
+    	super("Right Switch");
 	if (Robot.mySwitchSide == 'L') {
 		
 		addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));

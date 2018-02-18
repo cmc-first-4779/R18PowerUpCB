@@ -15,7 +15,7 @@ public class LeftSwitch extends CommandGroup {
 	
 
     public LeftSwitch() {
-    	System.out.println("This is my switch side " + Robot.mySwitchSide);
+    	super("Left Switch");
     	if (Robot.mySwitchSide == 'L') {
     		//execute commands to go to left switch
 //    		addSequential(new DriveStraightPID(24, 0.75, 1));

@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class RightScale extends CommandGroup {
 
     public RightScale() {
-    	System.out.println("This is my scale side " + Robot.myScaleSide);
+    	super("Right Scale");
 	if (Robot.myScaleSide == 'L') {
 		addSequential(new DriveStraightPID((RobotMap.AISLE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
 		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));

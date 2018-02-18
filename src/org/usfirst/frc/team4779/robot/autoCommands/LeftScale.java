@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class LeftScale extends CommandGroup {
 
     public LeftScale() {
-    	System.out.println("This is my scale side " + Robot.myScaleSide);
+    	super("Left Scale");
     	if (Robot.myScaleSide == 'L') {
 
 //    		addParallel(new SetLiftSetPointPID(50));
