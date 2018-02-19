@@ -24,6 +24,7 @@ import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
+import org.usfirst.frc.team4779.robot.commands.TimerCommand;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
 
 /**
@@ -72,7 +73,7 @@ public class Robot extends TimedRobot {
 		driveTrain = new DriveTrain();
 		
 		vacCube = new VacCube();
-		cameraFeeds = new CameraFeeds();
+		//cameraFeeds = new CameraFeeds();
 		// We are commenting out the Bling subsystem until we get it installed.
 		// bling = new Bling();
 
@@ -91,7 +92,7 @@ public class Robot extends TimedRobot {
 		// smartDashboardInit = new SmartDashboardInit();
 
 		// Init our Camera..
-		Robot.cameraFeeds.setCameraLow();
+		//Robot.cameraFeeds.setCameraLow();
 
 		// autoChooser.addDefault("Middle Switch", new MiddleSwitch());
 		//// System.out.println("After autoChooser");
@@ -146,24 +147,15 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		Robot.driveTrain.setMotorSafety(false);
-		System.out.println("Inside Auto Init ************* Bob");
+		//Robot.driveTrain.setDefaultCommand(new TimerCommand(10));
 		// Select the Auton Command Group from the SmartDashboard.
 		// Get Game Data from FMS to tell where the Red & Blue Tiles are
 		String gameData;
-		System.out.println("Trying to get game data: ");
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		System.out.println("Got game data: " + gameData);
 		// Got the "MySwitchSide" of the FMS Input working. Need to move on to the
 		// MyScaleSide.
 		if (gameData.length() > 0) {
-			System.out.println("game data length greater than 0: " + gameData.length());
-			// if (gameData.charAt(0) == 'L'){
-			// mySwitchSide = 'L';
-			// }
-			// else {
-			// mySwitchSide='R';
-			// }
-
 			mySwitchSide = gameData.charAt(0);
 			myScaleSide = gameData.charAt(1);
 			opponentSwitchSide = gameData.charAt(2);
@@ -208,7 +200,7 @@ public class Robot extends TimedRobot {
 		 * MyAutoCommand(); break; case "Default Auto": default: autonomousCommand = new
 		 * ExampleCommand(); break; }
 		 */
-
+		Robot.lift.resetLiftEncoder();
 		// schedule the autonomous command (example)
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
@@ -226,7 +218,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 
-		// Robot.driveTrain.setDefaultCommand(new DriveJoystick());
+		 Robot.driveTrain.setDefaultCommand(new DriveJoystick());
+		 Robot.driveTrain.setMotorSafety(true);
 
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to

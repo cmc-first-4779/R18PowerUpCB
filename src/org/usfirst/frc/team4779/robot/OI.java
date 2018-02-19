@@ -84,14 +84,15 @@ public class OI {
 			operStickYButton.whenPressed(new DeployScale());
 			operStickXButton.whenPressed(new DeploySwitch());
 			operStickBButton.whenPressed(new DeployPortal());
+			operStickAButton.whileHeld(new LiftDown());
 			driverStickYButton.whenPressed(new CalibrateDistance());
 			driverStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 			driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 			driverStickAButton.whenPressed(new DriveTurnPID(90));
 
 			//driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-//			driverStickLeftBumper.whileHeld(new LiftUp());
-//			driverStickRightBumper.whileHeld(new LiftDown());
+			driverStickLeftBumper.whileHeld(new LiftUp());
+			driverStickRightBumper.whileHeld(new LiftDown());
 			//driverStickAButton.whenPressed(new SetCameraLow());
 			//driverStickYButton.whenPressed(new SetCameraHigh());
 			

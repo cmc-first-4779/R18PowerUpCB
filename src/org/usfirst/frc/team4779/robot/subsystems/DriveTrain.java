@@ -2,16 +2,10 @@ package org.usfirst.frc.team4779.robot.subsystems;
 
 import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
-
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
@@ -126,6 +120,7 @@ public class DriveTrain extends PIDSubsystem {
     public void calibrateGyro() {
     	//This method exists so that we can calibrate our gyro during robotInit() in Robot.java.
     	//Only gets called once.
+    	System.out.println("Calibrating Gyro");
     	gyro.calibrate();
     }
     

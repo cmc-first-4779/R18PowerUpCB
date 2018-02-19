@@ -93,7 +93,7 @@ public class RobotMap {
 	public static double dTTurnAbsoluteTolerance = 1.0;
 	
 	//Lift Encoder Settings and DIO Mappings.
-	public static double liftPValue = .5;
+	public static double liftPValue = .8;
 	public static double liftIValue = .2;
 	public static double liftDValue = .0;
 	public static int liftEncoderChannelA = 4;
@@ -102,7 +102,7 @@ public class RobotMap {
 	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 26; 
-	public static double scaleHeight = 79.0;
+	public static double scaleHeight = 78.0;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double liftThrottleHeight = 76;
@@ -112,20 +112,20 @@ public class RobotMap {
 	public static double dtTurnThrottle = 0.7;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
-	public static double dTEncoderOutputMinTurn = -.65;
-	public static double dTEncoderOutputMaxTurn = .65;
+	public static double dTEncoderOutputMinTurn = -.62;
+	public static double dTEncoderOutputMaxTurn = .62;
 	
 	//Field Measurments for Auton
 	//
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
 	//
 	public static double FRONT_SCALE_DISTANCE = ((299.65-33) + 18) * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SCALE_APPROACH_DISTANCE = 5 * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_APPROACH_DISTANCE = 10 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_DISTANCE = ((196 -33) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SCALE_FULL_SPEED = 0.9;
+	public static double FRONT_SCALE_FULL_SPEED = 0.95;
 	public static double THROTTLE_SPEED = 0.6;
 	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_LENGTH = 96 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_LENGTH_TO_SCALE = 96 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_LENGTH_TO_SWITCH = 72 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_THROTTLE_DOWN_DISTANCE = 30 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SPEED = 0.8;
