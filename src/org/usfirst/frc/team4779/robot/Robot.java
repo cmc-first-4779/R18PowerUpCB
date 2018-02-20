@@ -109,6 +109,7 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Middle Scale", 3);
 		autoChooser.addObject("Left Scale", 4);
 		autoChooser.addObject("Right Scale", 5);
+		autoChooser.addObject("Calibrate", 6);
 
 		// Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
@@ -147,7 +148,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		Robot.driveTrain.setMotorSafety(false);
-		//Robot.driveTrain.setDefaultCommand(new TimerCommand(10));
+
 		// Select the Auton Command Group from the SmartDashboard.
 		// Get Game Data from FMS to tell where the Red & Blue Tiles are
 		String gameData;
@@ -192,6 +193,8 @@ public class Robot extends TimedRobot {
 		case 5:
 			m_autonomousCommand = new RightScale();
 			break;
+		case 6: 
+			m_autonomousCommand = new CalibrateDistance();
 		}
 
 		/*
@@ -218,7 +221,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 
-		 Robot.driveTrain.setDefaultCommand(new DriveJoystick());
+		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
 		 Robot.driveTrain.setMotorSafety(true);
 
 		// This makes sure that the autonomous stops running when

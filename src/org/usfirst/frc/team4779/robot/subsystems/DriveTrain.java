@@ -109,6 +109,12 @@ public class DriveTrain extends PIDSubsystem {
 		SmartDashboard.putData(gyro);
 		SmartDashboard.putNumber("Gryo Angle:  ", gyro.getAngle());
 		SmartDashboard.putNumber("Gyro PID Output:  ", output);
+    	SmartDashboard.putNumber("Left Encoder Position: ", getLeftEncoderPosition());
+    	SmartDashboard.putNumber("Right Encoder Position", getRightEncoderPosition());
+    	SmartDashboard.putNumber("Average Encoder Position:  ", getAvgEncoderPosition());
+    	SmartDashboard.putNumber("Drive Speed:  ", getSpeed());
+    	SmartDashboard.putNumber("Drive Direction:  ", getDirection());
+    	SmartDashboard.putNumber("Drive Angle:  ", getDriveAngle());		
 	}
     
     public void resetGyro() {

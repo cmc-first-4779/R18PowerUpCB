@@ -13,17 +13,27 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveTurnPID extends Command {
 	double m_speed;
 	double m_setpoint;
+	boolean resetGyro = true;
 
     public DriveTurnPID(double setpoint) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 		m_setpoint = setpoint;  //Our Setpoint is the Desired angle to turn.
     }
+    public DriveTurnPID(double setpoint, boolean resetGyro) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+		m_setpoint = setpoint;  //Our Setpoint is the Desired angle to turn.
+		this.resetGyro = resetGyro;
+    }
+
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	//Reset our Gyro to ZERO
-   	   	Robot.driveTrain.resetGyro();
+   	   if (resetGyro ) {
+   		   Robot.driveTrain.resetGyro();
+   	   }
    	   	//Set our Speed to ZERO.  NO FORWARD MOTION.
     	Robot.driveTrain.setSpeed(0);  
     	//ENABLE THE PID AND LET IT DO ITS THING!

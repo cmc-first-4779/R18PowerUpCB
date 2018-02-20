@@ -11,24 +11,17 @@ import edu.wpi.first.wpilibj.command.Command;
  * INPUTTED DISTANCE, SPEED, AND DIRECTION IT USES THE GYRO TO STAY ON COURSE
  * AND THE ROTARY ENCODERS TO MEASURE HOW FAR IT TRAVELLED.
  */
-public class DriveStraightPID extends Command {
+public class DriveAnglePID extends Command {
 
 	double m_distance;
 	double m_speed;
 	int m_direction;
+	double m_angle;
 	// NO TIMER USED!! WE WILL MOST LIKELY DELETE THIS!
 	Timer timer = new Timer();
 	boolean resetGyro;
-
-
-	public DriveStraightPID(double distance, double speed, int direction) {
-		m_distance = distance;
-		m_speed = speed;
-		m_direction = direction;
-		this.resetGyro = true;
-	}
 	
-	public DriveStraightPID(double distance, double speed, int direction, boolean resetGyro) {
+	public DriveAnglePID(double distance, double speed, int direction, boolean resetGyro, double angle) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		// HERE ARE OUR THREE INPUTS. DISTANCE, SPEED, and DIRECTION (1 = FORWARD, -1 =
@@ -36,6 +29,7 @@ public class DriveStraightPID extends Command {
 		m_distance = distance;
 		m_speed = speed;
 		m_direction = direction;
+		m_angle = angle;
 		this.resetGyro = resetGyro;
 
 	}
@@ -56,7 +50,7 @@ public class DriveStraightPID extends Command {
 		Robot.driveTrain.setSpeed(m_speed * m_direction);
 		Robot.driveTrain.setDistance(m_distance);
 		// SET OUR GYRO TO ZERO! WE WANT TO GO STRAIGHT!
-		Robot.driveTrain.setSetpoint(0);
+		Robot.driveTrain.setSetpoint(m_angle);
 		// ENABLE THE PID!
 		Robot.driveTrain.enable();
 		Robot.driveTrain.setOutputRange(RobotMap.dTEncoderOutputMin, RobotMap.dTEncoderOutputMax);
