@@ -57,7 +57,7 @@ public class RobotMap {
 	public static double liftMotorPowerDown = -1.0;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = .6;
+	public static double vacCubeMotorPowerIntake = .8;
 	public static double vacCubeMotorPowerEject = -1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
@@ -65,7 +65,7 @@ public class RobotMap {
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
 	//public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
-	public static double dTEncoderDistancePerRevolution = 2.315;//We need to find this.
+	public static double dTEncoderDistancePerRevolution = 2.576;//We need to find this.
   //Mule ratio below
 	//public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
@@ -112,13 +112,14 @@ public class RobotMap {
 	public static double dtTurnThrottle = 0.7;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
-	public static double dTEncoderOutputMinTurn = -.62;
-	public static double dTEncoderOutputMaxTurn = .62;
+	public static double dTEncoderOutputMinTurn = -.6;
+	public static double dTEncoderOutputMaxTurn = .7;
+	public static double ryanGovernor = 1;
 	
 	//Field Measurments for Auton
-	//
+
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
-	//
+	
 	public static double FRONT_SCALE_DISTANCE = ((299.65-33) + 18) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_APPROACH_DISTANCE = 10 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_DISTANCE = ((196 -33) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;

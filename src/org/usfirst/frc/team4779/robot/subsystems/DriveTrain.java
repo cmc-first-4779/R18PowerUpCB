@@ -75,7 +75,7 @@ public class DriveTrain extends PIDSubsystem {
     	
     	//Check to see how high the lift is..   If it's under out threashhold.
     	if (Robot.lift.getDistance() < RobotMap.liftDTThrottleHeight) {
-    		myDrive.arcadeDrive(-yAxis*.8, xAxis*RobotMap.dtTurnThrottle);
+    		myDrive.arcadeDrive(-yAxis*RobotMap.ryanGovernor, xAxis*RobotMap.dtTurnThrottle);
     	}
     	//if it's over our threshhold, throttle down the driveTrain.
     	else   {

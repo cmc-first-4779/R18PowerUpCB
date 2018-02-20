@@ -30,6 +30,14 @@ public class LeftScale extends CommandGroup {
 //    		addParallel(new DriveStraightPID (5, 0.75, RobotMap.FORWARD));
 //    		addSequential(new DeployScale()); 
     		
+    		addSequential(new DriveStraightPID(24, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
+    		addSequential(new TimerCommand(1));
+    		addSequential(new DriveTurnPID(-45));
+    		addSequential(new TimerCommand(1));
+    		addSequential(new DriveStraightPID(24, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD)); 
+    		addSequential(new TimerCommand(1));
+    		addSequential(new DriveTurnPID(45));
+    		addSequential(new TimerCommand(1));
     		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
     		addSequential(new DriveStraightPID((RobotMap.FRONT_SCALE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
     		addSequential(new DriveStraightPID(RobotMap.SCALE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
@@ -48,11 +56,11 @@ public class LeftScale extends CommandGroup {
     		SmartDashboard.putString("Auto Current command", "Lift cube up a bit and turn right.");
      		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
      		addSequential(new DriveTurnPID(RobotMap.RIGHT));
-     		addSequential(new TimerCommand(.5));     		
+     		addSequential(new TimerCommand(1));     		
     		SmartDashboard.putString("Auto Current command", "Drive straight to other side.");
     		addSequential(new DriveStraightPID((RobotMap.AISLE_LENGTH_TO_SCALE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.AISLE_SPEED, RobotMap.FORWARD));
      		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-    		addSequential(new TimerCommand(1));
+    		addSequential(new TimerCommand(1.5));
     		SmartDashboard.putString("Auto Current command", "Turn towards scale and lift higher");
     		addSequential(new DriveTurnPID(RobotMap.LEFT));
     		//addSequential(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_LOW_SPEED));
@@ -63,6 +71,11 @@ public class LeftScale extends CommandGroup {
     	}
     		
     	}
+
+	private void addSequential(int i, double tHROTTLE_SPEED, int fORWARD) {
+		// TODO Auto-generated method stub
+		
+	}
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
