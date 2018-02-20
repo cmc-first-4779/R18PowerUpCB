@@ -47,12 +47,8 @@ public class Lift extends PIDSubsystem {
     
     public void liftDown() {
     	//  Move the Lift Down.
-    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());	
-    	if (getDistance() <= 15)  {
-    		liftMotor.set(RobotMap.liftThrottleDown);
-    	}else {
-    		liftMotor.set(RobotMap.liftMotorPowerDown);
-    	}
+    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
+    	liftMotor.set(RobotMap.liftMotorPowerDown);	
     }
     
     

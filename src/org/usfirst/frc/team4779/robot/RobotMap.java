@@ -112,14 +112,14 @@ public class RobotMap {
 	public static double dtTurnThrottle = 0.7;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
-	public static double dTEncoderOutputMinTurn = -.6;
-	public static double dTEncoderOutputMaxTurn = .7;
+	public static double dTEncoderOutputMinTurn = -.65;
+	public static double dTEncoderOutputMaxTurn = .65;
 	public static double ryanGovernor = 1;
 	
 	//Field Measurments for Auton
-
+	//
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
-	
+	//
 	public static double FRONT_SCALE_DISTANCE = ((299.65-33) + 18) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_APPROACH_DISTANCE = 10 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_DISTANCE = ((196 -33) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;
