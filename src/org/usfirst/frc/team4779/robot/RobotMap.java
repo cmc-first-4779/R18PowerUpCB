@@ -92,7 +92,7 @@ public class RobotMap {
 
 
 	public static double dTTurnPIDTurnSpeed = 0.4;
-	public static double dTTurnAbsoluteTolerance = 1.0;
+	public static double dTTurnAbsoluteTolerance = 4;
 	
 	//Lift Encoder Settings and DIO Mappings.
 	public static double liftPValue = .8;
@@ -103,15 +103,16 @@ public class RobotMap {
 	public static double liftEncoderPulsePerRevolution = 20;
 	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
-	public static double switchHeight = 26; 
+	public static double switchHeight = 30; 
 	public static double scaleHeight = 77.0;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
+	public static double midScaleHeight = 65;
 	public static double liftThrottleHeight = 76;
 	public static double liftDTThrottleHeight = 28;
 	public static double dTLiftThrottleDown = 0.5;
 	public static double liftThrottleDown = 0.5;
-	public static double dtTurnThrottle = 0.7;
+	public static double dtTurnThrottle = 0.85;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
 	public static double dTEncoderOutputMinTurn = -.6;
@@ -123,7 +124,7 @@ public class RobotMap {
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
 	
 	public static double FRONT_SCALE_DISTANCE = ((299.65-69) + 30 ) * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SCALE_APPROACH_DISTANCE = 6 * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_APPROACH_DISTANCE = 14 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_DISTANCE = ((196 -33) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_FULL_SPEED = .95;
 	public static double THROTTLE_SPEED = 0.6;

@@ -79,20 +79,19 @@ public class OI {
 			//driverStickRightBumper.whileHeld(new VacCubeEject());
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
 
-			operStickLeftBumper.whileHeld(new VacCubeIntake());
-			operStickRightBumper.whileHeld(new VacCubeEject());
-			//operStickYButton.whenPressed(new DeployScale());
-			//operStickXButton.whenPressed(new DeploySwitch());
+			operStickRightBumper.whileHeld(new VacCubeIntake());
+			operStickLeftBumper.whileHeld(new VacCubeEject());
+			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 			//operStickBButton.whenPressed(new DeployPortal());
-			operStickAButton.whileHeld(new LiftDown());
-			driverStickYButton.whenPressed(new CalibrateDistance());
-			driverStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-			driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			driverStickAButton.whenPressed(new DriveTurnPID(90));
-
+			operStickAButton.whileHeld(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			//driverStickYButton.whenPressed(new CalibrateDistance());
+			operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
+			//driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+			//driverStickAButton.whenPressed(new DriveTurnPID(90));
 			//driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			driverStickLeftBumper.whileHeld(new LiftUp());
-			driverStickRightBumper.whileHeld(new LiftDown());
+			//driverStickLeftBumper.whileHeld(new LiftUp());
+			//driverStickRightBumper.whileHeld(new LiftDown());
 			//driverStickAButton.whenPressed(new SetCameraLow());
 			//driverStickYButton.whenPressed(new SetCameraHigh());
 			
