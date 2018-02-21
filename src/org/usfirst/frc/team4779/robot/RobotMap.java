@@ -76,7 +76,7 @@ public class RobotMap {
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
 	public static double dTEncoderAbsoluteTolerance = 1.0;
-	public static double dTPValue = .05;
+	public static double dTPValue = .1;
 	public static double dtIValue = .0;
 	public static double dtDValue = .0;
 	
@@ -104,7 +104,7 @@ public class RobotMap {
 	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 26; 
-	public static double scaleHeight = 76.0;
+	public static double scaleHeight = 77.0;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double liftThrottleHeight = 76;
@@ -122,10 +122,10 @@ public class RobotMap {
 
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
 	
-	public static double FRONT_SCALE_DISTANCE = ((299.65-69) + 18) * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SCALE_APPROACH_DISTANCE = 15 * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_DISTANCE = ((299.65-69) + 30 ) * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_APPROACH_DISTANCE = 6 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_DISTANCE = ((196 -33) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SCALE_FULL_SPEED = 0.95;
+	public static double FRONT_SCALE_FULL_SPEED = .95;
 	public static double THROTTLE_SPEED = 0.6;
 	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_LENGTH_TO_SCALE = 96 * FIELD_RATIO__MULTIPLIER;

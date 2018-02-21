@@ -39,12 +39,12 @@ public class LeftScale extends CommandGroup {
     	//	addSequential(new DriveTurnPID(45));
     	//	addSequential(new TimerCommand(1));
     		//addSequential(new DriveTurnPID(0, false));
-    		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
+    	//	addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
     		addSequential(new DriveStraightPID((RobotMap.FRONT_SCALE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, false));
     		addSequential(new DriveStraightPID(RobotMap.SCALE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
     		addSequential(new TimerCommand(1)); 
-    		addParallel(new DriveTurnPID(RobotMap.RIGHT));
-    		addSequential(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_LOW_SPEED));
+    		addSequential(new DriveTurnPID(RobotMap.RIGHT));
+    	//	addSequential(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_LOW_SPEED));
     		addSequential(new DriveStraightPID (RobotMap.FRONT_SCALE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
     		addSequential(new DeployScale()); 
     	}
