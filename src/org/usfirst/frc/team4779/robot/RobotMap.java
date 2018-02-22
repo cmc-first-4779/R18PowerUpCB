@@ -146,6 +146,8 @@ public class RobotMap {
 	public static double Jog_Distance = 36;
 	public static double Jog_Angle_LeftStart = -45;
 	public static double Jog_Angle_RightStart = 45;
+	public static int vacCubeProximityAnalogPort = 0;
+	public static double vacCubeVoltageThreshold = .3;
 	
 	
 	

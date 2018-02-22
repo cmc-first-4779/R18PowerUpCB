@@ -4,6 +4,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -13,13 +14,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class VacCube extends Subsystem {
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+   
 
 	//We have two motors on the grabber, each defined by a separate Spark Controller.
 	//  Declaring and Initiating the two Sparks.
 	Spark vacCubeLeftMotor = new Spark(RobotMap.vacCubeLeftMotorPWMPort);
 	Spark vacCubeRightMotor = new Spark(RobotMap.vacCubeRightMotorPWMPort); 
+	AnalogInput proximitySensor = new AnalogInput(RobotMap.vacCubeProximityAnalogPort);
 	
 	private double m_power;
 	
@@ -61,6 +62,9 @@ public class VacCube extends Subsystem {
     
     public double getPower()  {
     	return m_power;
+    }
+    public double getProximityVoltage() {
+    	return proximitySensor.getVoltage();
     }
 
 }

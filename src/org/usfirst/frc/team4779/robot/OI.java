@@ -23,6 +23,7 @@ import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
+import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntakeProximity;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -80,24 +81,13 @@ public class OI {
 		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
 
 			operStickRightBumper.whileHeld(new VacCubeIntake());
+			operStickRightBumper.whenPressed(new VacCubeIntakeProximity ());
 			operStickLeftBumper.whileHeld(new VacCubeEject());
 			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
 			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			//operStickBButton.whenPressed(new DeployPortal());
 			operStickAButton.whileHeld(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			//driverStickYButton.whenPressed(new CalibrateDistance());
 			operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-			//driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			//driverStickAButton.whenPressed(new DriveTurnPID(90));
-			//driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			//driverStickLeftBumper.whileHeld(new LiftUp());
-			//driverStickRightBumper.whileHeld(new LiftDown());
-			//driverStickAButton.whenPressed(new SetCameraLow());
-			//driverStickYButton.whenPressed(new SetCameraHigh());
-			
-			
-			//driverStickYButton.whileHeld(new LiftUp());
-			//driverStickAButton.whileHeld(new LiftDown());
+		
 
 			
 	
