@@ -17,13 +17,6 @@ public class LeftSwitch extends CommandGroup {
     public LeftSwitch() {
     	super("Left Switch");
     	if (Robot.mySwitchSide == 'L') {
-    		//execute commands to go to left switch
-//    		addSequential(new DriveStraightPID(24, 0.75, 1));
-//    		addSequential(new TimerCommand(2));
-//    		addSequential(new DriveTurnPID(90));
-//    		addSequential(new TimerCommand(2));
-//    		addSequential(new DriveStraightPID(2, 0.75, 1));
-//    		addSequential (new DeploySwitch());
     		
     		addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
     		addSequential(new DriveStraightPID(RobotMap.FRONT_SWITCH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.FORWARD));
@@ -34,6 +27,8 @@ public class LeftSwitch extends CommandGroup {
     		}
     		else {
     			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
+        		addSequential(new DriveStraightPID(RobotMap.AllianceWall_Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
+        	    addSequential(new DriveAnglePID(RobotMap.Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.Jog_Angle_LeftStart));
     			addSequential(new DriveStraightPID((RobotMap.AISLE_DISTANCE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
         		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
          		addSequential(new TimerCommand(1));

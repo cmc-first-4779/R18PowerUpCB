@@ -20,42 +20,31 @@ public class LeftScale extends CommandGroup {
     public LeftScale() {
     	super("Left Scale");
     	if (Robot.myScaleSide == 'L') {
-    		addParallel(new SetLiftSetPointPID(6));
-    		addSequential(new DriveStraightPID(12, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-    	    addSequential(new DriveAnglePID(36, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, -45));
-    		//addSequential(new DriveStraightPID(24, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD)); 
-    		//addSequential(new TimerCommand(1));
-    	//	addSequential(new DriveTurnPID(45));
-    	//	addSequential(new TimerCommand(1));
-    		//addSequential(new DriveTurnPID(0, false));
     		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
+    		addSequential(new DriveStraightPID(RobotMap.AllianceWall_Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
+    	    addSequential(new DriveAnglePID(RobotMap.Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.Jog_Angle_LeftStart));
     		addSequential(new DriveStraightPID((RobotMap.FRONT_SCALE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, false));
     		addSequential(new DriveStraightPID(RobotMap.SCALE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
     		addSequential(new TimerCommand(.25)); 
     		addSequential(new DriveTurnPID(RobotMap.RIGHT));
-    	//	addSequential(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_LOW_SPEED));
     		addSequential(new DriveStraightPID (RobotMap.FRONT_SCALE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
     		addSequential(new DeployScale()); 
     	}
     	else {
-    		SmartDashboard.putString("Auto Current command", "Drive Straight to aisle.");
+    		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
+    		addSequential(new DriveStraightPID(RobotMap.AllianceWall_Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
+    	    addSequential(new DriveAnglePID(RobotMap.Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.Jog_Angle_LeftStart));
     		addSequential(new DriveStraightPID((RobotMap.AISLE_DISTANCE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
     		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
      		addSequential(new TimerCommand(1));
-    		SmartDashboard.putString("Auto Current command", "Lift cube up a bit and turn right.");
      		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
      		addSequential(new DriveTurnPID(RobotMap.RIGHT));
      		addSequential(new TimerCommand(1));     		
-    		SmartDashboard.putString("Auto Current command", "Drive straight to other side.");
     		addSequential(new DriveStraightPID((RobotMap.AISLE_LENGTH_TO_SCALE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.AISLE_SPEED, RobotMap.FORWARD));
      		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
     		addSequential(new TimerCommand(1.5));
-    		SmartDashboard.putString("Auto Current command", "Turn towards scale and lift higher");
     		addSequential(new DriveTurnPID(RobotMap.LEFT));
-    		//addSequential(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_LOW_SPEED));
-    		SmartDashboard.putString("Auto Current command", "Drive rest of way to scale");
     		addSequential(new DriveStraightPID(RobotMap.AISLE_SCALE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-    		SmartDashboard.putString("Auto Current command", "Deploy to scale");
     		addSequential(new DeployScale()); 
     	}
     		

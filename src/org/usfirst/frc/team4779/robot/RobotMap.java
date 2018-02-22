@@ -125,11 +125,11 @@ public class RobotMap {
 	
 	public static double FRONT_SCALE_DISTANCE = ((299.65-69) + 30 ) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_APPROACH_DISTANCE = 14 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_DISTANCE = ((196 -33) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_DISTANCE = ((196 -69) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_FULL_SPEED = .95;
 	public static double THROTTLE_SPEED = 0.6;
 	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_LENGTH_TO_SCALE = 96 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_LENGTH_TO_SCALE = 180 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_LENGTH_TO_SWITCH = 72 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_THROTTLE_DOWN_DISTANCE = 30 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SPEED = 0.8;
@@ -142,6 +142,12 @@ public class RobotMap {
 	public static double SIDE_SWITCH_HALF_DISTANCE = (SIDE_SWITCH_DISTANCE / 2) * FIELD_RATIO__MULTIPLIER;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 50;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
+	public static double AllianceWall_Jog_Distance = 12;
+	public static double Jog_Distance = 36;
+	public static double Jog_Angle_LeftStart = -45;
+	public static double Jog_Angle_RightStart = 45;
+	
+	
 	
 	
 

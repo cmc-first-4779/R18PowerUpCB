@@ -4,6 +4,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.DeployScale;
 import org.usfirst.frc.team4779.robot.commands.TimerCommand;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveAnglePID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
@@ -18,28 +19,31 @@ public class RightScale extends CommandGroup {
     public RightScale() {
     	super("Right Scale");
 	if (Robot.myScaleSide == 'L') {
-		addSequential(new DriveStraightPID((RobotMap.AISLE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
+		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
+		addSequential(new DriveStraightPID(RobotMap.AllianceWall_Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
+	    addSequential(new DriveAnglePID(RobotMap.Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.Jog_Angle_RightStart));
+		addSequential(new DriveStraightPID((RobotMap.AISLE_DISTANCE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
 		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
  		addSequential(new TimerCommand(1));
  		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
  		addSequential(new DriveTurnPID(RobotMap.LEFT));
+ 		addSequential(new TimerCommand(1));     		
 		addSequential(new DriveStraightPID((RobotMap.AISLE_LENGTH_TO_SCALE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.AISLE_SPEED, RobotMap.FORWARD));
  		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-		addSequential(new TimerCommand(1));
-		addParallel(new DriveTurnPID(RobotMap.RIGHT));
-		addSequential(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_LOW_SPEED));
+		addSequential(new TimerCommand(1.5));
+		addSequential(new DriveTurnPID(RobotMap.RIGHT));
 		addSequential(new DriveStraightPID(RobotMap.AISLE_SCALE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-		addSequential(new DeployScale()); 
+		addSequential(new DeployScale());  
 	}
 	else   {
 		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
-		addSequential(new DriveStraightPID((RobotMap.FRONT_SCALE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
+		addSequential(new DriveStraightPID(RobotMap.AllianceWall_Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
+	    addSequential(new DriveAnglePID(RobotMap.Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.Jog_Angle_RightStart));
+		addSequential(new DriveStraightPID((RobotMap.FRONT_SCALE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, false));
 		addSequential(new DriveStraightPID(RobotMap.SCALE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-		addSequential(new TimerCommand(1)); 
-		addParallel(new DriveTurnPID(RobotMap.LEFT));
-		//addSequential(new TimerCommand(1));
-		addSequential(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_LOW_SPEED));
-		addParallel(new DriveStraightPID (RobotMap.FRONT_SCALE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
+		addSequential(new TimerCommand(.25)); 
+		addSequential(new DriveTurnPID(RobotMap.LEFT));
+		addSequential(new DriveStraightPID (RobotMap.FRONT_SCALE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
 		addSequential(new DeployScale()); 
 	}
 

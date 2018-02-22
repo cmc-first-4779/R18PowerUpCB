@@ -4,6 +4,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.DeploySwitch;
 import org.usfirst.frc.team4779.robot.commands.TimerCommand;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveAnglePID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
@@ -20,6 +21,9 @@ public class RightSwitch extends CommandGroup {
 	if (Robot.mySwitchSide == 'L') {
 		
 		addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
+
+		addSequential(new DriveStraightPID(RobotMap.AllianceWall_Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
+	    addSequential(new DriveAnglePID(RobotMap.Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.Jog_Angle_RightStart));
 		addSequential(new DriveStraightPID((RobotMap.AISLE_DISTANCE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
 		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
  		addSequential(new TimerCommand(1));
