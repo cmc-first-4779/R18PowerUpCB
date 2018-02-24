@@ -39,9 +39,9 @@ public class DriveAnglePID extends Command {
 		// RESET OUR ENCODERS
 		Robot.driveTrain.resetDTEncoders();
 		System.out.println("Reset DT Encoders.");
-		// RESET OUR GYRO
+		// IF WE WANT TO RESET THE GYRO, THEN DO IT..  
 		if (resetGyro) {
-		Robot.driveTrain.resetGyro();
+			Robot.driveTrain.resetGyro();
 		}
 		// SET THE PID DIRECTION. 1 = FORWARD, -1 = BACKWARDS
 		Robot.driveTrain.setDirection(m_direction);

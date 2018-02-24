@@ -82,17 +82,16 @@ public class RobotMap {
 	
 
 
-
+	//  Rotary Encoder Turn constants
 	public static double dTEncoderOutputMin = -0.85;
 	public static double dTEncoderOutputMax = 0.85;
 	public static int FORWARD = 1;
 	public static int REVERSE = -1;
 	public static int LEFT = -90;
 	public static int RIGHT = 90;
-
-
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 4;
+	
 	
 	//Lift Encoder Settings and DIO Mappings.
 	public static double liftPValue = .8;
@@ -119,8 +118,10 @@ public class RobotMap {
 	public static double dTEncoderOutputMaxTurn = .7;
 	public static double ryanGovernor = 1;
 	
-	//Field Measurments for Auton
-
+	//Field Measurments for Auton  
+	//  ALL OF THESE DISTANCES ARE IN INCHES!!!
+	//
+	//We can lower this multipler to make sure we follow the motion profile but on a smaller scale than the field
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
 	
 	public static double FRONT_SCALE_DISTANCE = ((299.65-69) + 30 ) * FIELD_RATIO__MULTIPLIER;
@@ -139,7 +140,7 @@ public class RobotMap {
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 5 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 60 * FIELD_RATIO__MULTIPLIER;
 	public static double SIDE_SWITCH_DISTANCE = (134 - 33) * FIELD_RATIO__MULTIPLIER;
-	public static double SIDE_SWITCH_HALF_DISTANCE = (SIDE_SWITCH_DISTANCE / 2) * FIELD_RATIO__MULTIPLIER;
+	public static double SIDE_SWITCH_HALF_DISTANCE = (SIDE_SWITCH_DISTANCE / 2);
 	public static double LIFT_SETPOINT_HIGH_SPEED = 50;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
 	public static double AllianceWall_Jog_Distance = 12;
@@ -147,9 +148,5 @@ public class RobotMap {
 	public static double Jog_Angle_LeftStart = -45;
 	public static double Jog_Angle_RightStart = 45;
 	
-	
-	
-	
-
 }
 

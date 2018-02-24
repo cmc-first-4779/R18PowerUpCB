@@ -88,11 +88,7 @@ public class Robot extends TimedRobot {
 		Robot.lift.resetLiftEncoder();
 		SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
 
-		// Init our SmartDashboard
-		// smartDashboardInit = new SmartDashboardInit();
-
-		// Init our Camera..
-		//Robot.cameraFeeds.setCameraLow();
+		CameraServer.getInstance().startAutomaticCapture();
 
 		// autoChooser.addDefault("Middle Switch", new MiddleSwitch());
 		//// System.out.println("After autoChooser");
@@ -222,7 +218,8 @@ public class Robot extends TimedRobot {
 	public void teleopInit() {
 
 		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
-		 Robot.driveTrain.setMotorSafety(true);
+		//This will null out some of the safety notices in the console..
+		Robot.driveTrain.setMotorSafety(true);
 
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to

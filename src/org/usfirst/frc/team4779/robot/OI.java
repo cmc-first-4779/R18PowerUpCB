@@ -75,35 +75,27 @@ public class OI {
 			
 			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 			//
-			//driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
-			//driverStickRightBumper.whileHeld(new VacCubeEject());
-		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-
+			//  Driver Stick
+			driverStickYButton.whileHeld(new LiftUp());
+			driverStickAButton.whileHeld(new LiftDown());  //This will double as the Climb
+			driverStickBButton.whenPressed(new CalibrateDistance(240));
+			//
+			//
+			//  Operator Stick
+			//
 			operStickRightBumper.whileHeld(new VacCubeIntake());
 			operStickLeftBumper.whileHeld(new VacCubeEject());
-			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
-			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			//operStickBButton.whenPressed(new DeployPortal());
+			operStickYButton.whenPressed(new DeployScale());
+			operStickBButton.whenPressed(new DeployPortal());
+			operStickXButton.whenPressed(new DeploySwitch());
 			operStickAButton.whileHeld(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			//operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+			//operStickBButton.whenPressed(new DeployPortal());
+			//operStickAButton.whileHeld(new SetLiftSetPointPID(RobotMap.pickUpHeight));
 			//driverStickYButton.whenPressed(new CalibrateDistance());
-			operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-			//driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			//driverStickAButton.whenPressed(new DriveTurnPID(90));
-			//driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			//driverStickLeftBumper.whileHeld(new LiftUp());
-			//driverStickRightBumper.whileHeld(new LiftDown());
-			//driverStickAButton.whenPressed(new SetCameraLow());
-			//driverStickYButton.whenPressed(new SetCameraHigh());
-			
-			
-			//driverStickYButton.whileHeld(new LiftUp());
-			//driverStickAButton.whileHeld(new LiftDown());
+			//operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+			//operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 
-			
-	
-  		// There are a few additional built in buttons you can use. Additionally,
-			// by subclassing Button you can create custom triggers and bind those to
-			// commands the same as any other Button.
 
 			
 		}
@@ -111,6 +103,11 @@ public class OI {
 		//This method is used later to return the the driverStick when called.
 		 public Joystick getDriverStick() {
 			return driverStick;
+		 }
+		
+		//This method is used later to return the the operStick when called.
+		 public Joystick getOperStick()  {
+			 return operStick;
 		 }
 
 
