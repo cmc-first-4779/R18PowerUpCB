@@ -44,6 +44,8 @@ public class RobotMap {
 	public static int yButton = 4;
 	public static int leftBumperButton = 5;
 	public static int rightBumperButton = 6;
+	public static int backButton = 7;
+	public static int startButton = 8;
 	public static int xAxisStick = 0;
 	public static int yAxisStick = 1;
 	public static int leftTrigger = 2;

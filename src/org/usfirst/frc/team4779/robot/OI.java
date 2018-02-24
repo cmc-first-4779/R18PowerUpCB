@@ -20,6 +20,7 @@ import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
+import org.usfirst.frc.team4779.robot.commands.lift.ResetLiftEncoder;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
@@ -53,7 +54,8 @@ public class OI {
 			JoystickButton operStickBButton = new JoystickButton(operStick, RobotMap.bButton);
 			JoystickButton operStickLeftBumper = new JoystickButton(operStick, RobotMap.leftBumperButton);
 			JoystickButton operStickRightBumper = new JoystickButton(operStick, RobotMap.rightBumperButton);
-
+			JoystickButton operStickBackButton = new JoystickButton(operStick, RobotMap.backButton);
+			JoystickButton operStickStartButton = new JoystickButton(operStick, RobotMap.startButton);
 			
 			//Declare and Initiate all of the Buttons on the Driver Stick
 			JoystickButton driverStickYButton = new JoystickButton(driverStick,RobotMap.yButton);
@@ -62,7 +64,10 @@ public class OI {
 			JoystickButton driverStickBButton = new JoystickButton(driverStick, RobotMap.bButton);
 			JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, RobotMap.leftBumperButton);
 			JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.rightBumperButton);
-
+			JoystickButton driverStickBackButton = new JoystickButton(driverStick, RobotMap.backButton);
+			JoystickButton driverStickStartButton = new JoystickButton(driverStick, RobotMap.startButton);
+			
+			
 			/*Set up the Oper Stick buttons to call the right commands.
 			 * X turns on the climber
 			 * Y vaccube Intake
@@ -88,7 +93,8 @@ public class OI {
 			operStickYButton.whenPressed(new DeployScale());
 			operStickBButton.whenPressed(new DeployPortal());
 			operStickXButton.whenPressed(new DeploySwitch());
-			operStickAButton.whileHeld(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			operStickStartButton.whenPressed(new ResetLiftEncoder());
 			//operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 			//operStickBButton.whenPressed(new DeployPortal());
 			//operStickAButton.whileHeld(new SetLiftSetPointPID(RobotMap.pickUpHeight));

@@ -190,7 +190,7 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand = new RightScale();
 			break;
 		case 6: 
-			m_autonomousCommand = new CalibrateDistance();
+			m_autonomousCommand = new CalibrateDistance(120);
 		}
 
 		/*
