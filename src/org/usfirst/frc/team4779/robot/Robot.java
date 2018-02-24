@@ -86,7 +86,7 @@ public class Robot extends TimedRobot {
 
 		// Reset our Lift Encoder
 		Robot.lift.resetLiftEncoder();
-		SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
+		//SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
 
 		CameraServer.getInstance().startAutomaticCapture();
 
@@ -112,6 +112,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(vacCube);
 		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
+		//SmartDashboard.putData(Robot.driveTrain.gyro);
 	}
 
 	/**

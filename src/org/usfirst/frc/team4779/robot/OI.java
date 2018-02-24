@@ -90,12 +90,12 @@ public class OI {
 			//
 			operStickLeftBumper.whileHeld(new VacCubeIntake());
 			operStickRightBumper.whileHeld(new VacCubeEject());
-			operStickYButton.whenPressed(new DeployScale());
-			operStickBButton.whenPressed(new DeployPortal());
-			operStickXButton.whenPressed(new DeploySwitch());
+			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+			operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			operStickBackButton.whenPressed(new LiftUp());
-			operStickStartButton.whenPressed(new LiftDown());
+			operStickBackButton.whileHeld(new LiftUp());
+			operStickStartButton.whileHeld(new LiftDown());
 			//operStickStartButton.whenPressed(new ResetLiftEncoder());
 			//operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 			//operStickBButton.whenPressed(new DeployPortal());

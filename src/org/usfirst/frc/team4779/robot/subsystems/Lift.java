@@ -26,7 +26,8 @@ public class Lift extends PIDSubsystem {
 		 super("Lift", RobotMap.liftPValue, RobotMap.liftIValue, RobotMap.liftDValue);
 		 liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse);
 		 setAbsoluteTolerance(RobotMap.liftTolerance);
-		// SmartDashboard.putData("Lift State:  ", Robot.lift);
+		 //SmartDashboard.putData("Lift State:  ", Robot.lift);
+		 //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
 	 }
 	
 	//   By default, we want the Lift Off to not drain the battery when its not being called.
@@ -36,8 +37,8 @@ public class Lift extends PIDSubsystem {
     
     public void liftUp() {
     	//  Move the Lift up.
-    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
-    	liftMotor.set(RobotMap.liftMotorPowerUp);	
+       	liftMotor.set(RobotMap.liftMotorPowerUp);	
+       	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     }
     
     public void liftUpTurbo() {
@@ -47,11 +48,11 @@ public class Lift extends PIDSubsystem {
     
     public void liftDown() {
     	//  Move the Lift Down.
-    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());	
     	//if (getDistance() <= 15)  {
-    		liftMotor.set(RobotMap.liftThrottleDown);
+    		//liftMotor.set(RobotMap.liftThrottleDown);
     	//}else {
-    		//liftMotor.set(RobotMap.liftMotorPowerDown);
+    		liftMotor.set(RobotMap.liftMotorPowerDown);
+    		SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     	}
    // }
     
@@ -59,10 +60,11 @@ public class Lift extends PIDSubsystem {
     public void liftOff() {
     	//  Power the Lift Off.
     	liftMotor.set(RobotMap.liftMotorPowerOff);	
+    	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     }
     
     public void liftMove(double power) {
-    	SmartDashboard.putNumber("Lift Encoder Position:  ", getDistance());
+    	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     	SmartDashboard.putNumber("Lift Power", power);
     	if ((Robot.lift.getDistance() < RobotMap.liftThrottleHeight))   {
     		liftMotor.set(power);
@@ -96,7 +98,7 @@ public class Lift extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		// TODO Auto-generated method stub
 		liftMove(output);	
-		SmartDashboard.putNumber("Lift Encoder Distance: ", Robot.lift.getDistance());
+		SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
 	}
 }
 
