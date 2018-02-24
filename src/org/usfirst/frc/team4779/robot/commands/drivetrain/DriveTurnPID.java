@@ -25,6 +25,7 @@ public class DriveTurnPID extends Command {
         // eg. requires(chassis);
 		m_setpoint = setpoint;  //Our Setpoint is the Desired angle to turn.
 		this.resetGyro = resetGyro;
+		setTimeout(5);
     }
 
 
@@ -50,7 +51,7 @@ public class DriveTurnPID extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	//  We are finished if the PID is ON TARGET!!
-    	return Robot.driveTrain.onTarget();
+    	return ( Robot.driveTrain.onTarget() || isTimedOut());
     }
     
     // Called once after isFinished returns true

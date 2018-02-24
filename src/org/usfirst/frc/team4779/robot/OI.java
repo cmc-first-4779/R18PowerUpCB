@@ -81,20 +81,22 @@ public class OI {
 			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 			//
 			//  Driver Stick
-			driverStickYButton.whileHeld(new LiftUp());
-			driverStickAButton.whileHeld(new LiftDown());  //This will double as the Climb
-			driverStickBButton.whenPressed(new CalibrateDistance(240));
+			//driverStickYButton.whileHeld(new LiftUp());
+			//driverStickAButton.whileHeld(new LiftDown());  //This will double as the Climb
+			driverStickStartButton.whenPressed(new ResetLiftEncoder());
 			//
 			//
 			//  Operator Stick
 			//
-			operStickRightBumper.whileHeld(new VacCubeIntake());
-			operStickLeftBumper.whileHeld(new VacCubeEject());
+			operStickLeftBumper.whileHeld(new VacCubeIntake());
+			operStickRightBumper.whileHeld(new VacCubeEject());
 			operStickYButton.whenPressed(new DeployScale());
 			operStickBButton.whenPressed(new DeployPortal());
 			operStickXButton.whenPressed(new DeploySwitch());
 			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			operStickStartButton.whenPressed(new ResetLiftEncoder());
+			operStickBackButton.whenPressed(new LiftUp());
+			operStickStartButton.whenPressed(new LiftDown());
+			//operStickStartButton.whenPressed(new ResetLiftEncoder());
 			//operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 			//operStickBButton.whenPressed(new DeployPortal());
 			//operStickAButton.whileHeld(new SetLiftSetPointPID(RobotMap.pickUpHeight));

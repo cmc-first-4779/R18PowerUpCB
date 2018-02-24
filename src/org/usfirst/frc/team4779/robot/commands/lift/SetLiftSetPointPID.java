@@ -11,10 +11,12 @@ public class SetLiftSetPointPID extends Command {
 
 	private double setpoint;
 	
+	
     public SetLiftSetPointPID(double setpoint) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	this.setpoint = setpoint;
+    	setTimeout(5);  //Set time out for five seconds.
     	requires(Robot.lift);
     }
 
@@ -30,7 +32,7 @@ public class SetLiftSetPointPID extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.lift.onTarget();
+        return (Robot.lift.onTarget() || isTimedOut() );
     	//return false; 
     }
 
