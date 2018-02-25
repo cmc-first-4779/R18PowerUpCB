@@ -21,8 +21,6 @@ public class LeftScale extends CommandGroup {
     	super("Left Scale");
     	if (Robot.myScaleSide == 'L') {
     		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
-    		addSequential(new DriveStraightPID(RobotMap.AllianceWall_Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-    	    addSequential(new DriveAnglePID(RobotMap.Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.Jog_Angle_LeftStart));
     		addSequential(new DriveStraightPID((RobotMap.FRONT_SCALE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, false));
     		addSequential(new DriveStraightPID(RobotMap.SCALE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
     		addSequential(new TimerCommand(.25)); 
@@ -32,8 +30,6 @@ public class LeftScale extends CommandGroup {
     	}
     	else {
     		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
-    		addSequential(new DriveStraightPID(RobotMap.AllianceWall_Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-    	    addSequential(new DriveAnglePID(RobotMap.Jog_Distance, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.Jog_Angle_LeftStart));
     		addSequential(new DriveStraightPID((RobotMap.AISLE_DISTANCE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD));
     		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
      		addSequential(new TimerCommand(1));

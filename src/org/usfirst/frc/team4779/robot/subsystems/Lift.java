@@ -32,7 +32,7 @@ public class Lift extends PIDSubsystem {
 	
 	//   By default, we want the Lift Off to not drain the battery when its not being called.
 	public void initDefaultCommand() {
-    	setDefaultCommand(new LiftOff());    
+    
     }
     
     public void liftUp() {
@@ -40,7 +40,18 @@ public class Lift extends PIDSubsystem {
        	liftMotor.set(RobotMap.liftMotorPowerUp);	
        	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     }
-    
+    public void lift(double yValue) {
+    	//  Move the Lift up.	
+       	if (yValue < .25 && yValue > -.25) {
+       		liftMotor.set(0);
+       	}
+       	else if (yValue <-.25) {
+       		liftMotor.set(RobotMap.liftMotorPowerUp);
+       	}
+       	else if (yValue >.25) {
+       		liftMotor.set(RobotMap.liftMotorPowerDown);
+       	}
+    }
     public void liftUpTurbo() {
     	//  Move the Lift Up REALLY FAST.  (Turbo)
     	liftMotor.set(RobotMap.liftMotorPowerTurbo);	

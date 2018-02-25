@@ -26,6 +26,7 @@ import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
 import org.usfirst.frc.team4779.robot.commands.TimerCommand;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
+import org.usfirst.frc.team4779.robot.commands.lift.LiftWithJoystick;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -221,6 +222,8 @@ public class Robot extends TimedRobot {
 		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
 		//This will null out some of the safety notices in the console..
 		Robot.driveTrain.setMotorSafety(true);
+		
+		Robot.lift.setDefaultCommand(new LiftWithJoystick());
 
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to

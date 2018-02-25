@@ -79,15 +79,9 @@ public class OI {
 			
 			
 			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
-			//
 			//  Driver Stick
-			//driverStickYButton.whileHeld(new LiftUp());
-			//driverStickAButton.whileHeld(new LiftDown());  //This will double as the Climb
 			driverStickStartButton.whenPressed(new ResetLiftEncoder());
-			//
-			//
 			//  Operator Stick
-			//
 			operStickLeftBumper.whileHeld(new VacCubeIntake());
 			operStickRightBumper.whileHeld(new VacCubeEject());
 			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
@@ -96,16 +90,7 @@ public class OI {
 			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
 			operStickBackButton.whileHeld(new LiftUp());
 			operStickStartButton.whileHeld(new LiftDown());
-			//operStickStartButton.whenPressed(new ResetLiftEncoder());
-			//operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			//operStickBButton.whenPressed(new DeployPortal());
-			//operStickAButton.whileHeld(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			//driverStickYButton.whenPressed(new CalibrateDistance());
-			//operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			//operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-
-
-			
+		
 		}
 		
 		//This method is used later to return the the driverStick when called.

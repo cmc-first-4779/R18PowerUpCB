@@ -78,7 +78,7 @@ public class RobotMap {
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
 	public static double dTEncoderAbsoluteTolerance = 1.0;
-	public static double dTPValue = .1;
+	public static double dTPValue = .2;
 	public static double dtIValue = .0;
 	public static double dtDValue = .0;
 	
@@ -126,9 +126,9 @@ public class RobotMap {
 	//We can lower this multipler to make sure we follow the motion profile but on a smaller scale than the field
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
 	
-	public static double FRONT_SCALE_DISTANCE = ((299.65-69) + 30 ) * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_DISTANCE = (299.65 -9) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_APPROACH_DISTANCE = 14 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_DISTANCE = ((196 -69) + ((299.65 - 196)/2)) * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_DISTANCE = ((220 -33)) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_FULL_SPEED = .95;
 	public static double THROTTLE_SPEED = 0.6;
 	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
@@ -136,19 +136,15 @@ public class RobotMap {
 	public static double AISLE_LENGTH_TO_SWITCH = 72 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_THROTTLE_DOWN_DISTANCE = 30 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SPEED = 0.8;
-	public static double AISLE_SCALE_APPROACH_DISTANCE = 60 * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SWITCH_DISTANCE = 131 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_SCALE_APPROACH_DISTANCE = 24 * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SWITCH_DISTANCE = 117 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SWITCH_SPEED = 0.85;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 5 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_SWITCH_APPROACH_DISTANCE = 60 * FIELD_RATIO__MULTIPLIER;
-	public static double SIDE_SWITCH_DISTANCE = (134 - 33) * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_SWITCH_APPROACH_DISTANCE = 32* FIELD_RATIO__MULTIPLIER;
+	public static double SIDE_SWITCH_DISTANCE = 131 * FIELD_RATIO__MULTIPLIER;
 	public static double SIDE_SWITCH_HALF_DISTANCE = (SIDE_SWITCH_DISTANCE / 2);
 	public static double LIFT_SETPOINT_HIGH_SPEED = 50;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
-	public static double AllianceWall_Jog_Distance = 12;
-	public static double Jog_Distance = 36;
-	public static double Jog_Angle_LeftStart = -45;
-	public static double Jog_Angle_RightStart = 45;
-	
+
 }
 
