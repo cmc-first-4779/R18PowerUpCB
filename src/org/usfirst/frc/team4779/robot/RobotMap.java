@@ -67,10 +67,10 @@ public class RobotMap {
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
 	
-	public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
+	//public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
 
   //Mule ratio below
-	//public static double dTEncoderDistancePerRevolution = 2.576;//We need to find this.
+	public static double dTEncoderDistancePerRevolution = 2.576;//We need to find this.
 	//public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
@@ -91,6 +91,10 @@ public class RobotMap {
 	public static int REVERSE = -1;
 	public static int LEFT = -90;
 	public static int RIGHT = 90;
+	public static int NORTH = 0;
+	public static int EAST = 90;
+	public static int SOUTH = 180;
+	public static int WEST = 270;
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 4;
 	
@@ -116,8 +120,8 @@ public class RobotMap {
 	public static double dtTurnThrottle = 0.85;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
-	public static double dTEncoderOutputMinTurn = -.6;
-	public static double dTEncoderOutputMaxTurn = .7;
+	public static double dTEncoderOutputMinTurn = -.85;
+	public static double dTEncoderOutputMaxTurn = .85;
 	public static double ryanGovernor = 1;
 	
 	//Field Measurments for Auton  
@@ -127,22 +131,24 @@ public class RobotMap {
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
 	
 	public static double FRONT_SCALE_DISTANCE = (299.65 -9) * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SCALE_APPROACH_DISTANCE = 14 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_DISTANCE = ((220 -33)) * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_APPROACH_DISTANCE = 4 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_DISTANCE = 185 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_FULL_SPEED = .95;
 	public static double THROTTLE_SPEED = 0.6;
 	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_LENGTH_TO_SCALE = 180 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_LENGTH_TO_SCALE = 168 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
 	public static double AISLE_LENGTH_TO_SWITCH = 72 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_THROTTLE_DOWN_DISTANCE = 30 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_THROTTLE_DOWN_DISTANCE = 40 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SPEED = 0.8;
-	public static double AISLE_SCALE_APPROACH_DISTANCE = 24 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_SCALE_APPROACH_DISTANCE = 45 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SWITCH_DISTANCE = 117 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SWITCH_SPEED = 0.85;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 5 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 32* FIELD_RATIO__MULTIPLIER;
 	public static double SIDE_SWITCH_DISTANCE = 131 * FIELD_RATIO__MULTIPLIER;
-	public static double SIDE_SWITCH_HALF_DISTANCE = (SIDE_SWITCH_DISTANCE / 2);
+	public static double SWITCH_AISLE_APPROACH_DISTANCE = 83;
+	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 50;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
 

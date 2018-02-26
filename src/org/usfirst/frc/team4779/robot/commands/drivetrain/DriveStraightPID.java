@@ -16,6 +16,7 @@ public class DriveStraightPID extends Command {
 	double m_distance;
 	double m_speed;
 	int m_direction;
+	double m_setpoint;
 	// NO TIMER USED!! WE WILL MOST LIKELY DELETE THIS!
 	Timer timer = new Timer();
 	boolean resetGyro;
@@ -25,6 +26,7 @@ public class DriveStraightPID extends Command {
 		m_distance = distance;
 		m_speed = speed;
 		m_direction = direction;
+		m_setpoint = 0;
 		this.resetGyro = true;
 	}
 	
@@ -36,10 +38,24 @@ public class DriveStraightPID extends Command {
 		m_distance = distance;
 		m_speed = speed;
 		m_direction = direction;
+		m_setpoint = 0;
 		this.resetGyro = resetGyro;
 
 	}
 
+	public DriveStraightPID(double distance, double speed, int direction, boolean resetGyro, double setpoint) {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+		// HERE ARE OUR THREE INPUTS. DISTANCE, SPEED, and DIRECTION (1 = FORWARD, -1 =
+		// REVERSE)
+		m_distance = distance;
+		m_speed = speed;
+		m_direction = direction;
+		m_setpoint = setpoint;
+		this.resetGyro = resetGyro;
+
+	}
+	
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		// RESET OUR ENCODERS
@@ -56,7 +72,7 @@ public class DriveStraightPID extends Command {
 		Robot.driveTrain.setSpeed(m_speed * m_direction);
 		Robot.driveTrain.setDistance(m_distance);
 		// SET OUR GYRO TO ZERO! WE WANT TO GO STRAIGHT!
-		Robot.driveTrain.setSetpoint(0);
+		Robot.driveTrain.setSetpoint(m_setpoint);
 		// ENABLE THE PID!
 		Robot.driveTrain.enable();
 		Robot.driveTrain.setOutputRange(RobotMap.dTEncoderOutputMin, RobotMap.dTEncoderOutputMax);
