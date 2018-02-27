@@ -19,27 +19,39 @@ public class Lift extends PIDSubsystem {
 	//  Declare our Spark Motor that powers the lift
 	Spark liftMotor = new Spark(RobotMap.liftMotorPWMPort);
 	private static Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannelA, RobotMap.liftEncoderChannelB);
-	//private AnalogInput rangefinder = new AnalogInput(0);
+
 	
 	
 	public Lift() {
 		 super("Lift", RobotMap.liftPValue, RobotMap.liftIValue, RobotMap.liftDValue);
 		 liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse);
 		 setAbsoluteTolerance(RobotMap.liftTolerance);
-		// SmartDashboard.putData("Lift State:  ", Robot.lift);
+		 //SmartDashboard.putData("Lift State:  ", Robot.lift);
+		 //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
 	 }
 	
 	//   By default, we want the Lift Off to not drain the battery when its not being called.
 	public void initDefaultCommand() {
-    	setDefaultCommand(new LiftOff());    
+    
     }
     
     public void liftUp() {
     	//  Move the Lift up.
-    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
-    	liftMotor.set(RobotMap.liftMotorPowerUp);	
+       	liftMotor.set(RobotMap.liftMotorPowerUp);	
+       	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     }
-    
+    public void lift(double yValue) {
+    	//  Move the Lift up.	
+       	if (yValue < .25 && yValue > -.25) {
+       		liftMotor.set(0);
+       	}
+       	else if (yValue <-.25) {
+       		liftMotor.set(RobotMap.liftMotorPowerUp);
+       	}
+       	else if (yValue >.25) {
+       		liftMotor.set(RobotMap.liftMotorPowerDown);
+       	}
+    }
     public void liftUpTurbo() {
     	//  Move the Lift Up REALLY FAST.  (Turbo)
     	liftMotor.set(RobotMap.liftMotorPowerTurbo);	
@@ -47,18 +59,22 @@ public class Lift extends PIDSubsystem {
     
     public void liftDown() {
     	//  Move the Lift Down.
-    	SmartDashboard.putNumber("Lift Distance", liftEncoder.getDistance());
-    	liftMotor.set(RobotMap.liftMotorPowerDown);	
-    }
-    
+    	//if (getDistance() <= 15)  {
+    		//liftMotor.set(RobotMap.liftThrottleDown);
+    	//}else {
+    		liftMotor.set(RobotMap.liftMotorPowerDown);
+    		SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
+    	}
+  
     
     public void liftOff() {
     	//  Power the Lift Off.
     	liftMotor.set(RobotMap.liftMotorPowerOff);	
+    	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     }
     
     public void liftMove(double power) {
-    	SmartDashboard.putNumber("Lift Encoder Position:  ", getDistance());
+    	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     	SmartDashboard.putNumber("Lift Power", power);
     	if ((Robot.lift.getDistance() < RobotMap.liftThrottleHeight))   {
     		liftMotor.set(power);
@@ -92,7 +108,7 @@ public class Lift extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		// TODO Auto-generated method stub
 		liftMove(output);	
-		SmartDashboard.putNumber("Lift Encoder Distance: ", Robot.lift.getDistance());
+		SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
 	}
 }
 

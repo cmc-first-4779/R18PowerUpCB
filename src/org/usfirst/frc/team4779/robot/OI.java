@@ -20,6 +20,7 @@ import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
+import org.usfirst.frc.team4779.robot.commands.lift.ResetLiftEncoder;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
@@ -53,7 +54,8 @@ public class OI {
 			JoystickButton operStickBButton = new JoystickButton(operStick, RobotMap.bButton);
 			JoystickButton operStickLeftBumper = new JoystickButton(operStick, RobotMap.leftBumperButton);
 			JoystickButton operStickRightBumper = new JoystickButton(operStick, RobotMap.rightBumperButton);
-
+			JoystickButton operStickBackButton = new JoystickButton(operStick, RobotMap.backButton);
+			JoystickButton operStickStartButton = new JoystickButton(operStick, RobotMap.startButton);
 			
 			//Declare and Initiate all of the Buttons on the Driver Stick
 			JoystickButton driverStickYButton = new JoystickButton(driverStick,RobotMap.yButton);
@@ -62,7 +64,10 @@ public class OI {
 			JoystickButton driverStickBButton = new JoystickButton(driverStick, RobotMap.bButton);
 			JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, RobotMap.leftBumperButton);
 			JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.rightBumperButton);
-
+			JoystickButton driverStickBackButton = new JoystickButton(driverStick, RobotMap.backButton);
+			JoystickButton driverStickStartButton = new JoystickButton(driverStick, RobotMap.startButton);
+			
+			
 			/*Set up the Oper Stick buttons to call the right commands.
 			 * X turns on the climber
 			 * Y vaccube Intake
@@ -74,44 +79,28 @@ public class OI {
 			
 			
 			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
-			//
-			//driverStickLeftBumper.whileHeld(new VacCubeIntake()); 
-			//driverStickRightBumper.whileHeld(new VacCubeEject());
-		//	driverStickBButton.whileHeld(new arcadeDriveWithGyro());
-
+			//  Driver Stick
+			driverStickStartButton.whenPressed(new ResetLiftEncoder());
+			//  Operator Stick
 			operStickLeftBumper.whileHeld(new VacCubeIntake());
 			operStickRightBumper.whileHeld(new VacCubeEject());
-			operStickYButton.whenPressed(new DeployScale());
-			operStickXButton.whenPressed(new DeploySwitch());
-			operStickBButton.whenPressed(new DeployPortal());
-			operStickAButton.whileHeld(new LiftDown());
-			driverStickYButton.whenPressed(new CalibrateDistance());
-			driverStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-			driverStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			driverStickAButton.whenPressed(new DriveTurnPID(90));
-
-			//driverStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			driverStickLeftBumper.whileHeld(new LiftUp());
-			driverStickRightBumper.whileHeld(new LiftDown());
-			//driverStickAButton.whenPressed(new SetCameraLow());
-			//driverStickYButton.whenPressed(new SetCameraHigh());
-			
-			
-			//driverStickYButton.whileHeld(new LiftUp());
-			//driverStickAButton.whileHeld(new LiftDown());
-
-			
-	
-  		// There are a few additional built in buttons you can use. Additionally,
-			// by subclassing Button you can create custom triggers and bind those to
-			// commands the same as any other Button.
-
-			
+			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+			operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
+			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			operStickBackButton.whileHeld(new LiftUp());
+			operStickStartButton.whileHeld(new LiftDown());
+		
 		}
 		
 		//This method is used later to return the the driverStick when called.
 		 public Joystick getDriverStick() {
 			return driverStick;
+		 }
+		
+		//This method is used later to return the the operStick when called.
+		 public Joystick getOperStick()  {
+			 return operStick;
 		 }
 
 

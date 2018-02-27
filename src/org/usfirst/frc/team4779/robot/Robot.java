@@ -26,6 +26,7 @@ import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
 import org.usfirst.frc.team4779.robot.commands.TimerCommand;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
+import org.usfirst.frc.team4779.robot.commands.lift.LiftWithJoystick;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -86,13 +87,9 @@ public class Robot extends TimedRobot {
 
 		// Reset our Lift Encoder
 		Robot.lift.resetLiftEncoder();
-		SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
+		//SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
 
-		// Init our SmartDashboard
-		// smartDashboardInit = new SmartDashboardInit();
-
-		// Init our Camera..
-		//Robot.cameraFeeds.setCameraLow();
+		CameraServer.getInstance().startAutomaticCapture();
 
 		// autoChooser.addDefault("Middle Switch", new MiddleSwitch());
 		//// System.out.println("After autoChooser");
@@ -109,12 +106,14 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Middle Scale", 3);
 		autoChooser.addObject("Left Scale", 4);
 		autoChooser.addObject("Right Scale", 5);
+		autoChooser.addObject("Calibrate", 6);
 
 		// Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
 		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
+		//SmartDashboard.putData(Robot.driveTrain.gyro);
 	}
 
 	/**
@@ -147,7 +146,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		Robot.driveTrain.setMotorSafety(false);
-		//Robot.driveTrain.setDefaultCommand(new TimerCommand(10));
+
 		// Select the Auton Command Group from the SmartDashboard.
 		// Get Game Data from FMS to tell where the Red & Blue Tiles are
 		String gameData;
@@ -192,6 +191,8 @@ public class Robot extends TimedRobot {
 		case 5:
 			m_autonomousCommand = new RightScale();
 			break;
+		case 6: 
+			m_autonomousCommand = new CalibrateDistance(120);
 		}
 
 		/*
@@ -218,8 +219,11 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 
-		 Robot.driveTrain.setDefaultCommand(new DriveJoystick());
-		 Robot.driveTrain.setMotorSafety(true);
+		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
+		//This will null out some of the safety notices in the console..
+		Robot.driveTrain.setMotorSafety(true);
+		
+		Robot.lift.setDefaultCommand(new LiftWithJoystick());
 
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to

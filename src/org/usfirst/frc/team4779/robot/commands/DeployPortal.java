@@ -16,7 +16,7 @@ public class DeployPortal extends CommandGroup {
 
         	addSequential(new SetLiftSetPointPID(RobotMap.portalHeight));
         	addSequential(new VacCubeEject());
-        	addSequential(new TimerCommand(3));
+        	addSequential(new TimerCommand(1));
         	addParallel( new VacCubeOff());
         	addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight));
         	
