@@ -43,6 +43,8 @@ public class Robot extends TimedRobot {
 	public static VacCube vacCube;
 	public static Bling bling;
 	public static CameraFeeds cameraFeeds;
+	public static double m_dtencoderDistancePerRevolution;	
+	public static int whichRobot;
 
 	// Declare the variables needed for the Field Management System for Red/Blue
 	// Tiles
@@ -60,6 +62,9 @@ public class Robot extends TimedRobot {
 	// position in the
 	// starting field and what the FMS tells us.
 	Command m_autonomousCommand;
+	Command m_robotChooser;
+	
+	SendableChooser<Integer> robotChooser = new SendableChooser();
 	SendableChooser<Integer> autoChooser = new SendableChooser<>();
 
 	/**
@@ -114,6 +119,26 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
 		//SmartDashboard.putData(Robot.driveTrain.gyro);
+		
+		robotChooser.addDefault("Cubert", 100);
+		robotChooser.addObject("Mule", 101);
+		
+		SmartDashboard.putData("Choose Robot" , robotChooser);
+		whichRobot = robotChooser.getSelected();
+		if (whichRobot == 100) {
+			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_cubert;
+					
+		}
+		
+		else if (whichRobot == 101) {
+			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_mule;
+		}
+		
+		else {
+			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_mule;
+		}
+	
+	
 	}
 
 	/**

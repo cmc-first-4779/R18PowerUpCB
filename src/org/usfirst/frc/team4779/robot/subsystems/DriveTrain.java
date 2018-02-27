@@ -55,6 +55,20 @@ public class DriveTrain extends PIDSubsystem {
 		//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
 		dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse);
 		dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse);
+		if (Robot.whichRobot == 100) {
+			dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse);
+			dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse);
+			
+					
+		}
+		
+		else if (whichRobot == 101) {
+			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_mule;
+		}
+		
+		else {
+			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_mule;
+		}
 	}
 	
 	public void setOutputRangeOfEncoders (double min, double max) {

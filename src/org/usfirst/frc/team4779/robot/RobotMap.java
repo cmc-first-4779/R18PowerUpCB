@@ -67,11 +67,10 @@ public class RobotMap {
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
 	
-	//public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
+	public static double dTEncoderDistancePerRevolution_cubert = 2.255;//We need to find this.
 
   //Mule ratio below
-	public static double dTEncoderDistancePerRevolution = 2.576;//We need to find this.
-	//public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
+	public static double dTEncoderDistancePerRevolution_mule = 2.576;//We need to find this
 	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
