@@ -46,11 +46,6 @@ public class LeftScale extends CommandGroup {
     	}
     		
     	}
-
-	private void addSequential(int i, double tHROTTLE_SPEED, int fORWARD) {
-		// TODO Auto-generated method stub
-		
-	}
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.

@@ -134,6 +134,7 @@ public class RobotMap {
 	public static double FRONT_SCALE_APPROACH_DISTANCE = 4 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_DISTANCE = 185 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_FULL_SPEED = .95;
+
 	public static double THROTTLE_SPEED = 0.6;
 	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_LENGTH_TO_SCALE = 168 * FIELD_RATIO__MULTIPLIER;
