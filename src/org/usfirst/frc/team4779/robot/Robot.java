@@ -15,8 +15,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import javax.management.openmbean.OpenDataException;
-
 import org.usfirst.frc.team4779.robot.autoCommands.*;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.CameraFeeds;
@@ -24,7 +22,6 @@ import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
-import org.usfirst.frc.team4779.robot.commands.TimerCommand;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftWithJoystick;
 
@@ -44,7 +41,7 @@ public class Robot extends TimedRobot {
 	public static Bling bling;
 	public static CameraFeeds cameraFeeds;
 	public static double m_dtencoderDistancePerRevolution;	
-	public static int whichRobot;
+	private static int whichRobot;
 
 	// Declare the variables needed for the Field Management System for Red/Blue
 	// Tiles
@@ -64,7 +61,7 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	Command m_robotChooser;
 	
-	SendableChooser<Integer> robotChooser = new SendableChooser();
+	SendableChooser<Integer> robotChooser = new SendableChooser<>();
 	SendableChooser<Integer> autoChooser = new SendableChooser<>();
 
 	/**
@@ -120,26 +117,14 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(Robot.driveTrain);
 		//SmartDashboard.putData(Robot.driveTrain.gyro);
 		
-		robotChooser.addDefault("Cubert", 100);
-		robotChooser.addObject("Mule", 101);
+		robotChooser.addDefault("Cubert", RobotMap.CUBERT);
+		robotChooser.addObject("Mule", RobotMap.MULE);
 		
 		SmartDashboard.putData("Choose Robot" , robotChooser);
-		whichRobot = robotChooser.getSelected();
-		if (whichRobot == 100) {
-			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_cubert;
-					
-		}
-		
-		else if (whichRobot == 101) {
-			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_mule;
-		}
-		
-		else {
-			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_mule;
-		}
-	
-	
+		setWhichRobot(robotChooser.getSelected());
 	}
+
+
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode. You
@@ -276,4 +261,18 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 	}
+
+	/**
+	 * Gets the value of which robot we are we using
+	 * @return CUBERT or MULE depending on smart dashboard selection
+	 */
+	public static int getWhichRobot() {
+		return whichRobot;
+	}
+
+	private void setWhichRobot(Integer selected) {
+		whichRobot = selected;
+	}
+	
+	
 }

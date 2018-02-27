@@ -71,7 +71,8 @@ public class RobotMap {
 
   //Mule ratio below
 	public static double dTEncoderDistancePerRevolution_mule = 2.576;//We need to find this
-	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
+	public static double dTDistancePerPulse_mule = dTEncoderDistancePerRevolution_mule / dTEncoderPulsePerRevolution;
+	public static double dTDistancePerPulse_cubert = dTEncoderDistancePerRevolution_cubert / dTEncoderPulsePerRevolution;
 	public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
 	public static int dTEncoderRightChannelA = 2;
@@ -150,6 +151,9 @@ public class RobotMap {
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 50;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
+	
+	public static final int CUBERT = 0;
+	public static final int MULE = 1;
 
 }
 

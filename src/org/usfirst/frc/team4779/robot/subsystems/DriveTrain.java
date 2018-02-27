@@ -52,23 +52,18 @@ public class DriveTrain extends PIDSubsystem {
 		setAbsoluteTolerance(RobotMap.dTEncoderAbsoluteTolerance);
 		//Set our Encoder Ouput Min and Max.   This will limit the speed of our motors while the PID is running.
 		setOutputRange(RobotMap.dTEncoderOutputMin, RobotMap.dTEncoderOutputMax);
+
 		//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
-		dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse);
-		dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse);
-		if (Robot.whichRobot == 100) {
-			dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse);
-			dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse);
-			
-					
+		//Check to see if we are using the Mule robot, and if so, use it's distance per pulse.  Otherwise, use CuBert's value
+		if (Robot.getWhichRobot() == RobotMap.MULE) {
+			dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse_mule);
+			dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse_mule);			
 		}
-		
-		else if (whichRobot == 101) {
-			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_mule;
-		}
-		
 		else {
-			m_dtencoderDistancePerRevolution = RobotMap.dTEncoderDistancePerRevolution_mule;
+			dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse_cubert);
+			dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse_cubert);
 		}
+		
 	}
 	
 	public void setOutputRangeOfEncoders (double min, double max) {
