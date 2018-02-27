@@ -35,7 +35,7 @@ public class LeftSwitch extends CommandGroup {
          	addSequential(new DriveStraightPID((RobotMap.AISLE_LENGTH_TO_SWITCH - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.AISLE_SPEED, RobotMap.FORWARD, false, RobotMap.EAST));
          	addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.EAST));
          	addSequential(new TimerCommand(0.5));
-        	addParallel(new DriveTurnPID(RobotMap.SOUTH, false));
+        	addSequential(new DriveTurnPID(RobotMap.SOUTH, false));
         	addSequential(new TimerCommand(0.5));
         	addSequential(new DriveStraightPID(RobotMap.AISLE_SWITCH_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.SOUTH));
         	//addSequential (new DeploySwitch());

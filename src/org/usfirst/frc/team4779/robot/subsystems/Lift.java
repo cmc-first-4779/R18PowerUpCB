@@ -65,8 +65,7 @@ public class Lift extends PIDSubsystem {
     		liftMotor.set(RobotMap.liftMotorPowerDown);
     		SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     	}
-   // }
-    
+  
     
     public void liftOff() {
     	//  Power the Lift Off.
