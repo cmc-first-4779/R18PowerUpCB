@@ -94,7 +94,7 @@ public class RobotMap {
 	public static int NORTH = 0;
 	public static int EAST = 90;
 	public static int SOUTH = 180;
-	public static int WEST = 270;
+	public static int WEST = -90;
 	public static double dTTurnPIDTurnSpeed = 0.4;
 	public static double dTTurnAbsoluteTolerance = 4;
 	
@@ -138,15 +138,15 @@ public class RobotMap {
 	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_LENGTH_TO_SCALE = 168 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
-	public static double AISLE_LENGTH_TO_SWITCH = 121 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_LENGTH_TO_SWITCH = 133 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_THROTTLE_DOWN_DISTANCE = 40 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SPEED = 0.8;
-	public static double AISLE_SCALE_APPROACH_DISTANCE = 45 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_SCALE_APPROACH_DISTANCE = 36 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SWITCH_DISTANCE = 115 * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SWITCH_SPEED = 0.75;
+	public static double FRONT_SWITCH_SPEED = 0.6;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 7 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_SWITCH_APPROACH_DISTANCE = 32* FIELD_RATIO__MULTIPLIER;
-	public static double SIDE_SWITCH_DISTANCE = 131 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_SWITCH_APPROACH_DISTANCE = 14* FIELD_RATIO__MULTIPLIER;
+	public static double SIDE_SWITCH_DISTANCE = 94 * FIELD_RATIO__MULTIPLIER;
 	public static double SWITCH_AISLE_APPROACH_DISTANCE = 83;
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 50;
