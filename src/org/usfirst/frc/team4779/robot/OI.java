@@ -84,12 +84,12 @@ public class OI {
 			//  Operator Stick
 			operStickLeftBumper.whileHeld(new VacCubeIntake());
 			operStickRightBumper.whileHeld(new VacCubeEject());
-			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+//			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
 			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-			operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			operStickBackButton.whileHeld(new LiftUp());
-			operStickStartButton.whileHeld(new LiftDown());
+//			operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
+//			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			operStickYButton.whileHeld(new LiftUp());
+			operStickAButton.whileHeld(new LiftDown());
 		
 		}
 		
