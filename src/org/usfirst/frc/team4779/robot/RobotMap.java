@@ -106,10 +106,11 @@ public class RobotMap {
 	public static int liftEncoderChannelA = 4;
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
-	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
+//	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
+	public static double liftEncoderDistancePerRevolution = 0.395;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 30; 
-	public static double scaleHeight = 47;
+	public static double scaleHeight = 77;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double midScaleHeight = 65;
@@ -150,7 +151,7 @@ public class RobotMap {
 	public static double SIDE_SWITCH_DISTANCE = 94 * FIELD_RATIO__MULTIPLIER;
 	public static double SWITCH_AISLE_APPROACH_DISTANCE = 83;
 	public static double SWITCH_AISLE_DISTANCE = 24;
-	public static double LIFT_SETPOINT_HIGH_SPEED = 15;
+	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
 
 }
