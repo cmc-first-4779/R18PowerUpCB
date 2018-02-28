@@ -42,6 +42,7 @@ public class Lift extends PIDSubsystem {
     }
     public void lift(double yValue) {
     	//  Move the Lift up.	
+    	SmartDashboard.putNumber("Lift Power:" , yValue);
        	if (yValue < .25 && yValue > -.25) {
        		liftMotor.set(0);
        	}
