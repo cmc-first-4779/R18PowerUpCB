@@ -204,5 +204,19 @@ public class DriveTrain extends PIDSubsystem {
 //    	rearLeftDrive.setSafetyEnabled(enabled);
 //    	rearRightDrive.setSafetyEnabled(enabled);
     }
+    
+    public void setDefaultRobot() {
+    	//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
+    			//Check to see if we are using the Mule robot, and if so, use it's distance per pulse.  Otherwise, use CuBert's value
+    			if (Robot.getWhichRobot() == RobotMap.MULE) {
+    				dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse_mule);
+    				dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse_mule);			
+    			}
+    			else {
+    				dTEncoderLeft.setDistancePerPulse(RobotMap.dTDistancePerPulse_cubert);
+    				dTEncoderRight.setDistancePerPulse(RobotMap.dTDistancePerPulse_cubert);
+    			}
+    	
+    }
 
 }

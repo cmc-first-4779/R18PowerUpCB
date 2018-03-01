@@ -70,7 +70,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-
+		
+		
 		// Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
@@ -120,8 +121,7 @@ public class Robot extends TimedRobot {
 		robotChooser.addDefault("Cubert", RobotMap.CUBERT);
 		robotChooser.addObject("Mule", RobotMap.MULE);
 		
-		SmartDashboard.putData("Choose Robot" , robotChooser);
-		setWhichRobot(robotChooser.getSelected());
+		SmartDashboard.putData("Choose Robot" , robotChooser); 
 	}
 
 
@@ -155,6 +155,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		setWhichRobot(robotChooser.getSelected());
+		Robot.driveTrain.setDefaultRobot();
 		Robot.driveTrain.setMotorSafety(false);
 
 		// Select the Auton Command Group from the SmartDashboard.
@@ -228,7 +230,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-
+		Robot.driveTrain.setDefaultRobot();
 		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
 		//This will null out some of the safety notices in the console..
 		Robot.driveTrain.setMotorSafety(true);
@@ -271,6 +273,7 @@ public class Robot extends TimedRobot {
 	}
 
 	private void setWhichRobot(Integer selected) {
+		SmartDashboard.putNumber("WhichRobot", selected);
 		whichRobot = selected;
 	}
 	
