@@ -23,7 +23,6 @@ public class LeftScale extends CommandGroup {
     		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
     		//addSequential(new DriveStraightPID((RobotMap.FRONT_SCALE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true));
     		//addSequential(new DriveStraightPID(RobotMap.SCALE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-    		//going a long distance, so using new DriveStraightPIDWithThrottle command
     		addSequential(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_DISTANCE, RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH));
     		addSequential(new TimerCommand(.25)); 
     		addSequential(new DriveTurnPID(RobotMap.EAST, false));
@@ -43,7 +42,6 @@ public class LeftScale extends CommandGroup {
      		addSequential(new TimerCommand(0.5));     		
 //     		addSequential(new DriveStraightPID((RobotMap.AISLE_LENGTH_TO_SCALE - RobotMap.AISLE_THROTTLE_DOWN_DISTANCE), RobotMap.AISLE_SPEED, RobotMap.FORWARD, false, RobotMap.EAST));
 //     		addSequential(new DriveStraightPID(RobotMap.AISLE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.EAST));
-    		//going a long distance, so using new DriveStraightPIDWithThrottle command
      		addSequential(new DriveStraightPIDWithThrottle(RobotMap.AISLE_LENGTH_TO_SCALE, RobotMap.AISLE_SPEED, RobotMap.FORWARD, false, RobotMap.EAST));
     		addSequential(new TimerCommand(0.5));
     		addSequential(new DriveTurnPID(RobotMap.NORTH, false));

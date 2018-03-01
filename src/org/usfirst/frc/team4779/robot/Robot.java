@@ -15,8 +15,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import javax.management.openmbean.OpenDataException;
-
 import org.usfirst.frc.team4779.robot.autoCommands.*;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.CameraFeeds;
@@ -24,7 +22,6 @@ import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
-import org.usfirst.frc.team4779.robot.commands.TimerCommand;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftWithJoystick;
 
@@ -43,6 +40,8 @@ public class Robot extends TimedRobot {
 	public static VacCube vacCube;
 	public static Bling bling;
 	public static CameraFeeds cameraFeeds;
+	public static double m_dtencoderDistancePerRevolution;	
+	private static int whichRobot;
 
 	// Declare the variables needed for the Field Management System for Red/Blue
 	// Tiles
@@ -60,6 +59,9 @@ public class Robot extends TimedRobot {
 	// position in the
 	// starting field and what the FMS tells us.
 	Command m_autonomousCommand;
+	Command m_robotChooser;
+	
+	SendableChooser<Integer> robotChooser = new SendableChooser<>();
 	SendableChooser<Integer> autoChooser = new SendableChooser<>();
 
 	/**
@@ -68,7 +70,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-
+		
+		
 		// Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
@@ -116,7 +119,14 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
 		//SmartDashboard.putData(Robot.driveTrain.gyro);
+		
+		robotChooser.addDefault("Cubert", RobotMap.CUBERT);
+		robotChooser.addObject("Mule", RobotMap.MULE);
+		
+		SmartDashboard.putData("Choose Robot" , robotChooser); 
 	}
+
+
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode. You
@@ -147,6 +157,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		setWhichRobot(robotChooser.getSelected());
+		Robot.driveTrain.setDefaultRobot();
 		Robot.driveTrain.setMotorSafety(false);
 
 		// Select the Auton Command Group from the SmartDashboard.
@@ -227,7 +239,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-
+		Robot.driveTrain.setDefaultRobot();
 		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
 		//This will null out some of the safety notices in the console..
 		Robot.driveTrain.setMotorSafety(true);
@@ -260,4 +272,19 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 	}
+
+	/**
+	 * Gets the value of which robot we are we using
+	 * @return CUBERT or MULE depending on smart dashboard selection
+	 */
+	public static int getWhichRobot() {
+		return whichRobot;
+	}
+
+	private void setWhichRobot(Integer selected) {
+		SmartDashboard.putNumber("WhichRobot", selected);
+		whichRobot = selected;
+	}
+	
+	
 }

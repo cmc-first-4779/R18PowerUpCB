@@ -67,13 +67,14 @@ public class RobotMap {
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
 	
-	//public static double dTEncoderDistancePerRevolution = 2.255;//We need to find this.
+	public static double dTEncoderDistancePerRevolution_cubert = 2.255;//We need to find this.
 
   //Mule ratio below
-	public static double dTEncoderDistancePerRevolution = 2.95;//We need to find this.
-	//public static double dTEncoderDistancePerRevolution = 4.22;//We need to find this.
-	public static double dTDistancePerPulse = dTEncoderDistancePerRevolution / dTEncoderPulsePerRevolution;
-	public static int dTEncoderLeftChannelA = 0;
+	public static double dTEncoderDistancePerRevolution_mule = 2.76;//We need to find this
+	public static double dTDistancePerPulse_mule = dTEncoderDistancePerRevolution_mule / dTEncoderPulsePerRevolution;
+	public static double dTDistancePerPulse_cubert = dTEncoderDistancePerRevolution_cubert / dTEncoderPulsePerRevolution;
+
+  public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
@@ -118,7 +119,7 @@ public class RobotMap {
 	public static double liftDTThrottleHeight = 28;
 	public static double dTLiftThrottleDown = 0.7;
 	public static double liftThrottleDown = 0.0;  //Set to zero to stop slippage
-	public static double dtTurnThrottle = 0.85;
+	public static double dtTurnThrottle = 1;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
 	public static double dTEncoderOutputMinTurn = -.85;
@@ -153,6 +154,9 @@ public class RobotMap {
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
+	
+	public static final int CUBERT = 0;
+	public static final int MULE = 1;
 
 }
 
