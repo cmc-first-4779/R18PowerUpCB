@@ -50,16 +50,13 @@ public class Robot extends TimedRobot {
 	public static char opponentSwitchSide;
 
 	// Declare our SmartDashboardInit
-	public static SmartDashboardInit smartDashboardInit;
+	//public static SmartDashboardInit smartDashboardInit;
 
 	// Our standard practice is to leave the OI last.
 	public static OI m_oi;
 
-	// This is where we will start to offer different options for Auton based on our
-	// position in the
-	// starting field and what the FMS tells us.
+	//Command that will represent our Auton Command once we read it in
 	Command m_autonomousCommand;
-	Command m_robotChooser;
 	
 	SendableChooser<Integer> robotChooser = new SendableChooser<>();
 	SendableChooser<Integer> autoChooser = new SendableChooser<>();
@@ -70,14 +67,12 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		
-		
 		// Initiate the Robot Subsystems
 		lift = new Lift();
 		driveTrain = new DriveTrain();
-		
 		vacCube = new VacCube();
 		//cameraFeeds = new CameraFeeds();
+
 		// We are commenting out the Bling subsystem until we get it installed.
 		// bling = new Bling();
 
@@ -157,8 +152,11 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		//Get the robot setting from the dashboard
 		setWhichRobot(robotChooser.getSelected());
-		Robot.driveTrain.setDefaultRobot();
+		//Set the drive train encoders now that we knwo which robot
+		Robot.driveTrain.setEncoderDistancePerPulse();
+		//Turn safety off to get rid of error messages about not updating enough
 		Robot.driveTrain.setMotorSafety(false);
 
 		// Select the Auton Command Group from the SmartDashboard.
@@ -166,8 +164,6 @@ public class Robot extends TimedRobot {
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		System.out.println("Got game data: " + gameData);
-		// Got the "MySwitchSide" of the FMS Input working. Need to move on to the
-		// MyScaleSide.
 		if (gameData.length() > 0) {
 			mySwitchSide = gameData.charAt(0);
 			myScaleSide = gameData.charAt(1);
@@ -179,13 +175,12 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putString("mySwitchSide value: ", new StringBuilder(mySwitchSide).toString());
 			SmartDashboard.putString("myScaleSide value: ", new StringBuilder(myScaleSide).toString());
 			SmartDashboard.putString("opponentSwitchSide value: ", new StringBuilder(opponentSwitchSide).toString());
-
 		} else {
 			System.out.println("No game data received");
 		}
 
 		SmartDashboard.putString("gamedata", gameData);
-		// Send the default Auton Mode to the Java SmartDashboard.
+		// Create the proper auto  command based on the auton selection. 
 		switch (autoChooser.getSelected().intValue()) {
 		case 0:
 			m_autonomousCommand = new MiddleSwitch();
@@ -216,13 +211,8 @@ public class Robot extends TimedRobot {
 			break;
 		}
 
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		 * switch(autoSelected) { case "My Auto": autonomousCommand = new
-		 * MyAutoCommand(); break; case "Default Auto": default: autonomousCommand = new
-		 * ExampleCommand(); break; }
-		 */
 		Robot.lift.resetLiftEncoder();
+
 		// schedule the autonomous command (example)
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
@@ -239,7 +229,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		Robot.driveTrain.setDefaultRobot();
+		Robot.driveTrain.setEncoderDistancePerPulse();
 		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
 		//This will null out some of the safety notices in the console..
 		Robot.driveTrain.setMotorSafety(true);
@@ -253,9 +243,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
-		Robot.mySwitchSide = 'L';
-		Robot.myScaleSide = 'L';
-		Robot.opponentSwitchSide = 'L';
+	
 	}
 
 	/**

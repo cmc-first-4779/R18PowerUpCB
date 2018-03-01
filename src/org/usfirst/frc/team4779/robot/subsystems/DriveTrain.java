@@ -197,15 +197,18 @@ public class DriveTrain extends PIDSubsystem {
     	this.distance = dis;
     }
     
+    /**
+     * Set that state of the SafetyEnable mode of the drive train.  
+     * @param enabled setting to false will remove the annoying error messages
+     */
     public void setMotorSafety(boolean enabled ) {
     	myDrive.setSafetyEnabled(enabled);
-//    	frontLeftDrive.setSafetyEnabled(enabled);
-//    	frontRightDrive.setSafetyEnabled(enabled);
-//    	rearLeftDrive.setSafetyEnabled(enabled);
-//    	rearRightDrive.setSafetyEnabled(enabled);
     }
     
-    public void setDefaultRobot() {
+    /**
+     * Sets the encoder distance per pulse correctly based on which robot is selected
+     */
+    public void setEncoderDistancePerPulse() {
     	//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
     			//Check to see if we are using the Mule robot, and if so, use it's distance per pulse.  Otherwise, use CuBert's value
     			if (Robot.getWhichRobot() == RobotMap.MULE) {
