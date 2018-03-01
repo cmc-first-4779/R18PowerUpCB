@@ -19,6 +19,7 @@ public class DriveTurnPID extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 		m_setpoint = setpoint;  //Our Setpoint is the Desired angle to turn.
+		requires(Robot.driveTrain);
     }
     public DriveTurnPID(double setpoint, boolean resetGyro) {
         // Use requires() here to declare subsystem dependencies

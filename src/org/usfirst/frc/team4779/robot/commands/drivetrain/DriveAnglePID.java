@@ -26,6 +26,7 @@ public class DriveAnglePID extends Command {
 		// eg. requires(chassis);
 		// HERE ARE OUR THREE INPUTS. DISTANCE, SPEED, and DIRECTION (1 = FORWARD, -1 =
 		// REVERSE)
+		requires(Robot.driveTrain);
 		m_distance = distance;
 		m_speed = speed;
 		m_direction = direction;

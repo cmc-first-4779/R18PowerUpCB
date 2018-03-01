@@ -56,10 +56,10 @@ public class RobotMap {
 	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.
 	public static double liftMotorPowerUp = 1.0;
 	public static double liftMotorPowerTurbo = 1.0;
-	public static double liftMotorPowerDown = -1.0;
+	public static double liftMotorPowerDown = -.5;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = .8;
+	public static double vacCubeMotorPowerIntake = .85;
 	public static double vacCubeMotorPowerEject = -1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
@@ -73,7 +73,8 @@ public class RobotMap {
 	public static double dTEncoderDistancePerRevolution_mule = 2.76;//We need to find this
 	public static double dTDistancePerPulse_mule = dTEncoderDistancePerRevolution_mule / dTEncoderPulsePerRevolution;
 	public static double dTDistancePerPulse_cubert = dTEncoderDistancePerRevolution_cubert / dTEncoderPulsePerRevolution;
-	public static int dTEncoderLeftChannelA = 0;
+
+  public static int dTEncoderLeftChannelA = 0;
 	public static int dTEncoderLeftChannelB = 1;
 	public static int dTEncoderRightChannelA = 2;
 	public static int dTEncoderRightChannelB = 3;
@@ -106,16 +107,17 @@ public class RobotMap {
 	public static int liftEncoderChannelA = 4;
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
-	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
+//	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
+	public static double liftEncoderDistancePerRevolution = 0.395;  //We need to find this.
 	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 30; 
-	public static double scaleHeight = 77.0;
+	public static double scaleHeight = 77;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double midScaleHeight = 65;
 	public static double liftThrottleHeight = 76;
 	public static double liftDTThrottleHeight = 28;
-	public static double dTLiftThrottleDown = 0.5;
+	public static double dTLiftThrottleDown = 0.7;
 	public static double liftThrottleDown = 0.0;  //Set to zero to stop slippage
 	public static double dtTurnThrottle = 1;
 	public static double dtTurnLiftedThrottle = .6;
@@ -150,7 +152,7 @@ public class RobotMap {
 	public static double SIDE_SWITCH_DISTANCE = 94 * FIELD_RATIO__MULTIPLIER;
 	public static double SWITCH_AISLE_APPROACH_DISTANCE = 83;
 	public static double SWITCH_AISLE_DISTANCE = 24;
-	public static double LIFT_SETPOINT_HIGH_SPEED = 50;
+	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
 	
 	public static final int CUBERT = 0;

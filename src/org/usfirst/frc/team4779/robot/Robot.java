@@ -103,13 +103,15 @@ public class Robot extends TimedRobot {
 		// autoChooser.addObject("Right Scale", new RightScale());
 		// m_autonomousCommand = autoChooser.getSelected();
 
-		autoChooser.addDefault("Middle Switch", 0);
-		autoChooser.addObject("Left Switch", 1);
-		autoChooser.addObject("Right Switch", 2);
-		autoChooser.addObject("Middle Scale", 3);
-		autoChooser.addObject("Left Scale", 4);
-		autoChooser.addObject("Right Scale", 5);
-		autoChooser.addObject("Calibrate", 6);
+		autoChooser.addDefault("Middle Starting Position - Switch", 0);
+		autoChooser.addObject("Left Starting Position -  Switch", 1);
+		autoChooser.addObject("Right Starting Position - Switch", 2);
+		autoChooser.addObject("Middle Starting Position - Scale", 3);
+		autoChooser.addObject("Left Starting Position - Scale", 4);
+		autoChooser.addObject("Right Starting Position - Scale", 5);
+		autoChooser.addObject("Calibrate 10'", 6);
+		autoChooser.addObject("Calibrate 15'", 7);
+		autoChooser.addObject("Calibrate 20'", 8);
 
 		// Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
@@ -205,6 +207,13 @@ public class Robot extends TimedRobot {
 			break;
 		case 6: 
 			m_autonomousCommand = new CalibrateDistance(120);
+			break;
+		case 7: 
+			m_autonomousCommand = new CalibrateDistance(180);
+			break;
+		case 8: 
+			m_autonomousCommand = new CalibrateDistance(240);
+			break;
 		}
 
 		/*
