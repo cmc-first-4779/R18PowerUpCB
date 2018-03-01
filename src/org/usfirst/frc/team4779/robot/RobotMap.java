@@ -117,7 +117,7 @@ public class RobotMap {
 	public static double liftDTThrottleHeight = 28;
 	public static double dTLiftThrottleDown = 0.5;
 	public static double liftThrottleDown = 0.0;  //Set to zero to stop slippage
-	public static double dtTurnThrottle = 0.85;
+	public static double dtTurnThrottle = 1;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
 	public static double dTEncoderOutputMinTurn = -.85;
