@@ -15,7 +15,7 @@ public class CalibrateDistance extends CommandGroup {
     	//Using this to calibrate distances.
     	//addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
     	double m_distance = distance;
-		addSequential(new DriveStraightPID(m_distance, .6, RobotMap.FORWARD));
+		addSequential(new DriveStraightPIDWithThrottle(m_distance, RobotMap.AISLE_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH));
 		//addSequential(new DriveStraightPID(RobotMap.SCALE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
     }
 }

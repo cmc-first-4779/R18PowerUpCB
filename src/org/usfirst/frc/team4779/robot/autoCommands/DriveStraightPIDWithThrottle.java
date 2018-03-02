@@ -18,7 +18,7 @@ public class DriveStraightPIDWithThrottle extends CommandGroup {
 		double firstThrottleDistance = 0;
 		double secondThrottleDistance = 0;
 		double firstThrottleSpeed = .6;
-		double secondThrottleSpeed = .4;
+		double secondThrottleSpeed = .45;
 		double totalThrottleDistance = 0;
 
 		if (speed >= RobotMap.AISLE_SPEED) {
@@ -26,8 +26,8 @@ public class DriveStraightPIDWithThrottle extends CommandGroup {
 				firstThrottleDistance = 80;
 				secondThrottleDistance = 20;
 			} else {
-				firstThrottleDistance = 30;
-				secondThrottleDistance = 10;
+				firstThrottleDistance = 60;
+				secondThrottleDistance = 25;
 			}
 			totalThrottleDistance = firstThrottleDistance + secondThrottleDistance;
 			addSequential(

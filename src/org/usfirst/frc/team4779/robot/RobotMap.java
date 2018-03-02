@@ -59,8 +59,8 @@ public class RobotMap {
 	public static double liftMotorPowerDown = -.5;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = .85;
-	public static double vacCubeMotorPowerEject = -1.0;
+	public static double vacCubeMotorPowerIntake = -.85;
+	public static double vacCubeMotorPowerEject = 1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
@@ -122,8 +122,8 @@ public class RobotMap {
 	public static double dtTurnThrottle = 1;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
-	public static double dTEncoderOutputMinTurn = -.85;
-	public static double dTEncoderOutputMaxTurn = .85;
+	public static double dTEncoderOutputMinTurn = -.7;
+	public static double dTEncoderOutputMaxTurn = .7;
 	public static double ryanGovernor = 1;
 	
 	//Field Measurments for Auton  
@@ -132,7 +132,7 @@ public class RobotMap {
 	//We can lower this multipler to make sure we follow the motion profile but on a smaller scale than the field
 	public static double FIELD_RATIO__MULTIPLIER = 1.0;
 	
-	public static double FRONT_SCALE_DISTANCE = (299.65 -9) * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SCALE_DISTANCE = (315) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_APPROACH_DISTANCE = 4 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_DISTANCE = 185 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_FULL_SPEED = .95;
@@ -145,9 +145,9 @@ public class RobotMap {
 	public static double AISLE_THROTTLE_DOWN_DISTANCE = 40 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SPEED = 0.8;
 	public static double AISLE_SCALE_APPROACH_DISTANCE = 36 * FIELD_RATIO__MULTIPLIER;
-	public static double FRONT_SWITCH_DISTANCE = 115 * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SWITCH_DISTANCE = 145 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SWITCH_SPEED = 0.6;
-	public static double FRONT_SWITCH_APPROACH_DISTANCE = 7 * FIELD_RATIO__MULTIPLIER;
+	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 14* FIELD_RATIO__MULTIPLIER;
 	public static double SIDE_SWITCH_DISTANCE = 94 * FIELD_RATIO__MULTIPLIER;
 	public static double SWITCH_AISLE_APPROACH_DISTANCE = 83;

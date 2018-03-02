@@ -20,7 +20,7 @@ public class LeftScale extends CommandGroup {
     public LeftScale() {
     	super("Left Scale");
     	if (Robot.myScaleSide == 'L') {
-    		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
+    	//	addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
     		//addSequential(new DriveStraightPID((RobotMap.FRONT_SCALE_DISTANCE - RobotMap.SCALE_THROTTLE_DOWN_DISTANCE), RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true));
     		//addSequential(new DriveStraightPID(RobotMap.SCALE_THROTTLE_DOWN_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
     		addSequential(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_DISTANCE, RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH));
@@ -29,7 +29,7 @@ public class LeftScale extends CommandGroup {
     		//Only going a short distance, so using old DriveStraightPID command
     		//addSequential(new DriveStraightPID (RobotMap.FRONT_SCALE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.EAST));
     		addSequential(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.EAST));
-    		addSequential(new DeployScale()); 
+    		//addSequential(new DeployScale()); 
     	}
     	else {
     		//addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
