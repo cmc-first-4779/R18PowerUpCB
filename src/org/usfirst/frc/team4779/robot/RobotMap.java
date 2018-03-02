@@ -134,14 +134,14 @@ public class RobotMap {
 	
 	public static double FRONT_SCALE_DISTANCE = (315) * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_APPROACH_DISTANCE = 4 * FIELD_RATIO__MULTIPLIER;
-	public static double AISLE_DISTANCE = 185 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_DISTANCE = 212 * FIELD_RATIO__MULTIPLIER;
 	public static double FRONT_SCALE_FULL_SPEED = .95;
 
 	public static double THROTTLE_SPEED = 0.6;
 	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_LENGTH_TO_SCALE = 168 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
-	public static double AISLE_LENGTH_TO_SWITCH = 133 * FIELD_RATIO__MULTIPLIER;
+	public static double AISLE_LENGTH_TO_SWITCH = 145 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_THROTTLE_DOWN_DISTANCE = 40 * FIELD_RATIO__MULTIPLIER;
 	public static double AISLE_SPEED = 0.8;
 	public static double AISLE_SCALE_APPROACH_DISTANCE = 36 * FIELD_RATIO__MULTIPLIER;
