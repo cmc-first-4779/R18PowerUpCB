@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4779.robot.autoCommands.*;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
-import org.usfirst.frc.team4779.robot.subsystems.CameraFeeds;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
@@ -39,7 +38,7 @@ public class Robot extends TimedRobot {
 	public static DriveTrain driveTrain;
 	public static VacCube vacCube;
 	public static Bling bling;
-	public static CameraFeeds cameraFeeds;
+	
 	//public static double m_dtencoderDistancePerRevolution;	
 	private static int whichRobot;
 
