@@ -66,17 +66,7 @@ public class OI {
 			JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.rightBumperButton);
 			JoystickButton driverStickBackButton = new JoystickButton(driverStick, RobotMap.backButton);
 			JoystickButton driverStickStartButton = new JoystickButton(driverStick, RobotMap.startButton);
-			
-			
-			/*Set up the Oper Stick buttons to call the right commands.
-			 * X turns on the climber
-			 * Y vaccube Intake
-			 * A vaccube Eject
-			 * B lift turbo
-			 * Left Bumper lift up
-			 * Right Bumper lift down
-			 */
-			
+						
 			
 			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 			//  Driver Stick
@@ -103,7 +93,4 @@ public class OI {
 			 return operStick;
 		 }
 
-
-
-	
 }

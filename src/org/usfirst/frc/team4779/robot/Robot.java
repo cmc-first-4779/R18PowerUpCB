@@ -40,7 +40,7 @@ public class Robot extends TimedRobot {
 	public static VacCube vacCube;
 	public static Bling bling;
 	public static CameraFeeds cameraFeeds;
-	public static double m_dtencoderDistancePerRevolution;	
+	//public static double m_dtencoderDistancePerRevolution;	
 	private static int whichRobot;
 
 	// Declare the variables needed for the Field Management System for Red/Blue
@@ -58,6 +58,7 @@ public class Robot extends TimedRobot {
 	//Command that will represent our Auton Command once we read it in
 	Command m_autonomousCommand;
 	
+	//Create the two new choosers for the Robot Chooser and the Auton Chooser
 	SendableChooser<Integer> robotChooser = new SendableChooser<>();
 	SendableChooser<Integer> autoChooser = new SendableChooser<>();
 
@@ -90,14 +91,7 @@ public class Robot extends TimedRobot {
 		//Turn on the Camera Server for the Dashboard
 		CameraServer.getInstance().startAutomaticCapture();
 
-		// autoChooser.addDefault("Middle Switch", new MiddleSwitch());
-		//// System.out.println("After autoChooser");
-		// autoChooser.addObject("Left Switch", new LeftSwitch());
-		// autoChooser.addObject("Right Switch", new RightSwitch());
-		// autoChooser.addObject("Middle Scale", new MiddleScale());
-		// autoChooser.addObject("Left Scale", new LeftScale());
-		// autoChooser.addObject("Right Scale", new RightScale());
-		// m_autonomousCommand = autoChooser.getSelected();
+		//Add the Auton Chooser objects to the SmartDashboard.   Each is assigned an interger.
 
 		autoChooser.addDefault("Middle Starting Position - Switch", 0);
 		autoChooser.addObject("Left Starting Position -  Switch", 1);
@@ -116,6 +110,8 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(Robot.driveTrain);
 		//SmartDashboard.putData(Robot.driveTrain.gyro);
 		
+		//Add the objects into the Robot Chooser for Cubert and the Mule.
+		//  Hehe..   "Cubert and the Mule.."  Sounds like a 1970's TV show.
 		robotChooser.addDefault("Cubert", RobotMap.CUBERT);
 		robotChooser.addObject("Mule", RobotMap.MULE);
 		
