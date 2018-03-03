@@ -108,8 +108,10 @@ public class RobotMap {
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
 //	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
-	public static double liftEncoderDistancePerRevolution = 0.395;  //We need to find this.
-	public static double liftDistancePerPulse = liftEncoderDistancePerRevolution / liftEncoderPulsePerRevolution;
+	public static double liftEncoderDistancePerRevolution_cubert = 0.395;  
+	public static double liftEncoderDistancePerRevolution_mule = 0.395;  //We need to find this.
+	public static double liftDistancePerPulse_cubert = liftEncoderDistancePerRevolution_cubert / liftEncoderPulsePerRevolution;
+	public static double liftDistancePerPulse_mule = liftEncoderDistancePerRevolution_mule / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 30; 
 	public static double scaleHeight = 77;
 	public static double pickUpHeight = 0;

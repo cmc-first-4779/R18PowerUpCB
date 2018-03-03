@@ -24,7 +24,12 @@ public class Lift extends PIDSubsystem {
 	
 	public Lift() {
 		 super("Lift", RobotMap.liftPValue, RobotMap.liftIValue, RobotMap.liftDValue);
-		 liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse);
+		 
+		//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
+			//Check to see if we are using the Mule robot, and if so, use it's distance per pulse.  Otherwise, use CuBert's value
+		 setEncoderDistancePerPulse();
+		 
+		 //liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse);
 		 setAbsoluteTolerance(RobotMap.liftTolerance);
 		 //SmartDashboard.putData("Lift State:  ", Robot.lift);
 		 //SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
@@ -111,6 +116,18 @@ public class Lift extends PIDSubsystem {
 		liftMove(output);	
 		SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
 	}
+	
+    public void setEncoderDistancePerPulse() {
+    	//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
+    			//Check to see if we are using the Mule robot, and if so, use it's distance per pulse.  Otherwise, use CuBert's value
+    			if (Robot.getWhichRobot() == RobotMap.MULE) {
+    				liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse_mule);		
+    			}
+    			else {
+    				liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse_cubert);
+       			}
+    	
+    }
 }
 
 

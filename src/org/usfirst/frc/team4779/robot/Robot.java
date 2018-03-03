@@ -87,6 +87,7 @@ public class Robot extends TimedRobot {
 		Robot.lift.resetLiftEncoder();
 		//SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
 
+		//Turn on the Camera Server for the Dashboard
 		CameraServer.getInstance().startAutomaticCapture();
 
 		// autoChooser.addDefault("Middle Switch", new MiddleSwitch());
@@ -154,10 +155,15 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		//Get the robot setting from the dashboard
 		setWhichRobot(robotChooser.getSelected());
-		//Set the drive train encoders now that we knwo which robot
+		
+		//Set the drive train encoders now that we know which robot
 		Robot.driveTrain.setEncoderDistancePerPulse();
+		
 		//Turn safety off to get rid of error messages about not updating enough
 		Robot.driveTrain.setMotorSafety(false);
+		
+		//Set the Lift encoder now that we know which robot
+		Robot.lift.setEncoderDistancePerPulse();
 
 		// Select the Auton Command Group from the SmartDashboard.
 		// Get Game Data from FMS to tell where the Red & Blue Tiles are
@@ -229,11 +235,19 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		//Set the drive train encoders now that we know which robot
 		Robot.driveTrain.setEncoderDistancePerPulse();
+		
+		//Set the Lift encoder now that we know which robot
+		Robot.lift.setEncoderDistancePerPulse();
+		
+		//Set the default command to drive by the Joystick
 		Robot.driveTrain.setDefaultCommand(new DriveJoystick());
+		
 		//This will null out some of the safety notices in the console..
 		Robot.driveTrain.setMotorSafety(true);
 		
+		//Set the default command to lift with the Joystick on the OperStick
 		Robot.lift.setDefaultCommand(new LiftWithJoystick());
 
 		// This makes sure that the autonomous stops running when
