@@ -19,7 +19,7 @@ public class RobotMap {
 	public static int frontRightDrivePWMPort = 1;
 	public static int rearLeftDrivePWMPort = 2;
 	public static int rearRightDrivePWMPort = 3;
-	public static int liftMotorPWMPortA = 4;
+	public static int liftMotorPWMPort = 4;
 	public static int vacCubeLeftMotorPWMPort = 5;
 	public static int vacCubeRightMotorPWMPort = 6;
 
