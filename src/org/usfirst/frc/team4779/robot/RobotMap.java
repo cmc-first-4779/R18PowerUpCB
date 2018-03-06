@@ -92,8 +92,6 @@ public class RobotMap {
 	public static int EAST = 90;
 	public static int SOUTH = 180;
 	public static int WEST = -90;
-	public static double dTTurnPIDTurnSpeed = 0.4;
-	public static double dTTurnAbsoluteTolerance = 4;
 	
 	
 	//Lift Encoder Settings and DIO Mappings.
