@@ -13,30 +13,31 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class MiddleSwitch extends CommandGroup {
-	
-    public MiddleSwitch() {
-    	super("Middle Switch");
-    	if (Robot.mySwitchSide == 'L') {
-    		//execute commands to go to left switch
-    		//addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
-    		addSequential(new DriveStraightPID(RobotMap.SWITCH_AISLE_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD));
-    		addSequential(new TimerCommand(1));
-    		addSequential(new DriveTurnPID(RobotMap.WEST, false));
-    		addSequential(new DriveStraightPID(108, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.WEST));
-    		//addSequential(new TimerCommand(1));
-    		//addSequential(new DriveTurnPID(RobotMap.NORTH, false));
-    		//addSequential(new DriveStraightPID(RobotMap.SWITCH_AISLE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.NORTH));
-    		//addSequential(new TimerCommand(1));
-    		//addSequential (new DeploySwitch());
-    	} 
-    	else {
-    		//execute commands to go to the right switch
-    		//addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
-    		addSequential(new DriveStraightPID(RobotMap.SIDE_SWITCH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.FORWARD));
-    		addSequential(new TimerCommand(1));
-    		//addSequential(new DeploySwitch());
-    	}
-    	
-       
-    }
+
+	public MiddleSwitch() {
+		super("Middle Switch");
+		if (Robot.mySwitchSide == 'L') {
+			// execute commands to go to left switch
+			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
+			addSequential(
+					new DriveStraightPIDWithThrottle(RobotMap.SWITCH_AISLE_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH));
+			addSequential(new TimerCommand(0.25));
+			addSequential(new DriveTurnPID(RobotMap.WEST, false));
+			addSequential(new DriveStraightPID(RobotMap.MIDDLE_SWITCH_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.WEST));
+			addSequential(new TimerCommand(0.25));
+			addSequential(new DriveTurnPID(RobotMap.NORTH, false));
+			addSequential(new DriveStraightPID(RobotMap.SWITCH_AISLE_APPROACH_DISTANCE, RobotMap.THROTTLE_SPEED,
+					RobotMap.FORWARD, false, RobotMap.NORTH), 7);
+			addSequential(new TimerCommand(0.25));
+			addSequential(new DeploySwitch());
+		} else {
+			// execute commands to go to the right switch
+			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
+			addSequential(new DriveStraightPIDWithThrottle(RobotMap.SIDE_SWITCH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED,
+					RobotMap.FORWARD, true, RobotMap.NORTH), 7);
+			addSequential(new TimerCommand(0.25));
+			addSequential(new DeploySwitch());
+		}
+
+	}
 }

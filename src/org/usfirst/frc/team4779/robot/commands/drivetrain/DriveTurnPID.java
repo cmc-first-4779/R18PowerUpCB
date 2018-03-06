@@ -26,7 +26,7 @@ public class DriveTurnPID extends Command {
         // eg. requires(chassis);
 		m_setpoint = setpoint;  //Our Setpoint is the Desired angle to turn.
 		this.resetGyro = resetGyro;
-		setTimeout(5);
+		setTimeout(3);
     }
 
 

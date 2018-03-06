@@ -45,6 +45,7 @@ public class RobotMap {
 	//Intergers for the SmartDashboard Robot Chooser
 	public static final int CUBERT = 0;
 	public static final int MULE = 1;
+	
 		
 	//Here are the initial SPARK Motor Power settings.   We will need to tune these as we test.
 	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.
@@ -151,6 +152,7 @@ public class RobotMap {
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
+	public static double MIDDLE_SWITCH_DISTANCE = 108;
 
 }
 
