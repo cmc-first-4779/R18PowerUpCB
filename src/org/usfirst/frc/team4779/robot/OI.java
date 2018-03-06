@@ -67,7 +67,7 @@ public class OI {
 			
 			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 			//  Driver Stick
-			driverStickStartButton.whenPressed(new ResetLiftEncoder());
+			operStickStartButton.whenPressed(new ResetLiftEncoder());
 			//  Operator Stick
 			operStickRightBumper.whileHeld(new VacCubeIntake());
 			operStickLeftBumper.whileHeld(new VacCubeEject());
