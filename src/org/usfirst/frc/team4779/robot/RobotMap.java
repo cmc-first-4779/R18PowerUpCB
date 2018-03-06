@@ -51,11 +51,11 @@ public class RobotMap {
 	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.
 	public static double liftMotorPowerUp = 1.0;
 	public static double liftMotorPowerTurbo = 1.0;
-	public static double liftMotorPowerDown = -.5;
+	public static double liftMotorPowerDown = -1.0;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = -.85;
-	public static double vacCubeMotorPowerEject = 1.0;
+	public static double vacCubeMotorPowerIntake = .85;
+	public static double vacCubeMotorPowerEject = -1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
