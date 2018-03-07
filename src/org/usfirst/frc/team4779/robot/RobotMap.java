@@ -54,15 +54,15 @@ public class RobotMap {
 	public static double liftMotorPowerDown = -1.0;
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
-	public static double vacCubeMotorPowerIntake = .85;
-	public static double vacCubeMotorPowerEject = -1.0;
+	public static double vacCubeMotorPowerIntake = -.85;
+	public static double vacCubeMotorPowerEject = 1.0;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
 	//Cubert ration below
-	public static double dTEncoderDistancePerRevolution_cubert = 2.255;//We need to find this.
+	public static double dTEncoderDistancePerRevolution_cubert = 2.305;//We need to find this.
 	//Mule ratio below
 	public static double dTEncoderDistancePerRevolution_mule = 2.76;//We need to find this
 	public static double dTDistancePerPulse_mule = dTEncoderDistancePerRevolution_mule / dTEncoderPulsePerRevolution;
@@ -75,7 +75,7 @@ public class RobotMap {
 	//DT Encoder Absolute Tolerance
 	public static double dTEncoderAbsoluteTolerance = 1.0;
 	//DT PID Values
-	public static double dTPValue = .2;
+	public static double dTPValue = .1;
 	public static double dtIValue = .0;
 	public static double dtDValue = .0;
 	
@@ -102,12 +102,12 @@ public class RobotMap {
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
 //	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
-	public static double liftEncoderDistancePerRevolution_cubert = 0.395;  
+	public static double liftEncoderDistancePerRevolution_cubert = 0.230;  
 	public static double liftEncoderDistancePerRevolution_mule = 0.395;  //We need to find this.
 	public static double liftDistancePerPulse_cubert = liftEncoderDistancePerRevolution_cubert / liftEncoderPulsePerRevolution;
 	public static double liftDistancePerPulse_mule = liftEncoderDistancePerRevolution_mule / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 30; 
-	public static double scaleHeight = 77;
+	public static double scaleHeight = 74.5;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double midScaleHeight = 65;
@@ -118,39 +118,39 @@ public class RobotMap {
 	public static double dtTurnThrottle = 1;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
-	public static double dTEncoderOutputMinTurn = -.7;
-	public static double dTEncoderOutputMaxTurn = .7;
+	public static double dTEncoderOutputMinTurn = -.67;
+	public static double dTEncoderOutputMaxTurn = .67;
 
 	//Field Measurments for Auton  
 	//  ALL OF THESE DISTANCES ARE IN INCHES!!!
 	//
 	//Distance from Left/Right Stations to the front of the Scale
-	public static double FRONT_SCALE_DISTANCE = 315;
+	public static double FRONT_SCALE_DISTANCE = 309;
 	//Distance we need to go to approach the front of the scale
-	public static double FRONT_SCALE_APPROACH_DISTANCE = 4;
+	public static double FRONT_SCALE_APPROACH_DISTANCE = 0;
 	//Distance from the Left/Right Stations to the aisle between the Scale and the Switch
 	public static double AISLE_DISTANCE = 212;
 	//Speed as we go to the front 
 	public static double FRONT_SCALE_FULL_SPEED = .95;
 	//Speed as we throttle down.
 	public static double THROTTLE_SPEED = 0.6;
-	public static double SCALE_THROTTLE_DOWN_DISTANCE = 100;
-	public static double AISLE_LENGTH_TO_SCALE = 168;
-	public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
-	public static double AISLE_LENGTH_TO_SWITCH = 145;
-	public static double AISLE_THROTTLE_DOWN_DISTANCE = 40;
+	//public static double SCALE_THROTTLE_DOWN_DISTANCE = 100;
+	public static double AISLE_LENGTH_TO_SCALE = 192;
+	//public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
+	public static double AISLE_LENGTH_TO_SWITCH = 173;
+	//public static double AISLE_THROTTLE_DOWN_DISTANCE = 40;
 	public static double AISLE_SPEED = 0.8;
-	public static double AISLE_SCALE_APPROACH_DISTANCE = 36;
+	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;
 	public static double FRONT_SWITCH_DISTANCE = 145;
 	public static double FRONT_SWITCH_SPEED = 0.6;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13;
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 14;
 	public static double SIDE_SWITCH_DISTANCE = 94;
-	public static double SWITCH_AISLE_APPROACH_DISTANCE = 83;
+	public static double SWITCH_AISLE_APPROACH_DISTANCE = 71;
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
-	public static double MIDDLE_SWITCH_DISTANCE = 108;
+	public static double MIDDLE_SWITCH_DISTANCE = 90;
 
 }
 
