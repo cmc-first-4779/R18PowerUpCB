@@ -23,8 +23,8 @@ public class DriveStraightPIDWithThrottle extends CommandGroup {
 
 		if (speed >= RobotMap.AISLE_SPEED) {
 			if (speed >= RobotMap.FRONT_SCALE_FULL_SPEED) {
-				firstThrottleDistance = 80;
-				secondThrottleDistance = 20;
+				firstThrottleDistance = 90;
+				secondThrottleDistance = 10;
 			} else {
 				firstThrottleDistance = 60;
 				secondThrottleDistance = 25;

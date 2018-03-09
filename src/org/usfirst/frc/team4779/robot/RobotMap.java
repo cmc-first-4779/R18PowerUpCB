@@ -102,7 +102,7 @@ public class RobotMap {
 	public static int liftEncoderChannelB = 5;
 	public static double liftEncoderPulsePerRevolution = 20;
 //	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
-	public static double liftEncoderDistancePerRevolution_cubert = 0.230;  
+	public static double liftEncoderDistancePerRevolution_cubert = -.0045;  
 	public static double liftEncoderDistancePerRevolution_mule = 0.395;  //We need to find this.
 	public static double liftDistancePerPulse_cubert = liftEncoderDistancePerRevolution_cubert / liftEncoderPulsePerRevolution;
 	public static double liftDistancePerPulse_mule = liftEncoderDistancePerRevolution_mule / liftEncoderPulsePerRevolution;
@@ -129,7 +129,7 @@ public class RobotMap {
 	//Distance we need to go to approach the front of the scale
 	public static double FRONT_SCALE_APPROACH_DISTANCE = 0;
 	//Distance from the Left/Right Stations to the aisle between the Scale and the Switch
-	public static double AISLE_DISTANCE = 212;
+	public static double AISLE_DISTANCE = 218;
 	//Speed as we go to the front 
 	public static double FRONT_SCALE_FULL_SPEED = .95;
 	//Speed as we throttle down.

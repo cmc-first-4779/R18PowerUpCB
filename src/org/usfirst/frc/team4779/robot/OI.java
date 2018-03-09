@@ -73,7 +73,7 @@ public class OI {
 			operStickLeftBumper.whileHeld(new VacCubeEject());
 //			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
 			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-//			operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
+		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 //			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
 			operStickYButton.whileHeld(new LiftUp());
 			operStickAButton.whileHeld(new LiftDown());

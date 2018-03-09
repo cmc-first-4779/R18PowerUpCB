@@ -150,6 +150,7 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		//Get the robot setting from the dashboard
 		setWhichRobot(robotChooser.getSelected());
+		SmartDashboard.putNumber("Selected Command", whichRobot);
 		
 		//Set the drive train encoders now that we know which robot
 		Robot.driveTrain.setEncoderDistancePerPulse();
