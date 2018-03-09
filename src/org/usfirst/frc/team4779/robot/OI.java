@@ -69,8 +69,8 @@ public class OI {
 			//  Driver Stick
 			operStickStartButton.whenPressed(new ResetLiftEncoder());
 			//  Operator Stick
-			operStickRightBumper.whileHeld(new VacCubeIntake());
-			operStickLeftBumper.whileHeld(new VacCubeEject());
+			operStickLeftBumper.whileHeld(new VacCubeIntake());
+			operStickRightBumper.whileHeld(new VacCubeEject());
 //			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
 			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
