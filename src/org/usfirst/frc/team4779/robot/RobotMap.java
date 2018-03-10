@@ -55,7 +55,7 @@ public class RobotMap {
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
 	public static double vacCubeMotorPowerIntake = -.85;
-	public static double vacCubeMotorPowerEject = 1.0;
+	public static double vacCubeMotorPowerEject = 0.9;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
@@ -113,13 +113,13 @@ public class RobotMap {
 	public static double midScaleHeight = 65;
 	public static double liftThrottleHeight = 76;
 	public static double liftDTThrottleHeight = 28;
-	public static double dTLiftThrottleDown = 0.7;
+	public static double dTLiftThrottleDown = 0.7;  //HERE
 	public static double liftThrottleDown = 0.0;  //Set to zero to stop slippage
 	public static double dtTurnThrottle = 1;
 	public static double dtTurnLiftedThrottle = .6;
 	public static double liftTolerance = .5;
-	public static double dTEncoderOutputMinTurn = -.67;
-	public static double dTEncoderOutputMaxTurn = .67;
+	public static double dTEncoderOutputMinTurn = -.75;
+	public static double dTEncoderOutputMaxTurn = .75;
 
 	//Field Measurments for Auton  
 	//  ALL OF THESE DISTANCES ARE IN INCHES!!!
