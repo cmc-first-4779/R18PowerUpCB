@@ -19,6 +19,8 @@ import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
 import org.usfirst.frc.team4779.robot.commands.lift.ResetLiftEncoder;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
+import org.usfirst.frc.team4779.robot.commands.ramp.RampLift;
+import org.usfirst.frc.team4779.robot.commands.ramp.RampLower;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 
@@ -68,6 +70,8 @@ public class OI {
 			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 			//  Driver Stick
 			driverStickStartButton.whenPressed(new ResetLiftEncoder());
+			driverStickAButton.whileHeld(new RampLower());
+			driverStickYButton.whileHeld(new RampLift());
 			//  Operator Stick
 			operStickRightBumper.whileHeld(new VacCubeIntake());
 			operStickLeftBumper.whileHeld(new VacCubeEject());

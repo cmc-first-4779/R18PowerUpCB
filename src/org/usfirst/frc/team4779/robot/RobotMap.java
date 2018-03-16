@@ -151,6 +151,11 @@ public class RobotMap {
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
+	
+	public static int rampMotorPWMPort = 9;
+	public static double rampMotorPowerUp = .5;
+	public static double rampMotorPowerDown = -.3;
+	
 
 }
 
