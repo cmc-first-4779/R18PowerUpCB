@@ -45,7 +45,8 @@ public class RobotMap {
 	//Intergers for the SmartDashboard Robot Chooser
 	public static final int CUBERT = 0;
 	public static final int MULE = 1;
-	
+	public static final double SPEED_STEP = .01;
+	public static final double STARTING_SPEED = .7;	
 		
 	//Here are the initial SPARK Motor Power settings.   We will need to tune these as we test.
 	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.
@@ -112,7 +113,7 @@ public class RobotMap {
 	public static double portalHeight = 3;
 	public static double midScaleHeight = 65;
 	public static double liftThrottleHeight = 76;
-	public static double liftDTThrottleHeight = 28;
+	public static double liftDTThrottleHeight = 45;
 	public static double dTLiftThrottleDown = 0.7;  //HERE
 	public static double liftThrottleDown = 0.0;  //Set to zero to stop slippage
 	public static double dtTurnThrottle = 1;
