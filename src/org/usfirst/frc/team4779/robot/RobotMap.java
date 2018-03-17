@@ -46,7 +46,8 @@ public class RobotMap {
 	public static final int CUBERT = 0;
 	public static final int MULE = 1;
 	public static final double SPEED_STEP = .01;
-	public static final double STARTING_SPEED = .7;	
+	public static final double STARTING_SPEED = .65;
+	public static final double DEAD_ZONE_LIMIT = .3;	
 		
 	//Here are the initial SPARK Motor Power settings.   We will need to tune these as we test.
 	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.

@@ -25,6 +25,7 @@ public class DriveTrain extends PIDSubsystem {
 	private double currentSpeedSetting = 0;
 	private double speedStep = RobotMap.SPEED_STEP;
 	private double minStartingSpeed = RobotMap.STARTING_SPEED;
+	private double deadZoneLimit = RobotMap.DEAD_ZONE_LIMIT;
 
 	// Declare and Initialize our Gyro.
 	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
@@ -119,7 +120,7 @@ public class DriveTrain extends PIDSubsystem {
 		double speed = 0;
 		// Determine if desired direction is forward or backward.
 		// Positive number is forward and negative number is backwards
-		if (requestedSpeed > 0 && requestedSpeed > minStartingSpeed) {
+		if (requestedSpeed > 0 && (Math.abs(requestedSpeed) > deadZoneLimit)) {
 			// Requested to move forward
 			// Check to see if requested direction is opposite of current direction
 			// If so, check to see if current speed is less than start speed, if so it's
@@ -157,7 +158,7 @@ public class DriveTrain extends PIDSubsystem {
 					}
 				}
 			}
-		} else if (requestedSpeed < 0 && requestedSpeed < -minStartingSpeed) {
+		} else if (requestedSpeed < 0 && Math.abs(requestedSpeed) > deadZoneLimit) {
 			// Requesting to go backwards at a rate greater than our minimal moving speed
 			// Check to see if requested direction is opposite of current direction
 			// If so, check to see if current speed is less than start speed, if so it's
@@ -196,9 +197,17 @@ public class DriveTrain extends PIDSubsystem {
 					}
 				}
 			}
+		} else {
+			//Probably need to coast to a stop
+			if(currentSpeedSetting > 0 && currentSpeedSetting > minStartingSpeed) {
+				speed = currentSpeedSetting - speedStep;
+			} else if(currentSpeedSetting < 0 && currentSpeedSetting < -minStartingSpeed) {	
+				speed = currentSpeedSetting + speedStep;
+			}
 		}
 
 		SmartDashboard.putNumber("Throttled Speed", speed);
+		SmartDashboard.putNumber("Requested Speed", requestedSpeed);
 		// Going to return negated speed since the arcade drive expects negative to move
 		// forward but I wanted positive
 		// to mean forward to make the logic easier to follow
