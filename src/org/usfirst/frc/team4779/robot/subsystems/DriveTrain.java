@@ -130,11 +130,9 @@ public class DriveTrain extends PIDSubsystem {
 				if (currentSpeedSetting > -minStartingSpeed) {
 					// Currently going slow, so it safe to go the opposite direction
 					speed = minStartingSpeed;
-					currentSpeedSetting = minStartingSpeed;
 				} else {
 					// Was moving fast in reverse so want to step the speed down
 					speed = currentSpeedSetting + speedStep;
-					currentSpeedSetting = speed;
 				}
 			} else {
 				// Currently moving forwards so we can ramp it up
@@ -146,7 +144,6 @@ public class DriveTrain extends PIDSubsystem {
 				if (currentSpeedSetting < minStartingSpeed) {
 					// Must be going real slow or stopped
 					speed = minStartingSpeed;
-					currentSpeedSetting = speed;
 				} else {
 					if (requestedSpeed == currentSpeedSetting) {
 						// Can just let it stay
@@ -154,11 +151,9 @@ public class DriveTrain extends PIDSubsystem {
 					} else if (requestedSpeed > currentSpeedSetting) {
 						// Need to speed it up a step
 						speed = currentSpeedSetting + speedStep;
-						currentSpeedSetting = speed;
 					} else {
 						// Need to slow it down a step
 						speed = currentSpeedSetting - speedStep;
-						currentSpeedSetting = speed;
 					}
 				}
 			}
@@ -173,11 +168,9 @@ public class DriveTrain extends PIDSubsystem {
 				if (currentSpeedSetting < minStartingSpeed) {
 					// Currently going slow, so it safe to go the opposite direction
 					speed = -minStartingSpeed;
-					currentSpeedSetting = -minStartingSpeed;
 				} else {
 					// Was moving forward fast so want to step the speed down
 					speed = currentSpeedSetting - speedStep;
-					currentSpeedSetting = speed;
 				}
 			} else {
 				// Currently moving backwards so we can ramp it up
@@ -189,7 +182,6 @@ public class DriveTrain extends PIDSubsystem {
 				if (currentSpeedSetting > -minStartingSpeed) {
 					// Must be going real slow or stopped
 					speed = -minStartingSpeed;
-					currentSpeedSetting = speed;
 				} else {
 					//Going faster than the minimal speed in reverse
 					if (requestedSpeed == currentSpeedSetting) {
@@ -198,11 +190,9 @@ public class DriveTrain extends PIDSubsystem {
 					} else if (requestedSpeed < currentSpeedSetting) {
 						// Need to speed it up a step by going more negative
 						speed = currentSpeedSetting - speedStep;
-						currentSpeedSetting = speed;
 					} else {
 						// Need to slow it down a step by increasing the negative speed 
 						speed = currentSpeedSetting + speedStep;
-						currentSpeedSetting = speed;
 					}
 				}
 			}
@@ -212,6 +202,7 @@ public class DriveTrain extends PIDSubsystem {
 		// Going to return negated speed since the arcade drive expects negative to move
 		// forward but I wanted positive
 		// to mean forward to make the logic easier to follow
+		currentSpeedSetting = speed;
 		return -speed;
 	}
 
