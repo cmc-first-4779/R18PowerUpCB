@@ -31,63 +31,67 @@ import edu.wpi.first.wpilibj.command.Command;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	//Declare the two joysticks and initate them on the two appropriate USB ports recognized by the Drivers Station.
-		Joystick driverStick = new Joystick(RobotMap.driverStickUSBPort);
-		Joystick operStick = new Joystick(RobotMap.operStickUSBPort);
-		
-		public OI() {
-			//// CREATING BUTTONS
-			// One type of button is a joystick button which is any button on a
-			//// joystick.
-			// You create one by telling it which joystick it's on and which button
-			// number it is.
-			// Joystick stick = new Joystick(port);
-			// Button button = new JoystickButton(stick, buttonNumber);
-			
-			//Declare and Initiate all of the Buttons on the OperStick
-			JoystickButton operStickYButton = new JoystickButton(operStick,RobotMap.yButton);
-			JoystickButton operStickXButton = new JoystickButton(operStick, RobotMap.xButton);
-			JoystickButton operStickAButton = new JoystickButton(operStick, RobotMap.aButton);
-			JoystickButton operStickBButton = new JoystickButton(operStick, RobotMap.bButton);
-			JoystickButton operStickLeftBumper = new JoystickButton(operStick, RobotMap.leftBumperButton);
-			JoystickButton operStickRightBumper = new JoystickButton(operStick, RobotMap.rightBumperButton);
-			JoystickButton operStickBackButton = new JoystickButton(operStick, RobotMap.backButton);
-			JoystickButton operStickStartButton = new JoystickButton(operStick, RobotMap.startButton);
-			
-			//Declare and Initiate all of the Buttons on the Driver Stick
-			JoystickButton driverStickYButton = new JoystickButton(driverStick,RobotMap.yButton);
-			JoystickButton driverStickXButton = new JoystickButton(driverStick, RobotMap.xButton);
-			JoystickButton driverStickAButton = new JoystickButton(driverStick, RobotMap.aButton);
-			JoystickButton driverStickBButton = new JoystickButton(driverStick, RobotMap.bButton);
-			JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, RobotMap.leftBumperButton);
-			JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.rightBumperButton);
-			JoystickButton driverStickBackButton = new JoystickButton(driverStick, RobotMap.backButton);
-			JoystickButton driverStickStartButton = new JoystickButton(driverStick, RobotMap.startButton);
-						
-			
-			//SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
-			//  Driver Stick
-			operStickStartButton.whenPressed(new ResetLiftEncoder());
-			//  Operator Stick
-			operStickLeftBumper.whileHeld(new VacCubeIntake());
-			operStickRightBumper.whileHeld(new VacCubeEject());
-//			operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
-			operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+	// Declare the two joysticks and initate them on the two appropriate USB ports
+	// recognized by the Drivers Station.
+	Joystick driverStick = new Joystick(RobotMap.driverStickUSBPort);
+	Joystick operStick = new Joystick(RobotMap.operStickUSBPort);
+
+	public OI() {
+		//// CREATING BUTTONS
+		// One type of button is a joystick button which is any button on a
+		//// joystick.
+		// You create one by telling it which joystick it's on and which button
+		// number it is.
+		// Joystick stick = new Joystick(port);
+		// Button button = new JoystickButton(stick, buttonNumber);
+
+		// Declare and Initiate all of the Buttons on the OperStick
+		JoystickButton operStickYButton = new JoystickButton(operStick, RobotMap.yButton);
+		JoystickButton operStickXButton = new JoystickButton(operStick, RobotMap.xButton);
+		JoystickButton operStickAButton = new JoystickButton(operStick, RobotMap.aButton);
+		JoystickButton operStickBButton = new JoystickButton(operStick, RobotMap.bButton);
+		JoystickButton operStickLeftBumper = new JoystickButton(operStick, RobotMap.leftBumperButton);
+		JoystickButton operStickRightBumper = new JoystickButton(operStick, RobotMap.rightBumperButton);
+		JoystickButton operStickBackButton = new JoystickButton(operStick, RobotMap.backButton);
+		JoystickButton operStickStartButton = new JoystickButton(operStick, RobotMap.startButton);
+
+		// Declare and Initiate all of the Buttons on the Driver Stick
+		JoystickButton driverStickYButton = new JoystickButton(driverStick, RobotMap.yButton);
+		JoystickButton driverStickXButton = new JoystickButton(driverStick, RobotMap.xButton);
+		JoystickButton driverStickAButton = new JoystickButton(driverStick, RobotMap.aButton);
+		JoystickButton driverStickBButton = new JoystickButton(driverStick, RobotMap.bButton);
+		JoystickButton driverStickLeftBumper = new JoystickButton(driverStick, RobotMap.leftBumperButton);
+		JoystickButton driverStickRightBumper = new JoystickButton(driverStick, RobotMap.rightBumperButton);
+		JoystickButton driverStickBackButton = new JoystickButton(driverStick, RobotMap.backButton);
+		JoystickButton driverStickStartButton = new JoystickButton(driverStick, RobotMap.startButton);
+
+		// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
+		// Driver Stick
+		operStickStartButton.whenPressed(new ResetLiftEncoder());
+		// Operator Stick
+		operStickLeftBumper.whileHeld(new VacCubeIntake());
+		operStickRightBumper.whileHeld(new VacCubeEject());
+		// operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+		operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-//			operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-			operStickYButton.whileHeld(new LiftUp());
-			operStickAButton.whileHeld(new LiftDown());
-		
-		}
-		
-		//This method is used later to return the the driverStick when called.
-		 public Joystick getDriverStick() {
-			return driverStick;
-		 }
-		
-		//This method is used later to return the the operStick when called.
-		 public Joystick getOperStick()  {
-			 return operStick;
-		 }
+		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+		operStickYButton.whileHeld(new LiftUp());
+		operStickAButton.whileHeld(new LiftDown());
+		driverStickYButton.whileHeld(new LiftUp());
+		driverStickAButton.whileHeld(new LiftDown());
+		driverStickStartButton.whenPressed(new ResetLiftEncoder());
+		operStickRightBumper.whileHeld(new VacCubeIntake());
+
+	}
+
+	// This method is used later to return the the driverStick when called.
+	public Joystick getDriverStick() {
+		return driverStick;
+	}
+
+	// This method is used later to return the the operStick when called.
+	public Joystick getOperStick() {
+		return operStick;
+	}
 
 }

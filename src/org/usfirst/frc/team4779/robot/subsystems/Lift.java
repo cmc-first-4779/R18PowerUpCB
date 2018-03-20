@@ -124,10 +124,12 @@ public class Lift extends PIDSubsystem {
     	//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
     			//Check to see if we are using the Mule robot, and if so, use it's distance per pulse.  Otherwise, use CuBert's value
     			if (Robot.getWhichRobot() == RobotMap.MULE) {
-    				liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse_mule);		
+    				liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse_mule);	
+    				SmartDashboard.putString("Robot Selected", "MULE");
     			}
     			else {
     				liftEncoder.setDistancePerPulse(RobotMap.liftDistancePerPulse_cubert);
+    				SmartDashboard.putString("Robot Selected", "Cube*rt");
        			}
     	
     }

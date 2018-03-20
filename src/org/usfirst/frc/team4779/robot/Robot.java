@@ -101,6 +101,7 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Calibrate 10'", 6);
 		autoChooser.addObject("Calibrate 15'", 7);
 		autoChooser.addObject("Calibrate 20'", 8);
+		autoChooser.addObject("Left Scale Non North", 9);
 
 		// Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
@@ -220,6 +221,10 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putString("Selected Command:", "Calibrate 20'");
 			m_autonomousCommand = new CalibrateDistance(240);
 			break;
+		case 9:
+			SmartDashboard.putString("Selected Command:", "Left Scale non north");
+			m_autonomousCommand = new LeftScaleNonNorth();
+			break;
 		}
 
 		Robot.lift.resetLiftEncoder();
@@ -240,6 +245,9 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		//Get the robot setting from the dashboard
+		setWhichRobot(robotChooser.getSelected());
+		
 		//Set the drive train encoders now that we know which robot
 		Robot.driveTrain.setEncoderDistancePerPulse();
 		

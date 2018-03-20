@@ -103,20 +103,20 @@ public class RobotMap {
 	public static double liftEncoderPulsePerRevolution = 20;
 //	public static double liftEncoderDistancePerRevolution = 0.2368;  //We need to find this.
 	public static double liftEncoderDistancePerRevolution_cubert = -.0045;  
-	public static double liftEncoderDistancePerRevolution_mule = 0.395;  //We need to find this.
+	public static double liftEncoderDistancePerRevolution_mule = -.0046;  //We need to find this.
 	public static double liftDistancePerPulse_cubert = liftEncoderDistancePerRevolution_cubert / liftEncoderPulsePerRevolution;
 	public static double liftDistancePerPulse_mule = liftEncoderDistancePerRevolution_mule / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 30; 
-	public static double scaleHeight = 74.5;
+	public static double scaleHeight = 76;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double midScaleHeight = 65;
 	public static double liftThrottleHeight = 76;
-	public static double liftDTThrottleHeight = 28;
-	public static double dTLiftThrottleDown = 0.7;  //HERE
+	public static double liftDTThrottleHeight = 40;
+	public static double dTLiftThrottleDown = 0.75;  //HERE
 	public static double liftThrottleDown = 0.0;  //Set to zero to stop slippage
 	public static double dtTurnThrottle = 1;
-	public static double dtTurnLiftedThrottle = .6;
+	public static double dtTurnLiftedThrottle = .8;
 	public static double liftTolerance = .5;
 	public static double dTEncoderOutputMinTurn = -.75;
 	public static double dTEncoderOutputMaxTurn = .75;
@@ -127,7 +127,7 @@ public class RobotMap {
 	//Distance from Left/Right Stations to the front of the Scale
 	public static double FRONT_SCALE_DISTANCE = 309;
 	//Distance we need to go to approach the front of the scale
-	public static double FRONT_SCALE_APPROACH_DISTANCE = 0;
+	public static double FRONT_SCALE_APPROACH_DISTANCE = 8;
 	//Distance from the Left/Right Stations to the aisle between the Scale and the Switch
 	public static double AISLE_DISTANCE = 218;
 	//Speed as we go to the front 
