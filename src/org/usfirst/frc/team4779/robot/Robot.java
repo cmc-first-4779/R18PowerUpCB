@@ -21,6 +21,12 @@ import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingBlue;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingGreen;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingOrange;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingPurple;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingRed;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingWhite;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveJoystick;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftWithJoystick;
 
@@ -57,9 +63,13 @@ public class Robot extends TimedRobot {
 	//Command that will represent our Auton Command once we read it in
 	Command m_autonomousCommand;
 	
+	//Command that will represent our BLING Command once we read it in
+	//Command m_blingCommand;
+	
 	//Create the two new choosers for the Robot Chooser and the Auton Chooser
 	SendableChooser<Integer> robotChooser = new SendableChooser<>();
 	SendableChooser<Integer> autoChooser = new SendableChooser<>();
+	//SendableChooser<Integer> blingChooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -71,6 +81,7 @@ public class Robot extends TimedRobot {
 		lift = new Lift();
 		driveTrain = new DriveTrain();
 		vacCube = new VacCube();
+		bling = new Bling();
 		//cameraFeeds = new CameraFeeds();
 
 		// We are commenting out the Bling subsystem until we get it installed.
@@ -102,7 +113,13 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Calibrate 15'", 7);
 		autoChooser.addObject("Calibrate 20'", 8);
 		autoChooser.addObject("Left Scale Non North", 9);
-
+		
+//		blingChooser.addDefault("Purple", RobotMap.PURPLE);
+//		blingChooser.addObject("Blue", RobotMap.BLUE);
+//		blingChooser.addObject("Red", RobotMap.RED);
+//		blingChooser.addObject("Orange", RobotMap.ORANGE);
+//		blingChooser.addObject("Green", RobotMap.GREEN);
+		
 		// Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
@@ -226,6 +243,9 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand = new LeftScaleNonNorth();
 			break;
 		}
+		
+		// Create the proper BLING  command based on the BLING Chooser selection. 
+		//setBlingColor();
 
 		Robot.lift.resetLiftEncoder();
 
@@ -262,6 +282,8 @@ public class Robot extends TimedRobot {
 		
 		//Set the default command to lift with the Joystick on the OperStick
 		Robot.lift.setDefaultCommand(new LiftWithJoystick());
+		
+		//setBlingColor();
 
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
@@ -301,5 +323,35 @@ public class Robot extends TimedRobot {
 		whichRobot = selected;
 	}
 	
+//	private void setBlingColor() {
+//		// Create the proper BLING  command based on the BLING Chooser selection. 
+//		switch (blingChooser.getSelected().intValue()) {
+//		case RobotMap.PURPLE:
+//			SmartDashboard.putString("Selected Bling:", "Purple");
+//			m_blingCommand = new BlingPurple();
+//			break;
+//		case RobotMap.BLUE:
+//			SmartDashboard.putString("Selected Bling:", "Blue");
+//			m_blingCommand = new BlingBlue();
+//			break;
+//		case RobotMap.RED:
+//			SmartDashboard.putString("Selected Bling:", "RED");
+//			m_blingCommand = new BlingRed();
+//			break;
+//		case RobotMap.ORANGE:
+//			SmartDashboard.putString("Selected Bling:", "Orange");
+//			m_blingCommand = new BlingOrange();
+//			break;
+//		case RobotMap.GREEN:
+//			SmartDashboard.putString("Selected Bling:", "Green");
+//			m_blingCommand = new BlingGreen();
+//			break;
+//		case RobotMap.WHITE:
+//			SmartDashboard.putString("Selected Bling:", "White");
+//			m_blingCommand = new BlingWhite();
+//			break;
+//		}
+	}
 	
-}
+	
+//
