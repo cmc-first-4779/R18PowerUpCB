@@ -88,12 +88,12 @@ public class OI {
 //		driverStickStartButton.whenPressed(new ResetLiftEncoder());
 //		operStickRightBumper.whileHeld(new VacCubeIntake());
 		
-		operStickLeftBumper.whenPressed(new BlingPurple());
-		operStickRightBumper.whenPressed(new BlingBlue());
-		operStickAButton.whenPressed(new BlingRed());
-		operStickBButton.whenPressed(new BlingOrange());
-		operStickXButton.whenPressed(new BlingGreen());
-		operStickYButton.whenPressed(new BlingWhite());
+//		operStickLeftBumper.whenPressed(new BlingPurple());
+//		operStickRightBumper.whenPressed(new BlingBlue());
+//		operStickAButton.whenPressed(new BlingRed());
+//		operStickBButton.whenPressed(new BlingOrange());
+//		operStickXButton.whenPressed(new BlingGreen());
+//		operStickYButton.whenPressed(new BlingWhite());
 		
 
 	}

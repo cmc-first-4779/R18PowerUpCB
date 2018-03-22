@@ -64,12 +64,12 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	
 	//Command that will represent our BLING Command once we read it in
-	//Command m_blingCommand;
+	Command m_blingCommand;
 	
 	//Create the two new choosers for the Robot Chooser and the Auton Chooser
 	SendableChooser<Integer> robotChooser = new SendableChooser<>();
 	SendableChooser<Integer> autoChooser = new SendableChooser<>();
-	//SendableChooser<Integer> blingChooser = new SendableChooser<>();
+	SendableChooser<Integer> blingChooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -78,28 +78,35 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		// Initiate the Robot Subsystems
+		System.out.println("Initiating Robot Subsystems");
 		lift = new Lift();
 		driveTrain = new DriveTrain();
 		vacCube = new VacCube();
 		bling = new Bling();
-		//cameraFeeds = new CameraFeeds();
+		System.out.println("Subsystem initiation complete.");
 
-		// We are commenting out the Bling subsystem until we get it installed.
-		// bling = new Bling();
 
 		// Initiate the OI. NOTE: ALWAYS INITIATE THE OI LAST!
+		System.out.println("Initiating the OI.");
 		m_oi = new OI();
+		System.out.println("OI initiating complete.");
 
 		// Calibrate our Gyro
+		System.out.println("Starting Gyro Calibration");
 		Robot.driveTrain.calibrateGyro();
-		// Robot.driveTrain.resetGyro();
+		System.out.println("Gyro Calibration Complete");
+	
 
 		// Reset our Lift Encoder
+		System.out.println("Resetting Lift Encoder.");
 		Robot.lift.resetLiftEncoder();
+		System.out.println("Lift encoder reset complete.");
 		//SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
 
 		//Turn on the Camera Server for the Dashboard
+		System.out.println("Starting the camera server.");
 		CameraServer.getInstance().startAutomaticCapture();
+		System.out.println("Camera Server started.");
 
 		//Add the Auton Chooser objects to the SmartDashboard.   Each is assigned an interger.
 
@@ -114,11 +121,12 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Calibrate 20'", 8);
 		autoChooser.addObject("Left Scale Non North", 9);
 		
-//		blingChooser.addDefault("Purple", RobotMap.PURPLE);
-//		blingChooser.addObject("Blue", RobotMap.BLUE);
-//		blingChooser.addObject("Red", RobotMap.RED);
-//		blingChooser.addObject("Orange", RobotMap.ORANGE);
-//		blingChooser.addObject("Green", RobotMap.GREEN);
+		//Add the Bling Chooser objects to the SmartDashboard.  Each is assigned an interger
+		blingChooser.addDefault("Purple", RobotMap.PURPLE);
+		blingChooser.addObject("Blue", RobotMap.BLUE);
+		blingChooser.addObject("Red", RobotMap.RED);
+		blingChooser.addObject("Orange", RobotMap.ORANGE);
+		blingChooser.addObject("Green", RobotMap.GREEN);
 		
 		// Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
@@ -245,7 +253,7 @@ public class Robot extends TimedRobot {
 		}
 		
 		// Create the proper BLING  command based on the BLING Chooser selection. 
-		//setBlingColor();
+		setBlingColor();
 
 		Robot.lift.resetLiftEncoder();
 
@@ -283,7 +291,7 @@ public class Robot extends TimedRobot {
 		//Set the default command to lift with the Joystick on the OperStick
 		Robot.lift.setDefaultCommand(new LiftWithJoystick());
 		
-		//setBlingColor();
+		setBlingColor();
 
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
@@ -323,35 +331,41 @@ public class Robot extends TimedRobot {
 		whichRobot = selected;
 	}
 	
-//	private void setBlingColor() {
-//		// Create the proper BLING  command based on the BLING Chooser selection. 
-//		switch (blingChooser.getSelected().intValue()) {
-//		case RobotMap.PURPLE:
-//			SmartDashboard.putString("Selected Bling:", "Purple");
-//			m_blingCommand = new BlingPurple();
-//			break;
-//		case RobotMap.BLUE:
-//			SmartDashboard.putString("Selected Bling:", "Blue");
-//			m_blingCommand = new BlingBlue();
-//			break;
-//		case RobotMap.RED:
-//			SmartDashboard.putString("Selected Bling:", "RED");
-//			m_blingCommand = new BlingRed();
-//			break;
-//		case RobotMap.ORANGE:
-//			SmartDashboard.putString("Selected Bling:", "Orange");
-//			m_blingCommand = new BlingOrange();
-//			break;
-//		case RobotMap.GREEN:
-//			SmartDashboard.putString("Selected Bling:", "Green");
-//			m_blingCommand = new BlingGreen();
-//			break;
-//		case RobotMap.WHITE:
-//			SmartDashboard.putString("Selected Bling:", "White");
-//			m_blingCommand = new BlingWhite();
-//			break;
-//		}
+	private void setBlingColor() {
+		// Create the proper BLING  command based on the BLING Chooser selection. 
+		switch (blingChooser.getSelected().intValue()) {
+		case RobotMap.PURPLE:
+			SmartDashboard.putString("Selected Bling:", "Purple");
+			System.out.println("Bling color set to PURPLE.");
+			m_blingCommand = new BlingPurple();
+			break;
+		case RobotMap.BLUE:
+			SmartDashboard.putString("Selected Bling:", "Blue");
+			System.out.println("Bling color set to BLUE.");
+			m_blingCommand = new BlingBlue();
+			break;
+		case RobotMap.RED:
+			SmartDashboard.putString("Selected Bling:", "Red");
+			System.out.println("Bling color set to RED.");
+			m_blingCommand = new BlingRed();
+			break;
+		case RobotMap.ORANGE:
+			SmartDashboard.putString("Selected Bling:", "Orange");
+			System.out.println("Bling color set to ORANGE.");
+			m_blingCommand = new BlingOrange();
+			break;
+		case RobotMap.GREEN:
+			SmartDashboard.putString("Selected Bling:", "Green");
+			System.out.println("Bling color set to GREEN.");
+			m_blingCommand = new BlingGreen();
+			break;
+		case RobotMap.WHITE:
+			SmartDashboard.putString("Selected Bling:", "White");
+			System.out.println("Bling color set to WHITE.");
+			m_blingCommand = new BlingWhite();
+			break;
+		}
 	}
+}
 	
 	
-//
