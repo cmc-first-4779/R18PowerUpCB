@@ -77,10 +77,10 @@ public class OI {
 		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
 		operStickYButton.whileHeld(new LiftUp());
 		operStickAButton.whileHeld(new LiftDown());
-		driverStickYButton.whileHeld(new LiftUp());
-		driverStickAButton.whileHeld(new LiftDown());
+		//driverStickYButton.whileHeld(new LiftUp());
+		//driverStickAButton.whileHeld(new LiftDown());
 		driverStickStartButton.whenPressed(new ResetLiftEncoder());
-		operStickRightBumper.whileHeld(new VacCubeIntake());
+		driverStickRightBumper.whileHeld(new VacCubeIntake());
 
 	}
 
