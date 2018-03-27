@@ -23,7 +23,9 @@ public class LeftScaleAngle extends CommandGroup {
 			addSequential(new TimerCommand(.25));
 			addParallel(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_ANGLE_APPROACH_DISTANCE,
 					RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.NORTH + 60));
-			 addSequential(new DeployScale());
+			 addSequential(new DeployScale(), 7);
+			 addSequential(new DriveTurnPID(RobotMap.SOUTH - 30, false));
+			 addSequential(new DriveStraightPIDWithThrottle(60, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.SOUTH - 30));
 		} else {
 			 addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
 			addSequential(new DriveStraightPIDWithThrottle(RobotMap.AISLE_DISTANCE, RobotMap.FRONT_SCALE_FULL_SPEED,

@@ -153,7 +153,7 @@ public class RobotMap {
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
 	public static double MIDDLE_SWITCH_DISTANCE = 90;
-	public static double SCALE_ANGLE_DISTANCE = 249;
+	public static double SCALE_ANGLE_DISTANCE = 255;
 	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 43;
 }
 

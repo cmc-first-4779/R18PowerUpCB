@@ -16,7 +16,7 @@ public class SetLiftSetPointPID extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	this.setpoint = setpoint;
-    	setTimeout(3.5);  //Set time out for five seconds.
+    	setTimeout(3);  //Set time out for five seconds.
     	requires(Robot.lift);
     }
 
