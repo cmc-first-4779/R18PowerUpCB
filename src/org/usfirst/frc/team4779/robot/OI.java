@@ -77,6 +77,7 @@ public class OI {
 		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
 		operStickYButton.whileHeld(new VacCubeLowEject());
+		driverStickRightBumper.whileHeld(new VacCubeIntake());
 	}
 
 	// This method is used later to return the the driverStick when called.

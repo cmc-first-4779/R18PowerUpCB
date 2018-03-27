@@ -46,6 +46,7 @@ public class RobotMap {
 	public static final int CUBERT = 0;
 	public static final int MULE = 1;
 	
+	
 		
 	//Here are the initial SPARK Motor Power settings.   We will need to tune these as we test.
 	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.
@@ -132,7 +133,7 @@ public class RobotMap {
 	//Distance from the Left/Right Stations to the aisle between the Scale and the Switch
 	public static double AISLE_DISTANCE = 218;
 	//Speed as we go to the front 
-	public static double FRONT_SCALE_FULL_SPEED = .95;
+	public static double FRONT_SCALE_FULL_SPEED =  1.0;
 	//Speed as we throttle down.
 	public static double THROTTLE_SPEED = 0.6;
 	//public static double SCALE_THROTTLE_DOWN_DISTANCE = 100;
@@ -152,6 +153,7 @@ public class RobotMap {
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
 	public static double MIDDLE_SWITCH_DISTANCE = 90;
-
+	public static double SCALE_ANGLE_DISTANCE = 249;
+	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 6;
 }
 
