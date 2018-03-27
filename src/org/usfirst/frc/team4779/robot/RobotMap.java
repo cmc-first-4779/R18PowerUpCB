@@ -109,7 +109,7 @@ public class RobotMap {
 	public static double liftDistancePerPulse_cubert = liftEncoderDistancePerRevolution_cubert / liftEncoderPulsePerRevolution;
 	public static double liftDistancePerPulse_mule = liftEncoderDistancePerRevolution_mule / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 30; 
-	public static double scaleHeight = 76;
+	public static double scaleHeight = 77;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double midScaleHeight = 65;
@@ -154,6 +154,6 @@ public class RobotMap {
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
 	public static double MIDDLE_SWITCH_DISTANCE = 90;
 	public static double SCALE_ANGLE_DISTANCE = 249;
-	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 6;
+	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 43;
 }
 

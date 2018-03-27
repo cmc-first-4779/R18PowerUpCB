@@ -19,10 +19,10 @@ public class LeftScaleAngle extends CommandGroup {
 		if (Robot.myScaleSide == 'L') {
 			addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
 			addSequential(new DriveStraightPIDWithThrottle(RobotMap.SCALE_ANGLE_DISTANCE,
-					RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH +3));
+					RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH-5));
 			addSequential(new TimerCommand(.25));
-		//	addSequential(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_ANGLE_APPROACH_DISTANCE,
-					//RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.NORTH + 45));
+			addParallel(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_ANGLE_APPROACH_DISTANCE,
+					RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.NORTH + 60));
 			 addSequential(new DeployScale());
 		} else {
 			 addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
