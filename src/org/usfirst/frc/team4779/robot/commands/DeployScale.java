@@ -18,9 +18,9 @@ public class DeployScale extends CommandGroup {
        	addSequential(new SetLiftSetPointPID(RobotMap.scaleHeight));
     	addSequential(new VacCubeEject());
 //    	addSequential(new VacCubeLowEject());
-    	addSequential(new TimerCommand(0.5));
-    	addSequential(new DriveStraightPID(12, RobotMap.THROTTLE_SPEED, RobotMap.REVERSE, false));
-    	addParallel( new VacCubeOff());
-    	addParallel(new SetLiftSetPointPID(RobotMap.portalHeight));
+    	//addSequential(new TimerCommand(0.5));
+    	addParallel(new DriveStraightPID(12, RobotMap.THROTTLE_SPEED, RobotMap.REVERSE, false), 1);
+    	//addParallel( new VacCubeOff(),);
+    	addParallel(new SetLiftSetPointPID(RobotMap.portalHeight),2);
     }
 }

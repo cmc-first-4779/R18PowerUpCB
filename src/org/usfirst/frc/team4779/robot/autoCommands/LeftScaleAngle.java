@@ -6,6 +6,7 @@ import org.usfirst.frc.team4779.robot.commands.DeployScale;
 import org.usfirst.frc.team4779.robot.commands.TimerCommand;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
+import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -23,9 +24,11 @@ public class LeftScaleAngle extends CommandGroup {
 			addSequential(new TimerCommand(.25));
 			addParallel(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_ANGLE_APPROACH_DISTANCE,
 					RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.NORTH + 60));
-			 addSequential(new DeployScale(), 7);
+			 addSequential(new DeployScale());
 			 addSequential(new DriveTurnPID(RobotMap.SOUTH - 30, false));
-			 addSequential(new DriveStraightPIDWithThrottle(60, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.SOUTH - 30));
+			 addParallel(new DriveStraightPIDWithThrottle(80, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.SOUTH - 30));
+			 addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+			 addSequential(new VacCubeIntake(), 6);
 		} else {
 			 addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
 			addSequential(new DriveStraightPIDWithThrottle(RobotMap.AISLE_DISTANCE, RobotMap.FRONT_SCALE_FULL_SPEED,

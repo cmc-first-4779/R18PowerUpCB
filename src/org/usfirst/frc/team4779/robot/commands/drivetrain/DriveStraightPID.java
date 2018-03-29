@@ -38,7 +38,9 @@ public class DriveStraightPID extends Command {
 		m_distance = distance;
 		m_speed = speed;
 		m_direction = direction;
+		if (resetGyro) {
 		m_setpoint = 0;
+		}
 		this.resetGyro = resetGyro;
 
 	}
