@@ -21,6 +21,7 @@ import org.usfirst.frc.team4779.robot.commands.lift.ResetLiftEncoder;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
+import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeLowEject;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -75,14 +76,10 @@ public class OI {
 		operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-		operStickYButton.whileHeld(new LiftUp());
-		operStickAButton.whileHeld(new LiftDown());
-		//driverStickYButton.whileHeld(new LiftUp());
-		//driverStickAButton.whileHeld(new LiftDown());
-		driverStickStartButton.whenPressed(new ResetLiftEncoder());
-		driverStickRightBumper.whileHeld(new VacCubeIntake());
 
-	}
+		operStickYButton.whileHeld(new VacCubeLowEject());
+		driverStickRightBumper.whileHeld(new VacCubeIntake());
+}
 
 	// This method is used later to return the the driverStick when called.
 	public Joystick getDriverStick() {

@@ -46,6 +46,7 @@ public class RobotMap {
 	public static final int CUBERT = 0;
 	public static final int MULE = 1;
 	
+	
 		
 	//Here are the initial SPARK Motor Power settings.   We will need to tune these as we test.
 	//We keep them here so that we ALWAYS know where to check for them if we are troubleshooting.
@@ -56,6 +57,7 @@ public class RobotMap {
 	public static double liftMotorPowerOff = 0;
 	public static double vacCubeMotorPowerIntake = -.85;
 	public static double vacCubeMotorPowerEject = 0.9;
+	public static double vacCubeMotorPowerLowEject = 0.45;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
 	
@@ -107,7 +109,7 @@ public class RobotMap {
 	public static double liftDistancePerPulse_cubert = liftEncoderDistancePerRevolution_cubert / liftEncoderPulsePerRevolution;
 	public static double liftDistancePerPulse_mule = liftEncoderDistancePerRevolution_mule / liftEncoderPulsePerRevolution;
 	public static double switchHeight = 30; 
-	public static double scaleHeight = 76;
+	public static double scaleHeight = 77;
 	public static double pickUpHeight = 0;
 	public static double portalHeight = 3;
 	public static double midScaleHeight = 65;
@@ -131,7 +133,7 @@ public class RobotMap {
 	//Distance from the Left/Right Stations to the aisle between the Scale and the Switch
 	public static double AISLE_DISTANCE = 218;
 	//Speed as we go to the front 
-	public static double FRONT_SCALE_FULL_SPEED = .95;
+	public static double FRONT_SCALE_FULL_SPEED =  1.0;
 	//Speed as we throttle down.
 	public static double THROTTLE_SPEED = 0.6;
 	//public static double SCALE_THROTTLE_DOWN_DISTANCE = 100;
@@ -142,15 +144,16 @@ public class RobotMap {
 	public static double AISLE_SPEED = 0.8;
 	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;
 	public static double FRONT_SWITCH_DISTANCE = 145;
-	public static double FRONT_SWITCH_SPEED = 0.6;
+	public static double FRONT_SWITCH_SPEED = 0.7;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13;
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 14;
-	public static double SIDE_SWITCH_DISTANCE = 94;
-	public static double SWITCH_AISLE_APPROACH_DISTANCE = 71;
+	public static double SIDE_SWITCH_DISTANCE = 98;
+	public static double SWITCH_AISLE_APPROACH_DISTANCE = 75;
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
-	public static double MIDDLE_SWITCH_DISTANCE = 90;
-
+	public static double MIDDLE_SWITCH_DISTANCE = 98;
+	public static double SCALE_ANGLE_DISTANCE = 255;
+	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 42;
 }
 

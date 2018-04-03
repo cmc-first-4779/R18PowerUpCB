@@ -102,6 +102,8 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Calibrate 15'", 7);
 		autoChooser.addObject("Calibrate 20'", 8);
 		autoChooser.addObject("Left Scale Non North", 9);
+		autoChooser.addObject("Left Scale Angle", 10);
+		autoChooser.addObject("Right Scale Angle", 11);
 
 		// Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
@@ -224,6 +226,14 @@ public class Robot extends TimedRobot {
 		case 9:
 			SmartDashboard.putString("Selected Command:", "Left Scale non north");
 			m_autonomousCommand = new LeftScaleNonNorth();
+			break;
+		case 10:
+			SmartDashboard.putString("Selected Command:", "Left Scale Angle");
+			m_autonomousCommand = new LeftScaleAngle();
+			break;
+		case 11:
+			SmartDashboard.putString("Selected Command:", "Left Scale Angle");
+			m_autonomousCommand = new RightScaleAngle();
 			break;
 		}
 
