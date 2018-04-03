@@ -22,6 +22,7 @@ public class RobotMap {
 	public static int liftMotorPWMPort = 4;
 	public static int vacCubeLeftMotorPWMPort = 5;
 	public static int vacCubeRightMotorPWMPort = 6;
+	public static int climberPWMPort = 7;
 
 	
 	//Map out the Joystick #'s in the DriverStation USB Ports
@@ -133,6 +134,10 @@ public class RobotMap {
 	public static double liftTolerance = .5;
 	public static double dTEncoderOutputMinTurn = -.75;
 	public static double dTEncoderOutputMaxTurn = .75;
+	
+	//Climber Mappings
+	public static double CLIMBER_MOTOR_SPEED = 0.90;
+	public static double CLIMBER_MOTOR_OFF = 0.00;
 
 	//Field Measurments for Auton  
 	//  ALL OF THESE DISTANCES ARE IN INCHES!!!
