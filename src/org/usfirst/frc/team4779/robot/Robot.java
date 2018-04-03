@@ -91,7 +91,8 @@ public class Robot extends TimedRobot {
 
 		// Initiate the OI. NOTE: ALWAYS INITIATE THE OI LAST!
 		System.out.println("Initiating the OI.");
-		m_oi = new OI();
+
+    m_oi = new OI();
 		System.out.println("OI initiating complete.");
 
 		// Calibrate our Gyro
@@ -123,8 +124,12 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Calibrate 15'", 7);
 		autoChooser.addObject("Calibrate 20'", 8);
 		autoChooser.addObject("Left Scale Non North", 9);
+		autoChooser.addObject("Left Scale Angle", 10);
+		autoChooser.addObject("Right Scale Angle", 11);
+
 		
 		//Add the Bling Chooser objects to the SmartDashboard.  Each is assigned an interger
+
 		blingChooser.addDefault("Bling - Purple", RobotMap.PURPLE);
 		blingChooser.addObject("Bling - Blue", RobotMap.BLUE);
 		blingChooser.addObject("Bling - Red", RobotMap.RED);
@@ -132,6 +137,7 @@ public class Robot extends TimedRobot {
 		blingChooser.addObject("Bling - Green", RobotMap.GREEN);
 		
 		// Put some data in the Smart Dashboard.
+
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
 		SmartDashboard.putData(lift);
@@ -253,6 +259,14 @@ public class Robot extends TimedRobot {
 		case 9:
 			SmartDashboard.putString("Selected Command:", "Left Scale non north");
 			m_autonomousCommand = new LeftScaleNonNorth();
+			break;
+		case 10:
+			SmartDashboard.putString("Selected Command:", "Left Scale Angle");
+			m_autonomousCommand = new LeftScaleAngle();
+			break;
+		case 11:
+			SmartDashboard.putString("Selected Command:", "Left Scale Angle");
+			m_autonomousCommand = new RightScaleAngle();
 			break;
 		}
 		
