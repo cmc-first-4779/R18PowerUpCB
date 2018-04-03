@@ -139,6 +139,7 @@ public class Robot extends TimedRobot {
 		// Put some data in the Smart Dashboard.
 
 		SmartDashboard.putData("Auto mode", autoChooser);
+		SmartDashboard.putData("Bling Chooser", blingChooser);
 		SmartDashboard.putData(vacCube);
 		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
