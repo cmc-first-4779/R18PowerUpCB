@@ -2,6 +2,7 @@ package org.usfirst.frc.team4779.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingOff;
 
 import com.mindsensors.CANLight;
@@ -15,7 +16,7 @@ public class Bling extends Subsystem {
     // here. Call these from Commands.
 	
 	//  Declare our Lights
-	CANLight lights = new CANLight(3);;
+	CANLight lights = new CANLight(RobotMap.BLING_CANLIGHT_PORT);
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

@@ -46,6 +46,17 @@ public class RobotMap {
 	public static final int CUBERT = 0;
 	public static final int MULE = 1;
 	
+
+	//Integers for the SmartDashboard Bling Chooser
+	public static final int BLUE = 0;
+	public static final int RED = 1;
+	public static final int PURPLE = 2;
+	public static final int ORANGE = 3;
+	public static final int GREEN = 4;
+	public static final int WHITE = 5;
+	
+	public static final int BLING_CANLIGHT_PORT = 3;
+
 	
 		
 	//Here are the initial SPARK Motor Power settings.   We will need to tune these as we test.
