@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4779.robot.autoCommands.*;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
+import org.usfirst.frc.team4779.robot.subsystems.Climber;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
@@ -44,6 +45,7 @@ public class Robot extends TimedRobot {
 	public static DriveTrain driveTrain;
 	public static VacCube vacCube;
 	public static Bling bling;
+	public static Climber climber;
 	
 	//public static double m_dtencoderDistancePerRevolution;	
 	private static int whichRobot;
@@ -83,6 +85,7 @@ public class Robot extends TimedRobot {
 		driveTrain = new DriveTrain();
 		vacCube = new VacCube();
 		bling = new Bling();
+		climber = new Climber();
 		System.out.println("Subsystem initiation complete.");
 
 
@@ -122,17 +125,18 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Left Scale Non North", 9);
 		
 		//Add the Bling Chooser objects to the SmartDashboard.  Each is assigned an interger
-		blingChooser.addDefault("Purple", RobotMap.PURPLE);
-		blingChooser.addObject("Blue", RobotMap.BLUE);
-		blingChooser.addObject("Red", RobotMap.RED);
-		blingChooser.addObject("Orange", RobotMap.ORANGE);
-		blingChooser.addObject("Green", RobotMap.GREEN);
+		blingChooser.addDefault("Bling - Purple", RobotMap.PURPLE);
+		blingChooser.addObject("Bling - Blue", RobotMap.BLUE);
+		blingChooser.addObject("Bling - Red", RobotMap.RED);
+		blingChooser.addObject("Bling - Orange", RobotMap.ORANGE);
+		blingChooser.addObject("Bling - Green", RobotMap.GREEN);
 		
 		// Put some data in the Smart Dashboard.
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData(vacCube);
 		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
+		SmartDashboard.putData(climber);
 		//SmartDashboard.putData(Robot.driveTrain.gyro);
 		
 		//Add the objects into the Robot Chooser for Cubert and the Mule.
@@ -196,7 +200,7 @@ public class Robot extends TimedRobot {
 			mySwitchSide = gameData.charAt(0);
 			myScaleSide = gameData.charAt(1);
 			opponentSwitchSide = gameData.charAt(2);
-			System.out.println("My Swtich Side: " + mySwitchSide);
+			System.out.println("My Switch Side: " + mySwitchSide);
 			System.out.println("My Scale Side: " + myScaleSide);
 			System.out.println("Opponent Switch Side: " + opponentSwitchSide);
 
