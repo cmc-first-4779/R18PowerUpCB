@@ -11,7 +11,7 @@ public class VacCubeEject extends Command {
 
     public VacCubeEject() {
     	requires(Robot.vacCube);
-    	setTimeout(1);
+    	setTimeout(.5);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

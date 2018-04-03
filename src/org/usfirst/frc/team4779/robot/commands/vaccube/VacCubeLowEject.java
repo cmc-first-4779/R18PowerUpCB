@@ -1,51 +1,44 @@
-package org.usfirst.frc.team4779.robot.commands.lift;
+package org.usfirst.frc.team4779.robot.commands.vaccube;
 
 import org.usfirst.frc.team4779.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *  Eject a PowerCube from the VacCube
  */
-public class SetLiftSetPointPID extends Command {
+public class VacCubeLowEject extends Command {
 
-	private double setpoint;
-	
-	
-    public SetLiftSetPointPID(double setpoint) {
+    public VacCubeLowEject() {
+    	requires(Robot.vacCube);
+    	setTimeout(1);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	this.setpoint = setpoint;
-    	setTimeout(3);  //Set time out for five seconds.
-    	requires(Robot.lift);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.lift.enable();
-    	Robot.lift.setSetpoint(setpoint);
+    	Robot.vacCube.vacCubeLowEject();
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    protected void execute() { 
+    	Robot.vacCube.vacCubeLowEject();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Robot.lift.onTarget() || isTimedOut() );
-    	//return false; 
+       return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.lift.disable();
-    	Robot.lift.liftOff();
+    	Robot.vacCube.vacCubeOff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.lift.disable();
-    	Robot.lift.liftOff();	
+    	Robot.vacCube.vacCubeOff();
     }
 }

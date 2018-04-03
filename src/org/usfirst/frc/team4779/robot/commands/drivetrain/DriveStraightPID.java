@@ -21,7 +21,6 @@ public class DriveStraightPID extends Command {
 	Timer timer = new Timer();
 	boolean resetGyro;
 
-
 	public DriveStraightPID(double distance, double speed, int direction) {
 		m_distance = distance;
 		m_speed = speed;
@@ -29,7 +28,7 @@ public class DriveStraightPID extends Command {
 		m_setpoint = 0;
 		this.resetGyro = true;
 	}
-	
+
 	public DriveStraightPID(double distance, double speed, int direction, boolean resetGyro) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
@@ -38,7 +37,11 @@ public class DriveStraightPID extends Command {
 		m_distance = distance;
 		m_speed = speed;
 		m_direction = direction;
-		m_setpoint = 0;
+		if (resetGyro) {
+			m_setpoint = 0;
+		} else {
+			m_setpoint = Robot.driveTrain.getDriveAngle();
+		}
 		this.resetGyro = resetGyro;
 
 	}
@@ -55,7 +58,7 @@ public class DriveStraightPID extends Command {
 		this.resetGyro = resetGyro;
 
 	}
-	
+
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		// RESET OUR ENCODERS
@@ -63,7 +66,7 @@ public class DriveStraightPID extends Command {
 		System.out.println("Reset DT Encoders.");
 		// RESET OUR GYRO
 		if (resetGyro) {
-		Robot.driveTrain.resetGyro();
+			Robot.driveTrain.resetGyro();
 		}
 		// SET THE PID DIRECTION. 1 = FORWARD, -1 = BACKWARDS
 		Robot.driveTrain.setDirection(m_direction);
