@@ -33,4 +33,8 @@ public void climberOn() {
 	climberMotor.set(RobotMap.CLIMBER_MOTOR_SPEED);
 	}
 
+public void climberReverse() {
+	climberMotor.set(-RobotMap.CLIMBER_MOTOR_SPEED);
+}
+
 }

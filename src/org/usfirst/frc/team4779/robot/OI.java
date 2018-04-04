@@ -11,6 +11,7 @@ import org.usfirst.frc.team4779.robot.autoCommands.CalibrateDistance;
 import org.usfirst.frc.team4779.robot.autoCommands.LeftScale;
 import org.usfirst.frc.team4779.robot.autoCommands.LeftSwitch;
 import org.usfirst.frc.team4779.robot.commands.ClimberOn;
+import org.usfirst.frc.team4779.robot.commands.ClimberReverse;
 import org.usfirst.frc.team4779.robot.commands.DeployPortal;
 import org.usfirst.frc.team4779.robot.commands.DeployScale;
 import org.usfirst.frc.team4779.robot.commands.DeploySwitch;
@@ -76,7 +77,8 @@ public class OI {
 		// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
 		operStickStartButton.whenPressed(new ResetLiftEncoder());
-		driverStickStartButton.whenPressed(new ClimberOn());
+		driverStickYButton.whileHeld(new ClimberOn());
+		driverStickAButton.whileHeld(new ClimberReverse());
 		
 		// Operator Stick
 		operStickLeftBumper.whileHeld(new VacCubeIntake());
