@@ -24,6 +24,7 @@ import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingBlue;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingGreen;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingOff;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingOrange;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingPurple;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingRed;
@@ -135,6 +136,7 @@ public class Robot extends TimedRobot {
 		blingChooser.addObject("Bling - Red", RobotMap.RED);
 		blingChooser.addObject("Bling - Orange", RobotMap.ORANGE);
 		blingChooser.addObject("Bling - Green", RobotMap.GREEN);
+		blingChooser.addObject("Bling - Off",  RobotMap.BLING_OFF);
 		
 		// Put some data in the Smart Dashboard.
 
@@ -382,6 +384,11 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putString("Selected Bling:", "White");
 			System.out.println("Bling color set to WHITE.");
 			m_blingCommand = new BlingWhite();
+			break;
+		case RobotMap.BLING_OFF:
+			SmartDashboard.putString("Selected Bling:", "OFF");
+			System.out.println("Bling Set to OFF.");
+			m_blingCommand = new BlingOff();
 			break;
 		}
 	}

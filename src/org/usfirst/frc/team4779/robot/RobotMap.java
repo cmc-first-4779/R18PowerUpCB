@@ -55,6 +55,7 @@ public class RobotMap {
 	public static final int ORANGE = 3;
 	public static final int GREEN = 4;
 	public static final int WHITE = 5;
+	public static final int BLING_OFF = 6;
 	
 	public static final int BLING_CANLIGHT_PORT = 3;
 

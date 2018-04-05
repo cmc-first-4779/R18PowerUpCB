@@ -17,6 +17,7 @@ import org.usfirst.frc.team4779.robot.commands.DeployScale;
 import org.usfirst.frc.team4779.robot.commands.DeploySwitch;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingBlue;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingGreen;
+import org.usfirst.frc.team4779.robot.commands.bling.BlingOff;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingOrange;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingPurple;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingRed;
@@ -76,9 +77,10 @@ public class OI {
 
 		// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		operStickStartButton.whenPressed(new ResetLiftEncoder());
 		driverStickYButton.whileHeld(new ClimberOn());
 		driverStickAButton.whileHeld(new ClimberReverse());
+		driverStickRightBumper.whileHeld(new VacCubeIntake());
+		driverStickStartButton.whenPressed(new BlingOff());
 		
 		// Operator Stick
 		operStickLeftBumper.whileHeld(new VacCubeIntake());
@@ -87,10 +89,9 @@ public class OI {
 		operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
 		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
 		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-
-
+		operStickStartButton.whenPressed(new ResetLiftEncoder());
 		operStickYButton.whileHeld(new VacCubeLowEject());
-		driverStickRightBumper.whileHeld(new VacCubeIntake());
+		
 }
 
 	// This method is used later to return the the driverStick when called.
