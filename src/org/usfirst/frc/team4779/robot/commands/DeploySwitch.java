@@ -18,8 +18,8 @@ public class DeploySwitch extends CommandGroup {
     	addSequential(new VacCubeEject());
     	addSequential(new TimerCommand(0.5));
     	addParallel( new VacCubeOff());
-    	addSequential(new DriveStraightPID(12, RobotMap.THROTTLE_SPEED, RobotMap.REVERSE));
-    	addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+    	addParallel(new DriveStraightPID(24, RobotMap.THROTTLE_SPEED, RobotMap.REVERSE));
+    	addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight),2);
     	
      
     }
