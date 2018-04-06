@@ -77,7 +77,7 @@ public class RobotMap {
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
 	//Cubert ration below
-	public static double dTEncoderDistancePerRevolution_cubert = 2.305;//We need to find this.
+	public static double dTEncoderDistancePerRevolution_cubert = 2.32;//We need to find this.
 	//Mule ratio below
 	public static double dTEncoderDistancePerRevolution_mule = 2.76;//We need to find this
 	public static double dTDistancePerPulse_mule = dTEncoderDistancePerRevolution_mule / dTEncoderPulsePerRevolution;
@@ -154,12 +154,12 @@ public class RobotMap {
 	//Speed as we throttle down.
 	public static double THROTTLE_SPEED = 0.6;
 	//public static double SCALE_THROTTLE_DOWN_DISTANCE = 100;
-	public static double AISLE_LENGTH_TO_SCALE = 192;
+	public static double AISLE_LENGTH_TO_SCALE = 210;  //was 192, changed to 210.
 	//public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
 	public static double AISLE_LENGTH_TO_SWITCH = 173;
 	//public static double AISLE_THROTTLE_DOWN_DISTANCE = 40;
 	public static double AISLE_SPEED = 0.8;
-	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;
+	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;  
 	public static double FRONT_SWITCH_DISTANCE = 145;
 	public static double FRONT_SWITCH_SPEED = 0.7;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13;
