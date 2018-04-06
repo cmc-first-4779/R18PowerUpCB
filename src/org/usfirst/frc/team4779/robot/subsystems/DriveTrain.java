@@ -164,8 +164,14 @@ public class DriveTrain extends PIDSubsystem {
     }
         
     public double getAvgEncoderPosition() {
+    	if (Math.abs(dTEncoderLeft.getDistance()) < 3) {
+    		return dTEncoderRight.getDistance();
+    	} else if(Math.abs(dTEncoderRight.getDistance()) < 3) {
+    		return -dTEncoderLeft.getDistance();
+    	} else {
     	//Average our two rotary encoders together to account for slippage and turning.
     	return (-dTEncoderLeft.getDistance() + dTEncoderRight.getDistance()) / 2;
+    	}
     }
         
     public double getLeftEncoderPosition() {
