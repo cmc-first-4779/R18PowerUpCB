@@ -154,12 +154,12 @@ public class RobotMap {
 	//Speed as we throttle down.
 	public static double THROTTLE_SPEED = 0.6;
 	//public static double SCALE_THROTTLE_DOWN_DISTANCE = 100;
-	public static double AISLE_LENGTH_TO_SCALE = 192;
+	public static double AISLE_LENGTH_TO_SCALE = 210;  //was 192, changed to 210.
 	//public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
 	public static double AISLE_LENGTH_TO_SWITCH = 173;
 	//public static double AISLE_THROTTLE_DOWN_DISTANCE = 40;
 	public static double AISLE_SPEED = 0.8;
-	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;
+	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;  
 	public static double FRONT_SWITCH_DISTANCE = 145;
 	public static double FRONT_SWITCH_SPEED = 0.7;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13;
