@@ -77,7 +77,7 @@ public class RobotMap {
 	//DriveTrain PID and Encoder Settings.   Also DIO Mappings.
 	public static double dTEncoderPulsePerRevolution = 20;
 	//Cubert ration below
-	public static double dTEncoderDistancePerRevolution_cubert = 2.305;//We need to find this.
+	public static double dTEncoderDistancePerRevolution_cubert = 2.32;//We need to find this.
 	//Mule ratio below
 	public static double dTEncoderDistancePerRevolution_mule = 2.76;//We need to find this
 	public static double dTDistancePerPulse_mule = dTEncoderDistancePerRevolution_mule / dTEncoderPulsePerRevolution;
