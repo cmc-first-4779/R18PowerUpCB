@@ -39,7 +39,7 @@ public class RightScale extends CommandGroup {
 	else  {
 		addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
 		addSequential(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_DISTANCE,
-				RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH));
+				RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH+5));
 		addSequential(new TimerCommand(.25));
 		addSequential(new DriveTurnPID(RobotMap.WEST, false));
 		addParallel(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_APPROACH_DISTANCE,
