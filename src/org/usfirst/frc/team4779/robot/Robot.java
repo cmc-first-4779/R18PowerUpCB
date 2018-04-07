@@ -109,9 +109,9 @@ public class Robot extends TimedRobot {
 		//SmartDashboard.putNumber("Lift Encoder Distance:  ", Robot.lift.getDistance());
 
 		//Turn on the Camera Server for the Dashboard
-//		System.out.println("Starting the camera server.");
-//		CameraServer.getInstance().startAutomaticCapture();
-//		System.out.println("Camera Server started.");
+		System.out.println("Starting the camera server.");
+		CameraServer.getInstance().startAutomaticCapture();
+		System.out.println("Camera Server started.");
 
 		//Add the Auton Chooser objects to the SmartDashboard.   Each is assigned an interger.
 
