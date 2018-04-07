@@ -97,8 +97,8 @@ public class RobotMap {
 
 
 	//  Rotary Encoder Turn constants
-	public static double dTEncoderOutputMin = -0.85;
-	public static double dTEncoderOutputMax = 0.85;
+	public static double dTEncoderOutputMin = -0.95;
+	public static double dTEncoderOutputMax = 0.95;
 	public static int FORWARD = 1;
 	public static int REVERSE = -1;
 	public static int LEFT = -90;
@@ -146,7 +146,8 @@ public class RobotMap {
 	//Distance from Left/Right Stations to the front of the Scale
 	public static double FRONT_SCALE_DISTANCE = 309;
 	//Distance we need to go to approach the front of the scale
-	public static double FRONT_SCALE_APPROACH_DISTANCE = 8;
+	public static double FRONT_SCALE_APPROACH_DISTANCE_ANGLE = 8;
+	public static double FRONT_SCALE_APPROACH_DISTANCE = 3;
 	//Distance from the Left/Right Stations to the aisle between the Scale and the Switch
 	public static double AISLE_DISTANCE = 218;
 	//Speed as we go to the front 
@@ -154,7 +155,7 @@ public class RobotMap {
 	//Speed as we throttle down.
 	public static double THROTTLE_SPEED = 0.6;
 	//public static double SCALE_THROTTLE_DOWN_DISTANCE = 100;
-	public static double AISLE_LENGTH_TO_SCALE = 210;  //was 192, changed to 210.
+	public static double AISLE_LENGTH_TO_SCALE = 192;  //was 192, changed to 210.
 	//public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
 	public static double AISLE_LENGTH_TO_SWITCH = 173;
 	//public static double AISLE_THROTTLE_DOWN_DISTANCE = 40;

@@ -19,7 +19,7 @@ public class LeftScale extends CommandGroup {
 		if (Robot.myScaleSide == 'L') {
 			addParallel(new SetLiftSetPointPID(RobotMap.LIFT_SETPOINT_HIGH_SPEED));
 			addSequential(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_DISTANCE,
-					RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH-5));
+					RobotMap.FRONT_SCALE_FULL_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH - 1));
 			addSequential(new TimerCommand(.25));
 			addSequential(new DriveTurnPID(RobotMap.EAST, false));
 			addSequential(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SCALE_APPROACH_DISTANCE,
