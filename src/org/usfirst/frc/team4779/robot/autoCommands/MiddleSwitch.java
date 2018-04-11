@@ -22,15 +22,14 @@ public class MiddleSwitch extends CommandGroup {
 			// execute commands to go to left switch
 			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
 			addSequential(
-					new DriveStraightPIDWithThrottle(RobotMap.SWITCH_AISLE_DISTANCE, RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH));
+					new DriveStraightPIDWithThrottle(RobotMap.SWITCH_AISLE_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH));
 			addSequential(new TimerCommand(0.25));
 			addSequential(new DriveTurnPID(RobotMap.WEST, false));
 			addSequential(new DriveStraightPID(RobotMap.MIDDLE_SWITCH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.FORWARD, false, RobotMap.WEST));
 			addSequential(new TimerCommand(0.25));
 			addSequential(new DriveTurnPID(RobotMap.NORTH, false));
 			addSequential(new DriveStraightPID(RobotMap.SWITCH_AISLE_APPROACH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED,
-					RobotMap.FORWARD, false, RobotMap.NORTH), 5);
-			addSequential(new TimerCommand(0.25));
+					RobotMap.FORWARD, false, RobotMap.NORTH), 3);
 			addSequential(new DeploySwitch());
 			addSequential(new DriveTurnPID(RobotMap.EAST, false));
 			addParallel(new DriveStraightPID(48, .7, RobotMap.FORWARD, false, RobotMap.EAST));

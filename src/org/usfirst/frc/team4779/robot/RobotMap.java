@@ -167,7 +167,7 @@ public class RobotMap {
 	public static double AISLE_SPEED = 0.8;
 	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;  
 	public static double FRONT_SWITCH_DISTANCE = 145;
-	public static double FRONT_SWITCH_SPEED = 0.7;
+	public static double FRONT_SWITCH_SPEED = 0.75;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13;
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 14;
 	public static double SIDE_SWITCH_DISTANCE = 98;
