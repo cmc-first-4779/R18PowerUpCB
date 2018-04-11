@@ -116,17 +116,13 @@ public class Robot extends TimedRobot {
 		//Add the Auton Chooser objects to the SmartDashboard.   Each is assigned an interger.
 
 		autoChooser.addDefault("Middle Starting Position - Switch", 0);
-		autoChooser.addObject("Left Starting Position -  Switch", 1);
-		autoChooser.addObject("Right Starting Position - Switch", 2);
-		autoChooser.addObject("Middle Starting Position - Scale", 3);
-		autoChooser.addObject("Left Starting Position - Scale", 4);
-		autoChooser.addObject("Right Starting Position - Scale", 5);
-		autoChooser.addObject("Calibrate 10'", 6);
-		autoChooser.addObject("Calibrate 15'", 7);
-		autoChooser.addObject("Calibrate 20'", 8);
-		autoChooser.addObject("Left Scale Non North", 9);
-		autoChooser.addObject("Left Scale Angle", 10);
-		autoChooser.addObject("Right Scale Angle", 11);
+		autoChooser.addObject("Left Starting Position -  Scale", 1);
+		autoChooser.addObject("Right Starting Position - Scale", 2);
+		autoChooser.addObject("Left Starting Position - Switch", 3);
+		autoChooser.addObject("Right Starting Position - Switch", 4);
+		autoChooser.addObject("Calibrate 10'", 5);
+		autoChooser.addObject("Calibrate 15'", 6);
+		autoChooser.addObject("Calibrate 20'", 7);
 
 		
 		//Add the Bling Chooser objects to the SmartDashboard.  Each is assigned an interger
@@ -228,48 +224,32 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand = new MiddleSwitch();
 			break;
 		case 1:
+			SmartDashboard.putString("Selected Command:", "Left Scale");
+			m_autonomousCommand = new LeftScaleAngle();
+			break;
+		case 2:
+			SmartDashboard.putString("Selected Command:", "Right Scale");
+			m_autonomousCommand = new RightScaleAngle();
+			break;
+		case 3:
 			SmartDashboard.putString("Selected Command:", "Left Switch");
 			m_autonomousCommand = new LeftSwitch();
 			break;
-		case 2:
+		case 4:
 			SmartDashboard.putString("Selected Command:", "Right Switch");
 			m_autonomousCommand = new RightSwitch();
 			break;
-		case 3:
-			SmartDashboard.putString("Selected Command:", "Middle Scale");
-			m_autonomousCommand = new MiddleScale();
-			break;
-		case 4:
-			SmartDashboard.putString("Selected Command:", "Left Scale");
-			m_autonomousCommand = new LeftScale();
-			break;
-		case 5:
-			SmartDashboard.putString("Selected Command:", "Right Scale");
-			m_autonomousCommand = new RightScale();
-			break;
-		case 6: 
+		case 5: 
 			SmartDashboard.putString("Selected Command:", "Calibrate 10'");
 			m_autonomousCommand = new CalibrateDistance(120);
 			break;
-		case 7: 
+		case 6: 
 			SmartDashboard.putString("Selected Command:", "Calibrate 15'");
 			m_autonomousCommand = new CalibrateDistance(180);
 			break;
-		case 8: 
+		case 7: 
 			SmartDashboard.putString("Selected Command:", "Calibrate 20'");
 			m_autonomousCommand = new CalibrateDistance(240);
-			break;
-		case 9:
-			SmartDashboard.putString("Selected Command:", "Left Scale non north");
-			m_autonomousCommand = new LeftScaleNonNorth();
-			break;
-		case 10:
-			SmartDashboard.putString("Selected Command:", "Left Scale Angle");
-			m_autonomousCommand = new LeftScaleAngle();
-			break;
-		case 11:
-			SmartDashboard.putString("Selected Command:", "Left Scale Angle");
-			m_autonomousCommand = new RightScaleAngle();
 			break;
 		}
 		
