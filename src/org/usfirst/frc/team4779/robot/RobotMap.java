@@ -107,6 +107,8 @@ public class RobotMap {
 	public static int EAST = 90;
 	public static int SOUTH = 180;
 	public static int WEST = -90;
+	public static int NORTHEAST = 45;
+	public static int NORTHWEST = -45;
 	
 	
 	//Lift Encoder Settings and DIO Mappings.
@@ -166,11 +168,11 @@ public class RobotMap {
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13;
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 14;
 	public static double SIDE_SWITCH_DISTANCE = 98;
-	public static double SWITCH_AISLE_APPROACH_DISTANCE = 75;
+	public static double SWITCH_AISLE_APPROACH_DISTANCE = 73;
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
-	public static double MIDDLE_SWITCH_DISTANCE = 98;
+	public static double MIDDLE_SWITCH_DISTANCE = 95;
 	public static double SCALE_ANGLE_DISTANCE = 255;
 	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 42;
 }
