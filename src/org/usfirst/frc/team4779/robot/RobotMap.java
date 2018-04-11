@@ -110,8 +110,8 @@ public class RobotMap {
 	public static int EAST = 90;
 	public static int SOUTH = 180;
 	public static int WEST = -90;
-	public static int NORTHEAST = 45;
-	public static int NORTHWEST = -45;
+	public static int LEFT_SIDE_CUBE_PILE_APPROACH_ANGLE = 45;
+	public static int RIGHT_SIDE_CUBE_PILE_APPROACH_ANGLE = -45;
 	
 	
 	//Lift Encoder Settings and DIO Mappings.
