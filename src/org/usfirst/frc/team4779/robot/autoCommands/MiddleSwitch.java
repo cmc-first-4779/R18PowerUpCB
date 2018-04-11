@@ -3,6 +3,7 @@ package org.usfirst.frc.team4779.robot.autoCommands;
 import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.DeploySwitch;
+import org.usfirst.frc.team4779.robot.commands.PickUpCubeFromLeftSwitch;
 import org.usfirst.frc.team4779.robot.commands.PickUpCubeFromRightSwitch;
 import org.usfirst.frc.team4779.robot.commands.TimerCommand;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.*;
@@ -31,9 +32,17 @@ public class MiddleSwitch extends CommandGroup {
 			addSequential(new DriveStraightPID(RobotMap.SWITCH_AISLE_APPROACH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED,
 					RobotMap.FORWARD, false, RobotMap.NORTH), 3);
 			addSequential(new DeploySwitch());
-			addSequential(new DriveTurnPID(RobotMap.EAST, false));
-			addParallel(new DriveStraightPID(48, .7, RobotMap.FORWARD, false, RobotMap.EAST));
-			addSequential(new VacCubeIntake(), 5);
+			//Lower the lift and try to pickup another cube
+			addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
+			addSequential(new PickUpCubeFromLeftSwitch());
+			//Deploy the second cube
+			addSequential(new DeploySwitch());
+			//Lower the lift and try to pickup another cube
+			addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
+ 			addSequential(new PickUpCubeFromLeftSwitch());
+			//Deploy the 3rd cube.
+			addSequential(new DeploySwitch());			
+
 		} else {
 			// execute commands to go to the right switch
 			// start by setting the lift height for the switch and driving straight towards the switch
