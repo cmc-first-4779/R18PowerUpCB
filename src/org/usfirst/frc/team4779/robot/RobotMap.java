@@ -58,6 +58,9 @@ public class RobotMap {
 	public static final int BLING_OFF = 6;
 	
 	public static final int BLING_CANLIGHT_PORT = 3;
+	public static final double SWITCH_BACKUP_DISTANCE = 36;
+	public static final double CUBE_PILE_APPROACH_DISTANCE = 18;
+	public static final double GOT_CUBE_VOLTAGE = 1.1;
 
 	
 		

@@ -1,9 +1,9 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
-import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,6 +20,9 @@ public class VacCube extends Subsystem {
 	//  Declaring and Initiating the two Sparks.
 	Spark vacCubeLeftMotor = new Spark(RobotMap.vacCubeLeftMotorPWMPort);
 	Spark vacCubeRightMotor = new Spark(RobotMap.vacCubeRightMotorPWMPort); 
+	
+	//adding in proximity sensor
+	AnalogInput proxy = new AnalogInput(0);
 	
 	private double m_power;
 	
@@ -67,6 +70,15 @@ public class VacCube extends Subsystem {
     public double getPower()  {
     	return m_power;
     }
+
+	public boolean hasCube() {
+		if(proxy.getValue() < RobotMap.GOT_CUBE_VOLTAGE) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
 
