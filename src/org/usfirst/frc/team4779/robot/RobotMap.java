@@ -61,6 +61,7 @@ public class RobotMap {
 	public static final double SWITCH_BACKUP_DISTANCE = 36;
 	public static final double CUBE_PILE_APPROACH_DISTANCE = 18;
 	public static final double GOT_CUBE_VOLTAGE = 1.1;
+	public static final double PICKUP_ADJUST_DISTANCE = 6;
 
 	
 		
