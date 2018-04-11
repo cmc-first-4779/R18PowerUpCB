@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class PickUpCubeFromRightSwitch extends CommandGroup {
 
     public PickUpCubeFromRightSwitch() {
-    	//Back up at angle away from switch
+    	//Back up from switch
     	addSequential(new DriveStraightPIDWithThrottle(RobotMap.SWITCH_BACKUP_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.REVERSE, false, RobotMap.NORTH));
     	//Drive towards the pile at an angle and turn on vacube
     	addParallel(new DriveStraightPIDWithThrottle(RobotMap.CUBE_PILE_APPROACH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.FORWARD, false, RobotMap.RIGHT_SIDE_CUBE_PILE_APPROACH_ANGLE));
