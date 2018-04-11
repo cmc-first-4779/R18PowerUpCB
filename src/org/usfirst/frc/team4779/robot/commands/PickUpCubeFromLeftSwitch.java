@@ -19,7 +19,8 @@ public class PickUpCubeFromLeftSwitch extends CommandGroup {
     	addSequential(new DriveStraightPIDWithThrottle(RobotMap.SWITCH_BACKUP_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.REVERSE, false, RobotMap.NORTH));
     	//Drive towards the pile at an angle and turn on vacube
     	addParallel(new DriveStraightPIDWithThrottle(RobotMap.CUBE_PILE_APPROACH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.FORWARD, false, RobotMap.LEFT_SIDE_CUBE_PILE_APPROACH_ANGLE));
-    	addSequential(new VacCubeIntake(),3);
+    	
+    	addSequential(new VacCubeIntake(),3) ;//want to be able to remove this hard timeout. But will require proximity sensor working.  
     	while(!Robot.vacCube.hasCube()) {
     		addSequential(new DriveStraightPIDWithThrottle(RobotMap.PICKUP_ADJUST_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.REVERSE, false, currentPickupAngle));
     		currentPickupAngle = currentPickupAngle + 3;
