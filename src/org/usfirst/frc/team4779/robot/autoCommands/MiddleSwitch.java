@@ -33,12 +33,12 @@ public class MiddleSwitch extends CommandGroup {
 					RobotMap.FORWARD, false, RobotMap.NORTH), 3);
 			addSequential(new DeploySwitch());
 			//Lower the lift and try to pickup another cube
-			addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
+		//	addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
 			addSequential(new PickUpCubeFromLeftSwitch());
 			//Deploy the second cube
 			addSequential(new DeploySwitch());
 			//Lower the lift and try to pickup another cube
-			addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
+		//	addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
  			addSequential(new PickUpCubeFromLeftSwitch());
 			//Deploy the 3rd cube.
 			addSequential(new DeploySwitch());			
@@ -49,19 +49,19 @@ public class MiddleSwitch extends CommandGroup {
 			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
 			addSequential(new DriveStraightPIDWithThrottle(RobotMap.SIDE_SWITCH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED,
 					RobotMap.FORWARD, true, RobotMap.NORTH), 4);
-//			addSequential(new TimerCommand(0.25));
+			addSequential(new TimerCommand(0.25));
 			//Deploy the cube into the switch
 			addSequential(new DeploySwitch());
 			//Lower the lift and try to pickup another cube
-			addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
+			//addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
 			addSequential(new PickUpCubeFromRightSwitch());
 			//Deploy the second cube
-			addSequential(new DeploySwitch());
+			//addSequential(new DeploySwitch());
 			//Lower the lift and try to pickup another cube
-			addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
+			//addParallel(new SetLiftSetPointPID(RobotMap.pickUpHeight), 2);
  			addSequential(new PickUpCubeFromRightSwitch());
 			//Deploy the 3rd cube.
-			addSequential(new DeploySwitch());
+			//addSequential(new DeploySwitch());
 		}
 
 	}

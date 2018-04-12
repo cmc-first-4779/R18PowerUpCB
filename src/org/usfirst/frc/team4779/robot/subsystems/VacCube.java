@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
+import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 
@@ -24,11 +25,13 @@ public class VacCube extends Subsystem {
 	//adding in proximity sensor
 	AnalogInput proxy = new AnalogInput(0);
 	
+	
 	private double m_power;
 	
     public void initDefaultCommand() {
     	//By Default, we want the VacCube off to not drain the battery.
     	setDefaultCommand(new VacCubeOff());
+    	
         }
     
     //  This PRIVATE Method is convenient as it allows us to have one method that jointly sets the power
@@ -45,6 +48,7 @@ public class VacCube extends Subsystem {
     public void vacCubeOff() {
     	//Turn the VacCube Off
     	setMotorPower(RobotMap.vacCubeMotorPowerOff);
+    	SmartDashboard.putNumber("Proximity Voltage: ", proxy.getVoltage());
     }
     
     public void vacCubeIntake() {
@@ -72,7 +76,7 @@ public class VacCube extends Subsystem {
     }
 
 	public boolean hasCube() {
-		if(proxy.getValue() < RobotMap.GOT_CUBE_VOLTAGE) {
+		if(proxy.getVoltage() < RobotMap.GOT_CUBE_VOLTAGE) {
 			return true;
 		}
 		else {
