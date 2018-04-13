@@ -3,6 +3,7 @@ package org.usfirst.frc.team4779.robot.autoCommands;
 import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.DeployScale;
+import org.usfirst.frc.team4779.robot.commands.DeployScaleMediumPower;
 import org.usfirst.frc.team4779.robot.commands.TimerCommand;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
@@ -44,7 +45,8 @@ public class LeftScaleAngle extends CommandGroup {
 			addSequential(new TimerCommand(0.5));
 			addParallel(new DriveStraightPIDWithThrottle(RobotMap.AISLE_SCALE_APPROACH_DISTANCE,
 					RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.NORTH));
-			 addSequential(new DeployScale());
+			 //addSequential(new DeployScale());
+			addSequential(new DeployScaleMediumPower());
 		}
 
 	}
