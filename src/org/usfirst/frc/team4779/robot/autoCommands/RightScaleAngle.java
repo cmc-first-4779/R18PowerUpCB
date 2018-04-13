@@ -46,7 +46,7 @@ public class RightScaleAngle extends CommandGroup {
 			addParallel(new DriveStraightPIDWithThrottle(RobotMap.AISLE_SCALE_APPROACH_DISTANCE,
 					RobotMap.THROTTLE_SPEED, RobotMap.FORWARD, false, RobotMap.NORTH));
 			//addSequential(new DeployScale());
-			addSequential(new DeployScaleMediumPower());
+			addSequential(new DeployScale());
 		}
 
 	}
