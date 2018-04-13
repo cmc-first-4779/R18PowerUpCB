@@ -71,6 +71,11 @@ public class VacCube extends Subsystem {
     	setMotorPower(RobotMap.vacCubeMotorPowerLowEject);
     }
     
+    public void vacCubeMediumEject() {
+    	//  Eject a Cube with LOW Power.
+    	setMotorPower(RobotMap.vacCubeMotorPowerMediumEject);
+    }
+    
     public double getPower()  {
     	return m_power;
     }
