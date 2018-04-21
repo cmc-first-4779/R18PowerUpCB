@@ -13,7 +13,7 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *    This command will hit the switch from the middle starting position.
  */
 public class MiddleSwitch extends CommandGroup {
 

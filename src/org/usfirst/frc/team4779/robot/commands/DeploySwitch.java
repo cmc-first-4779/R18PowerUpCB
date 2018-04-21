@@ -10,7 +10,7 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *  This command deploys a cube to the switch during Auton.
  */
 public class DeploySwitch extends CommandGroup {
 

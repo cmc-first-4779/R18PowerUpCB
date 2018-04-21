@@ -8,7 +8,9 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *    This command deploys a cube to the portal.
+ *    
+ *    NOTE:   We never deployed a cube to the portal during Auton.
  */
 public class DeployPortal extends CommandGroup {
 

@@ -9,7 +9,11 @@ import org.usfirst.frc.team4779.robot.commands.drivetrain.*;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 
 /**
- *
+ *   This command is designed to hit the switch from the left starting position.
+ *   
+ *   NOTE:   IF THE FMS tells us to hit the right side scale in the "else" statement, this routine will pull
+ *   a foul penalty based on current rules as a powercube may block our ability to touch the switch before
+ *   deploying.
  */
 public class LeftSwitch extends CommandGroup {
 

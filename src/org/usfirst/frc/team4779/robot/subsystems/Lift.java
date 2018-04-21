@@ -18,8 +18,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Lift extends PIDSubsystem {
 	//  Declare our Spark Motor that powers the lift
 	Spark liftMotor = new Spark(RobotMap.liftMotorPWMPort);
+	
+	//  Declare and initiate our Lift encoder.
 	private static Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannelA, RobotMap.liftEncoderChannelB);
-
 	
 	
 	public Lift() {
@@ -47,9 +48,12 @@ public class Lift extends PIDSubsystem {
     }
     
     public void lift(double yValue) {
-    	//  Move the Lift up.	
+    	//  Move the Lift.	
+    	
+    	//Send the distance and power to the Smart Dashboard.
     	SmartDashboard.putNumber("Lift Power:" , yValue);
     	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
+    	//Stop the lift if we are within a quarter of an inch.
     	if (yValue < .25 && yValue > -.25) {
        		liftMotor.set(0);
        	}
@@ -63,6 +67,7 @@ public class Lift extends PIDSubsystem {
     
     public void liftUpTurbo() {
     	//  Move the Lift Up REALLY FAST.  (Turbo)
+    	//  NOTE:  NEVER USED THIS IN COMPETITION
     	liftMotor.set(RobotMap.liftMotorPowerTurbo);	
     }
     
@@ -83,8 +88,12 @@ public class Lift extends PIDSubsystem {
     }
     
     public void liftMove(double power) {
+    	//  PID method used to move the lift up/down
     	SmartDashboard.putNumber("Lift Encoder Position: ", Robot.lift.getDistance());
     	SmartDashboard.putNumber("Lift Power", power);
+    	
+    	//  This if/else-if/else is used to throttle the lift's speed to not jam it and damage it or
+    	//   torque it on top of the robot and make it tipsy.
     	if ((Robot.lift.getDistance() < RobotMap.liftThrottleHeight))   {
     		liftMotor.set(power);
     	}

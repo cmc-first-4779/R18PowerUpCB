@@ -7,13 +7,14 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *   NOTE:   WE DID NOT USE THE CLIMBER DURING COMPETITION
  */
 public class Climber extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
+	//Declare our Spark controller for our Climber motor
 	Spark climberMotor = new Spark(RobotMap.climberPWMPort);
 
 

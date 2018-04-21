@@ -24,6 +24,7 @@ public class DriveTrain extends PIDSubsystem {
 	
 	//Declare and Initialize our Gyro.
 	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+	
 	//Declare the variable we are using to set the forward or backward direction of the robot for Auton Comamnd Groups.
 	public int direction; //forward 1 or backward -1
 	
@@ -50,7 +51,7 @@ public class DriveTrain extends PIDSubsystem {
 		super("DriveTrain", RobotMap.dTPValue, RobotMap.dtIValue, RobotMap.dtDValue);
 		//Set the Absolute Tolerance for error in our Gyro.  (In Degrees)
 		setAbsoluteTolerance(RobotMap.dTEncoderAbsoluteTolerance);
-		//Set our Encoder Ouput Min and Max.   This will limit the speed of our motors while the PID is running.
+		//Set our Encoder Output Min and Max.   This will limit the speed of our motors while the PID is running.
 		setOutputRange(RobotMap.dTEncoderOutputMin, RobotMap.dTEncoderOutputMax);
 
 		//Set the distance per pulse per Rotary Encoder.    Got this through calibration and testing.
@@ -86,7 +87,7 @@ public class DriveTrain extends PIDSubsystem {
     	if (Robot.lift.getDistance() < RobotMap.liftDTThrottleHeight) {
     		myDrive.arcadeDrive(-yAxis, xAxis*RobotMap.dtTurnThrottle);
     	}
-    	//if it's over our threshhold, throttle down the driveTrain.
+    	//if it's over our threshhold, throttle down the driveTrain.  DONT WANT THE ROBOT TO TIP!!
     	else   {
     		myDrive.arcadeDrive(-yAxis*RobotMap.dTLiftThrottleDown, xAxis*RobotMap.dtTurnLiftedThrottle);
     	}
@@ -164,6 +165,10 @@ public class DriveTrain extends PIDSubsystem {
     }
         
     public double getAvgEncoderPosition() {
+    	// We needed to add this to error check just in case one of our encoders is out of service due to
+    	// a bad connection or sliced wire.  These if/else commands make sure that each encoder is giving 
+    	// positive values >= 3 before performing an average.    If one of the encoders is < 3, then it will
+    	// only return a reading from the working encoder.
     	if (Math.abs(dTEncoderLeft.getDistance()) < 3) {
     		return dTEncoderRight.getDistance();
     	} else if(Math.abs(dTEncoderRight.getDistance()) < 3) {
@@ -228,6 +233,7 @@ public class DriveTrain extends PIDSubsystem {
     	
     }
     
+    //   Return the gyro object when needed.
     public ADXRS450_Gyro getGyro() {
     	return gyro;
     }

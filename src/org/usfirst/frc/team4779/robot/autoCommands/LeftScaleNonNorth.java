@@ -10,7 +10,13 @@ import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *  This command is used when starting from the left starting position and going to the scale from an angle.
+ *   
+ *   The if/else statements take the input from the Field Management System (FMS) and then determine
+ *   side of the scale or switch the robot must go to.
+ *   
+ *   The command goes slightly off north running up to the scale to give room to hit the scale and then backup for the 
+ *   cubes near the switch wall.
  */
 public class LeftScaleNonNorth extends CommandGroup {
 

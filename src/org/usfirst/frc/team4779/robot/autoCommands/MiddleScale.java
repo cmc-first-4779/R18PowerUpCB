@@ -7,7 +7,8 @@ import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *   THIS COMMAND SHOULD PROBABLY BE DELETED AS WE WILL NEVER APPROACH THE SCALE FROM THE MIDDLE 
+ *   STARTING POSITION
  */
 public class MiddleScale extends CommandGroup {
 

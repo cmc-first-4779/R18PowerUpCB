@@ -12,7 +12,11 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * This command is used when starting from the left starting position and going to the scale from an angle.
+ * We used later in competitions for Marysville and States.
+ *   
+ *   The if/else statements take the input from the Field Management System (FMS) and then determine
+ *   side of the scale or switch the robot must go to.
  */
 public class LeftScaleAngle extends CommandGroup {
 

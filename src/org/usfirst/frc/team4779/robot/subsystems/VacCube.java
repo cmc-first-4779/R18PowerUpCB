@@ -23,9 +23,10 @@ public class VacCube extends Subsystem {
 	Spark vacCubeRightMotor = new Spark(RobotMap.vacCubeRightMotorPWMPort); 
 	
 	//adding in proximity sensor
+	//  NOTE:  NOT USED IN COMPETITION.
 	AnalogInput proxy = new AnalogInput(0);
 	
-	
+	//  Local variable used for power in this method.
 	private double m_power;
 	
     public void initDefaultCommand() {
@@ -58,21 +59,23 @@ public class VacCube extends Subsystem {
     
     public void vacCubeHold() {
     	//Hold a Power Cube in place with minimal power.
+    	//  NOTE:  NEVER USED IN COMPETITION
     	setMotorPower(RobotMap.vacCubeMotorPowerHold);
     }
     
     public void vacCubeEject() {
-    	//  Eject a Cube.
+    	//  Eject a Cube Full Power.  Good for shooting far distances or when the scale or switch is empty.
     	setMotorPower(RobotMap.vacCubeMotorPowerEject);
     }
     
     public void vacCubeLowEject() {
-    	//  Eject a Cube with LOW Power.
+    	//  Eject a Cube with LOW Power.   Used with the scale is full or if we want to try and put a power
+    	//    cube on the end of the scale to get leverage.
     	setMotorPower(RobotMap.vacCubeMotorPowerLowEject);
     }
     
     public void vacCubeMediumEject() {
-    	//  Eject a Cube with LOW Power.
+    	//  Eject a Cube with Medium Power.
     	setMotorPower(RobotMap.vacCubeMotorPowerMediumEject);
     }
     
@@ -81,6 +84,8 @@ public class VacCube extends Subsystem {
     }
 
 	public boolean hasCube() {
+		//We were attempting to use the proximity sensor to determine whether we had a block.
+		//  NOTE:  NOT USED IN COMPETITION.
 		if(proxy.getVoltage() < RobotMap.GOT_CUBE_VOLTAGE) {
 			return true;
 		}

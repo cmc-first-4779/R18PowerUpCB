@@ -6,7 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ *    This worked with medium success to populate the SmartDashboard with all of the relevent sensor data.
+ *    
+ *    NEEDS TO BE REFINED FOR 2019
  */
 public class SmartDashboardInit extends Command {
 

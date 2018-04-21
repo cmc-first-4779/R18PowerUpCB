@@ -11,7 +11,7 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *   This command will deploy a cube using medium power ejects during auton.
  */
 public class DeployScaleMediumPower extends CommandGroup {
 

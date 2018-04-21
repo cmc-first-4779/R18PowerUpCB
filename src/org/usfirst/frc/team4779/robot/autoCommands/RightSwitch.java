@@ -11,7 +11,11 @@ import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *   *   This command is designed to hit the switch from the right starting position.
+ *   
+ *   NOTE:   IF THE FMS tells us to hit the right side scale in the "if" statement, this routine will pull
+ *   a foul penalty based on current rules as a powercube may block our ability to touch the switch before
+ *   deploying.
  */
 public class RightSwitch extends CommandGroup {
 

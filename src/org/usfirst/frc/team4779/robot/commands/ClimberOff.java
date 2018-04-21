@@ -5,7 +5,9 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *   This command turns the Climber off.   
+ *   
+ *   NOTE:  We decided not to use the climber during competition.
  */
 public class ClimberOff extends Command {
 

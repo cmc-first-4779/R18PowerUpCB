@@ -8,7 +8,7 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntakeWithSensor;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *   This command attempts to pick up a powercube from the switch pile after deploying to the switch.
  */
 public class PickUpCubeFromLeftSwitch extends CommandGroup {
 

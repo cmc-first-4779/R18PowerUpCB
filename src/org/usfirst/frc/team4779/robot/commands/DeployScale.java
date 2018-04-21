@@ -10,7 +10,8 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *    This command deploys a cube to the scale in Auton.    It also backs the robot up a foot and then lowers
+ *    the lift.
  */
 public class DeployScale extends CommandGroup {
 
