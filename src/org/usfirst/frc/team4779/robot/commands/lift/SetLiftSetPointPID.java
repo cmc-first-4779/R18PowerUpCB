@@ -5,7 +5,10 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *   Used with the PID to move the lift to the desired setpoint.  
+ *   
+ *   NOTE:  If for some reason, the lift couldn't hit the setpoint within three seconds, the command would 
+ *     time-out.
  */
 public class SetLiftSetPointPID extends Command {
 
@@ -16,7 +19,7 @@ public class SetLiftSetPointPID extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	this.setpoint = setpoint;
-    	setTimeout(3);  //Set time out for five seconds.
+    	setTimeout(3);  //Set time out for three seconds.
     	requires(Robot.lift);
     }
 

@@ -2,6 +2,9 @@ package org.usfirst.frc.team4779.robot.commands.vaccube;
 
 import org.usfirst.frc.team4779.robot.Robot;
 
+//  WAS GOING TO BE USED TO TAKE IN A CUBE USING THE PROXIMITY SENSOR.  
+//   NOTE:  NOT USED IN COMPETITION.
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class VacCubeIntakeWithSensor extends Command {

@@ -16,14 +16,12 @@ public class DriveTurnPID extends Command {
 	boolean resetGyro = true;
 
     public DriveTurnPID(double setpoint) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
 		m_setpoint = setpoint;  //Our Setpoint is the Desired angle to turn.
 		requires(Robot.driveTrain);
     }
+    
+    // This constructor gets called if we want to reset our gyro.
     public DriveTurnPID(double setpoint, boolean resetGyro) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
 		m_setpoint = setpoint;  //Our Setpoint is the Desired angle to turn.
 		this.resetGyro = resetGyro;
 		setTimeout(2);
@@ -42,6 +40,7 @@ public class DriveTurnPID extends Command {
     	Robot.driveTrain.enable();
     	//TELL THE PID TO GO TO THE DESIRED ANGLE!!
     	Robot.driveTrain.setSetpoint(m_setpoint);
+    	//Set the Output min's and max's of the PID.
     	Robot.driveTrain.setOutputRangeOfEncoders(RobotMap.dTEncoderOutputMinTurn, RobotMap.dTEncoderOutputMaxTurn);
     }
 

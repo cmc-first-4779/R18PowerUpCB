@@ -20,6 +20,8 @@ public class DriveStraightPID extends Command {
 	// NO TIMER USED!! WE WILL MOST LIKELY DELETE THIS!
 	Timer timer = new Timer();
 	boolean resetGyro;
+	
+	//LOTS OF CONSTRUCTORS HERE DEPENDING ON WHETHER WE WANT TO RESET THE GYRO
 
 	public DriveStraightPID(double distance, double speed, int direction) {
 		m_distance = distance;
@@ -30,10 +32,7 @@ public class DriveStraightPID extends Command {
 	}
 
 	public DriveStraightPID(double distance, double speed, int direction, boolean resetGyro) {
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
-		// HERE ARE OUR THREE INPUTS. DISTANCE, SPEED, and DIRECTION (1 = FORWARD, -1 =
-		// REVERSE)
+		//  WE USE THIS CONSTRUCTOR IF WE WANT TO RESET THE GYRO AND MAKE THE SETPOINT EQUAL TO OUR CURRENT ANGLE.
 		m_distance = distance;
 		m_speed = speed;
 		m_direction = direction;
@@ -47,10 +46,7 @@ public class DriveStraightPID extends Command {
 	}
 
 	public DriveStraightPID(double distance, double speed, int direction, boolean resetGyro, double setpoint) {
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
-		// HERE ARE OUR THREE INPUTS. DISTANCE, SPEED, and DIRECTION (1 = FORWARD, -1 =
-		// REVERSE)
+	//  WE USE THIS CONSTRUCTOR IF WE WANT TO RESET THE GYRO AND MAKE THE SETPOINT EQUAL TO THE NEW SETPOINT.
 		m_distance = distance;
 		m_speed = speed;
 		m_direction = direction;
@@ -64,7 +60,7 @@ public class DriveStraightPID extends Command {
 		// RESET OUR ENCODERS
 		Robot.driveTrain.resetDTEncoders();
 		System.out.println("Reset DT Encoders.");
-		// RESET OUR GYRO
+		// RESET OUR GYRO IF WE WANT TO...
 		if (resetGyro) {
 			Robot.driveTrain.resetGyro();
 		}
@@ -74,7 +70,7 @@ public class DriveStraightPID extends Command {
 		// KNOW WHICH DIRECTION TO GO
 		Robot.driveTrain.setSpeed(m_speed * m_direction);
 		Robot.driveTrain.setDistance(m_distance);
-		// SET OUR GYRO TO ZERO! WE WANT TO GO STRAIGHT!
+		// SET OUR HEADING TO THE SETPOINT! WE WANT TO GO STRAIGHT!
 		Robot.driveTrain.setSetpoint(m_setpoint);
 		// ENABLE THE PID!
 		Robot.driveTrain.enable();
@@ -87,7 +83,7 @@ public class DriveStraightPID extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		// KEEP RUNING THE PID IF THE ABSOLUTE VALUE OF THE AVERAGE ENCODER POSITION IS
+		// KEEP RUNNING THE PID IF THE ABSOLUTE VALUE OF THE AVERAGE ENCODER POSITION IS
 		// LESS THAN THE REQUIRED DISTANCE.
 		if (Math.abs(Robot.driveTrain.getAvgEncoderPosition()) < Math.abs(m_distance)) {
 			return false;

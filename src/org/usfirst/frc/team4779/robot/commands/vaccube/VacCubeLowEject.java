@@ -5,7 +5,10 @@ import org.usfirst.frc.team4779.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *  Eject a PowerCube from the VacCube
+ *  Eject a PowerCube from the VacCube low power.   Can be used both in teleop and auton.    
+ *  
+ *  Low power ejects are used if the scale is full or if we want to position the cube such that we can 
+ *  get leverage on the scale.
  */
 public class VacCubeLowEject extends Command {
 

@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *  Give just enough power to the Spark Controllers to hold the Cube in place securely.
+ *  
+ *  NOTE:  NOT USED IN COMPETITION
  */
 public class VacCubeHold extends Command {
 
