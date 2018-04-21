@@ -4,6 +4,7 @@ import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeOff;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -21,11 +22,16 @@ public class VacCube extends Subsystem {
 	Spark vacCubeLeftMotor = new Spark(RobotMap.vacCubeLeftMotorPWMPort);
 	Spark vacCubeRightMotor = new Spark(RobotMap.vacCubeRightMotorPWMPort); 
 	
+	//adding in proximity sensor
+	AnalogInput proxy = new AnalogInput(0);
+	
+	
 	private double m_power;
 	
     public void initDefaultCommand() {
     	//By Default, we want the VacCube off to not drain the battery.
     	setDefaultCommand(new VacCubeOff());
+    	
         }
     
     //  This PRIVATE Method is convenient as it allows us to have one method that jointly sets the power
@@ -42,6 +48,7 @@ public class VacCube extends Subsystem {
     public void vacCubeOff() {
     	//Turn the VacCube Off
     	setMotorPower(RobotMap.vacCubeMotorPowerOff);
+    	SmartDashboard.putNumber("Proximity Voltage: ", proxy.getVoltage());
     }
     
     public void vacCubeIntake() {
@@ -64,9 +71,23 @@ public class VacCube extends Subsystem {
     	setMotorPower(RobotMap.vacCubeMotorPowerLowEject);
     }
     
+    public void vacCubeMediumEject() {
+    	//  Eject a Cube with LOW Power.
+    	setMotorPower(RobotMap.vacCubeMotorPowerMediumEject);
+    }
+    
     public double getPower()  {
     	return m_power;
     }
+
+	public boolean hasCube() {
+		if(proxy.getVoltage() < RobotMap.GOT_CUBE_VOLTAGE) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
 

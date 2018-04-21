@@ -58,6 +58,9 @@ public class RobotMap {
 	public static final int BLING_OFF = 6;
 	
 	public static final int BLING_CANLIGHT_PORT = 3;
+	public static final double SWITCH_BACKUP_DISTANCE = 36;
+	public static final double CUBE_PILE_APPROACH_DISTANCE = 54;
+	public static final double GOT_CUBE_VOLTAGE = .005;
 
 	
 		
@@ -69,7 +72,10 @@ public class RobotMap {
 	public static double liftMotorPowerClimb = -0.5;
 	public static double liftMotorPowerOff = 0;
 	public static double vacCubeMotorPowerIntake = -.95;
-	public static double vacCubeMotorPowerEject = 0.9;
+
+	public static double vacCubeMotorPowerEject = 0.8;
+	public static double vacCubeMotorPowerMediumEject = 0.7;
+
 	public static double vacCubeMotorPowerLowEject = 0.45;
 	public static double vacCubeMotorPowerHold = 0.2;
 	public static double vacCubeMotorPowerOff = 0;
@@ -107,6 +113,8 @@ public class RobotMap {
 	public static int EAST = 90;
 	public static int SOUTH = 180;
 	public static int WEST = -90;
+	public static int LEFT_SIDE_CUBE_PILE_APPROACH_ANGLE = 45;
+	public static int RIGHT_SIDE_CUBE_PILE_APPROACH_ANGLE = -45;
 	
 	
 	//Lift Encoder Settings and DIO Mappings.
@@ -162,15 +170,15 @@ public class RobotMap {
 	public static double AISLE_SPEED = 0.8;
 	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;  
 	public static double FRONT_SWITCH_DISTANCE = 145;
-	public static double FRONT_SWITCH_SPEED = 0.7;
+	public static double FRONT_SWITCH_SPEED = 0.75;
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13;
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 14;
 	public static double SIDE_SWITCH_DISTANCE = 98;
-	public static double SWITCH_AISLE_APPROACH_DISTANCE = 75;
+	public static double SWITCH_AISLE_APPROACH_DISTANCE = 73;
 	public static double SWITCH_AISLE_DISTANCE = 24;
 	public static double LIFT_SETPOINT_HIGH_SPEED = 40;
 	public static double LIFT_SETPOINT_LOW_SPEED = 70;
-	public static double MIDDLE_SWITCH_DISTANCE = 98;
+	public static double MIDDLE_SWITCH_DISTANCE = 95;
 	public static double SCALE_ANGLE_DISTANCE = 255;
 	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 42;
 }
