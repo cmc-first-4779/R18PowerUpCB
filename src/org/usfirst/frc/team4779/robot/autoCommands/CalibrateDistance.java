@@ -7,7 +7,7 @@ import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *   We use this command group to test the calibration of distances for the drivetrain rotary encoders.
  */
 public class CalibrateDistance extends CommandGroup {
 

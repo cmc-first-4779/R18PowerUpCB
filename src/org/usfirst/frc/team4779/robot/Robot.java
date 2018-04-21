@@ -92,8 +92,7 @@ public class Robot extends TimedRobot {
 
 		// Initiate the OI. NOTE: ALWAYS INITIATE THE OI LAST!
 		System.out.println("Initiating the OI.");
-
-    m_oi = new OI();
+		m_oi = new OI();
 		System.out.println("OI initiating complete.");
 
 		// Calibrate our Gyro
@@ -113,8 +112,7 @@ public class Robot extends TimedRobot {
 		CameraServer.getInstance().startAutomaticCapture();
 		System.out.println("Camera Server started.");
 
-		//Add the Auton Chooser objects to the SmartDashboard.   Each is assigned an interger.
-
+		//Add the Auton Chooser objects to the SmartDashboard.   Each is assigned an integer.
 		autoChooser.addDefault("Middle Starting Position - Switch", 0);
 		autoChooser.addObject("Left Starting Position -  Scale", 1);
 		autoChooser.addObject("Right Starting Position - Scale", 2);
@@ -125,8 +123,7 @@ public class Robot extends TimedRobot {
 		autoChooser.addObject("Calibrate 20'", 7);
 
 		
-		//Add the Bling Chooser objects to the SmartDashboard.  Each is assigned an interger
-
+		//Add the Bling Chooser objects to the SmartDashboard.  Each is assigned an integer
 		blingChooser.addDefault("Bling - Purple", RobotMap.PURPLE);
 		blingChooser.addObject("Bling - Blue", RobotMap.BLUE);
 		blingChooser.addObject("Bling - Red", RobotMap.RED);
@@ -135,15 +132,13 @@ public class Robot extends TimedRobot {
 		blingChooser.addObject("Bling - Off",  RobotMap.BLING_OFF);
 		
 		// Put some data in the Smart Dashboard.
-
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData("Bling Chooser", blingChooser);
 		SmartDashboard.putData(vacCube);
 		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData(climber);
-		//SmartDashboard.putData(Robot.driveTrain.gyro);
-		
+			
 		//Add the objects into the Robot Chooser for Cubert and the Mule.
 		//  Hehe..   "Cubert and the Mule.."  Sounds like a 1970's TV show.
 		robotChooser.addDefault("Cubert", RobotMap.CUBERT);
@@ -154,11 +149,6 @@ public class Robot extends TimedRobot {
 
 
 
-	/**
-	 * This function is called once each time the robot enters Disabled mode. You
-	 * can use it to reset any subsystem information you want to clear when the
-	 * robot is disabled.
-	 */
 	@Override
 	public void disabledInit() {
 
@@ -256,6 +246,7 @@ public class Robot extends TimedRobot {
 		// Create the proper BLING  command based on the BLING Chooser selection. 
 		setBlingColor();
 
+		//Reset the Lift Encoder
 		Robot.lift.resetLiftEncoder();
 
 		// schedule the autonomous command (example)
@@ -292,6 +283,7 @@ public class Robot extends TimedRobot {
 		//Set the default command to lift with the Joystick on the OperStick
 		Robot.lift.setDefaultCommand(new LiftWithJoystick());
 		
+		//Set the Bling color
 		setBlingColor();
 
 		// This makes sure that the autonomous stops running when
@@ -321,7 +313,7 @@ public class Robot extends TimedRobot {
 
 	/**
 	 * Gets the value of which robot we are we using
-	 * @return CUBERT or MULE depending on smart dashboard selection
+	 * @return CUBERT or MULE depending on Smart Dashboard selection
 	 */
 	public static int getWhichRobot() {
 		return whichRobot;

@@ -6,7 +6,12 @@ import org.usfirst.frc.team4779.robot.commands.drivetrain.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *   The DriveStraightPIDWith Throttle Command is used during Auton to drive the robot a certain distance,
+ *   speed, direction using the gyro and rotary encoders.    
+ *   
+ *   With this code, if the robot gets off target mid-drive, it will attempt to correct itself.
+ *   
+ *   There is also some basic motion profiling in here with throttling up and down.
  */
 public class DriveStraightPIDWithThrottle extends CommandGroup {
 

@@ -13,6 +13,7 @@ package org.usfirst.frc.team4779.robot;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
+
 public class RobotMap {
 	//Map out the SPARK controllers and PWM Ports.
 	public static int frontLeftDrivePWMPort = 0;
@@ -43,7 +44,7 @@ public class RobotMap {
 	public static int leftTrigger = 2;
 	public static int rightTrigger = 3;
 		
-	//Intergers for the SmartDashboard Robot Chooser
+	//Integers for the SmartDashboard Robot Chooser
 	public static final int CUBERT = 0;
 	public static final int MULE = 1;
 	
@@ -57,7 +58,10 @@ public class RobotMap {
 	public static final int WHITE = 5;
 	public static final int BLING_OFF = 6;
 	
+	//CAN Port that the Bling Subsystem is conneccted to
 	public static final int BLING_CANLIGHT_PORT = 3;
+	
+	//Settings for using Proximity Sensor to try and get a cube.
 	public static final double SWITCH_BACKUP_DISTANCE = 36;
 	public static final double CUBE_PILE_APPROACH_DISTANCE = 54;
 	public static final double GOT_CUBE_VOLTAGE = .005;
@@ -148,7 +152,7 @@ public class RobotMap {
 	public static double CLIMBER_MOTOR_SPEED = 0.90;
 	public static double CLIMBER_MOTOR_OFF = 0.00;
 
-	//Field Measurments for Auton  
+	//Field Measurements for Auton  
 	//  ALL OF THESE DISTANCES ARE IN INCHES!!!
 	//
 	//Distance from Left/Right Stations to the front of the Scale
@@ -167,11 +171,17 @@ public class RobotMap {
 	//public static double AISLE_APPROACH_THROTTLE_DISTANCE = 100;
 	public static double AISLE_LENGTH_TO_SWITCH = 173;
 	//public static double AISLE_THROTTLE_DOWN_DISTANCE = 40;
+	//Speed we go down the aisle
 	public static double AISLE_SPEED = 0.8;
-	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;  
+	//Distance we approach the scale from the aisle
+	public static double AISLE_SCALE_APPROACH_DISTANCE = 37;
+	//Distance from the Left or Right starting stations to the "front" of the switch.
 	public static double FRONT_SWITCH_DISTANCE = 145;
+	//Speed we are traveling to the front of the switch.
 	public static double FRONT_SWITCH_SPEED = 0.75;
+	//Distance we are traveling after turning to touch the front of the switch.
 	public static double FRONT_SWITCH_APPROACH_DISTANCE = 13;
+	//Distance we are traveling after traveling down the aisle to touch the switch.
 	public static double AISLE_SWITCH_APPROACH_DISTANCE = 14;
 	public static double SIDE_SWITCH_DISTANCE = 98;
 	public static double SWITCH_AISLE_APPROACH_DISTANCE = 73;
