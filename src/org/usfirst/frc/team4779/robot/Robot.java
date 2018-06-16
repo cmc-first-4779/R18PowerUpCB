@@ -19,9 +19,9 @@ import org.usfirst.frc.team4779.robot.autoCommands.*;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.Climber;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4779.robot.subsystems.DriveTrainCamp;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
-import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingBlue;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingGreen;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingOff;
@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
 
 	// Declare the Robot Subsystems.
 	public static Lift lift;
-	public static DriveTrain driveTrain;
+	public static DriveTrainCamp driveTrain;
 	public static VacCube vacCube;
 	public static Bling bling;
 	public static Climber climber;

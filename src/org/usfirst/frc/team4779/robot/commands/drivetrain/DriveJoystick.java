@@ -23,8 +23,6 @@ public class DriveJoystick extends Command {
     	//Call arcadeDrive with the driverstick to move the robot.
     	Robot.driveTrain.arcadeDrive(Robot.m_oi.getDriverStick().getY(), Robot.m_oi.getDriverStick().getX());
     	//Set the encoder values to the Dashboard.
-    	SmartDashboard.putNumber("Left Motor Encoder Distance:  ", Robot.driveTrain.getLeftEncoderPosition());
-    	SmartDashboard.putNumber("Right Motor Encoder Distance:  " , Robot.driveTrain.getRightEncoderPosition());
     }
 
     // Make this return true when this Command no longer needs to run execute()
