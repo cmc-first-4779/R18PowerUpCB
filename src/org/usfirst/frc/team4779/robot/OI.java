@@ -7,9 +7,7 @@
 
 package org.usfirst.frc.team4779.robot;
 
-import org.usfirst.frc.team4779.robot.autoCommands.CalibrateDistance;
-import org.usfirst.frc.team4779.robot.autoCommands.LeftScale;
-import org.usfirst.frc.team4779.robot.autoCommands.LeftSwitch;
+
 import org.usfirst.frc.team4779.robot.commands.ClimberOn;
 import org.usfirst.frc.team4779.robot.commands.ClimberReverse;
 import org.usfirst.frc.team4779.robot.commands.DeployPortal;
@@ -22,8 +20,7 @@ import org.usfirst.frc.team4779.robot.commands.bling.BlingOrange;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingPurple;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingRed;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingWhite;
-import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
-import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
+
 import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftUp;
 import org.usfirst.frc.team4779.robot.commands.lift.ResetLiftEncoder;
@@ -77,20 +74,21 @@ public class OI {
 
 		// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickYButton.whileHeld(new ClimberOn());
-		driverStickAButton.whileHeld(new ClimberReverse());
+		driverStickYButton.whileHeld(new LiftUp());
+		driverStickAButton.whileHeld(new LiftDown());
 		driverStickRightBumper.whileHeld(new VacCubeIntake());
+		driverStickLeftBumper.whileHeld(new VacCubeEject());
 		driverStickStartButton.whenPressed(new BlingOff());
 		
-		// Operator Stick
-		operStickLeftBumper.whileHeld(new VacCubeIntake());
-		operStickRightBumper.whileHeld(new VacCubeEject());
-		// operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
-		operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-		operStickStartButton.whenPressed(new ResetLiftEncoder());
-		operStickYButton.whileHeld(new VacCubeLowEject());
+//		// Operator Stick
+//		operStickLeftBumper.whileHeld(new VacCubeIntake());
+//		operStickRightBumper.whileHeld(new VacCubeEject());
+//		// operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+//		operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+//		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
+//		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+//		operStickStartButton.whenPressed(new ResetLiftEncoder());
+//		operStickYButton.whileHeld(new VacCubeLowEject());
 		
 }
 

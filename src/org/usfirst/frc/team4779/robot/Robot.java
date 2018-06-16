@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team4779.robot.autoCommands.*;
+//import org.usfirst.frc.team4779.robot.autoCommands.*;
 import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.Climber;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
@@ -83,7 +83,7 @@ public class Robot extends TimedRobot {
 		// Initiate the Robot Subsystems
 		System.out.println("Initiating Robot Subsystems");
 		lift = new Lift();
-		driveTrain = new DriveTrain();
+		driveTrain = new DriveTrainCamp();
 		vacCube = new VacCube();
 		bling = new Bling();
 		climber = new Climber();
@@ -97,7 +97,7 @@ public class Robot extends TimedRobot {
 
 		// Calibrate our Gyro
 		System.out.println("Starting Gyro Calibration");
-		Robot.driveTrain.calibrateGyro();
+//		Robot.driveTrain.calibrateGyro();
 		System.out.println("Gyro Calibration Complete");
 	
 
@@ -178,7 +178,7 @@ public class Robot extends TimedRobot {
 
 		
 		//Set the drive train encoders now that we know which robot
-		Robot.driveTrain.setEncoderDistancePerPulse();
+//		Robot.driveTrain.setEncoderDistancePerPulse();
 		
 		//Turn safety off to get rid of error messages about not updating enough
 		Robot.driveTrain.setMotorSafety(false);
@@ -208,40 +208,40 @@ public class Robot extends TimedRobot {
 
 		SmartDashboard.putString("gamedata", gameData);
 		// Create the proper auto  command based on the auton selection. 
-		switch (autoChooser.getSelected().intValue()) {
-		case 0:
-			SmartDashboard.putString("Selected Command:", "Middle Switch");
-			m_autonomousCommand = new MiddleSwitch();
-			break;
-		case 1:
-			SmartDashboard.putString("Selected Command:", "Left Scale");
-			m_autonomousCommand = new LeftScaleAngle();
-			break;
-		case 2:
-			SmartDashboard.putString("Selected Command:", "Right Scale");
-			m_autonomousCommand = new RightScaleAngle();
-			break;
-		case 3:
-			SmartDashboard.putString("Selected Command:", "Left Switch");
-			m_autonomousCommand = new LeftSwitch();
-			break;
-		case 4:
-			SmartDashboard.putString("Selected Command:", "Right Switch");
-			m_autonomousCommand = new RightSwitch();
-			break;
-		case 5: 
-			SmartDashboard.putString("Selected Command:", "Calibrate 10'");
-			m_autonomousCommand = new CalibrateDistance(120);
-			break;
-		case 6: 
-			SmartDashboard.putString("Selected Command:", "Calibrate 15'");
-			m_autonomousCommand = new CalibrateDistance(180);
-			break;
-		case 7: 
-			SmartDashboard.putString("Selected Command:", "Calibrate 20'");
-			m_autonomousCommand = new CalibrateDistance(240);
-			break;
-		}
+//		switch (autoChooser.getSelected().intValue()) {
+//		case 0:
+//			SmartDashboard.putString("Selected Command:", "Middle Switch");
+//			m_autonomousCommand = new MiddleSwitch();
+//			break;
+//		case 1:
+//			SmartDashboard.putString("Selected Command:", "Left Scale");
+//			m_autonomousCommand = new LeftScaleAngle();
+//			break;
+//		case 2:
+//			SmartDashboard.putString("Selected Command:", "Right Scale");
+//			m_autonomousCommand = new RightScaleAngle();
+//			break;
+//		case 3:
+//			SmartDashboard.putString("Selected Command:", "Left Switch");
+//			m_autonomousCommand = new LeftSwitch();
+//			break;
+//		case 4:
+//			SmartDashboard.putString("Selected Command:", "Right Switch");
+//			m_autonomousCommand = new RightSwitch();
+//			break;
+//		case 5: 
+//			SmartDashboard.putString("Selected Command:", "Calibrate 10'");
+//			m_autonomousCommand = new CalibrateDistance(120);
+//			break;
+//		case 6: 
+//			SmartDashboard.putString("Selected Command:", "Calibrate 15'");
+//			m_autonomousCommand = new CalibrateDistance(180);
+//			break;
+//		case 7: 
+//			SmartDashboard.putString("Selected Command:", "Calibrate 20'");
+//			m_autonomousCommand = new CalibrateDistance(240);
+//			break;
+//		}
 		
 		// Create the proper BLING  command based on the BLING Chooser selection. 
 		setBlingColor();
@@ -269,7 +269,7 @@ public class Robot extends TimedRobot {
 		setWhichRobot(robotChooser.getSelected());
 		
 		//Set the drive train encoders now that we know which robot
-		Robot.driveTrain.setEncoderDistancePerPulse();
+//		Robot.driveTrain.setEncoderDistancePerPulse();
 		
 		//Set the Lift encoder now that we know which robot
 		Robot.lift.setEncoderDistancePerPulse();

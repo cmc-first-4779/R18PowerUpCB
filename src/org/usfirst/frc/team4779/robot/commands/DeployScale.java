@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4779.robot.commands;
 
 import org.usfirst.frc.team4779.robot.RobotMap;
-import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
+//import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeLowEject;
@@ -20,7 +20,7 @@ public class DeployScale extends CommandGroup {
     	addSequential(new VacCubeEject());
 //    	addSequential(new VacCubeLowEject());
     	//addSequential(new TimerCommand(0.5));
-    	addParallel(new DriveStraightPID(12, RobotMap.THROTTLE_SPEED, RobotMap.REVERSE, false), 1);
+//    	addParallel(new DriveStraightPID(12, RobotMap.THROTTLE_SPEED, RobotMap.REVERSE, false), 1);
     	//addParallel( new VacCubeOff(),);
     	addParallel(new SetLiftSetPointPID(RobotMap.portalHeight),2);
     }
