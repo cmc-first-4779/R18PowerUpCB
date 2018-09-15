@@ -22,7 +22,7 @@ public class RightSwitch extends CommandGroup {
     public RightSwitch() {
     	super("Right Switch");
 	if (Robot.mySwitchSide == 'L') {
-		addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
+//		addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
 		addSequential(new DriveStraightPIDWithThrottle(RobotMap.AISLE_DISTANCE, RobotMap.FRONT_SCALE_FULL_SPEED, 
 				RobotMap.FORWARD, true, RobotMap.NORTH));
  		addSequential(new TimerCommand(0.25));
@@ -38,7 +38,7 @@ public class RightSwitch extends CommandGroup {
     	addSequential (new DeploySwitch());
 	}
 	else {
-		addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
+//		addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
 		addSequential(new DriveStraightPIDWithThrottle(RobotMap.FRONT_SWITCH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, 
 				RobotMap.FORWARD, true, RobotMap.NORTH));
 		addSequential(new TimerCommand(0.25));
