@@ -21,7 +21,7 @@ public class MiddleSwitch extends CommandGroup {
 		super("Middle Switch");
 		if (Robot.mySwitchSide == 'L') {
 			// execute commands to go to left switch
-//			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
+			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
 			addSequential(
 					new DriveStraightPIDWithThrottle(RobotMap.SWITCH_AISLE_DISTANCE, RobotMap.FRONT_SWITCH_SPEED, RobotMap.FORWARD, true, RobotMap.NORTH));
 			addSequential(new TimerCommand(0.25));
@@ -46,7 +46,7 @@ public class MiddleSwitch extends CommandGroup {
 		} else {
 			// execute commands to go to the right switch
 			// start by setting the lift height for the switch and driving straight towards the switch
-//			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
+			addParallel(new SetLiftSetPointPID(RobotMap.switchHeight));
 			addSequential(new DriveStraightPIDWithThrottle(RobotMap.SIDE_SWITCH_DISTANCE, RobotMap.FRONT_SWITCH_SPEED,
 					RobotMap.FORWARD, true, RobotMap.NORTH), 4);
 			addSequential(new TimerCommand(0.25));
