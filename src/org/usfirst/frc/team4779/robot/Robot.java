@@ -20,6 +20,7 @@ import org.usfirst.frc.team4779.robot.subsystems.Bling;
 import org.usfirst.frc.team4779.robot.subsystems.Climber;
 import org.usfirst.frc.team4779.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4779.robot.subsystems.Lift;
+import org.usfirst.frc.team4779.robot.subsystems.Limelight;
 import org.usfirst.frc.team4779.robot.subsystems.VacCube;
 import org.usfirst.frc.team4779.robot.commands.SmartDashboardInit;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingBlue;
@@ -47,6 +48,7 @@ public class Robot extends TimedRobot {
 	public static VacCube vacCube;
 	public static Bling bling;
 	public static Climber climber;
+	public static Limelight limelight;
 	
 	//public static double m_dtencoderDistancePerRevolution;	
 	private static int whichRobot;
@@ -87,6 +89,7 @@ public class Robot extends TimedRobot {
 		vacCube = new VacCube();
 		bling = new Bling();
 		climber = new Climber();
+		limelight = new Limelight();
 		System.out.println("Subsystem initiation complete.");
 
 
@@ -129,6 +132,8 @@ public class Robot extends TimedRobot {
 		blingChooser.addObject("Bling - Red", RobotMap.RED);
 		blingChooser.addObject("Bling - Orange", RobotMap.ORANGE);
 		blingChooser.addObject("Bling - Green", RobotMap.GREEN);
+		blingChooser.addObject("Bling - Alex Purple", RobotMap.ALEXPURPLE); 
+		blingChooser.addObject("Bling - Pink", RobotMap.PINK);
 		blingChooser.addObject("Bling - Off",  RobotMap.BLING_OFF);
 		
 		// Put some data in the Smart Dashboard.
@@ -177,11 +182,16 @@ public class Robot extends TimedRobot {
 		setWhichRobot(robotChooser.getSelected());
 
 		
+		
 		//Set the drive train encoders now that we know which robot
 		Robot.driveTrain.setEncoderDistancePerPulse();
 		
 		//Turn safety off to get rid of error messages about not updating enough
 		Robot.driveTrain.setMotorSafety(false);
+		
+		//Set Bling Color for Auton
+		Robot.bling.blingSolidColor(255, 83, 183);
+		
 		
 		//Set the Lift encoder now that we know which robot
 		Robot.lift.setEncoderDistancePerPulse();
@@ -284,7 +294,7 @@ public class Robot extends TimedRobot {
 		Robot.lift.setDefaultCommand(new LiftWithJoystick());
 		
 		//Set the Bling color
-		setBlingColor();
+		Robot.bling.blingSolidColor(129, 0, 111);
 
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to

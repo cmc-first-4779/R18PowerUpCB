@@ -31,6 +31,8 @@ import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeLowEject;
+import org.usfirst.frc.team4779.robot.limelight.LimelightOff;
+import org.usfirst.frc.team4779.robot.limelight.LimelightOn;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -81,6 +83,8 @@ public class OI {
 		driverStickAButton.whileHeld(new ClimberReverse());
 		driverStickRightBumper.whileHeld(new VacCubeIntake());
 		driverStickStartButton.whenPressed(new BlingOff());
+		driverStickXButton.whenPressed(new LimelightOff());
+		driverStickBButton.whenPressed(new LimelightOn());
 		
 		// Operator Stick
 		operStickLeftBumper.whileHeld(new VacCubeIntake());

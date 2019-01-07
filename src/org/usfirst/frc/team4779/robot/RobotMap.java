@@ -56,7 +56,9 @@ public class RobotMap {
 	public static final int ORANGE = 3;
 	public static final int GREEN = 4;
 	public static final int WHITE = 5;
-	public static final int BLING_OFF = 6;
+	public static final int ALEXPURPLE = 6;
+	public static final int PINK = 7;
+	public static final int BLING_OFF = 8;
 	
 	//CAN Port that the Bling Subsystem is conneccted to
 	public static final int BLING_CANLIGHT_PORT = 3;
