@@ -33,6 +33,7 @@ import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeLowEject;
 import org.usfirst.frc.team4779.robot.limelight.LimelightOff;
 import org.usfirst.frc.team4779.robot.limelight.LimelightOn;
+import org.usfirst.frc.team4779.robot.limelightcommandgroups.LimelightSeek;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -83,7 +84,7 @@ public class OI {
 		driverStickAButton.whileHeld(new ClimberReverse());
 		driverStickRightBumper.whileHeld(new VacCubeIntake());
 		driverStickStartButton.whenPressed(new BlingOff());
-		driverStickXButton.whenPressed(new LimelightOff());
+		driverStickXButton.whenPressed(new LimelightSeek());
 		driverStickBButton.whenPressed(new LimelightOn());
 		
 		// Operator Stick
