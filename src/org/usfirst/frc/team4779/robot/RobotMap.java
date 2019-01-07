@@ -193,5 +193,8 @@ public class RobotMap {
 	public static double MIDDLE_SWITCH_DISTANCE = 95;
 	public static double SCALE_ANGLE_DISTANCE = 255;
 	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 42;
+	
+	//LIMELIGHT Constants
+	public static double LIMELIGHT_SEEK_DEG_TURN = 3;  //When seeking, keep turning an increment of 3 degrees..
 }
 
