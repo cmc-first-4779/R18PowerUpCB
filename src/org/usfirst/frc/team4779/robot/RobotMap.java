@@ -191,5 +191,18 @@ public class RobotMap {
 	public static double MIDDLE_SWITCH_DISTANCE = 95;
 	public static double SCALE_ANGLE_DISTANCE = 255;
 	public static double FRONT_SCALE_ANGLE_APPROACH_DISTANCE = 42;
+	
+	
+	
+	//limelight constants
+	public static double LIMELIGHT_CAMMODE_VISION = 0;
+	public static double LIMELIGHT_CAMMODE_DRIVER = 1;
+	public static double LIMELIGHT_LEDMODE_ON = 3;
+	public static double LIMELIGHT_LEDMODE_OFF = 1;
+	public static double LIMELIGHT_LEDMODE_BLINK = 2;
+	public static double LIMELIGHT_PIPELINE_VEST = 0;
+	public static double LIMELIGHT_PIPELINE_CARGO = 1;
+	
+	
 }
 

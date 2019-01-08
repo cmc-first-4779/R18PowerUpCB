@@ -31,6 +31,11 @@ import org.usfirst.frc.team4779.robot.commands.lift.SetLiftSetPointPID;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeEject;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeIntake;
 import org.usfirst.frc.team4779.robot.commands.vaccube.VacCubeLowEject;
+import org.usfirst.frc.team4779.robot.limelight.LimelightSetCamModeDriver;
+import org.usfirst.frc.team4779.robot.limelight.LimelightSetCamModeVision;
+import org.usfirst.frc.team4779.robot.limelight.LimelightSetLEDModeBlink;
+import org.usfirst.frc.team4779.robot.limelight.LimelightSetLEDModeOff;
+import org.usfirst.frc.team4779.robot.limelight.LimelightSetLEDModeOn;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -77,20 +82,23 @@ public class OI {
 
 		// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickYButton.whileHeld(new ClimberOn());
-		driverStickAButton.whileHeld(new ClimberReverse());
-		driverStickRightBumper.whileHeld(new VacCubeIntake());
-		driverStickStartButton.whenPressed(new BlingOff());
+		driverStickLeftBumper.whenPressed(new LimelightSetCamModeVision());
+		driverStickRightBumper.whenPressed(new LimelightSetCamModeDriver());
+		driverStickXButton.whenPressed(new LimelightSetLEDModeOn());
+		driverStickBButton.whenPressed(new LimelightSetLEDModeOff());
+		driverStickAButton.whenPressed(new LimelightSetLEDModeBlink());
 		
-		// Operator Stick
-		operStickLeftBumper.whileHeld(new VacCubeIntake());
-		operStickRightBumper.whileHeld(new VacCubeEject());
-		// operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
-		operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
-		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
-		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
-		operStickStartButton.whenPressed(new ResetLiftEncoder());
-		operStickYButton.whileHeld(new VacCubeLowEject());
+
+//		
+//		// Operator Stick
+//		operStickLeftBumper.whileHeld(new VacCubeIntake());
+//		operStickRightBumper.whileHeld(new VacCubeEject());
+//		// operStickYButton.whenPressed(new SetLiftSetPointPID(RobotMap.scaleHeight));
+//		operStickBButton.whenPressed(new SetLiftSetPointPID(RobotMap.portalHeight));
+//		operStickXButton.whenPressed(new SetLiftSetPointPID(RobotMap.switchHeight));
+//		// operStickAButton.whenPressed(new SetLiftSetPointPID(RobotMap.pickUpHeight));
+//		operStickStartButton.whenPressed(new ResetLiftEncoder());
+//		operStickYButton.whileHeld(new VacCubeLowEject());
 		
 }
 
