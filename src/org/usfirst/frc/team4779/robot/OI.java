@@ -22,6 +22,7 @@ import org.usfirst.frc.team4779.robot.commands.bling.BlingOrange;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingPurple;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingRed;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingWhite;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveSeek;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
@@ -84,7 +85,7 @@ public class OI {
 		// Driver Stick
 		driverStickLeftBumper.whenPressed(new LimelightSetCamModeVision());
 		driverStickRightBumper.whenPressed(new LimelightSetCamModeDriver());
-		driverStickXButton.whenPressed(new LimelightSetLEDModeOn());
+		driverStickXButton.whileHeld(new DriveSeek());
 		driverStickBButton.whenPressed(new LimelightSetLEDModeOff());
 		driverStickAButton.whenPressed(new LimelightSetLEDModeBlink());
 		

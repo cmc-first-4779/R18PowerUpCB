@@ -202,6 +202,8 @@ public class RobotMap {
 	public static double LIMELIGHT_LEDMODE_BLINK = 2;
 	public static double LIMELIGHT_PIPELINE_VEST = 0;
 	public static double LIMELIGHT_PIPELINE_CARGO = 1;
+	public static double LIMELIGHT_NO_TARGET = 0.0;
+	public static double LIMELIGHT_SEEK_VALUE = 0.5; 
 	
 	
 }
