@@ -18,6 +18,7 @@ public class DriveSeek extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.limelight.setPipeline(RobotMap.LIMELIGHT_PIPELINE_CARGO);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -25,14 +26,21 @@ public class DriveSeek extends Command {
     	//Drive in a circle seeking the target on the Limelight...
     	//if there is no target..
     	if (Robot.limelight.getTV() == RobotMap.LIMELIGHT_NO_TARGET)  {
-    		Robot.driveTrain.arcadeDrive(0, RobotMap.LIMELIGHT_SEEK_VALUE);
+    		Robot.driveTrain.arcadeDrive(0, RobotMap.LIMELIGHT_SEEK_TURN_POWER);
     	}
     	
-    	else {
-    		Robot.driveTrain.arcadeDrive(0, Robot.limelight.getTX());
+    	else 
+    		if (Math.abs(Robot.limelight.getTX())  > 1.0 )  {
+    		Robot.driveTrain.arcadeDrive(0, Robot.limelight.getTX()*0.1);
+    		}
+    		
+    		else if (Robot.limelight.getTA() > RobotMap.LIMELIGHT_SEEK_AREA)  {
+    			Robot.driveTrain.arcadeDrive(RobotMap.LIMELIGHT_SEEK_DRIVE_POWER, 0);
+    		}
+    		
     	}
     	
-    }
+    
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

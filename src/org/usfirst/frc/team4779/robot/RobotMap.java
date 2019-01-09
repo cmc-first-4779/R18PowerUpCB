@@ -203,7 +203,9 @@ public class RobotMap {
 	public static double LIMELIGHT_PIPELINE_VEST = 0;
 	public static double LIMELIGHT_PIPELINE_CARGO = 1;
 	public static double LIMELIGHT_NO_TARGET = 0.0;
-	public static double LIMELIGHT_SEEK_VALUE = 0.5; 
+	public static double LIMELIGHT_SEEK_TURN_POWER = 0.56; 
+	public static double LIMELIGHT_SEEK_DRIVE_POWER = 0.7;
+	public static double LIMELIGHT_SEEK_AREA = 0.9;
 	
 	
 }
