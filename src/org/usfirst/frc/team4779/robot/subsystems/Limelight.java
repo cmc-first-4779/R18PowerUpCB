@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4779.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team4779.robot.RobotMap;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -63,8 +63,55 @@ public class Limelight extends Subsystem {
 	public double getTA() {
 		return NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
 	}
+	
 		
-
+	public double getNX()  {
+		double NX = (1/(RobotMap.LIMELIGHT_X_PIXEL_COUNT/2))*(getTX() - ((RobotMap.LIMELIGHT_X_PIXEL_COUNT/2)+0.5));
+		return NX;
+	}
+	
+	public double getNY()  {
+		double NY = (1/(RobotMap.LIMELIGHT_Y_PIXEL_COUNT/2))*(((RobotMap.LIMELIGHT_Y_PIXEL_COUNT/2)+0.5)- getTY());
+		return NY;
+	}
+	
+	public double getViewPlaneWidth()  {
+		double ViewPlaneWidth = 2.0 * Math.tan(RobotMap.LIMELIGHT_X_PIXEL_COUNT/2);
+		return ViewPlaneWidth;
+	}
+	
+	public double getViewPlaneHeight()  {
+		double ViewPlaneHeight = 2.0 * Math.tan(RobotMap.LIMELIGHT_Y_PIXEL_COUNT/2);
+		return ViewPlaneHeight;
+	}
+	
+	public double getX()  {
+		double x = getViewPlaneWidth() / 2 * getNX();
+		return x;
+	}
+	
+	public double getY()  {
+		double y = getViewPlaneHeight() / 2 * getNY();
+		return y;
+	}
+	
+    public double getAX()  {
+    	double AX = Math.atan2(RobotMap.LIMELIGHT_DISTANCE_FROM_TARGET, getX());
+    	return AX;
+    }	
+    
+    public double getAY()  {
+    	double AY = Math.atan2(RobotMap.LIMELIGHT_DISTANCE_FROM_TARGET, getY());
+    	return AY;
+    }	
+    
+    public double getDistance()  {
+    	double distance = (RobotMap.LIMELIGHT_CARGO_HEIGHT - RobotMap.LIMELIGHT_CAMERA_HEIGHT) / Math.tan(getAY() - RobotMap.LIMELIGHT_CAMERAMOUNT_ANGLE);
+    	return distance;
+    }
+    
     
 }
+
+
 

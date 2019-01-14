@@ -8,6 +8,7 @@
 package org.usfirst.frc.team4779.robot;
 
 import org.usfirst.frc.team4779.robot.autoCommands.CalibrateDistance;
+import org.usfirst.frc.team4779.robot.autoCommands.DriveLL;
 import org.usfirst.frc.team4779.robot.autoCommands.LeftScale;
 import org.usfirst.frc.team4779.robot.autoCommands.LeftSwitch;
 import org.usfirst.frc.team4779.robot.commands.ClimberOn;
@@ -22,7 +23,9 @@ import org.usfirst.frc.team4779.robot.commands.bling.BlingOrange;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingPurple;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingRed;
 import org.usfirst.frc.team4779.robot.commands.bling.BlingWhite;
-import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveSeek;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnLL;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveSeekLL;
+import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightLL;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveStraightPID;
 import org.usfirst.frc.team4779.robot.commands.drivetrain.DriveTurnPID;
 import org.usfirst.frc.team4779.robot.commands.lift.LiftDown;
@@ -83,11 +86,10 @@ public class OI {
 
 		// SETUP OUR JOYSTICK BUTTON MAPPINGS HERE!!!
 		// Driver Stick
-		driverStickLeftBumper.whenPressed(new LimelightSetCamModeVision());
-		driverStickRightBumper.whenPressed(new LimelightSetCamModeDriver());
-		driverStickXButton.whileHeld(new DriveSeek());
-		driverStickBButton.whenPressed(new LimelightSetLEDModeOff());
-		driverStickAButton.whenPressed(new LimelightSetLEDModeBlink());
+		driverStickLeftBumper.whenPressed(new DriveLL());
+//		driverStickRightBumper.whenPressed(new DriveTurnLL());
+//		driverStickXButton.whenPressed(new DriveStraightLL());
+
 		
 
 //		

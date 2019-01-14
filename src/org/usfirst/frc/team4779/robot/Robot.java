@@ -141,6 +141,14 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(lift);
 		SmartDashboard.putData(Robot.driveTrain);
 		SmartDashboard.putData(climber);
+		//Limelight Data to the Smart Dashboard
+		SmartDashboard.putNumber("Limelight TV:", Robot.limelight.getTV());
+    	SmartDashboard.putNumber("Limelight TX:", Robot.limelight.getTX());
+    	SmartDashboard.putNumber("Limelight TY:", Robot.limelight.getTY());
+    	SmartDashboard.putNumber("Limelight TA:", Robot.limelight.getTA());
+    	SmartDashboard.putNumber("Limelight AX:", Robot.limelight.getAX());
+    	SmartDashboard.putNumber("Limelight AY:", Robot.limelight.getAY());
+    	SmartDashboard.putNumber("Limelight Distance:", Robot.limelight.getDistance());
 			
 		//Add the objects into the Robot Chooser for Cubert and the Mule.
 		//  Hehe..   "Cubert and the Mule.."  Sounds like a 1970's TV show.

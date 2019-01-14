@@ -4,13 +4,14 @@ import org.usfirst.frc.team4779.robot.Robot;
 import org.usfirst.frc.team4779.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class DriveSeek extends Command {
+public class DriveTurnLL extends Command {
 
-    public DriveSeek() {
+    public DriveTurnLL() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
@@ -23,28 +24,19 @@ public class DriveSeek extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Drive in a circle seeking the target on the Limelight...
-    	//if there is no target..
-    	if (Robot.limelight.getTV() == RobotMap.LIMELIGHT_NO_TARGET)  {
-    		Robot.driveTrain.arcadeDrive(0, RobotMap.LIMELIGHT_SEEK_TURN_POWER);
-    	}
-    	
-    	else 
-    		if (Math.abs(Robot.limelight.getTX())  > 1.0 )  {
-    		Robot.driveTrain.arcadeDrive(0, Robot.limelight.getTX()*0.1);
-    		}
-    		
-    		else if (Robot.limelight.getTA() > RobotMap.LIMELIGHT_SEEK_AREA)  {
-    			Robot.driveTrain.arcadeDrive(RobotMap.LIMELIGHT_SEEK_DRIVE_POWER, 0);
-    		}
-    		
-    	}
-    	
-    
+    	new DriveTurnPID(Robot.limelight.getTX(), true);  //Reset the gyro
+    	SmartDashboard.putNumber("Limelight TV:", Robot.limelight.getTV());
+    	SmartDashboard.putNumber("Limelight TX:", Robot.limelight.getTX());
+    	SmartDashboard.putNumber("Limelight TY:", Robot.limelight.getTY());
+    	SmartDashboard.putNumber("Limelight TA:", Robot.limelight.getTA());
+    	SmartDashboard.putNumber("Limelight AX:", Robot.limelight.getAX());
+    	SmartDashboard.putNumber("Limelight AY:", Robot.limelight.getAY());
+    	SmartDashboard.putNumber("Limelight Distance:", Robot.limelight.getDistance());
+    }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
