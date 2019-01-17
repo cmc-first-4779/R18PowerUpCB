@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class DriveJoystick extends Command {
 
     public DriveJoystick() {
-    	requires (Robot.driveTrain);
+    	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -29,7 +29,7 @@ public class DriveJoystick extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return false; 
     }
 
     // Called once after isFinished returns true

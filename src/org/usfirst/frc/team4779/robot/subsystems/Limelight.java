@@ -106,7 +106,8 @@ public class Limelight extends Subsystem {
     }	
     
     public double getDistance()  {
-    	double distance = (RobotMap.LIMELIGHT_CARGO_HEIGHT - RobotMap.LIMELIGHT_CAMERA_HEIGHT) / Math.tan(getAY() - RobotMap.LIMELIGHT_CAMERAMOUNT_ANGLE);
+    	//double distance = (RobotMap.LIMELIGHT_CARGO_HEIGHT - RobotMap.LIMELIGHT_CAMERA_HEIGHT) / Math.tan(getAY() - RobotMap.LIMELIGHT_CAMERAMOUNT_ANGLE);
+    	double distance =  4*Math.sqrt(getTA());
     	return distance;
     }
     

@@ -201,10 +201,11 @@ public class RobotMap {
 	public static double LIMELIGHT_LEDMODE_OFF = 1;  //Force LED Mode Off
 	public static double LIMELIGHT_LEDMODE_BLINK = 2;  //Force LED Mode Blink
 	public static double LIMELIGHT_PIPELINE_VEST = 0;  //Use the VEST Pipeline
-	public static double LIMELIGHT_PIPELINE_CARGO = 1;  //Use the Cargo Ball Pipeline
+	public static double LIMELIGHT_PIPELINE_CARGO = 1;//Use the Cargo Ball Pipeline
+	public static double LIMELIGHT_PIPELINE_ROCKET = 2;
 	public static double LIMELIGHT_NO_TARGET = 0.0;  // Value when the Limelight doesn't see its target
 	public static double LIMELIGHT_SEEK_TURN_POWER = 0.56;   // Power when we are turning
-	public static double LIMELIGHT_SEEK_DRIVE_POWER = 0.7;  //  Power when we are drivign toward the target
+	public static double LIMELIGHT_SEEK_DRIVE_POWER = 0.7;  //  Power when we are driving toward the target
 	//public static double LIMELIGHT_SEEK_AREA = 0.9;
 	public static double LIMELIGHT_X_PIXEL_COUNT = 320;  //pixels
 	public static double LIMELIGHT_Y_PIXEL_COUNT = 240;   //pixels

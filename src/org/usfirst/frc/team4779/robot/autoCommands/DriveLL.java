@@ -30,8 +30,12 @@ public class DriveLL extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	System.out.println("Starting DriveSeekLL.");
     	addSequential(new DriveSeekLL());
-    	addSequential(new DriveTurnPID(Robot.limelight.getTX(), true));
+    	System.out.println("Ending DriveSeekLL.");
+    	System.out.println("Starting DriveTurnPID.");
+     	addSequential(new DriveTurnPID(Robot.limelight.getTX(), true));
+     	System.out.println("Ending DriveTurnPID.");
     	addSequential(new DriveStraightPID(Robot.limelight.getDistance(), RobotMap.LIMELIGHT_SEEK_DRIVE_POWER, RobotMap.FORWARD));
     	
     }
